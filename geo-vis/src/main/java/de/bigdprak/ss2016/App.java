@@ -1,7 +1,7 @@
 package de.bigdprak.ss2016;
 
 /**
- * Hello world!
+ * Hello Daniel !
  *
  */
 public class App 
