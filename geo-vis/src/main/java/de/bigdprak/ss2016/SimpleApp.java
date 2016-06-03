@@ -1,62 +1,41 @@
 package de.bigdprak.ss2016;
 
 /* SimpleApp.java */
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileStatus;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hdfs.DistributedFileSystem;
-import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.*;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.function.Function;
 
 public class SimpleApp {
+	public static void main(String[] args) {
 
-    public static void main( String[] args ) throws IOException, URISyntaxException
-    {
+		String master;
+		String input_file;
 
+		//input_file = "/home/balthorius/progs/hadoop/input/Affiliations.txt";
+		master = "local";
 
-        Configuration conf = new Configuration();
-        FileSystem fs = new DistributedFileSystem();
-        fs.initialize(new URI("hdfs://bigprak@wdi06.informatik.uni-leipzig.de:6069"), conf);
-
-
-        for (FileStatus f :fs.listStatus(new Path("/")))
-        {
-            System.out.println(f.getPath().getName());                  
-        }
-
-        fs.close();
-
-    }
-	
-	
-	/*	public static void main(String[] args) {
-		String logFile = "/home/richard/logfiles/SimpleApp_log.txt"; // Should be some file on your system
-		SparkConf conf = new SparkConf().setAppName("Simple Application");
-		//JavaSparkContext sc = new JavaSparkContext(conf);
-		//JavaRDD<String> logData = sc.textFile(logFile).cache();
+		input_file = "/home/bigprak/progs/hadoop/input/Affiliations.txt";
 		
-	    JavaSparkContext sc = new JavaSparkContext("hdfs://wdi06.informatik.uni-leipzig.de:8020", "Simple App", "/home/richard/Schreibtisch/spark-1.6.1", new String[]{"target/geo-vis-1.0-SNAPSHOT.jar"});
-	    JavaRDD<String> logData = sc.textFile(logFile).cache();
+		// input_file = "hdfs:///users/bigprak/input/Affiliations.txt";
+		//master = "spark://wdi06.informatik.uni-leipzig.de:7077";
 		
-		
-		
+		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
+		JavaSparkContext sc = new JavaSparkContext(conf);
+		// JavaRDD<String> logData = sc.textFile(logFile).cache();
+		JavaRDD<String> logData = sc.textFile(input_file).cache();
+
 		long numAs = logData.filter(new Function<String, Boolean>() {
-			public Boolean call(String s) { return s.contains("a"); }
+			public Boolean call(String s) {
+				return s.contains("a");
+			}
 		}).count();
 
 		long numBs = logData.filter(new Function<String, Boolean>() {
-			public Boolean call(String s) { return s.contains("b"); }
+			public Boolean call(String s) {
+				return s.contains("b");
+			}
 		}).count();
 
 		System.out.println("Lines with a: " + numAs + ", lines with b: " + numBs);
 	}
-
-*/
-
-
 }

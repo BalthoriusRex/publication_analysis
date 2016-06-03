@@ -1,6 +1,7 @@
 package de.bigdprak.ss2016;
 
 /* SimpleApp.java */
+import java.io.IOException;
 import java.util.Arrays;
 
 import org.apache.spark.SparkConf;
@@ -16,12 +17,15 @@ import scala.Tuple2;
 
 public class SparkSimpleApp {
 	public static void main(String[] args) {
-		String logFile = "~/Schreibtisch/spark-1.6.1/README.md"; // Should be
+		String logFile = "/home/balthorius/progs/spark/eclipse_log.txt";
+		//String logFile = "~/Schreibtisch/spark-1.6.1/README.md"; // Should be
 																	// some file
 																	// on your
 																	// system
 		SparkConf conf = new SparkConf().setAppName("Simple Application");
-		conf.setMaster("hdfs://wdi06.informatik.uni-leipzig.de:8020");
+		//conf.setMaster("spark://wdi06.informatik.uni-leipzig.de:7077");
+		//conf.setMaster("spark://master:7077");
+		//conf.setMaster("local");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		JavaRDD<String> logData = sc.textFile(logFile).cache();
 
@@ -62,6 +66,7 @@ public class SparkSimpleApp {
 					}
 				});
 		counts.saveAsTextFile("hdfs://...");
+		sc.close();
 
 	}
 }
