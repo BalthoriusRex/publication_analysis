@@ -44,10 +44,10 @@ interessante Daten:
 										author id							-> wer mit wem -> zugehörigkeit zu Affiliations -> welche mit welcher
 										paper id
 
-uninteressante Daten:
-	PaperURL.txt						weg: komplett
-	PaperAuthorAffiliations.txt			weg: original affiliation name
-	Papers.txt							weg: paper document object identifier; 
+Offene Probleme:
+Ersten Beobachtungen nach ist es nicht sicher, ob im MAG Co-Autorbeziehungen eingetragen sind. Um die Frage zu klären, ob mehrere Autoren pro Publikation abgespeichert sind oder nur der Hauptautor, ist eine Analyse mit der ganzen PaperAuthorAffiliationstabelle nötig, welche nach dem ersten Testat erfolgen wird.
+Zudem bleibt die Frage nach der Reduktion der Daten. Im weiteren Verlauf wird entschieden werden müssen, welche Daten wirklich gebraucht werden (abhängig davon welche Queries im Endeffekt alle beantwortet werden sollen) und welche Daten durch den Reduktionsschritt außen vor gelassen werden können.
+Bisherige Überlegungen beinhalten beispielsweise das Ignorieren der PaperURLs oder auch einzelner Spalten aus PaperAuthorAffiliations und Papers, welche den Umfang der Daten aufpusten ohne für uns von Relevanz zu sein.
 
 	
 
