@@ -6,6 +6,12 @@ public class Author {
 	public long authorID;
 	public String name;
 	
+	public Author(String[] parts) {
+		this.authorID = Long.parseLong(parts[0], 16);
+		this.name = parts[1];
+		
+	}
+	
 	public Author(String name) {
 		this.authorID = ID;
 		this.name = name;

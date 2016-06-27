@@ -16,10 +16,15 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
 
 import de.bigdprak.ss2016.database.Author;
+import de.bigdprak.ss2016.database.Paper;
+import de.bigdprak.ss2016.database.PaperAuthorAffiliation;
 
 public class SimpleApp {
 	
 	private static String master = "local";
+	private static String file_Authors;
+	private static String file_PaperAuthorAffiliations;
+	private static String file_Papers;
 	
 	@SuppressWarnings("serial")
 	public static int getLineCount(String input_file) {
@@ -112,14 +117,14 @@ public class SimpleApp {
 			new Function<String, Author>() {
 				public Author call(String line) throws Exception {
 					String[] parts = line.split("\t");
-					return new Author(parts[1]);
+					return new Author(parts[0], parts[1]);
 				}
 			}
 		);
 		DataFrame schemaAuthor = sqlContext.createDataFrame(authors, Author.class);
 		schemaAuthor.registerTempTable("authors");
 		
-		DataFrame content = sqlContext.sql("select name from authors");
+		DataFrame content = sqlContext.sql("select name from authors where name like 'n%'");
 		List<String> authorNames = content.javaRDD().map(
 			new Function<Row, String>() {
 				public String call(Row row) {
@@ -133,9 +138,186 @@ public class SimpleApp {
 		return authorNames;
 	}
 	
+	@SuppressWarnings("serial")
+	public static void sql_getPaperAuthorAffiliations(String input_path) {
+SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
+		
+	    Logger.getLogger("org").setLevel(Level.ERROR);
+	    Logger.getLogger("akka").setLevel(Level.ERROR);
+	
+		JavaSparkContext sc = new JavaSparkContext(conf);
+		SQLContext sqlContext = new org.apache.spark.sql.SQLContext(sc);
+		JavaRDD<PaperAuthorAffiliation> paperAuthorAffiliations = sc.textFile(input_path).map(
+			new Function<String, PaperAuthorAffiliation>() {
+				public PaperAuthorAffiliation call(String line) throws Exception {
+					String[] parts = line.split("\t");
+					return new PaperAuthorAffiliation(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
+//					String[] input = new String[6];
+//					int i = 0;
+//					for (String s: parts) {
+//						if (!(s.isEmpty())) {
+//							input[i] = s;
+//							i++;
+//						}
+//					}
+//					if (i == 6) {
+//						return new PaperAuthorAffiliation(input[0], input[1], input[2], input[3], input[4], input[5]);
+//					} else {
+//						System.out.println("DEBUG : " + line);
+//						return new PaperAuthorAffiliation(-1, -1, -1, "A", "B", -1);
+//					}
+				}
+			}
+		);
+		DataFrame schema = sqlContext.createDataFrame(paperAuthorAffiliations, PaperAuthorAffiliation.class);
+		schema.registerTempTable("paperAuthorAffiliations");
+		
+		DataFrame content = sqlContext.sql(""
+				+ "select paperID, count(authorID) "
+				+ "from paperAuthorAffiliations "
+				+ "group by paperID "
+				+ "order by count(authorID) desc "
+				//+ "limit by 5"
+				);
+		
+		int result = content.javaRDD().map(
+			new Function<Row, Integer>() {
+				public Integer call(Row row) {
+					int ret = 0;
+					if (row != null)	{
+						System.out.println(row.toString());
+					} else {
+						ret = 1;
+					}
+					return ret;
+				}
+			}
+		).reduce(
+			new Function2<Integer, Integer, Integer>() {
+				public Integer call(Integer a, Integer b) {
+					return a+b;
+				}
+			}
+		);
+		System.out.println("counted " + result + " null-lines...");
+		
+		/*
+		paperID, count(authorID)
+		[2145616859,8]
+		[2126583859,8]
+		[2051465859,8]
+		[1976245259,8]
+		[1675078859,8]
+		[1965067459,8]
+		[2044884259,8]
+		[1542241859,8]
+		[2087617859,8]
+		[2018584859,8]
+		[1592316859,8]
+		[2144967059,8]
+		[92825459,8]
+		[1988342459,8]
+		[2181527955,8]
+		[1543565459,8]
+		[2004787659,8]
+		[2004428859,8]
+		[2233864555,8]
+		[2155723555,8]
+		[2125824059,8]
+		[2251348755,8]
+		[2055464459,8]
+		[2053106459,8]
+		[1997459259,8]
+		[564843259,8]
+		[1533104059,8]
+		[2121517459,8]
+		[2124518659,8]
+		[997032859,8]
+		[2079736059,8]
+		[1763095659,8]
+		[1979935059,8]
+		[1600059459,8]
+		[2181843155,8]
+		[1834513459,8]
+		[1574607659,8]
+		[1742108059,8]
+		[372374459,8]
+		[2089457459,8]
+		[63112459,8]
+		[762084659,8]
+
+		*/
+		sc.close();
+	}
+	
+	@SuppressWarnings("serial")
+	public static List<String> sql_answerQuery(String query) {
+		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
+		
+	    Logger.getLogger("org").setLevel(Level.ERROR);
+	    Logger.getLogger("akka").setLevel(Level.ERROR);
+	
+		JavaSparkContext sc = new JavaSparkContext(conf);
+		SQLContext sqlContext = new org.apache.spark.sql.SQLContext(sc);
+		
+		// create Table Author
+		JavaRDD<Author> authors = sc.textFile(file_Authors).map(
+			new Function<String, Author>() {
+				public Author call(String line) throws Exception {
+					String[] parts = line.split("\t");
+					return new Author(parts);
+				}
+			}
+		);
+		DataFrame schemaAuthor = sqlContext.createDataFrame(authors, Author.class);
+		schemaAuthor.registerTempTable("Author");
+		
+		// create Table PaperAuthorAffiliation
+		JavaRDD<PaperAuthorAffiliation> paas = sc.textFile(file_PaperAuthorAffiliations).map(
+			new Function<String, PaperAuthorAffiliation>() {
+				public PaperAuthorAffiliation call(String line) throws Exception {
+					String[] parts = line.split("\t");
+					return new PaperAuthorAffiliation(parts);
+				}
+			}
+		);
+		DataFrame schemaPaa = sqlContext.createDataFrame(paas, PaperAuthorAffiliation.class);
+		schemaPaa.registerTempTable("PaperAuthorAffiliation");
+		
+		// create Table Paper
+		JavaRDD<Paper> papers = sc.textFile(file_Papers).map(
+			new Function<String, Paper>() {
+				public Paper call(String line) throws Exception {
+					String[] parts = line.split("\t");
+					return new Paper(parts);
+				}
+			}
+		);
+		DataFrame schemaPapers = sqlContext.createDataFrame(papers, Paper.class);
+		schemaPapers.registerTempTable("Paper");
+		
+		DataFrame content = sqlContext.sql(query);
+		List<String> result = content.javaRDD().map(
+			new Function<Row, String>() {
+				public String call(Row row) {
+					return row.toString();
+				}
+			}
+		).collect();
+		
+		sc.close();
+		
+		return result;
+	}
+	
 	public static void main(String[] args) {
 		
 		boolean isRemote = (args.length > 0);
+		String user = isRemote ? "bigprak" : "balthorius"; 
+		String folder = "/home/"+user+"/progs/hadoop/input";
+		file_Authors = folder+"/Authors.txt";
+		file_PaperAuthorAffiliations = folder+"/PaperAuthorAffiliations.txt";
+		file_Papers = folder+"/Papers.txt";
 		
 		String path;
 		path = isRemote ? "/home/bigprak/progs/hadoop/input"
@@ -156,15 +338,44 @@ public class SimpleApp {
 			}
 		}
 		
-		boolean compute = true;
+		boolean compute;
+		
+		compute = false;
 		if (compute) {
 			path = isRemote ? "/home/bigprak/progs/hadoop/input/Authors.txt"
 							: "/home/balthorius/progs/hadoop/input/Authors.txt";
 			List<String> authors = SimpleApp.sql_getAuthorNames(path);
 			int i = 0;
+			System.out.println("Output [");
 			for (String s : authors) {
 				i++;
 				System.out.println(i + "\t" + s);
+			}
+			System.out.println("]");
+		}
+		
+		compute = false;
+		if (compute) {
+			path = isRemote ? "/home/bigprak/progs/hadoop/input/PaperAuthorAffiliations.txt"
+							: "/home/balthorius/progs/hadoop/input/PaperAuthorAffiliations.txt";
+			sql_getPaperAuthorAffiliations(path);
+		}
+		
+		compute = true;
+		if (compute) {
+			long paperID = 2145616859;
+			String query = ""
+					+ "SELECT p.originalPaperTitle, paa.authorSequenceNumber, a.name, paa.originalAffiliationName "
+					+ "FROM PaperAuthorAffiliation paa, Author a, Paper p "
+					//+ "FROM "
+					+ "WHERE "
+					+          "paa.paperID = " + paperID + " "
+					+ "AND " + "paa.authorID = a.authorID "
+					+ "AND " + "paa.paperID = p.paperID "
+					+ "ORDER BY paa.authorSequenceNumber ASC";
+			List<String> result = sql_answerQuery(query);
+			for (String s: result) {
+				System.out.println(s);
 			}
 		}
 		
