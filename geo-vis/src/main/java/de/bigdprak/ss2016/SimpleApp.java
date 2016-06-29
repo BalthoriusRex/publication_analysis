@@ -1,7 +1,6 @@
 package de.bigdprak.ss2016;
 
 /* SimpleApp.java */
-import java.io.File;
 import java.util.List;
 
 import org.apache.log4j.Level;
@@ -18,13 +17,57 @@ import org.apache.spark.sql.SQLContext;
 import de.bigdprak.ss2016.database.Author;
 import de.bigdprak.ss2016.database.Paper;
 import de.bigdprak.ss2016.database.PaperAuthorAffiliation;
+import de.bigdprak.ss2016.utils.UTF8Writer;
 
 public class SimpleApp {
 	
 	private static String master = "local";
+	//private static String file_2016KDDCupSelectedAffiliations;
+	//private static String file_2016KDDCupSelectedPapers;
 	private static String file_Authors;
+	private static String file_Affiliations;
+	private static String file_ConferenceInstances;
+	private static String file_Conferences;
+	private static String file_FieldOfStudyHierarchy;
+	private static String file_FieldsOfStudy;
+	private static String file_Journals;
 	private static String file_PaperAuthorAffiliations;
+	private static String file_PaperKeywords;
+	private static String file_PaperReferences;
 	private static String file_Papers;
+	private static String file_PaperUrls;
+	private static String[] files;
+	
+	public static void setFileNames(String folder) {
+
+		file_Authors = folder + "Authors.txt";
+		file_Affiliations = folder + "Affiliations.txt";
+		file_ConferenceInstances = folder + "ConferenceInstances.txt";
+		file_Conferences = folder + "Conferences.txt";
+		file_FieldOfStudyHierarchy = folder + "FieldOfStudyHierarchy.txt";
+		file_FieldsOfStudy = folder + "FieldsOfStudy.txt";
+		file_Journals = folder + "Journals.txt";
+		file_PaperAuthorAffiliations = folder + "PaperAuthorAffiliations.txt";
+		file_PaperKeywords = folder + "PaperKeywords.txt";
+		file_PaperReferences = folder + "PaperReferences.txt";
+		file_Papers = folder + "Papers.txt";
+		file_PaperUrls = folder + "PaperUrls.txt";
+		
+		files = new String[] {
+			file_Authors,
+			file_Affiliations,
+			file_ConferenceInstances,
+			file_Conferences,
+			file_FieldOfStudyHierarchy,
+			file_FieldsOfStudy,
+			file_Journals,
+			file_PaperAuthorAffiliations,
+			file_PaperKeywords,
+			file_PaperReferences,
+			file_Papers,
+			file_PaperUrls
+		};
+	}
 	
 	@SuppressWarnings("serial")
 	public static int getLineCount(String input_file) {
@@ -140,7 +183,7 @@ public class SimpleApp {
 	
 	@SuppressWarnings("serial")
 	public static void sql_getPaperAuthorAffiliations(String input_path) {
-SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
+		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
 		
 	    Logger.getLogger("org").setLevel(Level.ERROR);
 	    Logger.getLogger("akka").setLevel(Level.ERROR);
@@ -300,7 +343,9 @@ SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(mast
 		List<String> result = content.javaRDD().map(
 			new Function<Row, String>() {
 				public String call(Row row) {
-					return row.toString();
+					String out = row.toString();
+					System.out.println(out);
+					return out;
 				}
 			}
 		).collect();
@@ -312,26 +357,26 @@ SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(mast
 	
 	public static void main(String[] args) {
 		
-		boolean isRemote = (args.length > 0);
-		String user = isRemote ? "bigprak" : "balthorius"; 
-		String folder = "/home/"+user+"/progs/hadoop/input";
-		file_Authors = folder+"/Authors.txt";
-		file_PaperAuthorAffiliations = folder+"/PaperAuthorAffiliations.txt";
-		file_Papers = folder+"/Papers.txt";
+		boolean isRemote = false;
+		if (args.length > 1) {
+			isRemote = args[1].equalsIgnoreCase("remote");
+		}
 		
-		String path;
-		path = isRemote ? "/home/bigprak/progs/hadoop/input"
-						: "/home/balthorius/progs/hadoop/input/";
+		System.out.println("Working on " + (isRemote ? "remote PC" : "local PC" + "!"));
+		
+		String user = isRemote ? "bigprak" : "balthorius"; 
+		String folder = "/home/"+user+"/progs/hadoop/input/";
+		setFileNames(folder);
+		
 		//path = "hdfs:///users/bigprak/input/Affiliations.txt";
-		File directory = new File(path);
-		File[] files = directory.listFiles();
+		
 		String[] out = new String[files.length]; 
 		
 		boolean countLines = false;
 		if (countLines) {
 			// compute linecount for each file
 			for (int i = 0; i < files.length; i++) {
-				String p = files[i].getAbsolutePath();
+				String p = files[i];
 				int linecount = SimpleApp.getLineCount(p);
 				//int linecount = 1;
 				out[i] = new String(p + ":\t" + linecount);
@@ -342,9 +387,7 @@ SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(mast
 		
 		compute = false;
 		if (compute) {
-			path = isRemote ? "/home/bigprak/progs/hadoop/input/Authors.txt"
-							: "/home/balthorius/progs/hadoop/input/Authors.txt";
-			List<String> authors = SimpleApp.sql_getAuthorNames(path);
+			List<String> authors = SimpleApp.sql_getAuthorNames(file_Authors);
 			int i = 0;
 			System.out.println("Output [");
 			for (String s : authors) {
@@ -356,12 +399,11 @@ SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(mast
 		
 		compute = false;
 		if (compute) {
-			path = isRemote ? "/home/bigprak/progs/hadoop/input/PaperAuthorAffiliations.txt"
-							: "/home/balthorius/progs/hadoop/input/PaperAuthorAffiliations.txt";
-			sql_getPaperAuthorAffiliations(path);
+			sql_getPaperAuthorAffiliations(file_PaperAuthorAffiliations);
 		}
 		
-		compute = true;
+		// Liste alle Autoren des Papers paperID mit entsprechenden Afiliations auf
+		compute = false;
 		if (compute) {
 			long paperID = 2145616859;
 			String query = ""
@@ -378,6 +420,39 @@ SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(mast
 				System.out.println(s);
 			}
 		}
+		
+		// Welche Affiliations gibt es?
+		compute = true;
+		if (compute) {
+			String query = ""
+					+ "SELECT count(normalizedAffiliationName) as Anzahl, normalizedAffiliationName as Name "
+					+ "FROM PaperAuthorAffiliation "
+					//+ "WHERE NOT (normalizedAffiliationName = '') "
+					+ "GROUP BY normalizedAffiliationName "
+					+ "ORDER BY normalizedAffiliationName DESC"
+					;
+			String outfile = folder + "/output.txt";
+//			TextFileWriter.writeOver(outfile, query);
+//			TextFileWriter.writeOn(outfile, "\n\n\n");
+//			TextFileWriter.writeOn(outfile, query);
+			List<String> result = sql_answerQuery(query);
+			
+			UTF8Writer writer = new UTF8Writer(outfile);
+			writer.clear();
+			for (String s: result) {
+				writer.appendLine(s);
+			}
+			writer.close();
+			
+//			TextFileWriter.writeOver(outfile, "");
+//			for (String s: result) {
+//				System.out.println(s);
+//				TextFileWriter.writeOn(outfile, s + "\n");
+//			}
+			System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
+		}
+		
+		
 		
 		// output
 //		for (String s: out) {
