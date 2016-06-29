@@ -37,11 +37,11 @@ public class UTF8Writer {
 		return TextFileWriter.writeOver(this.f, "");
 	}
 	
-	public boolean appendLine(String s) {
+	public boolean append(String s) {
 		boolean ret = false;
 		if (this.initialized) {
 			try {
-				this.wr.append(s).append("\r\n");
+				this.wr.append(s);
 				ret = true;
 			} catch (IOException e) {
 				//e.printStackTrace();
@@ -50,6 +50,10 @@ public class UTF8Writer {
 			}
 		}
 		return ret;
+	}
+	
+	public boolean appendLine(String s) {
+		return this.append(s + "\r\n");
 	}
 	
 	public void close() {
