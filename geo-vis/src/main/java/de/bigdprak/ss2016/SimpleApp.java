@@ -13,6 +13,7 @@ import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.sql.DataFrame;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
+import org.apache.spark.sql.types.StructType;
 
 import de.bigdprak.ss2016.database.Author;
 import de.bigdprak.ss2016.database.Paper;
@@ -294,7 +295,7 @@ public class SimpleApp {
 	}
 	
 	@SuppressWarnings("serial")
-	public static List<String> sql_answerQuery(String query) {
+	public static List<Row> sql_answerQuery(String query) {
 		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
 		
 	    Logger.getLogger("org").setLevel(Level.ERROR);
@@ -340,12 +341,14 @@ public class SimpleApp {
 		schemaPapers.registerTempTable("Paper");
 		
 		DataFrame content = sqlContext.sql(query);
-		List<String> result = content.javaRDD().map(
-			new Function<Row, String>() {
-				public String call(Row row) {
-					String out = row.toString();
-					System.out.println(out);
-					return out;
+		List<Row> result = content.javaRDD().map(
+			new Function<Row, Row>() {
+				public Row call(Row row) {
+					//System.out.println(" " + row.schema().toString());
+					//String out = row.toString();
+					//System.out.println("\t" + out);
+					//return out;
+					return row;
 				}
 			}
 		).collect();
@@ -415,14 +418,14 @@ public class SimpleApp {
 					+ "AND " + "paa.authorID = a.authorID "
 					+ "AND " + "paa.paperID = p.paperID "
 					+ "ORDER BY paa.authorSequenceNumber ASC";
-			List<String> result = sql_answerQuery(query);
-			for (String s: result) {
-				System.out.println(s);
+			List<Row> result = sql_answerQuery(query);
+			for (Row row: result) {
+				System.out.println(row.toString());
 			}
 		}
 		
 		// Welche Affiliations gibt es?
-		compute = true;
+		compute = false;
 		if (compute) {
 			String query = ""
 					+ "SELECT count(normalizedAffiliationName) as Anzahl, normalizedAffiliationName as Name "
@@ -435,12 +438,12 @@ public class SimpleApp {
 //			TextFileWriter.writeOver(outfile, query);
 //			TextFileWriter.writeOn(outfile, "\n\n\n");
 //			TextFileWriter.writeOn(outfile, query);
-			List<String> result = sql_answerQuery(query);
+			List<Row> result = sql_answerQuery(query);
 			
 			UTF8Writer writer = new UTF8Writer(outfile);
 			writer.clear();
-			for (String s: result) {
-				writer.appendLine(s);
+			for (Row row: result) {
+				writer.appendLine(row.toString());
 			}
 			writer.close();
 			
@@ -450,6 +453,38 @@ public class SimpleApp {
 //				TextFileWriter.writeOn(outfile, s + "\n");
 //			}
 			System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
+		}
+		
+		compute = true;
+		if (compute) {
+			String query = ""
+					+ "SELECT * "
+					+ "FROM Author "
+					+ "WHERE name LIKE 'n%'"
+					;
+			List<Row> result = sql_answerQuery(query);
+			System.out.println();  // Leerzeile für bessere Formatierung der Ausgabe
+			
+			Row r = result.get(0);
+			StructType structure = r.schema();
+			String[] fieldNames = structure.fieldNames();
+			String schema = "[";
+			boolean first = true;
+			for (String field: fieldNames) {
+				if (first) {
+					schema += field;
+					first = false;
+				} else {
+					schema += "," + field;
+				}
+			}
+			schema += "]";
+			
+			System.out.println(schema);
+			for (int i = 0; i < 10; i++) {
+				r = result.get(i);
+				System.out.println(r.toString());
+			}
 		}
 		
 		
