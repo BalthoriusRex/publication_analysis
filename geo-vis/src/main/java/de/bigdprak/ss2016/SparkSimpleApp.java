@@ -1,7 +1,6 @@
 package de.bigdprak.ss2016;
 
 /* SimpleApp.java */
-import java.io.IOException;
 import java.util.Arrays;
 
 import org.apache.spark.SparkConf;
