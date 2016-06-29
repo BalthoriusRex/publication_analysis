@@ -425,7 +425,7 @@ public class SimpleApp {
 		}
 		
 		// Welche Affiliations gibt es?
-		compute = false;
+		compute = true;
 		if (compute) {
 			String query = ""
 					+ "SELECT count(normalizedAffiliationName) as Anzahl, normalizedAffiliationName as Name "
@@ -443,7 +443,30 @@ public class SimpleApp {
 			UTF8Writer writer = new UTF8Writer(outfile);
 			writer.clear();
 			for (Row row: result) {
-				writer.appendLine(row.toString());
+				
+				/*
+				 * 
+				 * <Placemark>
+				 * 		<affiliation>...</affiliation>
+				 * 		<anzahl>...</anzahl>
+				 * 
+				 * 
+				 */
+
+				String s = row.toString();
+				String[] parts = s.substring(1, s.length()-1)
+								  .split(",");
+				System.out.println("DEBUG : " + s);
+				String anzahl = parts[0];
+				String affiliation = parts[1];
+				
+				String newS = ""
+						+ "		<Placemark>\n"
+						+ "			<affiliation>" + affiliation + "</affiliation>\n"
+						+ "			<anzahl>" + anzahl + "</anzahl>\n"
+						+ "		</Placemark>\n";
+				
+				writer.appendLine(newS);
 			}
 			writer.close();
 			
@@ -455,7 +478,7 @@ public class SimpleApp {
 			System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
 		}
 		
-		compute = true;
+		compute = false;
 		if (compute) {
 			String query = ""
 					+ "SELECT * "
