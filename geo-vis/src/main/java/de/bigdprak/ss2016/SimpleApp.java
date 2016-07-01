@@ -15,9 +15,7 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.types.StructType;
 
-import de.bigdprak.ss2016.database.Author;
-import de.bigdprak.ss2016.database.Paper;
-import de.bigdprak.ss2016.database.PaperAuthorAffiliation;
+import de.bigdprak.ss2016.database.*;
 import de.bigdprak.ss2016.utils.UTF8Writer;
 
 public class SimpleApp {
@@ -295,15 +293,79 @@ public class SimpleApp {
 	}
 	
 	@SuppressWarnings("serial")
-	public static List<Row> sql_answerQuery(String query) {
-		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
+	private static void buildTables(JavaSparkContext sc, SQLContext sqlContext) {
+		/*
+		// MUSTER
+		// create Table Affiliation
+		JavaRDD<Affiliation> affiliations = sc.textFile(file_Affiliations).map(
+			new Function<String, Affiliation>() {
+				public Affiliation call(String line) throws Exception {
+					String[] parts = line.split("\t");
+					return new Affiliation(parts);
+				}
+			}
+		);
+		DataFrame schemaAffiliations = sqlContext.createDataFrame(affiliations, Affiliation.class);
+		schemaAffiliations.registerTempTable("Affiliation");
+		*/
 		
-	    Logger.getLogger("org").setLevel(Level.ERROR);
-	    Logger.getLogger("akka").setLevel(Level.ERROR);
-	
-		JavaSparkContext sc = new JavaSparkContext(conf);
-		SQLContext sqlContext = new org.apache.spark.sql.SQLContext(sc);
+		// create Table Affiliation
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_Affiliations).map(
+				new Function<String, Affiliation>() {
+					public Affiliation call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new Affiliation(parts);
+					}
+				}
+			),
+			Affiliation.class)
+		.registerTempTable("Affiliation");
 		
+		// create Table Author
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_Authors).map(
+				new Function<String, Author>() {
+					public Author call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new Author(parts);
+					}
+				}
+			),
+			Author.class)
+		.registerTempTable("Author");
+		
+		// create Table PaperAuthorAffiliation
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_PaperAuthorAffiliations).map(
+				new Function<String, PaperAuthorAffiliation>() {
+					public PaperAuthorAffiliation call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new PaperAuthorAffiliation(parts);
+					}
+				}
+			),
+			PaperAuthorAffiliation.class)
+		.registerTempTable("PaperAuthorAffiliation");
+		
+		// create Table Paper
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_Papers).map(
+				new Function<String, Paper>() {
+					public Paper call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new Paper(parts);
+					}
+				}
+			),
+			Paper.class)
+		.registerTempTable("Paper");
+		
+		/*
 		// create Table Author
 		JavaRDD<Author> authors = sc.textFile(file_Authors).map(
 			new Function<String, Author>() {
@@ -339,6 +401,21 @@ public class SimpleApp {
 		);
 		DataFrame schemaPapers = sqlContext.createDataFrame(papers, Paper.class);
 		schemaPapers.registerTempTable("Paper");
+		*/
+				
+	}
+	
+	@SuppressWarnings("serial")
+	public static List<Row> sql_answerQuery(String query) {
+		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
+		
+	    Logger.getLogger("org").setLevel(Level.ERROR);
+	    Logger.getLogger("akka").setLevel(Level.ERROR);
+	
+		JavaSparkContext sc = new JavaSparkContext(conf);
+		SQLContext sqlContext = new org.apache.spark.sql.SQLContext(sc);
+		buildTables(sc, sqlContext);
+		
 		
 		DataFrame content = sqlContext.sql(query);
 		List<Row> result = content.javaRDD().map(
@@ -432,7 +509,7 @@ public class SimpleApp {
 					+ "FROM PaperAuthorAffiliation "
 					//+ "WHERE NOT (normalizedAffiliationName = '') "
 					+ "GROUP BY normalizedAffiliationName "
-					+ "ORDER BY normalizedAffiliationName DESC"
+					+ "ORDER BY normalizedAffiliationName ASC"
 					;
 			String outfile = folder + "/output.txt";
 //			TextFileWriter.writeOver(outfile, query);
@@ -442,6 +519,9 @@ public class SimpleApp {
 			
 			UTF8Writer writer = new UTF8Writer(outfile);
 			writer.clear();
+			writer.append(""
+					+ "<Document>\n"
+					+ "	<Folder>\n");
 			for (Row row: result) {
 				
 				/*
@@ -458,7 +538,13 @@ public class SimpleApp {
 								  .split(",");
 				System.out.println("DEBUG : " + s);
 				String anzahl = parts[0];
-				String affiliation = parts[1];
+				String affiliation;
+				try {
+					affiliation = parts[1];
+				} catch (ArrayIndexOutOfBoundsException e) {
+					System.err.println("[ERROR] empty affiliation name");
+					affiliation = "";
+				}
 				
 				String newS = ""
 						+ "		<Placemark>\n"
@@ -466,8 +552,11 @@ public class SimpleApp {
 						+ "			<anzahl>" + anzahl + "</anzahl>\n"
 						+ "		</Placemark>\n";
 				
-				writer.appendLine(newS);
+				writer.append(newS);
 			}
+			writer.append(""
+					+ "	</Folder>\n"
+					+ "</Document>\n");
 			writer.close();
 			
 //			TextFileWriter.writeOver(outfile, "");
