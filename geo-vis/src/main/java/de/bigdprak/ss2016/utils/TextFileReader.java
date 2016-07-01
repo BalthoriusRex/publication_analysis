@@ -7,6 +7,56 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TextFileReader {
+
+	
+	public static BufferedReader reader;
+	
+	/**
+	 * Initilizing a reader for further use
+	 * @param path Path to the file
+	 */
+	public static void initializeReader(String path)
+	{
+		try
+		{
+			reader = new BufferedReader(new FileReader(path));
+		}
+		catch(IOException e)
+		{
+			System.out.println("File not found");
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Get the Name of the next Affiliation
+	 * @return Name of Affiliation
+	 */
+	public static String readNextAffiliation()
+	{
+		String newLine = "";
+		try
+		{
+			//Searching
+			while(!(newLine.contains("<affiliation>")))
+			{
+				newLine = reader.readLine();
+			}
+			
+			//Parse innerHTML
+			String[] parts = newLine.split(">");
+			parts = parts[1].split("<");
+			//Get Affiliation
+			newLine = parts[0];
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+			return "---------------------------Error-----";
+		}
+		
+		return newLine;
+	}
 	
 	/**
 	 * Liest file und gibt in Datei enthaltenen Text zurück.
@@ -43,10 +93,10 @@ public class TextFileReader {
 		//System.out.println("FileText: \n"+fileText);
 		return fileText;
 	}
-	
+	/*
 	public static void main(String[] args){
 		TextFileWriter.writeOver("/Users/Daniel/Documents/TestDomainFile.txt", "www.google.de");
 		System.out.println(TextFileReader.read("/Users/Daniel/Documents/TestDomainFile.txt"));
-	}
+	}*/
 	
 }

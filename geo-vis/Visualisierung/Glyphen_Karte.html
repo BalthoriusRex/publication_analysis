@@ -61,12 +61,9 @@ var invisibleFill = new ol.style.Fill({
 });
 
 function createEarthquakeStyle(feature) {
-  // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
-  // standards-violating <magnitude> tag in each Placemark.  We extract it
-  // from the Placemark's name instead.
-  var name = feature.get('name');
-  var magnitude = parseFloat(name.substr(2));
-  var radius = 5 + 20 * (magnitude - 5);
+  var name = feature.get('affiliation');
+  var qty = feature.get('anzahl');
+  var radius = qty;
 
   return new ol.style.Style({
     geometry: feature.getGeometry(),
@@ -98,7 +95,7 @@ function calculateClusterInfo(resolution) {
         resolution;
     feature.set('radius', radius);
   }
-}
+}				
 
 var currentResolution;
 function styleFunction(feature, resolution) {
