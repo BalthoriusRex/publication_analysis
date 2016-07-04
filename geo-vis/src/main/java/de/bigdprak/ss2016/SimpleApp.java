@@ -19,6 +19,9 @@ import de.bigdprak.ss2016.database.*;
 import de.bigdprak.ss2016.utils.UTF8Writer;
 
 public class SimpleApp {
+
+	public static final String TAG_AFFILIATION_NORMALIZED = "AffiliationNameNormalized";
+	public static final String TAG_AFFILIATION_FULLNAME   = "AffiliationNameFull"; 
 	
 	private static String master = "local";
 	//private static String file_2016KDDCupSelectedAffiliations;
@@ -337,19 +340,77 @@ public class SimpleApp {
 			Author.class)
 		.registerTempTable("Author");
 		
-		// create Table PaperAuthorAffiliation
+		/*
+		// create Table ConferenceInstance
 		sqlContext.createDataFrame(
 			// create JavaRDD
-			sc.textFile(file_PaperAuthorAffiliations).map(
-				new Function<String, PaperAuthorAffiliation>() {
-					public PaperAuthorAffiliation call(String line) throws Exception {
+			sc.textFile(file_ConferenceInstances).map(
+				new Function<String, ConferenceInstance>() {
+					public ConferenceInstance call(String line) throws Exception {
 						String[] parts = line.split("\t");
-						return new PaperAuthorAffiliation(parts);
+						return new ConferenceInstance(parts);
 					}
 				}
 			),
-			PaperAuthorAffiliation.class)
-		.registerTempTable("PaperAuthorAffiliation");
+			ConferenceInstance.class)
+		.registerTempTable("ConferenceInstance");
+		*/
+		
+		// create Table ConferenceSeries
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_Conferences).map(
+				new Function<String, ConferenceSeries>() {
+					public ConferenceSeries call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new ConferenceSeries(parts);
+					}
+				}
+			),
+			ConferenceSeries.class)
+		.registerTempTable("ConferenceSeries");
+		
+		// create Table FieldOfStudy
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_FieldsOfStudy).map(
+				new Function<String, FieldOfStudy>() {
+					public FieldOfStudy call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new FieldOfStudy(parts);
+					}
+				}
+			),
+			FieldOfStudy.class)
+		.registerTempTable("FieldOfStudy");
+		
+		// create Table FieldOfStudyHierarchy
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_FieldOfStudyHierarchy).map(
+				new Function<String, FieldOfStudyHierarchy>() {
+					public FieldOfStudyHierarchy call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new FieldOfStudyHierarchy(parts);
+					}
+				}
+			),
+			FieldOfStudyHierarchy.class)
+		.registerTempTable("FieldOfStudyHierarchy");
+		
+		// create Table Journal
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_Journals).map(
+				new Function<String, Journal>() {
+					public Journal call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new Journal(parts);
+					}
+				}
+			),
+			Journal.class)
+		.registerTempTable("Journal");
 		
 		// create Table Paper
 		sqlContext.createDataFrame(
@@ -364,6 +425,62 @@ public class SimpleApp {
 			),
 			Paper.class)
 		.registerTempTable("Paper");
+		
+		// create Table PaperAuthorAffiliation
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_PaperAuthorAffiliations).map(
+				new Function<String, PaperAuthorAffiliation>() {
+					public PaperAuthorAffiliation call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new PaperAuthorAffiliation(parts);
+					}
+				}
+			),
+			PaperAuthorAffiliation.class)
+		.registerTempTable("PaperAuthorAffiliation");
+		
+		// create Table PaperKeyword
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_PaperKeywords).map(
+				new Function<String, PaperKeyword>() {
+					public PaperKeyword call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new PaperKeyword(parts);
+					}
+				}
+			),
+			PaperKeyword.class)
+		.registerTempTable("PaperKeyword");
+		
+		// create Table PaperReference
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_PaperReferences).map(
+				new Function<String, PaperReference>() {
+					public PaperReference call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new PaperReference(parts);
+					}
+				}
+			),
+			PaperReference.class)
+		.registerTempTable("PaperReference");
+		
+		// create Table PaperURL
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_PaperUrls).map(
+				new Function<String, PaperURL>() {
+					public PaperURL call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new PaperURL(parts);
+					}
+				}
+			),
+			PaperURL.class)
+		.registerTempTable("PaperURL");
 		
 		/*
 		// create Table Author
@@ -504,17 +621,23 @@ public class SimpleApp {
 		// Welche Affiliations gibt es?
 		compute = true;
 		if (compute) {
+			String outfile = folder + "output.txt";
 			String query = ""
-					+ "SELECT count(normalizedAffiliationName) as Anzahl, normalizedAffiliationName as Name "
+					+ "SELECT "
+						+ "COUNT(normalizedAffiliationName) as Anzahl, "
+						+ "normalizedAffiliationName as Name, "
+						+ "FIRST(originalAffiliationName) as Fullname "
 					+ "FROM PaperAuthorAffiliation "
 					//+ "WHERE NOT (normalizedAffiliationName = '') "
 					+ "GROUP BY normalizedAffiliationName "
 					+ "ORDER BY normalizedAffiliationName ASC"
 					;
-			String outfile = folder + "/output.txt";
-//			TextFileWriter.writeOver(outfile, query);
-//			TextFileWriter.writeOn(outfile, "\n\n\n");
-//			TextFileWriter.writeOn(outfile, query);
+			
+			System.out.println(""
+					+ "[CURRENT JOB] Answer Query\n"
+					+ "       query: " + query + "\n"
+					+ "          to: " + outfile);
+			
 			List<Row> result = sql_answerQuery(query);
 			
 			UTF8Writer writer = new UTF8Writer(outfile);
@@ -529,17 +652,25 @@ public class SimpleApp {
 								  .split(",");
 				System.out.println("DEBUG : " + s);
 				String anzahl = parts[0];
-				String affiliation;
+				String normalizedName = null;
 				try {
-					affiliation = parts[1];
+					normalizedName = parts[1];
 				} catch (ArrayIndexOutOfBoundsException e) {
-					System.err.println("[ERROR] empty affiliation name");
-					affiliation = "";
+					System.err.println("[ERROR] empty normalized affiliation name");
+					normalizedName = "";
+				}
+				String fullName = null;
+				try {
+					fullName = parts[2];
+				} catch (ArrayIndexOutOfBoundsException e) {
+					System.err.println("[ERROR] empty full affiliation name");
+					fullName = "";
 				}
 				
 				String newS = ""
 						+ "		<Placemark>\n"
-						+ "			<affiliation>" + affiliation + "</affiliation>\n"
+						+ "			<" + TAG_AFFILIATION_NORMALIZED + ">" + normalizedName + "</" + TAG_AFFILIATION_NORMALIZED + ">\n"
+						+ "			<" + TAG_AFFILIATION_FULLNAME + ">" + fullName + "</" + TAG_AFFILIATION_FULLNAME + ">\n"
 						+ "			<anzahl>" + anzahl + "</anzahl>\n"
 						+ "			<Point>\n"
 						+ " 			<coordinates></coordinates>\n"
@@ -592,13 +723,6 @@ public class SimpleApp {
 				System.out.println(r.toString());
 			}
 		}
-		
-		
-		
-		// output
-//		for (String s: out) {
-//			System.out.println(s);
-//		}
 		
 	}
 }

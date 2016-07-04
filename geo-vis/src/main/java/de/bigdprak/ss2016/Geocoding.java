@@ -19,6 +19,7 @@ import de.bigdprak.ss2016.utils.RandomAccessFileCoordinateWriter;
 
 public class Geocoding {
 
+	private final static long SLEEPTIME = 1000;
 	private final String USER_AGENT = "Mozilla/5.0";
 
 	private static int offset;
@@ -103,6 +104,14 @@ public class Geocoding {
 
 	public JSONObject getCoordsByName(String location_name)
 			throws JSONException, IOException, LimitExceededException {
+		
+		try {
+			Thread.sleep(Geocoding.SLEEPTIME);
+		} catch (InterruptedException e) {
+			System.err.println(""
+					+ "[ERROR] Geocoder did not sleep well...\n"
+					+ e.getMessage());
+		}
 
 		Geocoding http = new Geocoding();
 
@@ -117,6 +126,8 @@ public class Geocoding {
 
 		int remaining = access.getInt("remaining");
 
+		System.out.println(access.toString());
+		
 		if (remaining == 0) {
 			throw new LimitExceededException();
 		}
@@ -148,10 +159,48 @@ public class Geocoding {
 		
 		obj = new JSONObject(content);
 		
-		obj = obj.getJSONObject("bounds");
-		obj = obj.getJSONObject("northeast");
 
-		return obj;
+		JSONObject ret = null;
+		
+		boolean foundCoords = false;
+		if (!foundCoords) {
+			try {
+				ret = obj.getJSONObject("bounds")
+						 .getJSONObject("northeast");
+				foundCoords = true;
+			} catch (JSONException e) {
+				System.err.println(""
+						+ "[ERROR] " + e.getMessage() + "\n"
+						+ "        trying next tag...");
+			}
+		}
+		if (!foundCoords) {
+			try {
+				ret = obj.getJSONObject("geometry");
+				foundCoords = true;
+			} catch (JSONException e) {
+				System.err.println(""
+						+ "[ERROR] " + e.getMessage() + "\n"
+						+ "        trying next tag...");
+			}
+		}
+		if (!foundCoords) {
+			System.out.println("[ERROR] did not find any coords...");
+		}
+		
+		//obj = obj.getJSONObject("bounds");
+		//obj = obj.getJSONObject("northeast");
+		
+		// double lat = obj.getDouble("lat");
+		// double lng = obj.getDouble("lng");
+
+		// System.out.println(obj.toString());
+		// System.out.println("lat: " + lat);
+		// System.out.println("lng: " + lng);
+		// geocoding("04155 Leipzig, Blumenstraße 43");
+		// geocoding("Universität Leipzig");
+
+		return ret;
 	}
 
 	// HTTP GET request
