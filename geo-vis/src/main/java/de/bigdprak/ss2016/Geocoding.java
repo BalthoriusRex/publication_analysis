@@ -14,39 +14,56 @@ import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
-import de.bigdprak.ss2016.utils.TextFileReader;
+import de.bigdprak.ss2016.utils.RandomAccessFileCoordinateWriter;
 
 
 public class Geocoding {
 
 	private final String USER_AGENT = "Mozilla/5.0";
 
-	private int offset = 0;
+	private static int offset;
 	
 	public static void main(String[] args) throws Exception {
+		
+		if(args.length > 1)
+		{
+			offset = Integer.parseInt(args[1]);
+		}
+		else
+		{
+			offset = 0;
+		}
+		
 		Geocoding geo = new Geocoding();
 		
-		TextFileReader.initializeReader("./Visualisierung/Affiliations.txt");
+		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/AffiliationsTest.txt", offset);
 		
-		//Einlesen von Affiliations
-		String[] locations = new String[10];
-		for(int i = 0; i < 10; i++)
-		{
-			locations[i] = TextFileReader.readNextAffiliation();
-		}
+		
+
 		
 		JSONObject json;
 		double lng;
 		double lat;
 		
-		for(String loc : locations)
+		
+		//Einlesen von Affiliations
+		String[] locations = new String[10];
+		for(int i = 0; i < 10; i++)
 		{
-			System.out.println("loc: " + loc);
-			json = geo.getCoordsByName(loc);
+			String locTemp =  RandomAccessFileCoordinateWriter.readNextAffiliation();
+			locations[i] = locTemp;
+
+			System.out.println("loc: " + locTemp);
+			json = geo.getCoordsByName(locTemp);
 			if(json != null)
 			{
 				lng = json.getDouble("lng");
 				lat = json.getDouble("lat");
+				
+				//write
+				RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
+				
+				
 				System.out.println("lng: " + lng);
 				System.out.println("lat: " + lat);
 				System.out.println("_______");
@@ -56,6 +73,8 @@ public class Geocoding {
 				System.out.println("No data");
 				System.out.println("_______");
 			}
+			
+			
 		}
 		
 		
@@ -77,6 +96,9 @@ public class Geocoding {
 				System.out.println("--------------------------------");
 			}
 		}*/
+		
+		
+		RandomAccessFileCoordinateWriter.closeReader();
 	}
 
 	public JSONObject getCoordsByName(String location_name)
@@ -84,25 +106,25 @@ public class Geocoding {
 
 		Geocoding http = new Geocoding();
 
-		// System.out.println("Testing 1 - Send Http GET request");
 		String format = "json";
-		// String location = "effat university";
+
 		String user_key = "f1375e2b960b93f1538b7a4b636a7ffd";
 		StringBuffer response = http.sendGet(format, location_name, user_key);
 
 		JSONObject obj = new JSONObject(response.toString());
 
 		JSONObject access = obj.getJSONObject("rate");
-		// int limit = access.getInt("limit");
+
 		int remaining = access.getInt("remaining");
-		// int reset = access.getInt("reset");
+
 		if (remaining == 0) {
 			throw new LimitExceededException();
 		}
 
 		JSONArray arr = obj.getJSONArray("results");
 		String content = "";
-		for (int i = 0; i < arr.length(); i++) {
+		for (int i = 0; i < arr.length(); i++) 
+		{
 			content += arr.getString(i);
 		}
 		System.out.println(content);
@@ -110,30 +132,24 @@ public class Geocoding {
 		 * TODO:
 		 * Fehler:
 		 * Exception in thread "main" org.codehaus.jettison.json.JSONException: JSONObject["bounds"] not found.
-	at org.codehaus.jettison.json.JSONObject.get(JSONObject.java:360)
-	at org.codehaus.jettison.json.JSONObject.getJSONObject(JSONObject.java:454)
-	at de.bigdprak.ss2016.Geocoding.getCoordsByName(Geocoding.java:117)
-	at de.bigdprak.ss2016.Geocoding.main(Geocoding.java:45)
-		Hier muss also noch überprüft werden ob in contents auch Dinge stehen mit denen wir arbeiten können (Auch wenn es nicht bounds und anderes Ding sind).
+		 *	at org.codehaus.jettison.json.JSONObject.get(JSONObject.java:360)
+		 *	at org.codehaus.jettison.json.JSONObject.getJSONObject(JSONObject.java:454)
+		 *	at de.bigdprak.ss2016.Geocoding.getCoordsByName(Geocoding.java:117)
+		 *	at de.bigdprak.ss2016.Geocoding.main(Geocoding.java:45)
+		 * Hier muss also noch überprüft werden ob in contents auch Dinge stehen mit denen wir arbeiten können (Auch wenn es nicht bounds und anderes Ding sind).
 		 */
 		if(content.length() == 0)
 		{
 			//No information about this affiliation!
+			//Dropping information (maybe we could use an alternative service?
 			return null;
 		}
 		
 		
 		obj = new JSONObject(content);
+		
 		obj = obj.getJSONObject("bounds");
 		obj = obj.getJSONObject("northeast");
-		// double lat = obj.getDouble("lat");
-		// double lng = obj.getDouble("lng");
-
-		// System.out.println(obj.toString());
-		// System.out.println("lat: " + lat);
-		// System.out.println("lng: " + lng);
-		// geocoding("04155 Leipzig, Blumenstraße 43");
-		// geocoding("Universität Leipzig");
 
 		return obj;
 	}
@@ -145,12 +161,9 @@ public class Geocoding {
 		String location_query = location;
 
 		location_query = URLEncoder.encode(location_query, "UTF-8");
-		
-		// System.out.println(location_query);
 
 		String url = "https://api.opencagedata.com/geocode/v1/" + format
 				+ "?q=" + location_query + "&key=" + user_key;
-		// System.out.println(url);
 
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -162,10 +175,6 @@ public class Geocoding {
 
 		// add request header
 		con.setRequestProperty("User-Agent", USER_AGENT);
-
-		// int responseCode = con.getResponseCode();
-		// System.out.println("\nSending 'GET' request to URL : " + url);
-		// System.out.println("Response Code : " + responseCode);
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(
 				con.getInputStream()));
