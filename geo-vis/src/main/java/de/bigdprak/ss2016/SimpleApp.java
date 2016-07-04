@@ -524,15 +524,6 @@ public class SimpleApp {
 					+ "	<Folder>\n");
 			for (Row row: result) {
 				
-				/*
-				 * 
-				 * <Placemark>
-				 * 		<affiliation>...</affiliation>
-				 * 		<anzahl>...</anzahl>
-				 * 
-				 * 
-				 */
-
 				String s = row.toString();
 				String[] parts = s.substring(1, s.length()-1)
 								  .split(",");
@@ -550,6 +541,9 @@ public class SimpleApp {
 						+ "		<Placemark>\n"
 						+ "			<affiliation>" + affiliation + "</affiliation>\n"
 						+ "			<anzahl>" + anzahl + "</anzahl>\n"
+						+ "			<Point>\n"
+						+ " 			<coordinates></coordinates>\n"
+						+ " 		</Point>\n"
 						+ "		</Placemark>\n";
 				
 				writer.append(newS);
