@@ -621,7 +621,7 @@ public class SimpleApp {
 		// Welche Affiliations gibt es?
 		compute = true;
 		if (compute) {
-			String outfile = folder + "output.txt";
+			String outfile = folder + "output_query_affiliations.txt";
 			String query = ""
 					+ "SELECT "
 						+ "COUNT(normalizedAffiliationName) as Anzahl, "
@@ -644,7 +644,7 @@ public class SimpleApp {
 			writer.clear();
 			writer.append(""
 					+ "<Document>\n"
-					+ "	<Folder>\n");
+					+ "\t" + "<Folder>\n");
 			for (Row row: result) {
 				
 				String s = row.toString();
@@ -668,19 +668,19 @@ public class SimpleApp {
 				}
 				
 				String newS = ""
-						+ "		<Placemark>\n"
-						+ "			<" + TAG_AFFILIATION_NORMALIZED + ">" + normalizedName + "</" + TAG_AFFILIATION_NORMALIZED + ">\n"
-						+ "			<" + TAG_AFFILIATION_FULLNAME + ">" + fullName + "</" + TAG_AFFILIATION_FULLNAME + ">\n"
-						+ "			<anzahl>" + anzahl + "</anzahl>\n"
-						+ "			<Point>\n"
-						+ " 			<coordinates></coordinates>\n"
-						+ " 		</Point>\n"
-						+ "		</Placemark>\n";
+						+ "\t" + "\t" + "<Placemark>\n"
+						+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_NORMALIZED + ">" + normalizedName + "</" + TAG_AFFILIATION_NORMALIZED + ">\n"
+						+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_FULLNAME + ">" + fullName + "</" + TAG_AFFILIATION_FULLNAME + ">\n"
+						+ "\t" + "\t" + "\t" + "<anzahl>" + anzahl + "</anzahl>\n"
+						+ "\t" + "\t" + "\t" + "<Point>\n"
+						+ "\t" + "\t" + "\t" + "\t" + "<coordinates></coordinates>\n"
+						+ "\t" + "\t" + "\t" + "</Point>\n"
+						+ "\t" + "\t" + "</Placemark>\n";
 				
 				writer.append(newS);
 			}
 			writer.append(""
-					+ "	</Folder>\n"
+					+ "\t" + "</Folder>\n"
 					+ "</Document>\n");
 			writer.close();
 			
@@ -690,6 +690,7 @@ public class SimpleApp {
 //				TextFileWriter.writeOn(outfile, s + "\n");
 //			}
 			System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
+			System.out.println("printed " + result.size() + " entries...");
 		}
 		
 		compute = false;
