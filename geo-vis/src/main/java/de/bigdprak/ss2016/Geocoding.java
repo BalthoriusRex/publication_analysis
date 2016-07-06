@@ -25,6 +25,11 @@ public class Geocoding {
 
 	private static int offset;
 	
+	/**
+	 * Anzahl der Einträge die mit jedem Durchlauf bearbeitet werden sollen
+	 */
+	private static int numberOfEntries = 5;
+	
 	public static void main(String[] args) throws Exception {
 		
 		if(args.length > 1)
@@ -37,6 +42,18 @@ public class Geocoding {
 		}
 		
 		Geocoding geo = new Geocoding();
+
+		
+		/*
+		 * 
+		 * 
+		 * Offset!!!
+		 * 
+		 * 
+		 * 
+		 */
+		offset = 10;
+		
 		
 		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output_query_affiliations.txt", offset);
 		//TextFileWriter.initializeCoordWriter("./Visualisierung/result.txt");
@@ -46,11 +63,9 @@ public class Geocoding {
 		JSONObject json;
 		double lng;
 		double lat;
-		
-		
 		//Einlesen von Affiliations
 		String[] locations = new String[10];
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < numberOfEntries; i++)
 		{
 			String locTemp =  RandomAccessFileCoordinateWriter.readNextAffiliation();
 			if(locTemp == null)

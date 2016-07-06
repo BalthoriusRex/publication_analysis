@@ -1,7 +1,5 @@
 package de.bigdprak.ss2016.utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -14,26 +12,28 @@ public class RandomAccessFileCoordinateWriter {
 	
 	
 	public static RandomAccessFile	rafFile;
-	public static long				rafOffset = 0;
-	public static int 				linesRead = 0;
+	public static long				rafOffset   = 0;
+	public static int 				linesRead   = 0;
+	public static int				entriesDone = 0;
+	public static int				offsetOld   = 0;
 	
 	/**
 	 * Initilizing a reader for further use
 	 * @param path Path to the file
-	 * @param offset Number of initial lines to skip. Needed by limitation of geocaching-services
+	 * @param offsetInEntries Number of initial lines to skip. Needed by limitation of geocaching-services
 	 */
-	public static void initializeReader(String path, int offset)
+	public static void initializeReader(String path, int offsetInEntries)
 	{
 		try
 		{
-			String tmp = "";
+			offsetOld = offsetInEntries;
+			int offsetInLines = offsetInEntries * 8 + 2;
 			rafFile = new RandomAccessFile(path, "rw");
-			for(int i = 0; i < offset; i++)
+			for(int i = 0; i < offsetInLines; i++)
 			{
-				tmp = rafFile.readLine();
+				rafFile.readLine();
 				linesRead++;
 			}
-			System.out.println("Offset zuende gegangen");			
 		}
 		catch(IOException e)
 		{
@@ -49,7 +49,8 @@ public class RandomAccessFileCoordinateWriter {
 	public static void closeReader()
 	{
 		
-		System.out.println("END: ----- Read " + linesRead + " lines. Use this as new offset!");
+	//	System.out.println("END: ----- Read " + linesRead + " lines. Offset was: " + rafOffset + " lines. Use this: " + (linesRead+rafOffset) + " as new offset!");
+		System.out.println("ENDE: ---- Alt: " + offsetOld + " Neu: " + entriesDone + " Neuer Offset: " + (offsetOld + entriesDone) +"  <- neuer Offset");
 		try
 		{
 			rafFile.close();
@@ -67,6 +68,7 @@ public class RandomAccessFileCoordinateWriter {
 	 */
 	public static String readNextAffiliation()
 	{
+		entriesDone++;
 		System.out.println("Read next Affiliation");
 		String newLine = "";
 		try
@@ -104,15 +106,15 @@ public class RandomAccessFileCoordinateWriter {
 		try
 		{
 			String tmp = "";
-			while(!(tmp.contains("<coordinates>")))
+			while(!(tmp.contains("<Point>")))
 			{
 				tmp = rafFile.readLine();
 			}
 			
-			
-			rafFile.seek((rafFile.getFilePointer() - tmp.length() + tmp.indexOf("</")));
-			
-			rafFile.writeUTF(lng+","+lat+",0</coordinates>");
+		//	rafFile.seek(rafFile.getFilePointer() - tmp.length());
+
+			String coords = "\t\t\t\t<coordinates>"+lng+","+lat+",0</coordinates>";
+			rafFile.writeBytes(coords);
 		}
 		catch(IOException e)
 		{
