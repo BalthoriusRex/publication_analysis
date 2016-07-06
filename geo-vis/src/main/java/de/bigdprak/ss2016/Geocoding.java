@@ -15,6 +15,7 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import de.bigdprak.ss2016.utils.RandomAccessFileCoordinateWriter;
+import de.bigdprak.ss2016.utils.TextFileWriter;
 
 
 public class Geocoding {
@@ -37,8 +38,8 @@ public class Geocoding {
 		
 		Geocoding geo = new Geocoding();
 		
-		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output.txt", offset);
-		
+		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output_query_affiliations.txt", offset);
+		//TextFileWriter.initializeCoordWriter("./Visualisierung/result.txt");
 		
 
 		
@@ -105,6 +106,7 @@ public class Geocoding {
 		
 		
 		RandomAccessFileCoordinateWriter.closeReader();
+	//	TextFileWriter.closeCoordWriter();
 	}
 
 	public JSONObject getCoordsByName(String location_name)

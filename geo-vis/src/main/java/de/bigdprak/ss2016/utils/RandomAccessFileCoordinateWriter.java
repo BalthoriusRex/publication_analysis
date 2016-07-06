@@ -72,7 +72,7 @@ public class RandomAccessFileCoordinateWriter {
 		try
 		{
 			//Searching
-			while(!(newLine.contains(SimpleApp.TAG_AFFILIATION_FULLNAME)))
+			while(!(newLine.contains(SimpleApp.TAG_AFFILIATION_NORMALIZED)))
 			{
 				newLine = rafFile.readLine();
 				linesRead++;
@@ -80,6 +80,7 @@ public class RandomAccessFileCoordinateWriter {
 				{
 					return null;
 				}
+				
 			}
 			
 			//Parse innerHTML
@@ -90,10 +91,10 @@ public class RandomAccessFileCoordinateWriter {
 		}
 		catch(IOException e)
 		{
+			System.err.println("Error in readNextAffiliation");
 			e.printStackTrace();
 			return "---------------------------Error-----";
 		}
-		
 		return newLine;
 	}
 	
@@ -108,20 +109,14 @@ public class RandomAccessFileCoordinateWriter {
 				tmp = rafFile.readLine();
 			}
 			
-			rafFile.seek(rafFile.getFilePointer()-tmp.length());
-
-			Character tmpChar = '-';
-			while(tmpChar != '>')
-			{
-				tmpChar = rafFile.readChar();
-			}
 			
-			byte[] coords = (lng+","+lat+",0").getBytes();
+			rafFile.seek((rafFile.getFilePointer() - tmp.length() + tmp.indexOf("</")));
 			
-			rafFile.write(coords);
+			rafFile.writeUTF(lng+","+lat+",0</coordinates>");
 		}
 		catch(IOException e)
 		{
+			System.err.println("Error in writeCoordinates");
 			e.printStackTrace();
 		}
 	}

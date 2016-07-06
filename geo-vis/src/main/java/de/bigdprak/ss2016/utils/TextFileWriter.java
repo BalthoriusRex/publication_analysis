@@ -11,19 +11,18 @@ import java.io.Writer;
 
 public abstract class TextFileWriter {
 
-	public static RandomAccessFile coordFile;
-	public static BufferedWriter coordWriter;
+	public static FileWriter coordWriter;
 	
 	public static void initializeCoordWriter(String path)
 	{
 		try 
 		{
-			coordFile = new RandomAccessFile(path, "rw");
-		} catch (FileNotFoundException e) 
+			coordWriter = new FileWriter(new File(path), true);
+		}
+		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
-//		coordWriter = new BufferedWriter(new Writer(path));
 	}
 	
 	public static void closeCoordWriter()
@@ -39,11 +38,17 @@ public abstract class TextFileWriter {
 
 	}
 
-	public static void writeCoordinates(double lng, double lat)
+	public static void writeText(String str)
 	{
-		int anchor = TextFileReader.getLinesRead();
-		
-		
+		try
+		{
+			coordWriter.append(str);
+			coordWriter.flush();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	
