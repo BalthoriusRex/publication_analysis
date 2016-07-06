@@ -9,22 +9,44 @@ import java.io.IOException;
 public class TextFileReader {
 
 	
-	public static BufferedReader reader;
+	public static BufferedReader	reader;
+	public static int 				linesRead = 0;
 	
 	/**
 	 * Initilizing a reader for further use
 	 * @param path Path to the file
+	 * @param offset Number of initial lines to skip. Needed by limitation of geocaching-services
 	 */
-	public static void initializeReader(String path)
+	public static void initializeReader(String path, int offset)
 	{
 		try
 		{
 			reader = new BufferedReader(new FileReader(path));
+			for(int i = 0; i < offset; i++)
+			{
+				reader.readLine();
+				linesRead++;
+			}
 		}
 		catch(IOException e)
 		{
 			System.out.println("File not found");
 			e.printStackTrace();
+		}
+	}
+	
+	public static void closeReader()
+	{
+		
+		System.out.println("END: ----- Read " + linesRead + " lines. Use this as new offset!");
+		try
+		{
+			reader.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+			System.out.println("Reader could not be closed!");
 		}
 	}
 	
@@ -41,6 +63,7 @@ public class TextFileReader {
 			while(!(newLine.contains("<affiliation>")))
 			{
 				newLine = reader.readLine();
+				linesRead++;
 			}
 			
 			//Parse innerHTML
@@ -58,45 +81,9 @@ public class TextFileReader {
 		return newLine;
 	}
 	
-	/**
-	 * Liest file und gibt in Datei enthaltenen Text zurück.
-	 * @param file Dateimit hinterlegter Directory
-	 * @return Dateiinhalt
-	 */
-	public static String read(File file){
-		return read(file.getPath());
+	public static int getLinesRead()
+	{
+		return linesRead;
 	}
-	
-	/**
-	 * Liest directory und gibt in Datei enthaltenen Text zurück.
-	 * @param directory Dateipfad
-	 * @return Dateiinhalt
-	 */
-	public static String read(String directory){
-		String fileText = "";
-		try {
-			@SuppressWarnings("resource")
-			BufferedReader in = new BufferedReader(new FileReader(directory));
-			String zeile = null;
-			while ((zeile = in.readLine()) != null) {
-				//System.out.println("Gelesene Zeile: " + zeile);
-				if(!fileText.equals("")){
-					fileText += "\r\n";
-				}
-				fileText += zeile;
-			}
-		} catch (FileNotFoundException e) {
-			System.err.println("Exception: File not found.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		//System.out.println("FileText: \n"+fileText);
-		return fileText;
-	}
-	/*
-	public static void main(String[] args){
-		TextFileWriter.writeOver("/Users/Daniel/Documents/TestDomainFile.txt", "www.google.de");
-		System.out.println(TextFileReader.read("/Users/Daniel/Documents/TestDomainFile.txt"));
-	}*/
 	
 }

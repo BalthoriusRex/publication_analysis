@@ -1,13 +1,55 @@
 package de.bigdprak.ss2016.utils;
 
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.io.Writer;
 
 public abstract class TextFileWriter {
 
+	public static RandomAccessFile coordFile;
+	public static BufferedWriter coordWriter;
+	
+	public static void initializeCoordWriter(String path)
+	{
+		try 
+		{
+			coordFile = new RandomAccessFile(path, "rw");
+		} catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+//		coordWriter = new BufferedWriter(new Writer(path));
+	}
+	
+	public static void closeCoordWriter()
+	{
+		try
+		{
+			coordWriter.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void writeCoordinates(double lng, double lat)
+	{
+		int anchor = TextFileReader.getLinesRead();
+		
+		
+	}
+	
+	
+	
+	
+	
 	/**
 	 * Liest directory. Existiert die angegebene Datei nicht, so wird sie mit
 	 * dem angegebenen Text als Inhalt erstellt. Existiert die Datei bereits, so

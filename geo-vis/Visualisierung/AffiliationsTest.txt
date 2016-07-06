@@ -1,0 +1,20 @@
+1Document>
+	<Folder>
+		<Placemark>
+			<affiliation></affiliation>
+			<anzahl>273464959</anzahl>
+		</Placemark>
+		<Placemark>
+			<affiliation>3m</affiliation>
+			<anzahl>197</anzahl>
+		</Placemark>
+		<Placemark>
+			<affiliation>a d patel institute of technology</affiliation>
+			<anzahl>101</anzahl>
+		</Placemark>
+		<Placemark>
+			<affiliation>a james clark school of engineering</affiliation>
+			<anzahl>14</anzahl>
+		</Placemark>
+	</Folder>
+</Document>

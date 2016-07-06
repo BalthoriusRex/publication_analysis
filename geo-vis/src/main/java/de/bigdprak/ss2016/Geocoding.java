@@ -37,7 +37,7 @@ public class Geocoding {
 		
 		Geocoding geo = new Geocoding();
 		
-		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/AffiliationsTest.txt", offset);
+		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output.txt", offset);
 		
 		
 
@@ -52,6 +52,11 @@ public class Geocoding {
 		for(int i = 0; i < 10; i++)
 		{
 			String locTemp =  RandomAccessFileCoordinateWriter.readNextAffiliation();
+			if(locTemp == null)
+			{
+				System.out.println("File ended");
+				break;
+			}
 			locations[i] = locTemp;
 
 			System.out.println("loc: " + locTemp);

@@ -15,6 +15,7 @@ public class UTF8Writer {
 	private Writer wr;
 	private boolean initialized = false;
 	
+	
 	public UTF8Writer(String output_path) {
 		this.f = new File(output_path);
 		this.initialized = false;
@@ -32,7 +33,7 @@ public class UTF8Writer {
 			this.initialized = false;
 		}
 	}
-	
+
 	public boolean clear() {
 		return TextFileWriter.writeOver(this.f, "");
 	}
