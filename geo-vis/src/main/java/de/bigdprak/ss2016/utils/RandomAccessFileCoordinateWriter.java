@@ -18,7 +18,7 @@ public class RandomAccessFileCoordinateWriter {
 	public static int				offsetOld   = 0;
 	
 	/**
-	 * Initilizing a reader for further use
+	 * Initializing a reader for further use
 	 * @param path Path to the file
 	 * @param offsetInEntries Number of initial lines to skip. Needed by limitation of geocaching-services
 	 */
@@ -50,7 +50,7 @@ public class RandomAccessFileCoordinateWriter {
 	{
 		
 	//	System.out.println("END: ----- Read " + linesRead + " lines. Offset was: " + rafOffset + " lines. Use this: " + (linesRead+rafOffset) + " as new offset!");
-		System.out.println("ENDE: ---- Alt: " + offsetOld + " Neu: " + entriesDone + " Neuer Offset: " + (offsetOld + entriesDone) +"  <- neuer Offset");
+	//	System.out.println("ENDE: ---- Alt: " + offsetOld + " Neu: " + entriesDone + " Neuer Offset: " + (offsetOld + entriesDone) +"  <- neuer Offset");
 		try
 		{
 			rafFile.close();
@@ -65,39 +65,54 @@ public class RandomAccessFileCoordinateWriter {
 	/**
 	 * Get the Name of the next Affiliation
 	 * @return Name of Affiliation
+	 * @throws IOException 
 	 */
-	public static String readNextAffiliation()
+	public static String readNext(int value) throws IOException
 	{
+		String tag = null;
+		switch (value) {
+		case 1:
+			tag = SimpleApp.TAG_AFFILIATION_NORMALIZED;
+			break;
+		case 2:
+			tag = SimpleApp.TAG_AFFILIATION_FULLNAME;
+		}
+		
 		entriesDone++;
 		System.out.println("Read next Affiliation");
 		String newLine = "";
-		try
+
+		//Searching
+		boolean stop = false;
+		while (!stop)
 		{
-			//Searching
-			while(!(newLine.contains(SimpleApp.TAG_AFFILIATION_NORMALIZED)))
-			{
-				newLine = rafFile.readLine();
-				linesRead++;
-				if(newLine == null)
-				{
-					return null;
+			newLine = rafFile.readLine();
+			//System.out.println(tag + " vs. " + newLine);
+			if (newLine == null) {
+				stop = true;
+				return null;
+			} else {
+				if (newLine.contains(tag)) {
+					stop = true;
 				}
-				
 			}
-			
-			//Parse innerHTML
-			String[] parts = newLine.split(">");
-			parts = parts[1].split("<");
-			//Get Affiliation
-			newLine = parts[0];
+			linesRead++;
 		}
-		catch(IOException e)
-		{
-			System.err.println("Error in readNextAffiliation");
-			e.printStackTrace();
-			return "---------------------------Error-----";
-		}
+		
+		//Parse innerHTML
+		String[] parts = newLine.split(">");
+		parts = parts[1].split("<");
+		//Get Affiliation
+		newLine = parts[0];
 		return newLine;
+	}
+	
+	public static String readNextNormalizedAffiliation() throws IOException {
+		return readNext(1);
+	}
+	
+	public static String readNextOriginalAffiliation() throws IOException {
+		return readNext(2);
 	}
 	
 	public static void writeCoords(double lng, double lat)

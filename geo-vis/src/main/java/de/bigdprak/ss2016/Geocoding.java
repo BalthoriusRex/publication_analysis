@@ -15,97 +15,111 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import de.bigdprak.ss2016.utils.RandomAccessFileCoordinateWriter;
+import de.bigdprak.ss2016.utils.TextFileReader;
 import de.bigdprak.ss2016.utils.TextFileWriter;
 
 
 public class Geocoding {
+	
+	private static int remaining = 2500;
 
 	private final static long SLEEPTIME = 1000;
-	private final String USER_AGENT = "Mozilla/5.0";
+	private final static String USER_AGENT = "Mozilla/5.0";
 
 	private static int offset;
 	
-	/**
-	 * Anzahl der Einträge die mit jedem Durchlauf bearbeitet werden sollen
-	 */
-	private static int numberOfEntries = 5;
-	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		
-		if(args.length > 1)
-		{
-			offset = Integer.parseInt(args[1]);
+		String offsetPath = "./Visualisierung/tmp.offset.txt";
+		
+		if(args.length > 1) {
+			Geocoding.offset = Integer.parseInt(args[1]);
+		} else {
+			Geocoding.offset = TextFileReader.parseOffset(offsetPath);
 		}
-		else
-		{
-			offset = 0;
-		}
+		System.err.println("Starting with offset " + Geocoding.offset);
 		
-		Geocoding geo = new Geocoding();
-
-		
-		/*
-		 * 
-		 * 
-		 * Offset!!!
-		 * 
-		 * 
-		 * 
-		 */
-		offset = 10;
-		
-		
-		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output_query_affiliations.txt", offset);
-		//TextFileWriter.initializeCoordWriter("./Visualisierung/result.txt");
-		
-
+		RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output_query_affiliations.txt", Geocoding.offset);
 		
 		JSONObject json;
 		double lng;
 		double lat;
 		//Einlesen von Affiliations
-		String[] locations = new String[10];
-		for(int i = 0; i < numberOfEntries; i++)
-		{
-			String locTemp =  RandomAccessFileCoordinateWriter.readNextAffiliation();
-			if(locTemp == null)
+		//String[] locations = new String[10];
+		
+		try {
+			// while not EOF
+			String locTemp = null;
+			//for(int i = 0; i < numberOfEntries; i++)
+			//int i = -1;
+			while(true) // LimitExceedException breaks while-true-loop
 			{
-				System.out.println("File ended");
-				break;
-			}
-			locations[i] = locTemp;
+				//i++;
+				locTemp = null;
+				locTemp = RandomAccessFileCoordinateWriter.readNextNormalizedAffiliation();
+				if(locTemp == null)
+				{
+					System.out.println("File ended");
+					break;
+				}
+				//locations[i] = locTemp;
+	
+				System.out.println("loc: " + locTemp);
+				json = Geocoding.getCoordsByName(locTemp);
+				
+				// falls wir über den normalizedAffiliationName kein Ergebnis bekommen
+				// versuchen wir das ganze nochmal mit dem originalAffiliationName
+				if (json == null) {
 
-			System.out.println("loc: " + locTemp);
-			json = geo.getCoordsByName(locTemp);
-			if(json != null)
-			{
-				lng = json.getDouble("lng");
-				lat = json.getDouble("lat");
+					locTemp = RandomAccessFileCoordinateWriter.readNextOriginalAffiliation();
+					if(locTemp == null)
+					{
+						//throw new LimitExceededException(LimitExceededException.ERROR_EOF);
+						System.out.println("File ended");
+						break;
+					}
+					//locations[i] = locTemp;
+	
+					System.out.println("loc: " + locTemp);
+					json = Geocoding.getCoordsByName(locTemp);
+				}
 				
-				//write
-				RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
+				if(json != null)
+				{
+					lng = json.getDouble("lng");
+					lat = json.getDouble("lat");
+					
+					//write
+					RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
+					
+					System.out.println("lng: " + lng);
+					System.out.println("lat: " + lat);
+					System.out.println("_______");
+				} else {
+					System.out.println("No data");
+					System.out.println("_______");
+				}
+				Geocoding.offset = Geocoding.offset+1;
 				
-				
-				System.out.println("lng: " + lng);
-				System.out.println("lat: " + lat);
-				System.out.println("_______");
 			}
-			else
-			{
-				System.out.println("No data");
-				System.out.println("_______");
-			}
-			
-			
+		} catch (LimitExceededException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
+		// write the new offset to file to have access for tomorrows computations
+		TextFileWriter.writeOver(offsetPath, Geocoding.offset+"\n");
 		
-		
+		System.err.println("new offset: " + Geocoding.offset);
+		int read_offset = TextFileReader.parseOffset(offsetPath);
+		System.err.println("offset in file: " + read_offset);
 		
 		/*
 		 String[] locations = new String[] { "effat university",
 				"alnylam pharmaceuticals", "ştefan cel mare university of suceav" };
 
-		
 		for (String loc : locations) {
 			JSONObject json = geo.getCoordsByName(loc);
 			if(json != null)
@@ -119,12 +133,10 @@ public class Geocoding {
 			}
 		}*/
 		
-		
 		RandomAccessFileCoordinateWriter.closeReader();
-	//	TextFileWriter.closeCoordWriter();
 	}
-
-	public JSONObject getCoordsByName(String location_name)
+	
+	public static JSONObject getCoordsByName(String location_name)
 			throws JSONException, IOException, LimitExceededException {
 		
 		try {
@@ -135,12 +147,10 @@ public class Geocoding {
 					+ e.getMessage());
 		}
 
-		Geocoding http = new Geocoding();
-
 		String format = "json";
 
 		String user_key = "f1375e2b960b93f1538b7a4b636a7ffd";
-		StringBuffer response = http.sendGet(format, location_name, user_key);
+		StringBuffer response = Geocoding.sendGet(format, location_name, user_key);
 
 		JSONObject obj = new JSONObject(response.toString());
 
@@ -149,9 +159,10 @@ public class Geocoding {
 		int remaining = access.getInt("remaining");
 
 		System.out.println(access.toString());
-		
-		if (remaining == 0) {
-			throw new LimitExceededException();
+		Geocoding.remaining = remaining;// - 2460;
+		System.out.println("remaining: " + Geocoding.remaining);
+		if (Geocoding.remaining < 1) {
+			throw new LimitExceededException(LimitExceededException.ERROR_LIMIT);
 		}
 
 		JSONArray arr = obj.getJSONArray("results");
@@ -161,16 +172,6 @@ public class Geocoding {
 			content += arr.getString(i);
 		}
 		System.out.println(content);
-		/**
-		 * TODO:
-		 * Fehler:
-		 * Exception in thread "main" org.codehaus.jettison.json.JSONException: JSONObject["bounds"] not found.
-		 *	at org.codehaus.jettison.json.JSONObject.get(JSONObject.java:360)
-		 *	at org.codehaus.jettison.json.JSONObject.getJSONObject(JSONObject.java:454)
-		 *	at de.bigdprak.ss2016.Geocoding.getCoordsByName(Geocoding.java:117)
-		 *	at de.bigdprak.ss2016.Geocoding.main(Geocoding.java:45)
-		 * Hier muss also noch überprüft werden ob in contents auch Dinge stehen mit denen wir arbeiten können (Auch wenn es nicht bounds und anderes Ding sind).
-		 */
 		if(content.length() == 0)
 		{
 			//No information about this affiliation!
@@ -226,7 +227,7 @@ public class Geocoding {
 	}
 
 	// HTTP GET request
-	private StringBuffer sendGet(String format, String location, String user_key)
+	private static StringBuffer sendGet(String format, String location, String user_key)
 			throws IOException {
 
 		String location_query = location;
