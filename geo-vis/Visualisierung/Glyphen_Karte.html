@@ -61,8 +61,8 @@ var invisibleFill = new ol.style.Fill({
 });
 
 function createEarthquakeStyle(feature) {
-  var name = feature.get('affiliation');
-  var qty = feature.get('anzahl');
+  var name = feature.get('name');
+  var qty = feature.get('magnitude');
   var radius = qty;
 
   return new ol.style.Style({
@@ -164,7 +164,7 @@ var raster = new ol.layer.Tile({
 var map = new ol.Map({
   layers: [raster, vector],
 			//Deaktiviert Mouseoverinteraktion bei Glyphen, aktiviert PanDrag dafür wieder
- /* interactions: ol.interaction.defaults().extend([new ol.interaction.Select({
+ /*interactions: ol.interaction.defaults().extend([new ol.interaction.Select({
     condition: function(evt) {
       return evt.originalEvent.type == 'mousemove' ||
           evt.type == 'singleclick';
