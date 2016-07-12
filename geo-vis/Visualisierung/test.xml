@@ -3,7 +3,7 @@
 	<Document>
 			<Placemark id="2012 Jan 19 06:48:33.75 UTC">
 				<name>u 500</name>
-				<description>500</description>
+				<description>5000000</description>
 				<Point>
                     <coordinates>112.55,24.043,0</coordinates>                          
 				</Point>
@@ -15,7 +15,7 @@
                     <coordinates>148.752,-3.371,0</coordinates>                             
 				</Point>
 			</Placemark>
-			<Placemark id="2012 Jan 19 06:48:38.75 UTC">
+			<Placemark id='2012 Jan 19 06:48:38.75 UTC'>
 				<name>a 101</name>
 				<description>101</description>
 				<Point>

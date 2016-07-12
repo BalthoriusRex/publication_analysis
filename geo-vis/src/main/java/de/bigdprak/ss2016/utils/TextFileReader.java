@@ -1,7 +1,6 @@
 package de.bigdprak.ss2016.utils;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -38,7 +37,7 @@ public class TextFileReader {
 	public static void closeReader()
 	{
 		
-		System.out.println("END: ----- Read " + linesRead + " lines. Use this as new offset!");
+		//System.out.println("END: ----- Read " + linesRead + " lines. Use this as new offset!");
 		try
 		{
 			reader.close();
@@ -48,6 +47,26 @@ public class TextFileReader {
 			e.printStackTrace();
 			System.out.println("Reader could not be closed!");
 		}
+	}
+	
+	public static int parseOffset(String path) {
+		
+		int offset = -1;
+		
+		try {
+			BufferedReader r = new BufferedReader(new FileReader(path));
+			String firstLine = r.readLine();
+			r.close();
+			offset = Integer.parseInt(firstLine);
+		} catch (FileNotFoundException e) {
+			offset = 0;
+		} catch (IOException e) {
+			offset = 0;
+		} catch (NumberFormatException e) {
+			offset = 0;
+		}
+		
+		return offset;
 	}
 	
 	/**

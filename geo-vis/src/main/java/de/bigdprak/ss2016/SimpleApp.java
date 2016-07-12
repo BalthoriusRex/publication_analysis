@@ -599,7 +599,7 @@ public class SimpleApp {
 			sql_getPaperAuthorAffiliations(file_PaperAuthorAffiliations);
 		}
 		
-		// Liste alle Autoren des Papers paperID mit entsprechenden Afiliations auf
+		// Liste alle Autoren des Papers paperID mit entsprechenden Affiliations auf
 		compute = false;
 		if (compute) {
 			long paperID = 2145616859;
@@ -647,6 +647,15 @@ public class SimpleApp {
 					+ "<kml xmlns='http://www.opengis.net/kml/2.2'>\n"
 					+ "<Document>\n"
 					+ "\t" + "<Folder>\n");
+			
+			// for inserting whitespace into text output
+			// idea: later on we write over the file and need enough space to replace characters
+			String whitespace = "";
+			int whitespace_size = 35;
+			for (int i = 0; i < whitespace_size; i++) {
+				whitespace += " ";
+			}
+			
 			for (Row row: result) {
 				
 				String s = row.toString();
@@ -675,7 +684,7 @@ public class SimpleApp {
 						+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_FULLNAME + ">" + fullName + "</" + TAG_AFFILIATION_FULLNAME + ">\n"
 						+ "\t" + "\t" + "\t" + "<description>" + anzahl + "</description>\n"
 						+ "\t" + "\t" + "\t" + "<Point>\n"
-						+ "\t" + "\t" + "\t" + "\t" + "<coordinates></coordinates>\n"
+						+ "\t" + "\t" + "\t" + "\t" + "<coordinates></coordinates>" + whitespace + "\n"
 						+ "\t" + "\t" + "\t" + "</Point>\n"
 						+ "\t" + "\t" + "</Placemark>\n";
 				

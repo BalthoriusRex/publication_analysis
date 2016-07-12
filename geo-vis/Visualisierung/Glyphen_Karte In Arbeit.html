@@ -66,7 +66,7 @@ function createEarthquakeStyle(feature) {
   // from the Placemark's name instead.
   var name = feature.get('name');
   var magnitude = feature.get('description');
-  var radius = magnitude/10.;
+  var radius = magnitude/10. > 50 ? 50 : magnitude/10.;
 
   return new ol.style.Style({
     geometry: feature.getGeometry(),
