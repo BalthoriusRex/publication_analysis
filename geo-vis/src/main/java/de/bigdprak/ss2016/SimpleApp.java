@@ -20,8 +20,8 @@ import de.bigdprak.ss2016.utils.UTF8Writer;
 
 public class SimpleApp {
 
-	public static final String TAG_AFFILIATION_NORMALIZED = "AffiliationNameNormalized";
-	public static final String TAG_AFFILIATION_FULLNAME   = "AffiliationNameFull"; 
+//	public static final String TAG_AFFILIATION_NORMALIZED = "AffiliationNameNormalized";
+	public static final String TAG_AFFILIATION_FULLNAME   = "name"; 
 	
 	private static String master = "local";
 	//private static String file_2016KDDCupSelectedAffiliations;
@@ -643,6 +643,8 @@ public class SimpleApp {
 			UTF8Writer writer = new UTF8Writer(outfile);
 			writer.clear();
 			writer.append(""
+					+ "<?xml version='1.0' encoding='UTF-8'?>\n"
+					+ "<kml xmlns='http://www.opengis.net/kml/2.2'>\n"
 					+ "<Document>\n"
 					+ "\t" + "<Folder>\n");
 			for (Row row: result) {
@@ -668,10 +670,10 @@ public class SimpleApp {
 				}
 				
 				String newS = ""
-						+ "\t" + "\t" + "<Placemark>\n"
-						+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_NORMALIZED + ">" + normalizedName + "</" + TAG_AFFILIATION_NORMALIZED + ">\n"
+						+ "\t" + "\t" + "<Placemark id='"+fullName+"'>\n"
+					//	+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_NORMALIZED + ">" + normalizedName + "</" + TAG_AFFILIATION_NORMALIZED + ">\n"
 						+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_FULLNAME + ">" + fullName + "</" + TAG_AFFILIATION_FULLNAME + ">\n"
-						+ "\t" + "\t" + "\t" + "<anzahl>" + anzahl + "</anzahl>\n"
+						+ "\t" + "\t" + "\t" + "<description>" + anzahl + "</description>\n"
 						+ "\t" + "\t" + "\t" + "<Point>\n"
 						+ "\t" + "\t" + "\t" + "\t" + "<coordinates></coordinates>\n"
 						+ "\t" + "\t" + "\t" + "</Point>\n"
@@ -681,7 +683,8 @@ public class SimpleApp {
 			}
 			writer.append(""
 					+ "\t" + "</Folder>\n"
-					+ "</Document>\n");
+					+ "</Document>\n"
+					+ "</kml>\n");
 			writer.close();
 			
 //			TextFileWriter.writeOver(outfile, "");
