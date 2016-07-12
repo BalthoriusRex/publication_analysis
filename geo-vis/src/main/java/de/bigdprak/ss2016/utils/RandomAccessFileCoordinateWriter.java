@@ -69,13 +69,16 @@ public class RandomAccessFileCoordinateWriter {
 	 */
 	public static String readNext(int value) throws IOException
 	{
-		String tag = null;
+		String start = "";
+		String end 	 = "";
 		switch (value) {
 		case 1:
-			tag = SimpleApp.TAG_AFFILIATION_NORMALIZED;
+			start  	= "<Placemark";
+			end		= "\">";
 			break;
 		case 2:
-			tag = SimpleApp.TAG_AFFILIATION_FULLNAME;
+			start 	= SimpleApp.TAG_AFFILIATION_FULLNAME;
+			end 	= "<\""+SimpleApp.TAG_AFFILIATION_FULLNAME+">";
 		}
 		
 		entriesDone++;
@@ -92,7 +95,7 @@ public class RandomAccessFileCoordinateWriter {
 				stop = true;
 				return null;
 			} else {
-				if (newLine.contains(tag)) {
+				if (newLine.contains(start)) {
 					stop = true;
 				}
 			}
@@ -100,8 +103,8 @@ public class RandomAccessFileCoordinateWriter {
 		}
 		
 		//Parse innerHTML
-		String[] parts = newLine.split(">");
-		parts = parts[1].split("<");
+		String[] parts = newLine.split(start);
+		parts = parts[1].split(end);
 		//Get Affiliation
 		newLine = parts[0];
 		return newLine;

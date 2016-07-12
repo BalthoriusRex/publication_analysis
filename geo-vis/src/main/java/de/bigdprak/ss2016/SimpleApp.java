@@ -679,7 +679,7 @@ public class SimpleApp {
 				}
 				
 				String newS = ""
-						+ "\t" + "\t" + "<Placemark id='"+fullName+"'>\n"
+						+ "\t" + "\t" + "<Placemark id='"+normalizedName+"'>\n"
 					//	+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_NORMALIZED + ">" + normalizedName + "</" + TAG_AFFILIATION_NORMALIZED + ">\n"
 						+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_FULLNAME + ">" + fullName + "</" + TAG_AFFILIATION_FULLNAME + ">\n"
 						+ "\t" + "\t" + "\t" + "<description>" + anzahl + "</description>\n"
