@@ -161,16 +161,7 @@ public class Geocoding {
 			content += arr.getString(i);
 		}
 		System.out.println(content);
-		/**
-		 * TODO:
-		 * Fehler:
-		 * Exception in thread "main" org.codehaus.jettison.json.JSONException: JSONObject["bounds"] not found.
-		 *	at org.codehaus.jettison.json.JSONObject.get(JSONObject.java:360)
-		 *	at org.codehaus.jettison.json.JSONObject.getJSONObject(JSONObject.java:454)
-		 *	at de.bigdprak.ss2016.Geocoding.getCoordsByName(Geocoding.java:117)
-		 *	at de.bigdprak.ss2016.Geocoding.main(Geocoding.java:45)
-		 * Hier muss also noch überprüft werden ob in contents auch Dinge stehen mit denen wir arbeiten können (Auch wenn es nicht bounds und anderes Ding sind).
-		 */
+
 		if(content.length() == 0)
 		{
 			//No information about this affiliation!
