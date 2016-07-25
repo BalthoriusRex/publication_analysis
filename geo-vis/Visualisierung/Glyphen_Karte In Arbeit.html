@@ -61,6 +61,10 @@ var invisibleFill = new ol.style.Fill({
   color: 'rgba(255, 255, 255, 0.01)'
 });
 
+
+var coordinatesUnProcessed = [];
+var i 		           = 0;
+
 function createEarthquakeStyle(feature) {
   // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
   // standards-violating <magnitude> tag in each Placemark.  We extract it
@@ -68,6 +72,11 @@ function createEarthquakeStyle(feature) {
   var name = feature.get('name');
   var magnitude = feature.get('description');
   var radius = magnitude/10. > 50 ? 50 : magnitude/10.;
+
+  coordinatesUnProcessed[i] = feature.getGeometry().getCoordinates();
+  i++;
+
+
 
   return new ol.style.Style({
     geometry: feature.getGeometry(),
@@ -86,6 +95,7 @@ var maxFeatureCount;
 function calculateClusterInfo(resolution) {
   maxFeatureCount = 0;
   var features = vector.getSource().getFeatures();
+console.log(features);
   var feature, radius;
   for (var i = features.length - 1; i >= 0; --i) {
     feature = features[i];
@@ -166,26 +176,8 @@ var raster = new ol.layer.Tile({
 });
 
 
-    var feature = new ol.Feature({
-      geometry: new ol.geom.LineString([
-      	[112.55, 24.043],
-      	[148.752, -3.371]
-      ])
-    });
-
-    feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
-    var vectorSource= new ol.source.Vector({
-        features: [feature ]
-    });
-
-    var vectorLayer = new ol.layer.Vector({
-        source: vectorSource
-    });
-
-
-
 var map = new ol.Map({
-  layers: [raster, vector, vectorLayer],
+  layers: [raster, vector],//, vectorLayer],
   /*interactions: ol.interaction.defaults().extend([new ol.interaction.Select({
     condition: function(evt) {
       return evt.originalEvent.type == 'mousemove' ||
@@ -199,6 +191,85 @@ var map = new ol.Map({
     zoom: 2
   })
 });
+
+
+
+
+
+
+
+//---------------------Lines Start
+
+
+var feature = new ol.Feature({
+	geometry: createMultiLineString()
+});
+
+feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
+
+var vectorSource= new ol.source.Vector({
+	features: [feature]
+});
+
+var vectorLayer = new ol.layer.Vector({
+	source: vectorSource
+});
+
+map.addLayer(vectorLayer);
+//---------------------Lines End
+
+
+
+function createMultiLineString()
+{
+/*	console.log("HIT");
+	console.log(coordinatesUnProcessed);
+	console.log(coordinatesUnProcessed.length);
+
+	//Build Array
+	//[[[-1, -1], [1, -1]], [[-1, 1], [1, 1]]]
+	var coordinates = [];
+	var j = 0;
+	console.log(coordinatesUnProcessed.length);
+	for(var i = 0; i < coordinatesUnProcessed.length; i++)
+	{
+		var tmpCoordinates1, tmpCoordinates2;
+		if(i!=0)
+		{
+			tmpCoordinates1 = coordinatesUnProcessed[i];
+			tmpCoordinates2 = coordinatesUnProcessed[i-1];
+
+		
+		}	
+		else
+		{
+		
+			tmpCoordinates1 = coordinatesUnProcessed[i];
+			tmpCoordinates2 = coordinatesUnProcessed[coordinatesUnProcessed.length-1];
+		}
+
+		var tmp = "[["+ tmpCoordinates1[0]+", " + tmpCoordinates1[1]+"],"+
+			   "["+ tmpCoordinates2[0]+", " + tmpCoordinates2[1]+"]"+
+			  "]";	
+		console.log(tmp);
+		coordinates[j] = tmp;
+		j++;
+	}
+
+	console.log(coordinates);
+*/
+return new ol.geom.MultiLineString([[[112.55,24.043], [148.752,-3.371]], [[112.55,24.043], [105.283,-6.96]]])
+}
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
