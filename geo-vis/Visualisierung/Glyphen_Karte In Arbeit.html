@@ -71,19 +71,25 @@ function createEarthquakeStyle(feature) {
   // from the Placemark's name instead.
   var name = feature.get('name');
   var magnitude = feature.get('description');
-  var radius = magnitude/10. > 50 ? 50 : magnitude/10.;
+  var radius = magnitude/10. > 30 ? 30 : magnitude/10.;
 
   coordinatesUnProcessed[i] = feature.getGeometry().getCoordinates();
   i++;
 
+  var coords = feature.getGeometry().getCoordinates();
+  console.log(coords);
+  if(coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
+  {
+     radius = 0;	
+  }
 
 
   return new ol.style.Style({
     geometry: feature.getGeometry(),
     image: new ol.style.RegularShape({
-      radius1: radius,
-      radius2: 5,
-      points: 5,
+      radius: radius,
+    //  radius2: radius/2.,
+      points: 3,
       angle: Math.PI,
       fill: earthquakeFill,
       stroke: earthquakeStroke
@@ -95,7 +101,6 @@ var maxFeatureCount;
 function calculateClusterInfo(resolution) {
   maxFeatureCount = 0;
   var features = vector.getSource().getFeatures();
-console.log(features);
   var feature, radius;
   for (var i = features.length - 1; i >= 0; --i) {
     feature = features[i];
@@ -160,7 +165,7 @@ var vector = new ol.layer.Vector({
   source: new ol.source.Cluster({
     distance: 40,
     source: new ol.source.Vector({
-      url: 'test.xml',
+      url: 'test3.xml',
       format: new ol.format.KML({
         extractStyles: false
       })
@@ -170,9 +175,13 @@ var vector = new ol.layer.Vector({
 });
 
 var raster = new ol.layer.Tile({
-  source: new ol.source.Stamen({
+  /*source: new ol.source.Stamen({
     layer: 'toner'
-  })
+  })*/
+source: new ol.source.Stamen({
+                    layer: 'terrain'
+                }),
+                name: 'Terrain'
 });
 
 
@@ -190,7 +199,7 @@ var map = new ol.Map({
     center: [0, 0],
     zoom: 2
   })
-});
+});	
 
 
 
@@ -212,7 +221,16 @@ var vectorSource= new ol.source.Vector({
 });
 
 var vectorLayer = new ol.layer.Vector({
-	source: vectorSource
+	source: vectorSource,
+	style: new ol.style.Style({
+   
+    //  fill: earthquakeFill,
+     		stroke: new ol.style.Stroke({
+			color: [250,50,50,1],
+			width: 3
+		})
+	})
+    
 });
 
 map.addLayer(vectorLayer);
@@ -258,7 +276,7 @@ function createMultiLineString()
 
 	console.log(coordinates);
 */
-return new ol.geom.MultiLineString([[[112.55,24.043], [148.752,-3.371]], [[112.55,24.043], [105.283,-6.96]]])
+return new ol.geom.MultiLineString([[[112.55,24.043], [148.752,-3.371]], [[112.55,24.043], [105.283,-6.96]]]);
 }
 
 
