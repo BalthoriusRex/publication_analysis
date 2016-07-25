@@ -28,9 +28,15 @@ public class Geocoding {
 
 	private final static long SLEEPTIME = 1000;
 	private final static String USER_AGENT = "Mozilla/5.0";
+	private final static String[] available_users = { 	"f1375e2b960b93f1538b7a4b636a7ffd", 
+														"1b9169ea5b526d47d0d508680a4e6455",
+														"8a258930b1901b83963a71fb5f8de688"
+													};
 
+	private static int currentUser_index = 0;
+	private static String currentUser;
 	private static int offset;
-	private static int limit_per_run = 20;
+	private static int limit_per_run = 50;//100;//-1;
 	private static int init_remains = -1;
 	private static int limit = 1;
 	
@@ -43,6 +49,9 @@ public class Geocoding {
 		boolean convertResults = false;
 		if (convertResults) {
 			convertResultsFileToXML(path_results, path_xml);
+			UTF8Writer writer = new UTF8Writer(path_offset);
+			writer.clear();
+			writer.close();
 		}
 		
 		boolean fillCoords = true;
@@ -65,63 +74,78 @@ public class Geocoding {
 			//Einlesen von Affiliations
 			//String[] locations = new String[10];
 			
+			currentUser_index = 0;
 			try {
+				currentUser = available_users[currentUser_index];
+				init_remains = -1;
+			
 				// while not EOF
 				String locTemp = null;
 				//for(int i = 0; i < numberOfEntries; i++)
 				//int i = -1;
 				while(true) // LimitExceedException breaks while-true-loop
 				{
-					//i++;
-					locTemp = null;
-					locTemp = RandomAccessFileCoordinateWriter.readNextNormalizedAffiliation();
-					if(locTemp == null)
-					{
-						System.out.println("File ended");
-						break;
-					}
-					//locations[i] = locTemp;
-		
-					System.out.println("loc: " + locTemp);
-					json = Geocoding.getCoordsByName(locTemp);
-					
-					// falls wir über den normalizedAffiliationName kein Ergebnis bekommen
-					// versuchen wir das ganze nochmal mit dem originalAffiliationName
-					if (json == null) {
-	
-						locTemp = RandomAccessFileCoordinateWriter.readNextOriginalAffiliation();
+					try {
+						
+						//i++;
+						locTemp = null;
+						locTemp = RandomAccessFileCoordinateWriter.readNextNormalizedAffiliation();
 						if(locTemp == null)
 						{
-							//throw new LimitExceededException(LimitExceededException.ERROR_EOF);
 							System.out.println("File ended");
 							break;
 						}
 						//locations[i] = locTemp;
-		
+			
 						System.out.println("loc: " + locTemp);
-						json = Geocoding.getCoordsByName(locTemp);
-					}
-					
-					if(json != null)
-					{
-						lng = json.getDouble("lng");
-						lat = json.getDouble("lat");
+						json = Geocoding.getCoordsByName(locTemp, currentUser);
 						
-						//write
-						RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
+						// falls wir über den normalizedAffiliationName kein Ergebnis bekommen
+						// versuchen wir das ganze nochmal mit dem originalAffiliationName
+						if (json == null) {
+		
+							locTemp = RandomAccessFileCoordinateWriter.readNextOriginalAffiliation();
+							if(locTemp == null)
+							{
+								//throw new LimitExceededException(LimitExceededException.ERROR_EOF);
+								System.out.println("File ended");
+								break;
+							}
+							//locations[i] = locTemp;
+			
+							System.out.println("loc: " + locTemp);
+							json = Geocoding.getCoordsByName(locTemp, currentUser);
+						}
 						
-						System.out.println("lng: " + lng);
-						System.out.println("lat: " + lat);
-						System.out.println("_______");
-					} else {
-						System.out.println("No data");
-						System.out.println("_______");
+						if(json != null)
+						{
+							lng = json.getDouble("lng");
+							lat = json.getDouble("lat");
+							
+							//write
+							RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
+							
+							System.out.println("lng: " + lng);
+							System.out.println("lat: " + lat);
+							System.out.println("_______");
+						} else {
+							RandomAccessFileCoordinateWriter.writeCoords(0.0, 0.0);
+							System.out.println("No data");
+							System.out.println("_______");
 					}
 					Geocoding.offset = Geocoding.offset+1;
 					
+					} catch (LimitExceededException e) {
+						System.err.println(e.getMessage());
+						currentUser_index++;
+						currentUser = available_users[currentUser_index];
+						init_remains = -1;
+					}
 				}
-			} catch (LimitExceededException e) {
-				System.out.println(e.getMessage());
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.err.println(""
+						+ "Anscheinend haben alle User ihr Kontingent bei OpenCageData aufgebraucht...\n"
+						+ "Versuche es morgen nochmal.\n");
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (JSONException e) {
@@ -187,8 +211,7 @@ public class Geocoding {
 		writer.append(""
 				+ "<?xml version='1.0' encoding='UTF-8'?>\n"
 				+ "<kml xmlns='http://www.opengis.net/kml/2.2'>\n"
-				+ "<Document>\n"
-				+ "\t" + "<Folder>\n");
+				+ "\t" + "<Document>\n");
 		
 		try {
 			String line, anzahl, normalizedName, fullName;
@@ -206,9 +229,11 @@ public class Geocoding {
 					normalizedName = parts[1];
 					fullName = parts[2];
 					} catch (ArrayIndexOutOfBoundsException e) {
-						normalizedName = "empty";
-						fullName = "empty";
+						normalizedName = "null island";
+						fullName = "Null Island";
 					}
+					normalizedName = normalizedName.replace("&", "and");
+					fullName = fullName.replace("&", "and");
 				} catch (NullPointerException e) {
 					System.out.println("reached EOF");
 					break;
@@ -228,8 +253,7 @@ public class Geocoding {
 			e.printStackTrace();
 		}
 		writer.append(""
-				+ "\t" + "</Folder>\n"
-				+ "</Document>\n"
+				+ "\t" + "</Document>\n"
 				+ "</kml>\n");
 		writer.close();
 		try {
@@ -239,7 +263,7 @@ public class Geocoding {
 		}
 	}
 	
-	public static JSONObject getCoordsByName(String location_name)
+	public static JSONObject getCoordsByName(String location_name, String user_key)
 			throws JSONException, IOException, LimitExceededException {
 		
 		try {
@@ -251,8 +275,6 @@ public class Geocoding {
 		}
 
 		String format = "json";
-
-		String user_key = "f1375e2b960b93f1538b7a4b636a7ffd";
 		StringBuffer response = Geocoding.sendGet(format, location_name, user_key);
 
 		JSONObject obj = new JSONObject(response.toString());
@@ -262,7 +284,8 @@ public class Geocoding {
 		int remaining = access.getInt("remaining");
 		if (init_remains < 0) {
 			init_remains = remaining;
-			limit = init_remains - limit_per_run;
+			limit = limit_per_run > -1 	? init_remains - limit_per_run
+										: 0;
 		}
 
 		System.out.println(access.toString());

@@ -10,7 +10,10 @@ public class LimitExceededException extends Exception {
 	public final static int ERROR_LIMIT = 0;
 	public final static int ERROR_EOF = 1;
 	
-	private final static String MSG_LIMIT = "Geocoding service offers no further requests... try again tomorrow.";
+	private final static String MSG_LIMIT = ""
+							+ "Geocoding service offers no further requests... \n"
+							+ "no more support for this user for today \n"
+							+ "consider using another user key!\n";
 	private final static String MSG_EOF = "Reached end of file... Programm will stop... Computation done.";
 	private final static String MSG_UNKNOWN_ERROR = "an unknown error occured...";
 	
