@@ -73,12 +73,12 @@ public class RandomAccessFileCoordinateWriter {
 		String end 	 = "";
 		switch (value) {
 		case 1:
-			start  	= "<Placemark";
-			end		= "\">";
+			start  	= "<Placemark id='";
+			end		= "'>";
 			break;
 		case 2:
-			start 	= SimpleApp.TAG_AFFILIATION_FULLNAME;
-			end 	= "<\""+SimpleApp.TAG_AFFILIATION_FULLNAME+">";
+			start 	= "<name>";
+			end 	= "<\name>";
 		}
 		
 		entriesDone++;

@@ -524,6 +524,11 @@ public class SimpleApp {
 	
 	@SuppressWarnings("serial")
 	public static List<Row> sql_answerQuery(String query) {
+		
+		System.out.println(""
+				+ "[CURRENT JOB] Answer Query\n"
+				+ "       query: " + query);
+		
 		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
 		
 	    Logger.getLogger("org").setLevel(Level.ERROR);
@@ -550,6 +555,45 @@ public class SimpleApp {
 		sc.close();
 		
 		return result;
+	}
+	
+	/**
+	 * Prints the given query in the first line each row as tab-separated line to the outputFile.
+	 * Uses UTF8 encoding.
+	 * @param outputFile
+	 * @param query
+	 * @param results
+	 */
+	public static void printResultsToFile(String outputFile, String query, List<Row> results) {
+		UTF8Writer writer = new UTF8Writer(outputFile);
+		
+		long lineCount = 0;
+		
+		String queryUpper = query.toUpperCase();
+		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
+		int countColoumns = projections.split(",").length;
+		
+		writer.clear();
+		writer.appendLine(query);
+		writer.appendLine("");
+		for (Row row: results) {
+			String line = "";
+			//String s = row.toString();
+			//String[] parts = s.substring(1, s.length()-1)
+			//				  .split(",");
+			for (int i = 0; i < countColoumns; i++) {
+				if (i > 0) {
+					line += "\t";
+				}
+				line += row.get(i);
+			}
+			writer.appendLine(line);
+			lineCount++;
+		}
+		System.out.println("\n"
+				+ "Printed " + lineCount + " lines to " + outputFile + "\n"
+				+ "Query: " + query);
+		writer.close();
 	}
 	
 	public static void main(String[] args) {
@@ -584,14 +628,21 @@ public class SimpleApp {
 		
 		compute = false;
 		if (compute) {
-			List<String> authors = SimpleApp.sql_getAuthorNames(file_Authors);
-			int i = 0;
-			System.out.println("Output [");
-			for (String s : authors) {
-				i++;
-				System.out.println(i + "\t" + s);
-			}
-			System.out.println("]");
+			String outfile = folder + "query_results_authors_with_id_smaller_7950.txt";
+			String query = ""
+					+ "SELECT authorID, name "
+					+ "FROM Author "
+					+ "WHERE authorID < 7950";
+			List<Row> results = SimpleApp.sql_answerQuery(query);
+			SimpleApp.printResultsToFile(outfile, query, results);
+//			List<String> authors = SimpleApp.sql_getAuthorNames(file_Authors);
+//			int i = 0;
+//			System.out.println("Output [");
+//			for (String s : authors) {
+//				i++;
+//				System.out.println(i + "\t" + s);
+//			}
+//			System.out.println("]");
 		}
 		
 		compute = false;
@@ -603,25 +654,41 @@ public class SimpleApp {
 		compute = false;
 		if (compute) {
 			long paperID = 2145616859;
+			String outfile = folder + "query_results_information_on_paper_" + paperID + ".txt";
 			String query = ""
-					+ "SELECT p.originalPaperTitle, paa.authorSequenceNumber, a.name, paa.originalAffiliationName "
-					+ "FROM PaperAuthorAffiliation paa, Author a, Paper p "
-					//+ "FROM "
+					+ "SELECT "
+						+ "paperID, "
+						+ "authorID, "
+						+ "affiliationID, "
+						+ "originalAffiliationName, "
+						+ "normalizedAffiliationName, "
+						+ "authorSequenceNumber "
+					+ "FROM "
+						+ "PaperAuthorAffiliation "
 					+ "WHERE "
-					+          "paa.paperID = " + paperID + " "
-					+ "AND " + "paa.authorID = a.authorID "
-					+ "AND " + "paa.paperID = p.paperID "
-					+ "ORDER BY paa.authorSequenceNumber ASC";
-			List<Row> result = sql_answerQuery(query);
-			for (Row row: result) {
-				System.out.println(row.toString());
-			}
+						+ "paperID = " + paperID + " "
+					+ "ORDER BY "
+						+ "authorSequenceNumber ASC";
+//			String query = ""
+//					+ "SELECT p.originalPaperTitle, paa.authorSequenceNumber, a.name, paa.originalAffiliationName "
+//					+ "FROM PaperAuthorAffiliation paa, Author a, Paper p "
+//					//+ "FROM "
+//					+ "WHERE "
+//					+          "paa.paperID = " + paperID + " "
+//					+ "AND " + "paa.authorID = a.authorID "
+//					+ "AND " + "paa.paperID = p.paperID "
+//					+ "ORDER BY paa.authorSequenceNumber ASC";
+			List<Row> results = sql_answerQuery(query);
+			SimpleApp.printResultsToFile(outfile, query, results);
+			//for (Row row: results) {
+			//	System.out.println(row.toString());
+			//}
 		}
 		
 		// Welche Affiliations gibt es?
 		compute = true;
 		if (compute) {
-			String outfile = folder + "output_query_affiliations.txt";
+			String outfile = folder + "query_results_affiliations_from_paperauthoraffiliations.txt";
 			String query = ""
 					+ "SELECT "
 						+ "COUNT(normalizedAffiliationName) as Anzahl, "
@@ -633,13 +700,14 @@ public class SimpleApp {
 					+ "ORDER BY normalizedAffiliationName ASC"
 					;
 			
-			System.out.println(""
-					+ "[CURRENT JOB] Answer Query\n"
-					+ "       query: " + query + "\n"
-					+ "          to: " + outfile);
+//			System.out.println(""
+//					+ "[CURRENT JOB] Answer Query\n"
+//					+ "       query: " + query + "\n"
+//					+ "          to: " + outfile);
 			
 			List<Row> result = sql_answerQuery(query);
-			
+			SimpleApp.printResultsToFile(outfile, query, result);
+			/*
 			UTF8Writer writer = new UTF8Writer(outfile);
 			writer.clear();
 			writer.append(""
@@ -695,6 +763,8 @@ public class SimpleApp {
 					+ "</Document>\n"
 					+ "</kml>\n");
 			writer.close();
+			
+			*/
 			
 //			TextFileWriter.writeOver(outfile, "");
 //			for (String s: result) {
