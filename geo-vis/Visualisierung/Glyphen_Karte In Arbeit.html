@@ -230,7 +230,7 @@ var vectorLayer = new ol.layer.Vector({
     //  fill: earthquakeFill,
      		stroke: new ol.style.Stroke({
 			color: [250,50,50,1],
-			width: 0.01
+			width: 0.2
 		})
 	})
     
@@ -243,7 +243,7 @@ map.addLayer(vectorLayer);
 
 function createMultiLineString()
 {
-	return new ol.geom.MultiLineString(randomEdges);
+	return new ol.geom.MultiLineString(adjacents);
 }
 
 
