@@ -523,38 +523,60 @@ public class SimpleApp {
 	}
 	
 	@SuppressWarnings("serial")
-	public static List<Row> sql_answerQuery(String query) {
+	public static List<Row> sql_answerQuery(SQLContext sqlContext ,String query) {
 		
 		System.out.println(""
+				+ "[Method] sql_answerQuery\n"
 				+ "[CURRENT JOB] Answer Query\n"
 				+ "       query: " + query);
-		
-		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
-		
-	    Logger.getLogger("org").setLevel(Level.ERROR);
-	    Logger.getLogger("akka").setLevel(Level.ERROR);
-	
-		JavaSparkContext sc = new JavaSparkContext(conf);
-		SQLContext sqlContext = new org.apache.spark.sql.SQLContext(sc);
-		buildTables(sc, sqlContext);
 		
 		
 		DataFrame content = sqlContext.sql(query);
 		List<Row> result = content.javaRDD().map(
 			new Function<Row, Row>() {
 				public Row call(Row row) {
-					//System.out.println(" " + row.schema().toString());
-					//String out = row.toString();
-					//System.out.println("\t" + out);
-					//return out;
 					return row;
 				}
 			}
 		).collect();
 		
-		sc.close();
-		
 		return result;
+	}
+	
+	/**
+	 * Prints the results of the given query to the end of the outputfile.
+	 * Uses UTF8 encoding.
+	 * @param outputFile
+	 * @param query
+	 * @param results
+	 */
+	public static void appendResultsToFile(String outputFile, String query, List<Row> results) {
+		UTF8Writer writer = new UTF8Writer(outputFile);
+		
+		long lineCount = 0;
+		
+		String queryUpper = query.toUpperCase();
+		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
+		int countColoumns = projections.split(",").length;
+		
+		for (Row row: results) {
+			String line = "";
+			//String s = row.toString();
+			//String[] parts = s.substring(1, s.length()-1)
+			//				  .split(",");
+			for (int i = 0; i < countColoumns; i++) {
+				if (i > 0) {
+					line += "\t";
+				}
+				line += row.get(i);
+			}
+			writer.appendLine(line);
+			lineCount++;
+		}
+		System.out.println("\n"
+				+ "Printed " + lineCount + " lines to " + outputFile + "\n"
+				+ "Query: " + query);
+		writer.close();
 	}
 	
 	/**
@@ -576,19 +598,21 @@ public class SimpleApp {
 		writer.clear();
 		writer.appendLine(query);
 		writer.appendLine("");
-		for (Row row: results) {
-			String line = "";
-			//String s = row.toString();
-			//String[] parts = s.substring(1, s.length()-1)
-			//				  .split(",");
-			for (int i = 0; i < countColoumns; i++) {
-				if (i > 0) {
-					line += "\t";
+		if (results != null) {
+			for (Row row: results) {
+				String line = "";
+				//String s = row.toString();
+				//String[] parts = s.substring(1, s.length()-1)
+				//				  .split(",");
+				for (int i = 0; i < countColoumns; i++) {
+					if (i > 0) {
+						line += "\t";
+					}
+					line += row.get(i);
 				}
-				line += row.get(i);
+				writer.appendLine(line);
+				lineCount++;
 			}
-			writer.appendLine(line);
-			lineCount++;
 		}
 		System.out.println("\n"
 				+ "Printed " + lineCount + " lines to " + outputFile + "\n"
@@ -608,6 +632,24 @@ public class SimpleApp {
 		String user = isRemote ? "bigprak" : "balthorius"; 
 		String folder = "/home/"+user+"/progs/hadoop/input/";
 		setFileNames(folder);
+		
+		
+		
+		// initialize Spark - start
+		SparkConf conf = new SparkConf()
+								.setAppName("Simple Application")
+								.setMaster(master)
+								.set("spark.driver.maxResultSize", "3g");
+		
+	    Logger.getLogger("org").setLevel(Level.ERROR);
+	    Logger.getLogger("akka").setLevel(Level.ERROR);
+	
+		JavaSparkContext sc = new JavaSparkContext(conf);
+		SQLContext sqlContext = new org.apache.spark.sql.SQLContext(sc);
+		buildTables(sc, sqlContext);
+		// initialize Spark - end
+		
+		
 		
 		//path = "hdfs:///users/bigprak/input/Affiliations.txt";
 		
@@ -633,7 +675,7 @@ public class SimpleApp {
 					+ "SELECT authorID, name "
 					+ "FROM Author "
 					+ "WHERE authorID < 7950";
-			List<Row> results = SimpleApp.sql_answerQuery(query);
+			List<Row> results = SimpleApp.sql_answerQuery(sqlContext, query);
 			SimpleApp.printResultsToFile(outfile, query, results);
 //			List<String> authors = SimpleApp.sql_getAuthorNames(file_Authors);
 //			int i = 0;
@@ -678,7 +720,7 @@ public class SimpleApp {
 //					+ "AND " + "paa.authorID = a.authorID "
 //					+ "AND " + "paa.paperID = p.paperID "
 //					+ "ORDER BY paa.authorSequenceNumber ASC";
-			List<Row> results = sql_answerQuery(query);
+			List<Row> results = sql_answerQuery(sqlContext, query);
 			SimpleApp.printResultsToFile(outfile, query, results);
 			//for (Row row: results) {
 			//	System.out.println(row.toString());
@@ -705,7 +747,7 @@ public class SimpleApp {
 //					+ "       query: " + query + "\n"
 //					+ "          to: " + outfile);
 			
-			List<Row> result = sql_answerQuery(query);
+			List<Row> result = sql_answerQuery(sqlContext, query);
 			SimpleApp.printResultsToFile(outfile, query, result);
 			/*
 			UTF8Writer writer = new UTF8Writer(outfile);
@@ -782,7 +824,7 @@ public class SimpleApp {
 					+ "FROM Author "
 					+ "WHERE name LIKE 'n%'"
 					;
-			List<Row> result = sql_answerQuery(query);
+			List<Row> result = sql_answerQuery(sqlContext, query);
 			System.out.println();  // Leerzeile für bessere Formatierung der Ausgabe
 			
 			Row r = result.get(0);
@@ -806,6 +848,10 @@ public class SimpleApp {
 				System.out.println(r.toString());
 			}
 		}
+		
+
+		// destroy Spark context
+		sc.close();
 		
 	}
 }
