@@ -36,7 +36,7 @@ public class Geocoding {
 	private static int currentUser_index = 0;
 	private static String currentUser;
 	private static int offset;
-	private static int limit_per_run = 50;//100;//-1;
+	private static int limit_per_run = 2500;//100;//-1;
 	private static int init_remains = -1;
 	private static int limit = 1;
 	
@@ -233,7 +233,17 @@ public class Geocoding {
 						fullName = "Null Island";
 					}
 					normalizedName = normalizedName.replace("&", "and");
-					fullName = fullName.replace("&", "and");
+					fullName       =       fullName.replace("&", "and");
+
+					normalizedName = normalizedName.replace("@", "AT");
+					fullName       =       fullName.replace("@", "AT");
+
+					normalizedName = normalizedName.replace("<", "");
+					fullName       =       fullName.replace("<", "");
+					
+					normalizedName = normalizedName.replace(">", "");
+					fullName       =       fullName.replace(">", "");
+					
 				} catch (NullPointerException e) {
 					System.out.println("reached EOF");
 					break;
