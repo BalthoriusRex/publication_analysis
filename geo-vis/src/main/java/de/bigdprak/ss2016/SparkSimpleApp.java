@@ -15,6 +15,7 @@ import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
 
 public class SparkSimpleApp {
+	@SuppressWarnings("serial")
 	public static void main(String[] args) {
 		String logFile = "/home/balthorius/progs/spark/eclipse_log.txt";
 		//String logFile = "~/Schreibtisch/spark-1.6.1/README.md"; // Should be

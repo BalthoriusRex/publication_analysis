@@ -25,12 +25,13 @@ import de.bigdprak.ss2016.utils.UTF8Writer;
 public class Geocoding {
 	
 	private static int remaining = 2500;
+	private static int whitespace_size = 35;
 
 	private final static long SLEEPTIME = 1000;
 	private final static String USER_AGENT = "Mozilla/5.0";
-	private final static String[] available_users = { 	"f1375e2b960b93f1538b7a4b636a7ffd", 
-														"1b9169ea5b526d47d0d508680a4e6455",
-														"8a258930b1901b83963a71fb5f8de688"
+	private final static String[] available_users = { 	 "f1375e2b960b93f1538b7a4b636a7ffd"
+														,"1b9169ea5b526d47d0d508680a4e6455"
+														//,"8a258930b1901b83963a71fb5f8de688"
 													};
 
 	private static int currentUser_index = 0;
@@ -42,13 +43,15 @@ public class Geocoding {
 	
 	public static void main(String[] args) {
 		
-		String path_results = 	"./Visualisierung/query_results_affiliations_from_paperauthoraffiliations.txt";
-		String path_xml = 		"./Visualisierung/query_results_affiliations_from_paperauthoraffiliations.xml"; 
-		String path_offset = 	"./Visualisierung/tmp.offset.txt";
+		String path_results = 			"./Visualisierung/query_results_affiliations_from_paperauthoraffiliations.txt";
+		String path_results_coords = 	"./Visualisierung/query_results_affiliations_with_coordinates.txt";
+		String path_xml = 				"./Visualisierung/query_results_affiliations_from_paperauthoraffiliations.xml"; 
+		String path_offset = 			"./Visualisierung/tmp.offset.txt";
 		
 		boolean convertResults = false;
 		if (convertResults) {
-			convertResultsFileToXML(path_results, path_xml);
+			convertResultsFileToResultsFileWithWhitespace(path_results, path_results_coords);
+			//convertResultsFileToXML(path_results, path_xml);
 			UTF8Writer writer = new UTF8Writer(path_offset);
 			writer.clear();
 			writer.close();
@@ -121,21 +124,26 @@ public class Geocoding {
 						{
 							lng = json.getDouble("lng");
 							lat = json.getDouble("lat");
-							
 							//write
-							RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
-							
-							System.out.println("lng: " + lng);
-							System.out.println("lat: " + lat);
+							//RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
+							System.out.println("[lng lat]: [" + lng + " " + lat + "]");
 							System.out.println("_______");
 						} else {
-							RandomAccessFileCoordinateWriter.writeCoords(0.0, 0.0);
+							lng = 0.0;
+							lat = 0.0;
+							//RandomAccessFileCoordinateWriter.writeCoords(0.0, 0.0);
 							System.out.println("No data");
 							System.out.println("_______");
-					}
-					Geocoding.offset = Geocoding.offset+1;
-					
+						}
+						RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
+						Geocoding.offset = Geocoding.offset+1;
+						
 					} catch (LimitExceededException e) {
+						System.err.println(e.getMessage());
+						currentUser_index++;
+						currentUser = available_users[currentUser_index];
+						init_remains = -1;
+					} catch (IOException e) {
 						System.err.println(e.getMessage());
 						currentUser_index++;
 						currentUser = available_users[currentUser_index];
@@ -146,8 +154,8 @@ public class Geocoding {
 				System.err.println(""
 						+ "Anscheinend haben alle User ihr Kontingent bei OpenCageData aufgebraucht...\n"
 						+ "Versuche es morgen nochmal.\n");
-			} catch (IOException e) {
-				e.printStackTrace();
+			//} catch (IOException e) {
+			//	e.printStackTrace();
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -180,6 +188,41 @@ public class Geocoding {
 	}
 	
 	/**
+	 * Transforms the standard results file to a file with an additional column and whitespace in this column.
+	 * In the process of generating coordinates this whitespace shall be overwritten by coordinate values.
+	 * @param results_input_path
+	 * @param results_output_path
+	 */
+	public static void convertResultsFileToResultsFileWithWhitespace(String results_input_path, String results_output_path) {
+		String whitespace = "";
+		for (int i = 0; i < whitespace_size; i++) {
+			whitespace += " ";
+		}
+		
+		UTF8Writer wr = new UTF8Writer(results_output_path);
+		wr.clear();
+		
+		BufferedReader br;
+		try {
+			br = new BufferedReader(new FileReader(results_input_path));
+			br.readLine(); // skip query line
+			br.readLine(); // skip empty line
+			
+			String line;
+			while ((line = br.readLine()) != null) {
+				wr.appendLine(line + "\t" + whitespace);
+			}
+			
+			br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		wr.close();
+	}
+	
+	/**
 	 * This method reads all lines from a materialized query output.
 	 * (materialized via SimpleApp.printResultsToFile)
 	 * In each coordinates line there is a whitespace of 35 characters at the end which will
@@ -191,7 +234,6 @@ public class Geocoding {
 	 */
 	public static void convertResultsFileToXML(String results_input_path, String results_XML_path) {
 		String whitespace = "";
-		int whitespace_size = 35;
 		for (int i = 0; i < whitespace_size; i++) {
 			whitespace += " ";
 		}

@@ -3,8 +3,6 @@ package de.bigdprak.ss2016.utils;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-import de.bigdprak.ss2016.SimpleApp;
-
 
 
 public class RandomAccessFileCoordinateWriter {
