@@ -7,6 +7,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.css" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.js"></script>
+<script src="adjacentTest2.js"></script>
+<script src="adjacentTest3.js"></script>
+<script src="randomEdges.JSON"></script>
 
 <style>
 #map {
@@ -77,7 +80,7 @@ function createEarthquakeStyle(feature) {
   i++;
 
   var coords = feature.getGeometry().getCoordinates();
-  console.log(coords);
+
   if(coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
   {
      radius = 0;	
@@ -227,7 +230,7 @@ var vectorLayer = new ol.layer.Vector({
     //  fill: earthquakeFill,
      		stroke: new ol.style.Stroke({
 			color: [250,50,50,1],
-			width: 3
+			width: 0.01
 		})
 	})
     
@@ -240,43 +243,7 @@ map.addLayer(vectorLayer);
 
 function createMultiLineString()
 {
-/*	console.log("HIT");
-	console.log(coordinatesUnProcessed);
-	console.log(coordinatesUnProcessed.length);
-
-	//Build Array
-	//[[[-1, -1], [1, -1]], [[-1, 1], [1, 1]]]
-	var coordinates = [];
-	var j = 0;
-	console.log(coordinatesUnProcessed.length);
-	for(var i = 0; i < coordinatesUnProcessed.length; i++)
-	{
-		var tmpCoordinates1, tmpCoordinates2;
-		if(i!=0)
-		{
-			tmpCoordinates1 = coordinatesUnProcessed[i];
-			tmpCoordinates2 = coordinatesUnProcessed[i-1];
-
-		
-		}	
-		else
-		{
-		
-			tmpCoordinates1 = coordinatesUnProcessed[i];
-			tmpCoordinates2 = coordinatesUnProcessed[coordinatesUnProcessed.length-1];
-		}
-
-		var tmp = "[["+ tmpCoordinates1[0]+", " + tmpCoordinates1[1]+"],"+
-			   "["+ tmpCoordinates2[0]+", " + tmpCoordinates2[1]+"]"+
-			  "]";	
-		console.log(tmp);
-		coordinates[j] = tmp;
-		j++;
-	}
-
-	console.log(coordinates);
-*/
-return new ol.geom.MultiLineString([[[112.55,24.043], [148.752,-3.371]], [[112.55,24.043], [105.283,-6.96]]]);
+	return new ol.geom.MultiLineString(randomEdges);
 }
 
 

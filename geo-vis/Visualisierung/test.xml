@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 	<Document>
-			<Placemark id="2012 Jan 19 06:48:33.75 UTC">
+			<Placemark id="	2012 Jan 19 06:48:33.75 UTC">
 				<name>u 500</name>
 				<description>5000000</description>
 				<Point>
@@ -19,7 +19,7 @@
 				<name>a 101</name>
 				<description>101</description>
 				<Point>
-                    <coordinates>105.283,-6.96,0</coordinates>                            
+                   			<coordinates>105.283,-6.96,0</coordinates>                            
 				</Point>
 			</Placemark>
 	</Document>
