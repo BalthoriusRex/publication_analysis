@@ -1,7 +1,13 @@
 package de.bigdprak.ss2016;
 
 /* SimpleApp.java */
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -15,7 +21,18 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.types.StructType;
 
-import de.bigdprak.ss2016.database.*;
+import de.bigdprak.ss2016.database.Affiliation;
+import de.bigdprak.ss2016.database.Author;
+import de.bigdprak.ss2016.database.ConferenceSeries;
+import de.bigdprak.ss2016.database.FieldOfStudy;
+import de.bigdprak.ss2016.database.FieldOfStudyHierarchy;
+import de.bigdprak.ss2016.database.Journal;
+import de.bigdprak.ss2016.database.Paper;
+import de.bigdprak.ss2016.database.PaperAuthorAffiliation;
+import de.bigdprak.ss2016.database.PaperKeyword;
+import de.bigdprak.ss2016.database.PaperReference;
+import de.bigdprak.ss2016.database.PaperURL;
+import de.bigdprak.ss2016.database.View_pID_affID_affName;
 import de.bigdprak.ss2016.utils.UTF8Writer;
 
 public class SimpleApp {
@@ -49,7 +66,8 @@ public class SimpleApp {
 		file_FieldOfStudyHierarchy = folder + "FieldOfStudyHierarchy.txt";
 		file_FieldsOfStudy = folder + "FieldsOfStudy.txt";
 		file_Journals = folder + "Journals.txt";
-		file_PaperAuthorAffiliations = folder + "PaperAuthorAffiliations.txt";
+		//file_PaperAuthorAffiliations = folder + "PaperAuthorAffiliations.txt";
+		file_PaperAuthorAffiliations = folder + "reduced_PaperAuthorAffiliations.txt";
 		file_PaperKeywords = folder + "PaperKeywords.txt";
 		file_PaperReferences = folder + "PaperReferences.txt";
 		file_Papers = folder + "Papers.txt";
@@ -523,6 +541,80 @@ public class SimpleApp {
 	}
 	
 	@SuppressWarnings("serial")
+	private static void buildViews(JavaSparkContext sc, SQLContext sqlContext) {
+
+		// create Table View_pID_affID_affName
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_PaperAuthorAffiliations).map(
+				new Function<String, View_pID_affID_affName>() {
+					public View_pID_affID_affName call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						return new View_pID_affID_affName(parts);
+					}
+				}
+			),
+			View_pID_affID_affName.class)
+		.registerTempTable("View_pID_affID_affName");
+	}
+	
+	/**
+	 * Instead of collecting all the results into a list, this method directly writes each result 
+	 * as new line to the given output file.
+	 * @param sqlContext
+	 * @param query Your query.
+	 * @param writer A UTF8Writer assigned to the desired output file.
+	 * @return Number of results (line count)
+	 */
+	public static long sql_printQueryResult(SQLContext sqlContext ,String query, String output_file) {
+		
+		System.out.println(""
+				+ "[Method] sql_printQueryResult\n"
+				+ "[CURRENT JOB] Answer Query\n"
+				+ "       query: " + query);
+		
+		final UTF8Writer writer = new UTF8Writer(output_file);
+		writer.clear();
+		writer.appendLine(query);
+		writer.appendLine("");
+		
+		String queryUpper = query.toUpperCase();
+		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
+		final int countColoumns = projections.split(",").length;
+		
+		DataFrame content = sqlContext.sql(query);
+		@SuppressWarnings("serial")
+		long result = content.javaRDD().map(
+			new Function<Row, Integer>() {
+				public Integer call(Row row) {
+					
+					// print each line to file...
+					String line = "";
+					for (int i = 0; i < countColoumns; i++) {
+						if (i > 0) {
+							line += "\t";
+						}
+						line += row.get(i);
+					}
+					writer.appendLine(line);
+					
+					return 1;
+				}
+			}
+		).reduce(
+			new Function2<Integer, Integer, Integer>() {
+				public Integer call(Integer a, Integer b) {
+					return a + b;
+				}
+			}
+		);
+		
+		writer.close();
+		
+		return result;
+	}
+	
+	@SuppressWarnings("serial")
 	public static List<Row> sql_answerQuery(SQLContext sqlContext ,String query) {
 		
 		System.out.println(""
@@ -737,6 +829,7 @@ public class SimpleApp {
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		SQLContext sqlContext = new org.apache.spark.sql.SQLContext(sc);
 		buildTables(sc, sqlContext);
+		buildViews(sc, sqlContext);
 		// initialize Spark - end
 		
 		
@@ -822,6 +915,97 @@ public class SimpleApp {
 			//}
 		}
 		
+		compute = false;
+		if (compute) {
+			// ermittle alle paperIDs aus PaperAuthorAffiliation
+			String outfile = folder + "query_results_all_paperIDs.txt";
+			String query = ""
+					+ "SELECT DISTINCT paperID "
+					+ "FROM PaperAuthorAffiliation";
+			//List<Row> result = sql_answerQuery(sqlContext, query); // Ergebnis ist zu groß für Spark...
+			//printResultsToFile(outfile, query, result);
+			sql_printQueryResult(sqlContext, query, outfile);
+		}
+		
+		compute = false;
+		if (compute) {
+			String outfile = folder + "query_results_all_paperIDs.txt";
+			getPaperIDs(folder, outfile);
+			
+		}
+		
+//		compute = false;
+//		if (compute) {
+//			String query = ""
+//					+ "SELECT affiliationID, normalizedAffiliationName "
+//					+ "FROM PaperAuthorAffiliation "
+//					+ "WHERE "
+//					+ "";
+//		}
+		
+		compute = false;
+		if (compute) {
+			// 
+			String results_file = folder + "query_results_all_paperIDs.txt";
+			String outfile = folder + "query_results_all_coauthorships.txt";
+			BufferedReader br;
+			UTF8Writer wr = new UTF8Writer(outfile);
+			
+			try {
+				br = new BufferedReader(new FileReader(results_file));
+				
+				String line;
+				long paperID;
+				br.readLine(); // skip query line
+				br.readLine(); // skip empty line
+				
+				String fake_query = ""
+//					+ "SELECT p.originalPaperTitle, paa.authorSequenceNumber, a.name, paa.originalAffiliationName "
+//					+ "FROM PaperAuthorAffiliation paa, Author a, Paper p "
+//					+ "WHERE "
+//					+          "paa.paperID = " + "paperID" + " "
+//					+ "AND " + "paa.authorID = a.authorID "
+//					+ "AND " + "paa.paperID = p.paperID "
+//					+ "ORDER BY paa.authorSequenceNumber ASC"
+					+ "";
+				
+				fake_query = ""
+						+ "SELECT paperID, authorSequenceNumber, affiliationID, normalizedAffiliationName "
+						+ "FROM PaperAuthorAffiliation "
+						+ "WHERE paperID = " + "paperID"
+						+ "";
+				printResultsToFile(wr, fake_query, null);
+				
+				while ((line = br.readLine()) != null) {
+					
+					paperID = Long.parseLong(line);
+					
+					String query = ""
+//						+ "SELECT p.originalPaperTitle, paa.authorSequenceNumber, a.name, paa.originalAffiliationName "
+//						+ "FROM PaperAuthorAffiliation paa, Author a, Paper p "
+//						+ "WHERE "
+//						+          "paa.paperID = " + paperID + " "
+//						+ "AND " + "paa.authorID = a.authorID "
+//						+ "AND " + "paa.paperID = p.paperID "
+//						+ "ORDER BY paa.authorSequenceNumber ASC"
+						+ "";
+					query = ""
+						+ "SELECT paperID, authorSequenceNumber, affiliationID, normalizedAffiliationName "
+						+ "FROM PaperAuthorAffiliation "
+						+ "WHERE paperID = " + paperID
+						+ "";
+					List<Row> result = sql_answerQuery(sqlContext, query);
+					appendResultsToFile(wr, query, result);
+				}
+				br.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			wr.close();
+		}
+		
 		// Welche Affiliations gibt es?
 		compute = false;
 		if (compute) {
@@ -873,6 +1057,130 @@ public class SimpleApp {
 				r = result.get(i);
 				System.out.println(r.toString());
 			}
+			System.out.println("printed " + result.size() + " entries...");
+		}
+		
+		compute = false;
+		if (compute) {
+			String affiliation = "odense university";
+			String repl_affiliation = affiliation.replace(" ", "_");
+			String outfile = folder + "coauthorships_" + repl_affiliation + ".txt";
+			
+			String query = ""
+					+ "SELECT "
+						+ "A.paperID AS paperID, "
+						+ "A.affiliationID AS affID_A, "
+						+ "B.affiliationID AS affID_B, "
+						+ "A.normalizedAffiliationName AS affName_A, "
+						+ "B.normalizedAffiliationName AS affName_B "
+					+ "FROM "
+						+ "View_pID_affID_affName A JOIN "
+						+ "View_pID_affID_affName B "
+						+ "ON A.paperID = B.paperID "
+					+ "WHERE "
+						+ "A.normalizedAffiliationName = '" + affiliation + "'"
+					+ "";
+			
+			List<Row> result = sql_answerQuery(sqlContext, query);
+			
+			UTF8Writer writer = new UTF8Writer(outfile);
+			printResultsToFile(writer, query, result);
+			writer.close();
+		}
+		
+		compute = false;
+		if (compute) {
+			// extrahiere die 1000 häufigst auftretenden Affiliations
+			String outfile = folder + "affiliations_sorted_by_count.txt";
+			String query = ""
+					+ "SELECT "
+						+ "COUNT(affiliationID) as Anzahl, "
+						+ "affiliationID as affiliationID, "
+						+ "FIRST(normalizedAffiliationName) as Name "
+					+ "FROM PaperAuthorAffiliation "
+					+ "WHERE NOT (normalizedAffiliationName = '') "
+					+ "GROUP BY affiliationID "
+					+ "ORDER BY Anzahl DESC "
+					+ "LIMIT 1000"
+					;
+						
+			List<Row> result = sql_answerQuery(sqlContext, query);
+			UTF8Writer writer = new UTF8Writer(outfile);
+			SimpleApp.printResultsToFile(writer, query, result);
+			writer.close();
+		}
+		
+		compute = false;
+		if (compute) {
+			// erzeuge reduzierte PaperAuthorAffiliations
+			// indem nur noch Zeilen übernommen werden, deren Affiliations zu 
+			// den 1000 häufigsten gehören.
+			
+			// output:
+			// --------------------------
+			// line:   337000000
+			// kept:   46966629		~13,9%
+			// dumped: 290033371	~86,1%
+			
+			String infile = folder + "affiliations_sorted_by_count.txt";
+			String outfile = folder + "reduced_PaperAuthorAffiliations.txt";
+			
+			Set<Long> IDs = new HashSet<Long>();
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(infile));
+				br.readLine(); // skip query line
+				br.readLine(); // skip empty line
+				String line = null;
+				while ((line = br.readLine()) != null) {
+					String s_id = line.split("\t")[1];
+					long id = Long.parseLong(s_id);
+					IDs.add(id);
+				}
+				br.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			long count_kept = 0;
+			long count_dumped = 0;
+			try {
+				UTF8Writer writer = new UTF8Writer(outfile);
+				writer.clear();
+				
+				BufferedReader br = new BufferedReader(new FileReader(file_PaperAuthorAffiliations));
+				br.readLine(); // skip query line
+				br.readLine(); // skip empty line
+				String line = null;
+				while ((line = br.readLine()) != null) {
+					if ((count_kept + count_dumped) % 1000000 == 0) {
+						System.out.println(""
+								+ "--------------------------\n"
+								+ "line:   " + (count_kept + count_dumped) + "\n"
+								+ "kept:   " + count_kept + "\n"
+								+ "dumped: " + count_dumped);
+					}
+					
+					String s_id = line.split("\t")[2];
+					long id = s_id.isEmpty() ? -1 : Long.parseLong(s_id, 16);
+					
+					// schreibe nur solche Zeilen zurück, deren Affiliations wichtig sind
+					if (IDs.contains(id)) {
+						writer.appendLine(line);
+						count_kept++;
+					} else {
+						count_dumped++;
+					}
+				}
+				br.close();
+				writer.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
 
