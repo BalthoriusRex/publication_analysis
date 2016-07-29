@@ -72,17 +72,17 @@ public class SimpleApp {
 	}
 	
 	@SuppressWarnings("serial")
-	public static int getLineCount(String input_file) {
+	public static int getLineCount(JavaSparkContext sc, String input_file) {
 
 		// input_file = "hdfs:///users/bigprak/input/Affiliations.txt";
 		//master = "spark://wdi06.informatik.uni-leipzig.de:7077";
 		
-		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
-		
-	    Logger.getLogger("org").setLevel(Level.ERROR);
-	    Logger.getLogger("akka").setLevel(Level.ERROR);
-	
-		JavaSparkContext sc = new JavaSparkContext(conf);
+//		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster(master);
+//		
+//	    Logger.getLogger("org").setLevel(Level.ERROR);
+//	    Logger.getLogger("akka").setLevel(Level.ERROR);
+//	
+//		JavaSparkContext sc = new JavaSparkContext(conf);
 		JavaRDD<String> lines = sc.textFile(input_file);
 		
 		// *** Version 1 ***
@@ -144,7 +144,7 @@ public class SimpleApp {
 		}).count();
 		System.out.println("Lines with a: " + numAs + ", lines with b: " + numBs);
 		*/
-		sc.close();
+//		sc.close();
 		
 		return linecount;
 	}
@@ -530,7 +530,7 @@ public class SimpleApp {
 				+ "[CURRENT JOB] Answer Query\n"
 				+ "       query: " + query);
 		
-		
+		long t_start = System.currentTimeMillis();
 		DataFrame content = sqlContext.sql(query);
 		List<Row> result = content.javaRDD().map(
 			new Function<Row, Row>() {
@@ -539,6 +539,15 @@ public class SimpleApp {
 				}
 			}
 		).collect();
+		long t_end = System.currentTimeMillis();
+		long ms = t_end - t_start;
+		long s = ms / 1000;
+		long m = s / 60;
+		long h = m / 60;
+		ms = ms - s * 1000;
+		s = s - m * 60;
+		m = m - h * 60;
+		System.out.println("[DURATION] " + h + "h " + m + "m " + s + "s " + ms + "ms");
 		
 		return result;
 	}
@@ -550,11 +559,7 @@ public class SimpleApp {
 	 * @param query
 	 * @param results
 	 */
-	public static void appendResultsToFile(String outputFile, String query, List<Row> results) {
-		UTF8Writer writer = new UTF8Writer(outputFile);
-		
-		long lineCount = 0;
-		
+	public static void appendResultsToFile(UTF8Writer writer, String query, List<Row> results) {
 		String queryUpper = query.toUpperCase();
 		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
 		int countColoumns = projections.split(",").length;
@@ -571,26 +576,17 @@ public class SimpleApp {
 				line += row.get(i);
 			}
 			writer.appendLine(line);
-			lineCount++;
 		}
-		System.out.println("\n"
-				+ "Printed " + lineCount + " lines to " + outputFile + "\n"
-				+ "Query: " + query);
-		writer.close();
 	}
 	
 	/**
 	 * Prints the given query in the first line each row as tab-separated line to the outputFile.
 	 * Uses UTF8 encoding.
-	 * @param outputFile
+	 * @param wr
 	 * @param query
 	 * @param results
 	 */
-	public static void printResultsToFile(String outputFile, String query, List<Row> results) {
-		UTF8Writer writer = new UTF8Writer(outputFile);
-		
-		long lineCount = 0;
-		
+	public static void printResultsToFile(UTF8Writer writer, String query, List<Row> results) {
 		String queryUpper = query.toUpperCase();
 		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
 		int countColoumns = projections.split(",").length;
@@ -611,13 +607,107 @@ public class SimpleApp {
 					line += row.get(i);
 				}
 				writer.appendLine(line);
-				lineCount++;
 			}
 		}
-		System.out.println("\n"
-				+ "Printed " + lineCount + " lines to " + outputFile + "\n"
-				+ "Query: " + query);
-		writer.close();
+	}
+	
+	/**
+	 * Die Methode setzt die Query "SELECT DISTINCT paperID FROM PaperAuthorAffiliation" um.
+	 * @param outfile
+	 */
+	public static void getPaperIDs(String folder, String outfile) {
+		
+		// Zeilenanzahl:  337000600
+		// größte ID:    2252279034
+		//System.err.println(Long.MAX_VALUE); // 9223372036854775807
+		int lineCount =               337000600;
+		long maxID = Long.parseLong("2252279034");
+		
+		/*
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(SimpleApp.file_PaperAuthorAffiliations));
+			String line = null;
+			int lineIndex = 0;
+			int percent = 0;
+			int tmp_percent = 0;
+			while ((line = br.readLine()) != null) {
+				tmp_percent = (lineIndex * 100) / lineCount;
+				if (tmp_percent > percent) {
+					percent = tmp_percent;
+					if (percent % 10 == 0) {
+						System.err.println("progress: " + percent + "%");
+					}
+				}
+				if (lineIndex % 1000000 == 0) {
+					System.err.println("line:     " + lineIndex + " of " + lineCount + " max: " + maxID);
+				}
+				
+				long id = Long.parseLong(line.split("\t")[0], 16);
+				if (id > maxID) { maxID = id; }
+				lineIndex++;
+			}
+			br.close();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		*/
+		System.out.println("maxID: " + maxID + " (" + lineCount + " lines)");
+		long[] limit = new long[11];
+		limit[0] = 0;
+		limit[10] = maxID;
+		long ten_percent = maxID / 10;
+		for (int i = 1; i < 11; i++) {
+			limit[i] = limit[i-1] + ten_percent;
+		}
+		
+		
+		for (int i = 0; i < 10; i++) {
+			long min = limit[i];
+			long max = limit[i+1];
+			
+			System.out.println("extracting paperIDs in range [" + min + " - " + max + "]");
+			
+			Set<Long> IDs = new HashSet<Long>();
+			
+			long t_start = System.currentTimeMillis();
+			
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(SimpleApp.file_PaperAuthorAffiliations));
+				String line = null;
+				while ((line = br.readLine()) != null) {
+					long id = Long.parseLong(line.split("\t")[0], 16);
+					if (id >= min) {
+						if (id < max) {
+							IDs.add(id);
+						}
+					}
+				}
+				br.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			long t_end = System.currentTimeMillis();
+			double minutes = (t_end - t_start) / 60000;
+			System.out.println("extracted " + IDs.size() + " paperIDs in " + minutes + " minutes...");
+
+			String path = folder + "IDs_" + i + ".txt";
+			System.out.println("printing paperIDs in range [" + min + " - " + max + "] to file " + path);
+			UTF8Writer wr = new UTF8Writer(path);
+			wr.clear();
+			t_start = System.currentTimeMillis();
+			for (long id: IDs) {
+				wr.appendLine(""+id);
+			}
+			t_end = System.currentTimeMillis();
+			minutes = (t_end - t_start) / 60000;
+			System.out.println("printed " + IDs.size() + " paperIDs in " + minutes + " minutes...");
+			wr.close();
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -660,7 +750,7 @@ public class SimpleApp {
 			// compute linecount for each file
 			for (int i = 0; i < files.length; i++) {
 				String p = files[i];
-				int linecount = SimpleApp.getLineCount(p);
+				int linecount = SimpleApp.getLineCount(sc, p);
 				//int linecount = 1;
 				out[i] = new String(p + ":\t" + linecount);
 			}
@@ -676,7 +766,10 @@ public class SimpleApp {
 					+ "FROM Author "
 					+ "WHERE authorID < 7950";
 			List<Row> results = SimpleApp.sql_answerQuery(sqlContext, query);
-			SimpleApp.printResultsToFile(outfile, query, results);
+			
+			UTF8Writer writer = new UTF8Writer(outfile);
+			SimpleApp.printResultsToFile(writer, query, results);
+			writer.close();
 //			List<String> authors = SimpleApp.sql_getAuthorNames(file_Authors);
 //			int i = 0;
 //			System.out.println("Output [");
@@ -721,14 +814,16 @@ public class SimpleApp {
 //					+ "AND " + "paa.paperID = p.paperID "
 //					+ "ORDER BY paa.authorSequenceNumber ASC";
 			List<Row> results = sql_answerQuery(sqlContext, query);
-			SimpleApp.printResultsToFile(outfile, query, results);
+			UTF8Writer writer = new UTF8Writer(outfile);
+			SimpleApp.printResultsToFile(writer, query, results);
+			writer.close();
 			//for (Row row: results) {
 			//	System.out.println(row.toString());
 			//}
 		}
 		
 		// Welche Affiliations gibt es?
-		compute = true;
+		compute = false;
 		if (compute) {
 			String outfile = folder + "query_results_affiliations_from_paperauthoraffiliations.txt";
 			String query = ""
@@ -741,80 +836,11 @@ public class SimpleApp {
 					+ "GROUP BY normalizedAffiliationName "
 					+ "ORDER BY normalizedAffiliationName ASC"
 					;
-			
-//			System.out.println(""
-//					+ "[CURRENT JOB] Answer Query\n"
-//					+ "       query: " + query + "\n"
-//					+ "          to: " + outfile);
-			
+						
 			List<Row> result = sql_answerQuery(sqlContext, query);
-			SimpleApp.printResultsToFile(outfile, query, result);
-			/*
 			UTF8Writer writer = new UTF8Writer(outfile);
-			writer.clear();
-			writer.append(""
-					+ "<?xml version='1.0' encoding='UTF-8'?>\n"
-					+ "<kml xmlns='http://www.opengis.net/kml/2.2'>\n"
-					+ "<Document>\n"
-					+ "\t" + "<Folder>\n");
-			
-			// for inserting whitespace into text output
-			// idea: later on we write over the file and need enough space to replace characters
-			String whitespace = "";
-			int whitespace_size = 35;
-			for (int i = 0; i < whitespace_size; i++) {
-				whitespace += " ";
-			}
-			
-			for (Row row: result) {
-				
-				String s = row.toString();
-				String[] parts = s.substring(1, s.length()-1)
-								  .split(",");
-				System.out.println("DEBUG : " + s);
-				String anzahl = parts[0];
-				String normalizedName = null;
-				try {
-					normalizedName = parts[1];
-				} catch (ArrayIndexOutOfBoundsException e) {
-					System.err.println("[ERROR] empty normalized affiliation name");
-					normalizedName = "";
-				}
-				String fullName = null;
-				try {
-					fullName = parts[2];
-				} catch (ArrayIndexOutOfBoundsException e) {
-					System.err.println("[ERROR] empty full affiliation name");
-					fullName = "";
-				}
-				
-				String newS = ""
-						+ "\t" + "\t" + "<Placemark id='"+normalizedName+"'>\n"
-					//	+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_NORMALIZED + ">" + normalizedName + "</" + TAG_AFFILIATION_NORMALIZED + ">\n"
-						+ "\t" + "\t" + "\t" + "<" + TAG_AFFILIATION_FULLNAME + ">" + fullName + "</" + TAG_AFFILIATION_FULLNAME + ">\n"
-						+ "\t" + "\t" + "\t" + "<description>" + anzahl + "</description>\n"
-						+ "\t" + "\t" + "\t" + "<Point>\n"
-						+ "\t" + "\t" + "\t" + "\t" + "<coordinates></coordinates>" + whitespace + "\n"
-						+ "\t" + "\t" + "\t" + "</Point>\n"
-						+ "\t" + "\t" + "</Placemark>\n";
-				
-				writer.append(newS);
-			}
-			writer.append(""
-					+ "\t" + "</Folder>\n"
-					+ "</Document>\n"
-					+ "</kml>\n");
+			SimpleApp.printResultsToFile(writer, query, result);
 			writer.close();
-			
-			*/
-			
-//			TextFileWriter.writeOver(outfile, "");
-//			for (String s: result) {
-//				System.out.println(s);
-//				TextFileWriter.writeOn(outfile, s + "\n");
-//			}
-			System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
-			System.out.println("printed " + result.size() + " entries...");
 		}
 		
 		compute = false;
@@ -852,6 +878,7 @@ public class SimpleApp {
 
 		// destroy Spark context
 		sc.close();
-		
+
+		System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
 	}
 }
