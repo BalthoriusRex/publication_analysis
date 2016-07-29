@@ -32,6 +32,7 @@ public class Geocoding {
 	private final static String[] available_users = { 	 "f1375e2b960b93f1538b7a4b636a7ffd"
 														,"1b9169ea5b526d47d0d508680a4e6455"
 														,"a604828e9f6eb55b7313d762e5562c69"
+														,"bb0e107df1aa4234eea580e508f4ce86"
 													};
 
 	private static int currentUser_index = 0;
