@@ -67,7 +67,8 @@ public class SimpleApp {
 		file_FieldsOfStudy = folder + "FieldsOfStudy.txt";
 		file_Journals = folder + "Journals.txt";
 		//file_PaperAuthorAffiliations = folder + "PaperAuthorAffiliations.txt";
-		file_PaperAuthorAffiliations = folder + "reduced_PaperAuthorAffiliations.txt";
+		//file_PaperAuthorAffiliations = folder + "reduced_top_1000_PaperAuthorAffiliations.txt";
+		file_PaperAuthorAffiliations = folder + "reduced_top_100_PaperAuthorAffiliations.txt";
 		file_PaperKeywords = folder + "PaperKeywords.txt";
 		file_PaperReferences = folder + "PaperReferences.txt";
 		file_Papers = folder + "Papers.txt";
@@ -650,11 +651,12 @@ public class SimpleApp {
 	 * @param outputFile
 	 * @param query
 	 * @param results
+	 * @param projection_separator 
 	 */
-	public static void appendResultsToFile(UTF8Writer writer, String query, List<Row> results) {
+	public static void appendResultsToFile(UTF8Writer writer, String query, List<Row> results, String projection_separator) {
 		String queryUpper = query.toUpperCase();
 		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
-		int countColoumns = projections.split(",").length;
+		int countColoumns = projections.split(projection_separator).length;
 		
 		for (Row row: results) {
 			String line = "";
@@ -677,11 +679,12 @@ public class SimpleApp {
 	 * @param wr
 	 * @param query
 	 * @param results
+	 * @param projection_separator 
 	 */
-	public static void printResultsToFile(UTF8Writer writer, String query, List<Row> results) {
+	public static void printResultsToFile(UTF8Writer writer, String query, List<Row> results, String projection_separator) {
 		String queryUpper = query.toUpperCase();
 		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
-		int countColoumns = projections.split(",").length;
+		int countColoumns = projections.split(projection_separator).length;
 		
 		writer.clear();
 		writer.appendLine(query);
@@ -861,7 +864,7 @@ public class SimpleApp {
 			List<Row> results = SimpleApp.sql_answerQuery(sqlContext, query);
 			
 			UTF8Writer writer = new UTF8Writer(outfile);
-			SimpleApp.printResultsToFile(writer, query, results);
+			SimpleApp.printResultsToFile(writer, query, results, ",");
 			writer.close();
 //			List<String> authors = SimpleApp.sql_getAuthorNames(file_Authors);
 //			int i = 0;
@@ -908,7 +911,7 @@ public class SimpleApp {
 //					+ "ORDER BY paa.authorSequenceNumber ASC";
 			List<Row> results = sql_answerQuery(sqlContext, query);
 			UTF8Writer writer = new UTF8Writer(outfile);
-			SimpleApp.printResultsToFile(writer, query, results);
+			SimpleApp.printResultsToFile(writer, query, results, ",");
 			writer.close();
 			//for (Row row: results) {
 			//	System.out.println(row.toString());
@@ -974,7 +977,7 @@ public class SimpleApp {
 						+ "FROM PaperAuthorAffiliation "
 						+ "WHERE paperID = " + "paperID"
 						+ "";
-				printResultsToFile(wr, fake_query, null);
+				printResultsToFile(wr, fake_query, null, ",");
 				
 				while ((line = br.readLine()) != null) {
 					
@@ -995,7 +998,7 @@ public class SimpleApp {
 						+ "WHERE paperID = " + paperID
 						+ "";
 					List<Row> result = sql_answerQuery(sqlContext, query);
-					appendResultsToFile(wr, query, result);
+					appendResultsToFile(wr, query, result, ",");
 				}
 				br.close();
 			} catch (FileNotFoundException e) {
@@ -1023,7 +1026,7 @@ public class SimpleApp {
 						
 			List<Row> result = sql_answerQuery(sqlContext, query);
 			UTF8Writer writer = new UTF8Writer(outfile);
-			SimpleApp.printResultsToFile(writer, query, result);
+			SimpleApp.printResultsToFile(writer, query, result, ",");
 			writer.close();
 		}
 		
@@ -1062,29 +1065,39 @@ public class SimpleApp {
 		
 		compute = false;
 		if (compute) {
-			String affiliation = "odense university";
-			String repl_affiliation = affiliation.replace(" ", "_");
-			String outfile = folder + "coauthorships_" + repl_affiliation + ".txt";
+			//String affiliation = "odense university";
+			//String repl_affiliation = affiliation.replace(" ", "_");
+			String outfile;
+			//outfile = folder + "coauthorships_" + repl_affiliation + ".txt";
 			
+			//int limit = 200000;
+			//int set = 0;
+			//int offset = limit * set;
+			
+			outfile = folder + "coauthorships_complete_top_100.txt";
 			String query = ""
 					+ "SELECT "
-						+ "A.paperID AS paperID, "
-						+ "A.affiliationID AS affID_A, "
-						+ "B.affiliationID AS affID_B, "
-						+ "A.normalizedAffiliationName AS affName_A, "
-						+ "B.normalizedAffiliationName AS affName_B "
+						//+ "A.paperID AS paperID, "
+						+ "A.affiliationID AS affID_A,  "
+						+ "B.affiliationID AS affID_B,  "
+//						+ "FIRST(A.normalizedAffiliationName) AS affName_A, "
+//						+ "FIRST(B.normalizedAffiliationName) AS affName_B, "
+						+ "COUNT(A.affiliationID, B.affiliationID) AS anzahl "
 					+ "FROM "
 						+ "View_pID_affID_affName A JOIN "
 						+ "View_pID_affID_affName B "
 						+ "ON A.paperID = B.paperID "
-					+ "WHERE "
-						+ "A.normalizedAffiliationName = '" + affiliation + "'"
+					+ "WHERE NOT(A.affiliationID = B.affiliationID) "
+					+ "GROUP BY "
+						+ "A.affiliationID, B.affiliationID"
+//					+ "WHERE "
+//						+ "A.normalizedAffiliationName = '" + affiliation + "' "
 					+ "";
 			
 			List<Row> result = sql_answerQuery(sqlContext, query);
 			
 			UTF8Writer writer = new UTF8Writer(outfile);
-			printResultsToFile(writer, query, result);
+			printResultsToFile(writer, query, result, "  ");
 			writer.close();
 		}
 		
@@ -1106,7 +1119,19 @@ public class SimpleApp {
 						
 			List<Row> result = sql_answerQuery(sqlContext, query);
 			UTF8Writer writer = new UTF8Writer(outfile);
-			SimpleApp.printResultsToFile(writer, query, result);
+			SimpleApp.printResultsToFile(writer, query, result, ",");
+			String query2 = ""
+					+ "SELECT "
+						+ "COUNT(affiliationID) as Anzahl, "
+						+ "affiliationID as affiliationID, "
+						+ "FIRST(normalizedAffiliationName) as Name "
+					+ "FROM PaperAuthorAffiliation "
+					+ "WHERE normalizedAffiliationName LIKE '%leipzig university%' "
+					+ "GROUP BY affiliationID "
+					+ "ORDER BY Anzahl DESC"
+					+ "";
+			result = sql_answerQuery(sqlContext, query2);
+			SimpleApp.appendResultsToFile(writer, query2, result, ",");
 			writer.close();
 		}
 		
@@ -1122,19 +1147,26 @@ public class SimpleApp {
 			// kept:   46966629		~13,9%
 			// dumped: 290033371	~86,1%
 			
-			String infile = folder + "affiliations_sorted_by_count.txt";
-			String outfile = folder + "reduced_PaperAuthorAffiliations.txt";
+			String infile = folder + "affiliations_top_1000.txt";
 			
 			Set<Long> IDs = new HashSet<Long>();
+			int target_affiliation_count = 100;
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(infile));
 				br.readLine(); // skip query line
 				br.readLine(); // skip empty line
 				String line = null;
+				// get max. target_id_count many affiliations...
+				int id_nr = 0;
 				while ((line = br.readLine()) != null) {
-					String s_id = line.split("\t")[1];
-					long id = Long.parseLong(s_id);
-					IDs.add(id);
+					String[] parts = line.split("\t");
+					String s_id = parts[1];
+					String s_name = parts[2];
+					if (s_name.contains("leipzig university") || id_nr < target_affiliation_count) {
+						long id = Long.parseLong(s_id);
+						IDs.add(id);
+						id_nr++;
+					}
 				}
 				br.close();
 			} catch (FileNotFoundException e) {
@@ -1142,6 +1174,8 @@ public class SimpleApp {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
+			String outfile = folder + "reduced_top_" + target_affiliation_count + "_PaperAuthorAffiliations.txt";
 			
 			long count_kept = 0;
 			long count_dumped = 0;
