@@ -651,11 +651,12 @@ public class SimpleApp {
 	 * @param outputFile
 	 * @param query
 	 * @param results
+	 * @param projection_separator 
 	 */
-	public static void appendResultsToFile(UTF8Writer writer, String query, List<Row> results) {
+	public static void appendResultsToFile(UTF8Writer writer, String query, List<Row> results, String projection_separator) {
 		String queryUpper = query.toUpperCase();
 		String projections = queryUpper.split("SELECT ")[1].split(" FROM ")[0];
-		int countColoumns = projections.split(",").length;
+		int countColoumns = projections.split(projection_separator).length;
 		
 		for (Row row: results) {
 			String line = "";
@@ -997,7 +998,7 @@ public class SimpleApp {
 						+ "WHERE paperID = " + paperID
 						+ "";
 					List<Row> result = sql_answerQuery(sqlContext, query);
-					appendResultsToFile(wr, query, result);
+					appendResultsToFile(wr, query, result, ",");
 				}
 				br.close();
 			} catch (FileNotFoundException e) {
@@ -1105,36 +1106,32 @@ public class SimpleApp {
 			// extrahiere die 1000 häufigst auftretenden Affiliations
 			String outfile = folder + "affiliations_sorted_by_count.txt";
 			String query = ""
-					+ "SELECT Anzahl, affiliationID, Name "
-					+ "FROM "
-						+ "("
-						+ "SELECT "
-							+ "COUNT(affiliationID) as Anzahl, "
-							+ "affiliationID as affiliationID, "
-							+ "FIRST(normalizedAffiliationName) as Name "
-						+ "FROM PaperAuthorAffiliation "
-						+ "WHERE NOT (normalizedAffiliationName = '') "
-						+ "GROUP BY affiliationID "
-						+ "ORDER BY Anzahl DESC "
-						+ "LIMIT 1000 "
-						+ ""
-						+ "UNION "
-						+ ""
-						+ "SELECT "
-							+ "COUNT(affiliationID) as Anzahl, "
-							+ "affiliationID as affiliationID, "
-							+ "FIRST(normalizedAffiliationName) as Name "
-						+ "FROM PaperAuthorAffiliation "
-						+ "WHERE normalizedAffiliationName LIKE '%leipzig university%' "
-						+ "GROUP BY affiliationID "
-						+ "ORDER BY Anzahl DESC "
-						+ ") "
-					+ "ORDER BY Anzahl DESC"
+					+ "SELECT "
+						+ "COUNT(affiliationID) as Anzahl, "
+						+ "affiliationID as affiliationID, "
+						+ "FIRST(normalizedAffiliationName) as Name "
+					+ "FROM PaperAuthorAffiliation "
+					+ "WHERE NOT (normalizedAffiliationName = '') "
+					+ "GROUP BY affiliationID "
+					+ "ORDER BY Anzahl DESC "
+					+ "LIMIT 1000"
 					;
 						
 			List<Row> result = sql_answerQuery(sqlContext, query);
 			UTF8Writer writer = new UTF8Writer(outfile);
 			SimpleApp.printResultsToFile(writer, query, result, ",");
+			String query2 = ""
+					+ "SELECT "
+						+ "COUNT(affiliationID) as Anzahl, "
+						+ "affiliationID as affiliationID, "
+						+ "FIRST(normalizedAffiliationName) as Name "
+					+ "FROM PaperAuthorAffiliation "
+					+ "WHERE normalizedAffiliationName LIKE '%leipzig university%' "
+					+ "GROUP BY affiliationID "
+					+ "ORDER BY Anzahl DESC"
+					+ "";
+			result = sql_answerQuery(sqlContext, query2);
+			SimpleApp.appendResultsToFile(writer, query2, result, ",");
 			writer.close();
 		}
 		
