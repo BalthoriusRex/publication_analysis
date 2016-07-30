@@ -1,0 +1,1002 @@
+SELECT COUNT(affiliationID) as Anzahl, affiliationID as affiliationID, FIRST(normalizedAffiliationName) as Name FROM PaperAuthorAffiliation WHERE NOT (normalizedAffiliationName = '') GROUP BY affiliationID ORDER BY Anzahl DESC LIMIT 1000
+
+645091	1294671590	centre national de la recherche scientifique
+570014	19820366	chinese academy of sciences
+461049	149899117	max planck society
+452312	1313323035	russian academy of sciences
+343056	17974374	university of sao paulo
+306512	74801974	university of tokyo
+291735	67311998	cern
+230582	86519309	university of texas at austin
+226508	98285908	osaka university
+219630	22299242	kyoto university
+217878	27837315	university of michigan
+208571	55176711	university of california
+205169	63966007	massachusetts institute of technology
+202796	201448701	university of washington
+201901	97018004	stanford university
+200258	185261750	university of toronto
+196145	1288882113	boston children s hospital
+195783	145311948	johns hopkins university
+190948	135310074	university of wisconsin madison
+187043	139264467	seoul national university
+182132	154526488	french institute of health and medical research
+176662	157725225	university of illinois at urbana champaign
+173592	99065089	tsinghua university
+171490	201537933	tohoku university
+165372	130238516	university of minnesota
+163159	76130692	zhejiang university
+162935	157674565	university of liege
+158940	52357470	ohio state university
+158610	241749	university of cambridge
+155764	40120149	university of oxford
+155642	161318765	university of california los angeles
+154023	99464096	katholieke universiteit leuven
+153415	45129253	university college london
+151450	33213144	university of florida
+151349	8204097	ludwig maximilian university of munich
+150453	95457486	university of california berkeley
+149684	130769515	pennsylvania state university
+149102	1341412227	ibm
+144691	20231570	peking university
+144525	134820265	spanish national research council
+142760	205783295	cornell university
+142364	879563668	sao paulo state university
+142144	16733864	national taiwan university
+139729	79576946	university of pennsylvania
+137514	135598925	kyushu university
+134730	141945490	university of british columbia
+134645	36258959	university of california san diego
+132694	861853513	sapienza university of rome
+131112	60134161	nagoya university
+130936	5023651	mcgill university
+128775	84218800	university of california davis
+127154	165932596	national university of singapore
+126802	19880235	moscow state university
+126231	219193219	purdue university
+125972	66946132	university of maryland college park
+125727	78577930	columbia university
+124839	183067930	shanghai jiao tong university
+124393	140287389	technical university of kenya
+123049	91045830	texas a m university
+122020	20089843	princeton university
+120419	28407311	university of manchester
+118689	223822909	heidelberg university
+118518	32597200	ghent university
+118492	129604602	university of sydney
+117447	1330342723	mayo clinic
+117030	205349734	hokkaido university
+115874	9360294	university of bologna
+115715	16391192	tel aviv university
+115010	133731052	university of helsinki
+114283	165779595	university of melbourne
+113341	154425047	university of alberta
+112695	114027177	university of north carolina at chapel hill
+112677	30147112	sofia medical university
+112545	340828355	uc berkeley college of chemistry
+111905	187531555	lund university
+111704	1174212	university of southern california
+110739	138006243	university of arizona
+110429	181391015	state university of campinas
+109314	193775966	yonsei university
+107989	28166907	karolinska institutet
+107362	180670191	university of california san francisco
+106563	170201317	university of pittsburgh
+105869	130828816	university of leeds
+105186	165143802	university of queensland
+105088	887064364	university of amsterdam
+105054	130701444	georgia institute of technology
+104845	124055696	university of copenhagen
+103334	47508984	imperial college london
+101922	881766915	nanjing university
+101824	62916508	technische universitat munchen
+101715	130442723	universidade federal do rio grande do sul
+101548	59361560	instituto politecnico nacional
+100788	87216513	michigan state university
+100773	111979921	northwestern university
+100173	47720641	huazhong university of science and technology
+99396	114531698	tokyo institute of technology
+99345	40347166	university of chicago
+98487	887968799	rwth aachen university
+98339	24943067	fudan university
+98062	8961855	national autonomous university of mexico
+97083	122411786	california institute of technology
+96326	121797337	leiden university
+95564	110200422	universidade federal de minas gerais
+95469	136199984	harvard university
+95418	142263535	university of nottingham
+94553	135140700	university of bonn
+93458	1289243028	oak ridge national laboratory
+92807	122140584	federal university of rio de janeiro
+92550	71999127	university of barcelona
+92383	79619799	university of birmingham
+92051	36234482	university of bristol
+90993	90494735	national cancer institute
+90799	126307644	university of iowa
+90506	1343871089	los alamos national laboratory
+90286	31746571	university of new south wales
+89973	35440088	eth zurich
+89818	98677209	university of edinburgh
+89041	146061311	harvard medical school
+88814	204983213	harbin institute of technology
+88586	123387679	uppsala university
+88172	172675005	nanyang technological university
+88145	102322142	rutgers university
+88140	189158943	university of milan
+87413	5124864	ecole polytechnique federale de lausanne
+86812	197251160	hebrew university of jerusalem
+86195	1287899229	massachusetts general hospital
+85329	129774422	university of vienna
+85296	5388228	university of rochester
+84713	1314251682	institut national de la recherche agronomique
+84696	91136226	university of sheffield
+84213	74973139	carnegie mellon university
+84076	146655781	university of liverpool
+84040	170897317	duke university
+84017	4923324	fraunhofer society
+83701	1299303238	national institutes of health
+83404	154099455	shandong university
+82927	188538660	university of colorado boulder
+82915	1315039220	american society for biochemistry and molecular biology
+82845	193662353	utrecht university
+82818	145872427	radboud university nijmegen
+82656	889458895	university of hong kong
+82493	32971472	yale university
+82444	88273585	federal university of sao paulo
+82378	29607241	ecole normale superieure
+81614	51556381	university of virginia
+81265	121748325	complutense university of madrid
+81236	43439940	university of southampton
+80942	7882870	university of glasgow
+80629	7877124	charite
+80101	137902535	north carolina state university
+79729	138689650	university of padua
+79660	126520041	university of science and technology of china
+79146	157773358	sun yat sen university
+78519	24185976	sichuan university
+77616	203951103	keio university
+76627	223532165	university of utah
+76380	45084792	university of florence
+76104	55732556	arizona state university
+76071	194450716	jilin university
+76008	177725633	the chinese university of hong kong
+75668	181369854	university of erlangen nuremberg
+75473	102335020	karlsruhe institute of technology
+75410	157485424	kaist
+75079	173911158	iowa state university
+75052	98251732	mcmaster university
+74732	1282105669	argonne national laboratory
+74673	70931966	universite de montreal
+73999	37461747	wuhan university
+73898	168635309	university of calgary
+73455	148283060	lawrence berkeley national laboratory
+73446	202697423	university of zurich
+72979	2250650973	samsung
+72657	1296604144	memorial hospital of south bend
+72521	204250578	university of california irvine
+72306	151746483	university of waterloo
+72185	98358874	delft university of technology
+71639	1336096307	united states department of agriculture
+70367	8087733	university of tubingen
+70311	184942183	university of oslo
+70185	32389192	university of alabama at birmingham
+70040	183935753	king s college london
+69844	118347636	australian national university
+69719	865915315	vu university amsterdam
+69711	169381384	university of groningen
+69690	200777214	national and kapodistrian university of athens
+69685	113306721	hiroshima university
+69494	914474125	the school of life
+68572	197604219	national research council
+68395	108290504	university of pisa
+68163	859038795	virginia tech
+67593	12912129	northeastern university
+67301	91807558	national cheng kung university
+66693	99542240	polish academy of sciences
+66279	1288214837	united states naval research laboratory
+66242	87445476	xi an jiaotong university
+65893	24603500	university of massachusetts amherst
+65591	154570441	university of california santa barbara
+65580	20772946	washington university school of medicine
+65465	79510175	cardiff university
+65283	146399215	university of tsukuba
+65203	904495901	ruhr university bochum
+65032	39422238	university of illinois at chicago
+64749	148366613	national chiao tung university
+64669	165733156	university of georgia
+64578	200719446	vanderbilt university
+64460	1316902750	cleveland clinic
+64366	125749732	university of western ontario
+63875	27804330	brown university
+63850	1282311441	lawrence livermore national laboratory
+63740	58956616	case western reserve university
+63691	204722609	queen s university
+63165	159176309	university of hamburg
+63158	181547552	baylor college of medicine
+62956	1321296531	national institute of standards and technology
+62936	76835614	university of missouri
+62552	75027704	university of tennessee
+62498	123044942	autonomous university of barcelona
+62228	1292875679	commonwealth scientific and industrial research organisation
+62146	161046081	university of freiburg
+62080	1283280774	brigham and women s hospital
+61859	69737025	university of chile
+61668	56590836	monash university
+61245	73613424	national institute of advanced industrial science and technology
+61244	197347611	korea university
+61014	33501960	universidade federal de santa maria
+60945	192454743	sandia national laboratories
+60814	163770644	okayama university
+60770	1329016138	duke university hospital
+60691	174306211	technion israel institute of technology
+60642	84653119	academia sinica
+60380	94278534	yale school of medicine
+60293	162868743	tianjin university
+59914	21250087	charles university in prague
+59367	121820613	louisiana state university
+59307	159385669	chiba university
+59243	153648349	university of leicester
+59035	143302722	university of kentucky
+58440	190082696	durham university
+58119	52418104	federal university of parana
+57697	83019370	eindhoven university of technology
+57609	4104125	universidade federal de santa catarina
+56833	63190737	university at buffalo
+56292	111088046	boston university
+56128	16097986	university of valencia
+55721	1289490764	centers for disease control and prevention
+55325	65837984	kobe university
+55186	76569877	southeast university
+55029	140172145	university of connecticut
+55007	36243813	national university of colombia
+54645	926574661	leipzig university
+54602	180923762	university of cologne
+54339	43406934	laval university
+54075	100066346	university of stuttgart
+53800	139660479	central south university
+53640	146416000	university of kansas
+53579	199691007	empresa brasileira de pesquisa agropecuaria
+53409	75951250	free university of berlin
+53396	92446798	colorado state university
+53167	154130895	university of auckland
+52702	1306266525	goddard space flight center
+52680	1312222531	agricultural research service
+52461	25846049	national tsing hua university
+52388	1285764155	merck co
+52323	21535869	birmingham city university faculty of health
+52152	27357992	dalian university of technology
+52062	185443292	wayne state university
+52013	126231945	queen s university belfast
+52007	1334627681	jet propulsion laboratory
+51998	5681781	university of adelaide
+51853	53964585	weizmann institute of science
+51708	205237279	nankai university
+51622	1334819555	memorial sloan kettering cancer center
+51471	59553526	stony brook university
+51360	177877127	university of western australia
+51170	153718931	university of ottawa
+50998	200870766	brookhaven national laboratory
+50575	204337017	aarhus university
+50516	114457229	university of geneva
+50430	4575257	hanyang university
+50185	72090969	bell labs
+50138	95674353	universite catholique de louvain
+49784	173304897	university of granada
+49542	63135867	university of cincinnati
+49506	114395901	university of nebraska lincoln
+49472	82880672	beihang university
+49213	78650965	dresden university of technology
+49209	1324840837	hewlett packard
+48968	881427289	university of gothenburg
+48880	59270414	indian institute of science
+48303	151201029	national scientific and technical research council
+48282	57206974	new york university
+48107	84470341	the catholic university of america
+47819	84884186	newcastle university
+47377	103163165	florida state university
+47328	161593684	stockholm university
+47216	65143321	hitachi
+47207	878065381	grupo mexico
+47094	149851306	national academy of sciences of ukraine
+46820	74775410	rice university
+46787	848706	sungkyunkwan university
+46650	150468666	emory university
+46610	39555362	university of warwick
+46364	1327103098	faculty of chemistry
+45877	86987016	royal institute of technology
+45702	202391551	academy of sciences of the czech republic
+45664	52325	oswaldo cruz foundation
+45532	875825670	inaf
+45358	131249849	oregon state university
+45146	1290206253	microsoft
+45026	125839683	beijing institute of technology
+44960	46247651	university of manitoba
+44956	98704320	icahn school of medicine at mount sinai
+44921	145847075	vienna university of technology
+44884	118564535	university of bern
+44867	24354313	university of buenos aires
+44719	28238748	new york university school of medicine
+44666	197323543	university of mainz
+44517	90267481	umea university
+44434	132053463	universite libre de bruxelles
+44028	66862912	chalmers university of technology
+44010	168719708	city university of hong kong
+43940	113940042	shanghai university
+43884	4432739	university of bergen
+43871	1329325741	philips
+43852	4577782	technical university of berlin
+43833	76198965	university of jena
+43812	34352273	maastricht university
+43766	124227911	ben gurion university of the negev
+43756	116953780	tongji university
+43678	867280407	university of texas southwestern medical center
+43675	86501945	university of delaware
+43605	169521973	university of new mexico
+43329	1327163397	state university of new york system
+43186	181647926	university of strathclyde
+43048	818668190	european atomic energy community
+43041	913481162	wageningen university and research centre
+43015	10091056	kanazawa university
+42603	21370196	aristotle university of thessaloniki
+42586	4921948	pusan national university
+42397	55143463	university of turin
+42386	63021997	stanford university school of medicine
+42351	2613432	university of south florida
+42312	107639228	university of notre dame
+42238	110525433	islamic azad university
+42145	150744194	waseda university
+41776	72951846	washington state university
+41694	90610280	south china university of technology
+41670	14243506	hong kong polytechnic university
+41647	204778367	norwegian university of science and technology
+41474	200769079	hong kong university of science and technology
+41218	146165071	universidade federal de vicosa
+41027	63634437	autonomous university of madrid
+40965	155781252	university of south carolina
+40906	150229711	university of electronic science and technology of china
+40491	56328125	department of biotechnology
+40429	913958620	erasmus university rotterdam
+40328	98381234	university of oulu
+40284	165799507	rensselaer polytechnic institute
+40030	1283582996	novartis
+39811	71395657	niigata university
+39804	96673099	technical university of denmark
+39722	149213910	university of antwerp
+39660	170215575	national university of defense technology
+39658	162148367	pontifical catholic university of chile
+39477	79817857	university of guelph
+39436	52099693	university of york
+39434	63739035	all india institute of medical sciences
+39308	18014758	simon fraser university
+39082	106165777	university of central florida
+38989	94624287	university of twente
+38978	195460627	university of aberdeen
+38956	44461941	university of houston
+38660	76134821	medical university of vienna
+38606	32699454	joint institute for nuclear research
+38589	7597260	hungarian academy of sciences
+38441	80281795	university of otago
+38435	1286329397	united states geological survey
+38351	129902397	dalhousie university
+38282	78757542	university of newcastle
+38232	317356780	osaka city university
+38169	243754102	federal university of ceara
+38003	155660961	university of turku
+37912	96036126	kumamoto university
+37910	204730241	university of paris
+37826	165690674	oregon health science university
+37816	189590672	kansas state university
+37720	129975664	albert einstein college of medicine
+37627	43777268	nagasaki university
+37562	1487293	david geffen school of medicine at ucla
+37487	1344073410	howard hughes medical institute
+37485	76214153	lanzhou university
+37245	204465549	washington university in st louis
+37242	592451	indiana university
+37193	205274468	trinity college
+36882	35928602	kyung hee university
+36871	8692664	university of oklahoma
+36858	32625721	university of saskatchewan
+36809	71267560	university of naples federico ii
+36626	1326498283	french institute for research in computer science and automation
+36501	100930933	university college dublin
+36490	24384656	indiana university school of medicine
+36339	68956291	martin luther university of halle wittenberg
+36242	123900574	pohang university of science and technology
+36130	169108374	university of the basque country
+36101	102197404	university of paris sud
+36052	23946033	university of tehran
+35997	28290843	university of surrey
+35966	922474255	university of tokushima
+35902	114090438	goethe university frankfurt
+35867	103635307	university of california riverside
+35745	82497590	auburn university
+35657	180857899	pfizer
+35615	126744593	university of maryland baltimore
+35550	76903346	university of coimbra
+35536	142476485	ecole polytechnique
+35458	891191580	aalborg university
+35435	157614274	university of cape town
+35374	25217355	university of pavia
+35255	196349391	university of ulm
+35212	16835326	university of st andrews
+35155	166337079	queen mary university of london
+35081	111277659	chonnam national university
+35022	150729083	university of brasilia
+34965	60053951	polytechnic university of valencia
+34920	71052956	university of reading
+34918	87111246	catholic university of korea
+34796	1292669757	toshiba
+34764	1283103587	at t
+34692	66760702	council of scientific and industrial research
+34661	145608581	university of miami
+34642	143804889	loughborough university
+34628	194814389	feinberg school of medicine
+34589	1329621470	bhabha atomic research centre
+34518	177639307	university of dundee
+34488	79238269	university of seville
+34418	255234318	university of zaragoza
+34372	196972281	imec
+34314	177477856	polytechnic university of turin
+34246	25112270	federal university of pernambuco
+34145	123431417	scripps research institute
+34063	31419693	kyungpook national university
+34054	153976015	university of ljubljana
+34046	67581229	istanbul university
+33815	125602781	tokyo medical and dental university
+33798	6610548	rmit school of medical sciences
+33764	161076350	indian institutes of technology
+33757	66514158	hacettepe university
+33740	203339264	university of lyon
+33640	70983195	syracuse university
+33634	71730758	university of louisiana at monroe
+33400	39343248	humboldt university of berlin
+33224	102064193	university of siena
+33143	184565670	georgetown university
+33043	919643044	perelman school of medicine at the university of pennsylvania
+32961	172901346	saint petersburg state university
+32940	180437899	university of bremen
+32940	39804081	pierre and marie curie university
+32927	4068193	university of belgrade
+32912	192455969	york university
+32750	8078737	clemson university
+32742	1325886976	siemens
+32647	191208505	xiamen university
+32170	153297377	medical university of south carolina
+32052	137975476	shinshu university
+32004	1316535847	beth israel deaconess medical center
+31941	4654613	university of warsaw
+31900	91656880	china medical university
+31874	139759216	beijing university of posts and telecommunications
+31857	149594827	xidian university
+31741	67415387	lancaster university
+31696	42405503	gifu university
+31688	184840846	virginia commonwealth university
+31511	118347220	nec
+31457	1292974536	ford motor company
+31331	165735259	gunma university
+31171	1343180700	intel
+31138	12097938	west virginia university
+31083	285772600	emory university school of medicine
+30901	102134673	linkoping university
+30889	212119943	university of victoria
+30886	35961687	university of antioquia
+30883	25254941	beijing normal university
+30857	51601045	university of bath
+30840	104946051	nihon university
+30785	166755871	university of pittsburgh school of medicine
+30747	40034438	rio de janeiro state university
+30702	1320010244	uganda revenue authority
+30665	165951966	university of texas health science center at san antonio
+30625	67031392	carleton university
+30498	145487455	cairo university
+30318	174878644	university of patras
+30184	158842170	chongqing university
+30152	157536573	pasteur institute
+30097	188950975	glaxosmithkline
+30050	171892758	forschungszentrum julich
+30034	22265921	national central university
+29865	97565354	university of lausanne
+29848	1850255	university of basel
+29835	193531525	george washington university
+29827	51317819	institute of medical sciences banaras hindu university
+29702	137720053	university of michigan health system
+29683	52158045	china agricultural university
+29543	60158472	concordia university
+29542	12315562	texas tech university
+29499	1302978242	academy of medical sciences united kingdom
+29492	53910124	technische hochschule
+29322	165450437	indiana university bloomington
+29300	124357947	university of london
+29263	130343225	universiti putra malaysia
+29260	60858718	university of aveiro
+29195	167751958	institute of chemical technology
+29188	204824540	university of wollongong
+29182	33849332	university of malaya
+29133	1325051341	russian academy
+29127	9617848	polytechnic university of catalonia
+29027	25974101	university of wurzburg
+28944	118019719	hoffmann la roche
+28937	169045520	federal university of paraiba
+28936	181343428	university of zagreb
+28930	142606810	pacific northwest national laboratory
+28929	174458059	national technical university of athens
+28895	23923803	university of exeter
+28833	177572303	leonard m miller school of medicine
+28779	17301866	university of alabama
+28692	90344618	medical research council
+28676	1322918889	united states department of veterans affairs
+28564	84392919	temple university
+28527	24768866	bulgarian academy of sciences
+28483	149251103	thomas jefferson university
+28479	875511016	environ
+28450	315704651	leibniz association
+28445	141596103	university of lisbon
+28429	177614442	university of ulsan college of medicine
+28409	143593769	east china university of science and technology
+28345	204308271	medical college of wisconsin
+28334	181233156	university of oregon
+28193	1331384533	university of hawaii
+28093	162608824	university of sussex
+27900	1302368450	united states environmental protection agency
+27847	165339363	university of oviedo
+27794	4260306	weill cornell medical college
+27762	191879574	inha university
+27743	17145004	northwestern polytechnical university
+27673	100005738	brigham young university
+27670	92403157	university of science and technology beijing
+27655	1318687432	national academy of sciences
+27531	13469542	vrije universiteit brussel
+27479	70640408	tehran university of medical sciences
+27455	1280414376	air force research laboratory
+27373	67826202	helsinki university of technology
+27365	142740786	university of louisville
+27327	121934539	institute of mathematics
+27284	99043593	macquarie university
+27279	1322087612	alcatel lucent
+27261	160993911	queensland university of technology
+27248	22465464	university of munster
+27240	110166357	university of delhi
+27211	161127581	federal fluminense university
+27102	298625061	swedish university of agricultural sciences
+27101	72816309	drexel university
+27002	115475287	oklahoma state university stillwater
+26915	107139324	kagoshima university
+26881	1309859654	national institute of allergy and infectious diseases
+26643	127110123	universidade estadual de londrina
+26621	1314696892	fermilab
+26601	126158947	federal university of bahia
+26501	911458345	vu university medical center
+26479	202177556	king s college cambridge
+26461	192619145	university of the witwatersrand
+26324	127558574	dsm
+26072	81082344	science college
+26026	52996974	harvard smithsonian center for astrophysics
+25915	200399037	university of puerto rico
+25907	173915773	yamaguchi university
+25904	204136569	open university
+25818	83519826	nanjing medical university
+25804	13955877	bar ilan university
+25764	121934306	tufts university
+25731	162714631	george mason university
+25652	69552723	university of pretoria
+25638	123443094	universidade estadual de maringa
+25597	1118541	university of east anglia
+25543	96323854	national yang ming university
+25522	1288530672	dana farber cancer institute
+25516	5561750	university of bari
+25507	185103710	university of california santa cruz
+25455	21193070	beijing jiaotong university
+25449	160013858	istituto nazionale di fisica nucleare
+25408	178574317	mie university
+25390	874386039	national university of la plata
+25384	78715868	university of arkansas
+25376	11701301	griffith university
+25345	34809795	hannover medical school
+25334	34077901	juntendo university
+25158	19894307	university of montpellier
+25078	145894827	indian institute of technology kharagpur
+25035	916559398	kindai university
+24978	80180929	university of murcia
+24904	205640436	curtin university
+24882	9916479	fourth military medical university
+24877	196345858	chungnam national university
+24831	106456161	harvard t h chan school of public health
+24812	2388115	japan atomic energy research institute
+24787	66867065	east china normal university
+24764	22798298	school of electrical and electronic engineering university of manchester
+24732	70978881	london school of hygiene tropical medicine
+24698	80611190	chonbuk national university
+24667	129409704	tampere university of technology
+24580	26092322	stellenbosch university
+24542	40677808	kyoto prefectural university of medicine
+24521	21491767	aix marseille university
+24512	51158804	massey university
+24445	89630735	yokohama city university
+24429	1332737386	general electric
+24371	1286704778	rutherford appleton laboratory
+24369	196699116	wuhan university of technology
+24362	142444530	university of trieste
+24205	74656192	university of gottingen
+24201	88060688	technical university of madrid
+24176	196829312	la trobe university
+24069	27483092	university of perugia
+23955	198357145	national heart lung and blood institute
+23887	115228651	agency for science technology and research
+23561	207624831	slovak academy of sciences
+23531	1308126019	national oceanic and atmospheric administration
+23531	190249584	university of innsbruck
+23497	1343551460	university of texas md anderson cancer center
+23387	1329882472	visual sciences
+23383	58716616	korea institute of science and technology
+23354	108403487	warsaw university of technology
+23350	16609230	hunan university
+23334	162096671	university of los andes
+23323	43545212	ehime university
+23307	1314466530	tokai university
+23297	150623626	boston university school of medicine
+23237	36399199	nanjing university of science and technology
+23206	114832834	tulane university
+23179	142974352	national sun yat sen university
+23166	28022161	king saud university
+23162	106365116	wake forest school of medicine
+23133	201799495	middle east technical university
+23116	83816512	university of genoa
+23092	1648549	university of zulia
+23088	32062511	heriot watt university
+23077	1335321130	children s hospital of philadelphia
+23012	59433898	brunel university london
+22997	1315085146	universidade federal de lavras
+22996	148297040	netherlands organisation for applied scientific research
+22912	133529467	sharif university of technology
+22896	1310053265	st george s hospital
+22879	17866349	university of toulouse
+22863	103320735	catholic university of the sacred heart
+22825	38877650	zhengzhou university
+22823	177933477	second military medical university
+22806	31512782	technische universitat darmstadt
+22740	189196454	university of texas at arlington
+22709	2252230247	gunadarma university
+22664	162577319	university of texas at dallas
+22633	2252096349	fujitsu
+22567	185492890	university of canterbury
+22531	151727225	harbin engineering university
+22483	60668342	university of regensburg
+22463	166722992	university of massachusetts medical school
+22443	107672454	dartmouth college
+22374	170979836	jadavpur university
+22371	115592961	jiangsu university
+22252	44703657	university of science and technology sana a
+22251	184999862	university of salamanca
+22240	78570951	monash university clayton campus
+22228	64189623	kitasato university
+22129	181565077	georgia state university
+22109	55302922	university of texas medical branch
+22105	19719545	national institute of mental health
+22071	135117807	universite de sherbrooke
+21914	37796252	beijing university of technology
+21907	121980950	utah state university
+21853	126596746	jagiellonian university
+21832	57664883	ajou university
+21829	885383172	national university of malaysia
+21829	169541294	flinders university
+21807	4576418	universiti teknologi malaysia
+21738	39063666	university of catania
+21725	205401836	national institute for materials science
+21718	59028903	ocean university of china
+21674	186903577	university of luxembourg
+21657	172787465	university of concepcion
+21617	33858575	nagoya city university
+21561	91357014	banaras hindu university
+21480	142401562	electronics and telecommunications research institute
+21479	101202996	semmelweis university
+21477	4588055	tottori university
+21469	162838928	national chung hsing university
+21465	1324220072	mount sinai hospital
+21449	27577105	university college cork
+21443	112524849	yamagata university
+21428	54009628	university of bayreuth
+21382	24062138	konkuk university
+21364	3923682	soochow university
+21314	24676775	indian institute of technology madras
+21229	193223587	university of trento
+21159	186143895	lehigh university
+21136	110152177	university of akron
+21128	82767444	university of malaga
+21115	36426075	institute of medical science
+21094	140025399	hochschule hannover
+21046	193700539	tilburg university
+21039	17937529	german cancer research center
+21019	47076751	institute of high energy physics
+21000	162827531	indian institute of technology bombay
+20935	138801177	ulster university
+20885	158248296	amirkabir university of technology
+20872	900890020	university of palermo
+20793	2785411	institute for materials research
+20744	27897274	istituto superiore di sanita
+20632	169248161	universidade federal de pelotas
+20597	41641357	ege university
+20584	94722563	university of jyvaskyla
+20552	20121455	bielefeld university
+20485	139322472	universiti sains malaysia
+20449	25041050	georgia regents university
+20389	149704539	deakin university
+20255	119454577	nanjing agricultural university
+20224	83399316	rockefeller university
+20220	99041443	mississippi state university
+20218	129801699	university of tasmania
+20161	59130452	university of nebraska medical center
+20134	158708052	chulalongkorn university
+20109	76023543	keck school of medicine of usc
+20076	130438778	memorial university of newfoundland
+20042	134113660	university of nevada reno
+20010	35046152	federal university of rio grande do norte
+19989	118892805	instituto superior tecnico
+19964	19700959	florida international university
+19822	149218525	ankara university
+19821	138925566	ewha womans university
+19811	44504214	czech technical university in prague
+19798	183519381	capital medical university
+19794	82951845	rmit university
+19789	117197279	japan atomic energy agency
+19786	157075465	bristol myers squibb
+19780	97429440	university of wales
+19775	105036370	astrazeneca
+19733	11923345	wroclaw university of technology
+19725	45643870	pontificia universidade catolica do rio grande do sul
+19720	172446870	university of cagliari
+19714	197274945	nagoya institute of technology
+19601	177483745	joseph fourier university
+19479	194019607	university of ioannina
+19441	19920983	mayo medical school
+19440	74760111	texas instruments
+19392	111236770	university of vermont
+19295	69740276	tokyo metropolitan university
+19277	26538001	san diego state university
+19265	168537998	eli lilly and company
+19256	1282927834	cedars sinai medical center
+19194	1298590031	shizuoka university
+19192	65081225	china university of geosciences
+19160	1326427960	fred hutchinson cancer research center
+19140	68106152	universidade federal de goias
+19129	20581793	university of kent
+19127	1334415907	university medical center groningen
+19064	141584323	university of hertfordshire
+19061	105296287	kurume university
+19058	67900169	chung ang university
+19046	119439378	university of verona
+19023	204823248	huazhong agricultural university
+18960	1316910977	dupont
+18920	119182057	showa university
+18916	110002522	university of essex
+18891	43579087	university of wisconsin milwaukee
+18886	123534392	university of north texas
+18849	87048295	wellcome trust
+18836	108103353	university of valladolid
+18828	11947397	tata institute of fundamental research
+18802	88155538	university of navarra
+18792	110378019	southern illinois university carbondale
+18741	137551562	vanderbilt university school of medicine
+18649	1338124936	american museum of natural history
+18622	95634034	gazi university
+18608	51713134	anschutz medical campus
+18553	191240316	university of hull
+18521	4092182	graz university of technology
+18521	154430654	dental school
+18508	169071179	cancer research institute
+18426	169238054	czechoslovak academy of sciences
+18383	116067653	university of rome tor vergata
+18338	94234084	indian institute of technology kanpur
+18309	1313298211	st jude children s research hospital
+18267	192513696	national university of san marcos
+18182	1288702032	ministry of education
+18150	56085075	university of tartu
+18121	197809005	seconda universita degli studi di napoli
+18115	152743029	kaohsiung medical university
+18043	1285301757	rush university medical center
+18034	200763008	university of giessen
+18017	163753206	chungbuk national university
+18003	142617266	university of crete
+17971	227586296	american physical therapy association
+17967	106938459	university of new brunswick
+17921	392282	university at albany suny
+17889	138728355	kek
+17865	154864474	national taiwan university of science and technology
+17828	54459138	university of salford
+17818	193615760	dokuz eylul university
+17812	86467917	james cook university
+17787	9842412	nanjing university of aeronautics and astronautics
+17770	901861585	vanderbilt university medical center
+17712	1280536761	ames research center
+17663	112862951	university of messina
+17662	40036882	institute for advanced study
+17634	72580772	wayne state university school of medicine
+17560	156144747	harbin medical university
+17554	118136607	general motors
+17510	189268942	university of alcala
+17502	114112103	leibniz university of hanover
+17457	1320320070	food and drug administration
+17455	227486990	university of szeged
+17453	9217761	westinghouse electric
+17436	15807432	osaka prefecture university
+17429	79189158	university of castilla la mancha
+17360	22759111	ohio university
+17342	17626003	university of rhode island
+17335	32021983	university of kiel
+17313	170239107	university of south australia
+17293	44260953	university of dusseldorf
+17285	173093425	chang gung university
+17260	79620101	university of arkansas for medical sciences
+17210	110736937	paris descartes university
+17190	1285204247	cincinnati children s hospital medical center
+17165	102235749	university of manchester institute of science and technology
+17139	157940539	columbia university college of physicians and surgeons
+17129	74413500	university of windsor
+17122	107720978	ain shams university
+17053	170606269	university of the fraser valley
+17050	92614990	tokyo university of agriculture and technology
+17047	114017466	university of technology sydney
+17046	75390827	beijing university of chemical technology
+17045	161057412	university of new hampshire
+17045	180585399	dalian institute of chemical physics
+17023	39586589	swansea university
+17001	161296585	tokyo university of science
+16981	1333370159	motorola
+16967	44921830	institute of zoology
+16953	20382870	missouri university of science and technology
+16949	110120368	enea
+16949	68368234	cinvestav
+16885	149910238	kent state university
+16884	180949307	illinois institute of technology
+16768	21449261	masaryk university
+16729	146824383	hallym university
+16710	182534213	university of porto
+16700	130194489	university of alicante
+16688	104338594	inje university
+16661	169357873	johns hopkins bloomberg school of public health
+16657	1306287861	mitsubishi
+16654	180987434	eunice kennedy shriver national institute of child health and human development
+16632	141882310	sapporo medical university
+16625	124601658	university of parma
+16621	2252135952	petersburg nuclear physics institute
+16612	921990950	university of colorado denver
+16610	4800084	southwest jiaotong university
+16590	1325899441	university health network
+16566	4665924	university of rostock
+16546	189442560	gyeongsang national university
+16533	166825849	university of tampere
+16530	1297288678	national renewable energy laboratory
+16524	74788687	comenius university in bratislava
+16520	10052268	new mexico state university
+16515	159129438	universite du quebec a montreal
+16470	90871651	university of toledo
+16458	16285277	college of william mary
+16395	201324441	university of ferrara
+16388	91712215	saarland university
+16385	83558840	universidade nova de lisboa
+16375	123946342	binghamton university
+16323	204553293	china university of petroleum
+16263	31784960	fukuoka university
+16201	894799257	ent federal credit union
+16189	131827901	stmicroelectronics
+16152	80188885	nippon medical school
+16118	115498069	jikei university school of medicine
+16067	129634264	toho university
+16061	909854389	london school of economics and political science
+16040	87653560	vtt technical research centre of finland
+15976	157394403	baylor university
+15966	865419266	catholic university of leuven
+15913	29606459	university of mississippi medical center
+15912	146516829	hirosaki university
+15909	68891433	indian institute of technology delhi
+15882	62318514	university of duisburg essen
+15870	919571938	university of texas health science center at houston
+15850	111599522	jiangnan university
+15818	134560555	paul sabatier university
+15810	178621518	institute for high energy physics
+15803	139894009	university of bradford
+15791	159948400	jinan university
+15784	1320897668	max planck institute of psychiatry
+15759	142947616	institute of cancer research
+15756	62921916	universidade federal rural de pernambuco
+15713	200362191	universidad autonoma metropolitana
+15712	200246676	school of medicine shanghai jiao tong university
+15707	170203145	laboratory of molecular biology
+15707	42934936	dublin city university
+15650	1334968043	university of pittsburgh medical center
+15641	158438070	university of la laguna
+15630	95793202	otto von guericke university magdeburg
+15590	23732399	montana state university
+15550	51235708	universidade federal do espirito santo
+15535	177969490	university of southern denmark
+15527	13134134	university of cantabria
+15525	1331897569	agriculture and agri food canada
+15485	42766147	university of toyama
+15471	47838141	saint louis university
+15467	79431787	tongji medical college
+15448	1321434546	european southern observatory
+15418	184558857	royal holloway university of london
+15303	56007636	keele university
+15294	185940356	soochow university
+15244	33585257	anna university
+15227	91203450	university of haifa
+15215	889315371	agricultural applied economics association
+15211	79940851	university of brescia
+15210	82284825	cranfield university
+15172	81365321	old dominion university
+15172	118118575	new jersey institute of technology
+15141	29770179	budapest university of technology and economics
+15135	12834331	university of wyoming
+15093	48912391	istanbul technical university
+15091	82724352	universiti teknologi mara
+15085	134421475	national physical laboratory
+15042	39534123	gwangju institute of science and technology
+15024	922237871	astron
+14928	1335113835	karolinska university hospital
+14866	1319063186	langley research center
+14824	6902469	brandeis university
+14800	155093810	university of idaho
+14796	1340179700	newyork presbyterian hospital
+14791	132735039	university of debrecen
+14749	7923278	royal dutch shell
+14748	203765153	akita university
+14725	166416128	united states army research laboratory
+14687	75917431	nara institute of science and technology
+14656	871966649	genetics institute inc
+14644	137853757	howard university
+14643	142066694	industrial technology research institute
+14620	98635879	american university of beirut
+14613	233745408	pontifical xavierian university
+14580	1306430637	st vincent s health system
+14572	183934855	genentech
+14555	143397708	innsbruck medical university
+14545	36819085	northwest university
+14519	68947357	university of strasbourg
+14499	25399158	mahidol university
+14446	207014233	kyushu institute of technology
+14442	41156924	victoria university of wellington
+14441	57328836	north dakota state university
+14420	142108993	southwest university
+14415	55240360	yeungnam university
+14412	64926303	nara medical university
+14353	20529979	university of electro communications
+14328	107077323	worcester polytechnic institute
+14318	102502594	northern illinois university
+14314	103531236	boston college
+14265	180203408	yokohama national university
+14260	1312106833	biotechnology institute
+14250	67009956	iran university of science and technology
+14238	1293612202	toyota
+14223	94658018	university of memphis
+14189	67348948	bayer
+14179	368840534	university of mississippi
+14174	170013655	isfahan university of technology
+14170	12093191	university of stirling
+14150	51452335	panjab university chandigarh
+14139	10761972	hamamatsu university school of medicine
+14139	1298353152	sri international
+14108	173592870	university of washington school of medicine
+14094	118517470	lebedev physical institute
+14075	25757504	china university of mining and technology
+14028	189712700	university of konstanz
+14023	105804677	institute of biophysics
+13993	31944674	university of costa rica
+13963	125373518	rmit school of health sciences
+13926	151075929	third military medical university
+13911	686019	agh university of science and technology
+13894	11957088	michigan technological university
+13849	28792581	university of rochester medical center
+13848	896857757	vision sciences inc
+13846	83328450	miami university
+13791	188760350	national university of ireland galway
+13789	195342982	university of medicine and dentistry of new jersey
+13783	39854257	mitsubishi electric
+13781	1925986	loyola university chicago
+13781	160994706	odense university
+13769	187400657	south china normal university
+13769	1320553840	amgen
+13716	148099254	national chung cheng university
+13698	50357001	charles iii university of madrid
+13689	134085113	king fahd university of petroleum and minerals
+13676	63772739	florida atlantic university
+13669	87531838	teikyo university
