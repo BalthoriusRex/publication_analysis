@@ -76,7 +76,7 @@ public class RandomAccessFileCoordinateWriter {
 			break;
 		case 2:
 			start 	= "<name>";
-			end 	= "<\name>";
+			end 	= "</name>";
 		}
 		
 		entriesDone++;

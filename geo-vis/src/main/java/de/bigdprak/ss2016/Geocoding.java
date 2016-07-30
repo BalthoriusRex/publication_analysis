@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -24,10 +25,9 @@ import de.bigdprak.ss2016.utils.UTF8Writer;
 
 public class Geocoding {
 	
-	private static int remaining = 2500;
+//	private static int remaining = 2500;
 	private static int whitespace_size = 35;
 
-	private final static long SLEEPTIME = 1000;
 	private final static String USER_AGENT = "Mozilla/5.0";
 	private final static String[] available_users = { 	 "f1375e2b960b93f1538b7a4b636a7ffd"
 														,"1b9169ea5b526d47d0d508680a4e6455"
@@ -36,23 +36,36 @@ public class Geocoding {
 													};
 
 	private static int currentUser_index = 0;
-	private static String currentUser;
+//	private static String currentUser;
 	private static int offset;
-	private static int limit_per_run = 2500;//100;//-1;
-	private static int init_remains = -1;
-	private static int limit = 1;
+//	private static int limit_per_run = 2500;//100;//-1;
+//	private static int init_remains = -1;
+//	private static int limit = 1;
+	private static long sleep_time;
+	private static HashMap<String, Integer> active_keys;
+	private static int count_all_keys = available_users.length;
+	private static int count_active_keys;
+	private static int count_inactive_keys = 0;
+	
 	
 	public static void main(String[] args) {
 		
-		String path_results = 			"./Visualisierung/query_results_affiliations_from_paperauthoraffiliations.txt";
-		String path_results_coords = 	"./Visualisierung/query_results_affiliations_with_coordinates.txt";
-		String path_xml = 				"./Visualisierung/query_results_affiliations_from_paperauthoraffiliations.xml"; 
+		String path_results = 			"./Visualisierung/affiliations_top_1000.txt";
+//		String path_results_coords = 	"./Visualisierung/affiliations_top_1000_with_coordinates.txt";
+		String path_xml = 				"./Visualisierung/affiliations_top_1000.xml"; 
 		String path_offset = 			"./Visualisierung/tmp.offset.txt";
+		
+		active_keys = new HashMap<String, Integer>();
+		for (String key: available_users) {
+			active_keys.put(key, 2500);
+		}
+		count_active_keys = count_all_keys - count_inactive_keys;
+		sleep_time = (1000 / count_active_keys) + 1;
 		
 		boolean convertResults = false;
 		if (convertResults) {
-			convertResultsFileToResultsFileWithWhitespace(path_results, path_results_coords);
-			//convertResultsFileToXML(path_results, path_xml);
+			//convertResultsFileToResultsFileWithWhitespace(path_results, path_results_coords);
+			convertResultsFileToXML(path_results, path_xml);
 			UTF8Writer writer = new UTF8Writer(path_offset);
 			writer.clear();
 			writer.close();
@@ -67,7 +80,7 @@ public class Geocoding {
 				Geocoding.offset = TextFileReader.parseOffset(path_offset);
 			}
 			System.err.println("Starting with offset " + Geocoding.offset);
-			System.err.println("Limit per run: " + Geocoding.limit_per_run);
+//			System.err.println("Limit per run: " + Geocoding.limit_per_run);
 			
 			//RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output_query_affiliations.txt", Geocoding.offset);
 			RandomAccessFileCoordinateWriter.initializeReader(path_xml, Geocoding.offset);
@@ -80,8 +93,8 @@ public class Geocoding {
 			
 			currentUser_index = 0;
 			try {
-				currentUser = available_users[currentUser_index];
-				init_remains = -1;
+				//currentUser = available_users[currentUser_index];
+				//init_remains = -1;
 			
 				// while not EOF
 				String locTemp = null;
@@ -102,7 +115,8 @@ public class Geocoding {
 						//locations[i] = locTemp;
 			
 						System.out.println("loc: " + locTemp);
-						json = Geocoding.getCoordsByName(locTemp, currentUser);
+						json = Geocoding.getCoordsByName(locTemp);
+						//json = null;
 						
 						// falls wir über den normalizedAffiliationName kein Ergebnis bekommen
 						// versuchen wir das ganze nochmal mit dem originalAffiliationName
@@ -118,7 +132,7 @@ public class Geocoding {
 							//locations[i] = locTemp;
 			
 							System.out.println("loc: " + locTemp);
-							json = Geocoding.getCoordsByName(locTemp, currentUser);
+							json = Geocoding.getCoordsByName(locTemp);
 						}
 						
 						if(json != null)
@@ -139,16 +153,16 @@ public class Geocoding {
 						RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
 						Geocoding.offset = Geocoding.offset+1;
 						
-					} catch (LimitExceededException e) {
-						System.err.println(e.getMessage());
-						currentUser_index++;
-						currentUser = available_users[currentUser_index];
-						init_remains = -1;
+//					} catch (LimitExceededException e) {
+//						System.err.println(e.getMessage());
+//						currentUser_index++;
+//						currentUser = available_users[currentUser_index];
+//						init_remains = -1;
 					} catch (IOException e) {
 						System.err.println(e.getMessage());
-						currentUser_index++;
-						currentUser = available_users[currentUser_index];
-						init_remains = -1;
+//						currentUser_index++;
+//						currentUser = available_users[currentUser_index];
+//						init_remains = -1;
 					}
 				}
 			} catch (ArrayIndexOutOfBoundsException e) {
@@ -159,7 +173,12 @@ public class Geocoding {
 			//	e.printStackTrace();
 			} catch (JSONException e) {
 				e.printStackTrace();
+			} catch (LimitExceededException e) {
+				System.err.println(""
+						+ "Limit exceeded for all keys...\n"
+						+ "Try again tomorrow...\n");
 			}
+			
 			// write the new offset to file to have access for tomorrows computations
 			TextFileWriter.writeOver(path_offset, Geocoding.offset+"\n");
 			
@@ -292,7 +311,8 @@ public class Geocoding {
 					break;
 				}
 				String newS = ""
-						+ "\t" + "\t" + "<Placemark id='"+normalizedName+"'>\n"
+						+ "\t" + "\t" + "<Placemark id='"+fullName+"'>\n"
+						//+ "\t" + "\t" + "<Placemark id='"+normalizedName+"'>\n"
 						+ "\t" + "\t" + "\t" + "<name>" + fullName + "</name>\n"
 						+ "\t" + "\t" + "\t" + "<description>" + anzahl + "</description>\n"
 						+ "\t" + "\t" + "\t" + "<Point>\n"
@@ -316,37 +336,59 @@ public class Geocoding {
 		}
 	}
 	
-	public static JSONObject getCoordsByName(String location_name, String user_key)
+	public static JSONObject getCoordsByName(String location_name)
 			throws JSONException, IOException, LimitExceededException {
-		
 		try {
-			Thread.sleep(Geocoding.SLEEPTIME);
+			Thread.sleep(Geocoding.sleep_time);
 		} catch (InterruptedException e) {
 			System.err.println(""
 					+ "[ERROR] Geocoder did not sleep well...\n"
 					+ e.getMessage());
 		}
+		
+		String user_key = null;
+		for (int i = 0; i < count_all_keys; i++) {
+			String key = available_users[currentUser_index];
+			int rem = active_keys.get(key);
+			currentUser_index = (currentUser_index + 1) % count_all_keys;
+			if (rem > 0) {
+				user_key = key;
+				break;
+			}
+		}
+		if (user_key == null) {
+			throw new LimitExceededException(LimitExceededException.ERROR_LIMIT);
+		}
+		
+		
 
 		String format = "json";
 		StringBuffer response = Geocoding.sendGet(format, location_name, user_key);
+		
 
 		JSONObject obj = new JSONObject(response.toString());
 
 		JSONObject access = obj.getJSONObject("rate");
 
 		int remaining = access.getInt("remaining");
-		if (init_remains < 0) {
-			init_remains = remaining;
-			limit = limit_per_run > -1 	? init_remains - limit_per_run
-										: 0;
+		if (remaining == 0) {
+			count_inactive_keys++;
+			Geocoding.sleep_time = (1000 / (count_all_keys - count_inactive_keys)) + 1;
 		}
+		active_keys.put(user_key, remaining);
+		
+//		if (init_remains < 0) {
+//			init_remains = remaining;
+//			limit = limit_per_run > -1 	? init_remains - limit_per_run
+//										: 0;
+//		}
 
 		System.out.println(access.toString());
-		Geocoding.remaining = remaining - limit;// - 2460;
-		System.out.println("remaining: " + Geocoding.remaining);
-		if (Geocoding.remaining < 1) {
-			throw new LimitExceededException(LimitExceededException.ERROR_LIMIT);
-		}
+//		Geocoding.remaining = remaining - limit;// - 2460;
+		System.out.println("key: " + user_key + " remaining: " + remaining);
+//		if (Geocoding.remaining < 1) {
+//			throw new LimitExceededException(LimitExceededException.ERROR_LIMIT);
+//		}
 
 		JSONArray arr = obj.getJSONArray("results");
 		String content = "";
@@ -376,7 +418,7 @@ public class Geocoding {
 						 .getJSONObject("northeast");
 				foundCoords = true;
 			} catch (JSONException e) {
-				System.err.println(""
+				System.out.println(""
 						+ "[ERROR] " + e.getMessage() + "\n"
 						+ "        trying next tag...");
 			}
@@ -386,7 +428,7 @@ public class Geocoding {
 				ret = obj.getJSONObject("geometry");
 				foundCoords = true;
 			} catch (JSONException e) {
-				System.err.println(""
+				System.out.println(""
 						+ "[ERROR] " + e.getMessage() + "\n"
 						+ "        trying next tag...");
 			}
