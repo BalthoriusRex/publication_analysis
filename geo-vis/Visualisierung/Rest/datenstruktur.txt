@@ -1,0 +1,15 @@
+vector
+	features
+		feature
+			geometry
+			name
+			magnitude
+			
+			
+affiliations
+	affiliation
+		city
+		lon
+		lat
+		qty
+		matRel

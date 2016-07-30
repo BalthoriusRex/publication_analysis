@@ -1,0 +1,77 @@
+<Document>
+	<Folder>
+		<Placemark>
+			<AffiliationNameNormalized></AffiliationNameNormalized>
+			<AffiliationNameNormalized></AffiliationNameNormalized>
+			<AffiliationNameFull></AffiliationNameFull>
+			<anzahl>273464959</anzahl>
+			<Point>
+				<coordinates></coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>3m</AffiliationNameNormalized>
+			<AffiliationNameNormalized>3m</AffiliationNameNormalized>
+			<AffiliationNameFull>Revere-Wollensak Division</AffiliationNameFull>			<anzahl>197</anzahl>			<Point>				<coordinates></coordinates>				<coordinates>13.2763079,52.5823289,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a d patel institute of technology</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a d patel institute of technology</AffiliationNameNormalized>
+			<AffiliationNameFull>A. D. Patel Institute of Technology</AffiliationNameFull>
+			<anzahl>101</anzahl>
+			<Point>
+				<coordinates></coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a james clark school of engineering</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a james clark school of engineering</AffiliationNameNormalized>
+			<AffiliationNameFull>University Of Maryland School of Engineering</AffiliationNameFull>			<anzahl>14</anzahl>			<Point>				<coordinates></coordinates>				<coordinates>-74.46083,40.52222,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a m jain college</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a m jain college</AffiliationNameNormalized>
+			<AffiliationNameFull>Department of Chemistry</AffiliationNameFull>
+			<anzahl>30</anzahl>
+			<Point>
+				<coordinates></coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a o smith water products company</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a o smith water products company</AffiliationNameNormalized>
+			<AffiliationNameFull>A. O. Smith Corp.</AffiliationNameFull>
+			<anzahl>132</anzahl>
+			<Point>
+				<coordinates></coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a t kearney</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a t kearney</AffiliationNameNormalized>
+			<AffiliationNameFull>A.T. Kearney</AffiliationNameFull>			<anzahl>197</anzahl>			<Point>				<coordinates></coordinates>				<coordinates>-99.0181129,40.742706,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a t still university</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a t still university</AffiliationNameNormalized>
+			<AffiliationNameFull>Department of Physiology</AffiliationNameFull>
+			<anzahl>557</anzahl>
+			<Point>
+				<coordinates></coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a v c college</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a v c college</AffiliationNameNormalized>
+			<AffiliationNameFull>Department of Conservative Dentistry and Endodontics</AffiliationNameFull>
+			<anzahl>83</anzahl>
+			<Point>
+				<coordinates></coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<AffiliationNameNormalized>a v c college of engineering</AffiliationNameNormalized>
+			<AffiliationNameNormalized>a v c college of engineering</AffiliationNameNormalized>
