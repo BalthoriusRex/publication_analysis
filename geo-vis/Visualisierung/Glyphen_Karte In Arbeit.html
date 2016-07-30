@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <title>Earthquake Clusters</title>
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -9,6 +10,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.js"></script>
 <script src="adjacentTest2.js"></script>
 <script src="adjacentTest3.js"></script>
+<script src="adjacentTest4.js"></script>
 <script src="randomEdges.JSON"></script>
 
 <style>
@@ -73,26 +75,26 @@ function createEarthquakeStyle(feature) {
   // standards-violating <magnitude> tag in each Placemark.  We extract it
   // from the Placemark's name instead.
   var name = feature.get('name');
-  var magnitude = feature.get('description');
-  var radius = magnitude/10. > 30 ? 30 : magnitude/10.;
+  var anzahl = feature.get('description');
+  var radius = anzahl/10. > 20 ? 20 : anzahl/10.;
 
   coordinatesUnProcessed[i] = feature.getGeometry().getCoordinates();
   i++;
 
-  var coords = feature.getGeometry().getCoordinates();
+  var geometry = feature.getGeometry();
+  var coords = geometry.getCoordinates();
 
   if(coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
   {
-     radius = 0;	
+	radius = 0;	
   }
 
-
   return new ol.style.Style({
-    geometry: feature.getGeometry(),
+    geometry: geometry,
     image: new ol.style.RegularShape({
       radius: radius,
     //  radius2: radius/2.,
-      points: 3,
+      points: 4,
       angle: Math.PI,
       fill: earthquakeFill,
       stroke: earthquakeStroke
@@ -127,6 +129,15 @@ function styleFunction(feature, resolution) {
   }
   var style;
   var size = feature.get('features').length;
+	
+  //Ausblenden der Elemente in Null Island
+  var coords = feature.get('features')[0].getGeometry().getCoordinates();
+  if( coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
+  {
+    return new ol.style.Style({fill: new ol.style.Fill({color: [0,0,0,0]})});
+  }
+  
+
   if (size > 1) {
     style = [new ol.style.Style({
       image: new ol.style.Circle({
@@ -212,40 +223,44 @@ var map = new ol.Map({
 
 //---------------------Lines Start
 
+function newMultiLineLayer(sourceInformation, color, width)
+{
 
-var feature = new ol.Feature({
-	geometry: createMultiLineString()
-});
+	var feature = new ol.Feature({
+		geometry: new ol.geom.MultiLineString(sourceInformation)
+	});
 
-feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
+	feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
 
-var vectorSource= new ol.source.Vector({
-	features: [feature]
-});
+	var vectorSource = new ol.source.Vector({
+		features: [feature]
+	});
 
-var vectorLayer = new ol.layer.Vector({
-	source: vectorSource,
-	style: new ol.style.Style({
-   
-    //  fill: earthquakeFill,
-     		stroke: new ol.style.Stroke({
-			color: [250,50,50,1],
-			width: 0.2
+	var vectorLayer = new ol.layer.Vector({
+		source: vectorSource,
+		style: new ol.style.Style({
+	     		stroke: new ol.style.Stroke({
+				color: color,
+				width: width
+			})
 		})
-	})
-    
-});
+	    
+	});
 
-map.addLayer(vectorLayer);
+	map.addLayer(vectorLayer);
+}
 //---------------------Lines End
 
-
-
-function createMultiLineString()
-{
-	return new ol.geom.MultiLineString(adjacents);
-}
-
+newMultiLineLayer(adjacents	, "#313695", 0.1	);
+newMultiLineLayer(adjacents3	, "#4575b4", 0.17	);
+newMultiLineLayer(adjacents	, "#74add1", 0.25	);
+newMultiLineLayer(adjacents	, "#abd9e9", 0.5	);
+newMultiLineLayer(adjacents	, "#e0f3f8", 0.75	);
+newMultiLineLayer(adjacents4	, "#f3e690", 1.0	);
+newMultiLineLayer(adjacents	, "#fdae61", 1.25	);
+newMultiLineLayer(adjacents	, "#f46d43", 1.5	);
+newMultiLineLayer(adjacents	, "#d73027", 1.75	);
+newMultiLineLayer(adjacents	, "#a50026", 2.0	);
 
 
 
