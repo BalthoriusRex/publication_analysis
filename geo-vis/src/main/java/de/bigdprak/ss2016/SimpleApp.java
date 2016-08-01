@@ -1088,10 +1088,9 @@ public class SimpleApp {
 						+ "View_pID_affID_affName B "
 						+ "ON A.paperID = B.paperID "
 					+ "WHERE NOT(A.affiliationID = B.affiliationID) "
+//						+ "AND A.normalizedAffiliationName = '" + affiliation + "' "
 					+ "GROUP BY "
 						+ "A.affiliationID, B.affiliationID"
-//					+ "WHERE "
-//						+ "A.normalizedAffiliationName = '" + affiliation + "' "
 					+ "";
 			
 			List<Row> result = sql_answerQuery(sqlContext, query);
