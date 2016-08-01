@@ -306,6 +306,9 @@ public class Geocoding {
 					normalizedName = normalizedName.replace(">", "");
 					fullName       =       fullName.replace(">", "");
 					
+					normalizedName = normalizedName.replace("§", "");
+					fullName       =       fullName.replace("§", "");
+					
 				} catch (NullPointerException e) {
 					System.out.println("reached EOF");
 					break;
