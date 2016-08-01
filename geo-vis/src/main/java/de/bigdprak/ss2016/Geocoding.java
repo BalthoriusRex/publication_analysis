@@ -42,6 +42,24 @@ public class Geocoding {
 	private static int count_active_keys;
 	private static int count_inactive_keys = 0;
 	
+	private static boolean key_rotation_initialized = false;
+	
+	public static void init_key_rotation() {
+		if (!key_rotation_initialized) {
+			
+			currentUser_index = (int) Math.floor(Math.random() * count_all_keys);
+			
+			active_keys = new HashMap<String, Integer>();
+			for (String key: available_users) {
+				active_keys.put(key, 2500);
+			}
+			count_active_keys = count_all_keys - count_inactive_keys;
+			sleep_time = (1000 / count_active_keys) + 1;
+			
+			
+			key_rotation_initialized = true;
+		}
+	}
 	
 	public static void main(String[] args) {
 		
@@ -49,12 +67,7 @@ public class Geocoding {
 		String path_xml = 				"./Visualisierung/affiliations_top_1000.xml"; 
 		String path_offset = 			"./Visualisierung/tmp.offset.txt";
 		
-		active_keys = new HashMap<String, Integer>();
-		for (String key: available_users) {
-			active_keys.put(key, 2500);
-		}
-		count_active_keys = count_all_keys - count_inactive_keys;
-		sleep_time = (1000 / count_active_keys) + 1;
+		init_key_rotation();
 		
 		boolean convertResults = false;
 		if (convertResults) {
@@ -385,6 +398,52 @@ public class Geocoding {
 	
 		return ret;
 	}
+	
+	public static JSONArray getJSONResult(String location_name)
+			throws JSONException, IOException, LimitExceededException {
+		try {
+			Thread.sleep(Geocoding.sleep_time);
+		} catch (InterruptedException e) {
+			System.err.println(""
+					+ "[ERROR] Geocoder did not sleep well...\n"
+					+ e.getMessage());
+		}
+		
+		String user_key = null;
+		for (int i = 0; i < count_all_keys; i++) {
+			String key = available_users[currentUser_index];
+			int rem = active_keys.get(key);
+			currentUser_index = (currentUser_index + 1) % count_all_keys;
+			if (rem > 0) {
+				user_key = key;
+				break;
+			}
+		}
+		if (user_key == null) {
+			throw new LimitExceededException(LimitExceededException.ERROR_LIMIT);
+		}
+		
+		String format = "json";
+		StringBuffer response = Geocoding.sendGet(format, location_name, user_key);
+		
+
+		JSONObject obj = new JSONObject(response.toString());
+
+		JSONObject access = obj.getJSONObject("rate");
+
+		int remaining = access.getInt("remaining");
+		if (remaining == 0) {
+			count_inactive_keys++;
+			Geocoding.sleep_time = (1000 / (count_all_keys - count_inactive_keys)) + 1;
+		}
+		active_keys.put(user_key, remaining);
+
+		//System.out.println(access.toString());
+		//System.out.println("key: " + user_key + " remaining: " + remaining);
+
+		JSONArray result = obj.getJSONArray("results");
+		return result;
+	}
 
 	// HTTP GET request
 	private static StringBuffer sendGet(String format, String location, String user_key)
@@ -400,7 +459,7 @@ public class Geocoding {
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 		
-		System.out.println("URL: " + url.toString());
+		//System.out.println("URL: " + url.toString());
 
 		// optional default is GET
 		con.setRequestMethod("GET");

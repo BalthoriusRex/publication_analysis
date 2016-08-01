@@ -1,0 +1,906 @@
+centre national de la recherche scientifique	France	7.7123002	48.6046787
+chinese academy of sciences	China	116.370288	40.0045295
+russian academy of sciences	Russian Federation	30.3060431	59.9431026
+university of sao paulo	Brazil	-46.7124955	-23.5493924
+university of tokyo	Japan	139.9407354	35.9053633
+cern	France	6.0593155	46.2391497
+university of texas at austin	United States of America	-97.721796	30.3973701
+osaka university	Japan	135.4555343	34.8035885
+kyoto university	Japan	135.780001	35.0234727
+university of michigan	United States of America	-83.6709317	42.3125148
+university of california	United States of America	-122.2218097	37.884425
+massachusetts institute of technology	United States of America	-71.0817241	42.3628704
+university of washington	United States of America	-122.2865937	47.6612001
+stanford university	United States of America	-122.1520381	37.4433992
+university of toronto	Canada	-79.3875172	43.6686165
+johns hopkins university	Italy	11.3559467	44.4948202
+university of wisconsin madison	United States of America	-89.3940996	43.0920898
+seoul national university	South Korea	126.9612239	37.4689857
+university of illinois at urbana champaign	United States of America	-88.2096284	40.1164187
+tsinghua university	China	116.3308219	40.0118473
+tohoku university	Japan	140.8737093	38.2531445
+university of minnesota	United States of America	-93.2365192	44.973336
+zhejiang university	China	120.17342	30.2599684
+university of liege	Belgium	5.731472	50.6924324
+ohio state university	United States of America	-83.0094938	40.0002591
+university of cambridge	United Kingdom	0.108564	52.205687
+university of oxford	United Kingdom	-1.2545588	51.75786
+university of california los angeles	United States of America	-118.4374008	34.078146
+katholieke universiteit leuven	Belgium	4.7019362	50.8832052
+university college london	United Kingdom	-0.1309167	51.5263952
+university of florida	United States of America	-82.339459	29.6519717
+ludwig maximilian university of munich	Germany	11.7687597	48.2697678
+university of california berkeley	United States of America	-122.2218097	37.884425
+pennsylvania state university	United States of America	-76.7007908	39.9553563
+ibm	Canada	-79.3400239	43.7239871
+peking university	China	116.3153474	39.9982853
+cornell university	United States of America	-76.4554462	42.4598758
+sao paulo state university	United States	-90.45997	35.95422
+national taiwan university	Taiwan	121.535977	25.0183173
+university of pennsylvania	United States of America	-75.1902959	39.9500785
+kyushu university	Japan	130.2237602	33.5992911
+university of british columbia	Canada	-123.1966053	49.2845486
+university of california san diego	United States of America	-117.2183641	32.8916089
+sapienza university of rome	United States	-80.85707	41.60702
+nagoya university	Japan	136.9742933	35.1577474
+mcgill university	Canada	-73.5727281	45.5124158
+university of california davis	United States of America	-121.7315726	38.5462214
+national university of singapore	Singapore	103.7854631	1.3027873
+moscow state university	Russian Federation	37.6130966	55.7571509
+purdue university	United States of America	-86.9091505	40.4517096
+university of maryland college park	United States of America	-76.9422543	38.9857489
+columbia university	United States of America	-73.9571123	40.8106295
+shanghai jiao tong university	China	121.446005	31.0366062
+technical university of kenya	Kenya	36.8241651	-1.2913078
+texas a m university	United States of America	-96.3235645	30.6332765
+princeton university	United States of America	-74.6628628	40.3484807
+university of manchester	United Kingdom	-2.2262753	53.4716848
+heidelberg university	United States of America	-83.16261	41.1171562
+ghent university	Belgium	3.7110629	51.0081673
+university of sydney	Australia	151.1951565	-33.8847761
+mayo clinic	United States of America	-92.46595	44.0224239
+hokkaido university	Japan	141.3477771	43.0889022
+university of bologna	Italy	11.4441833	44.5749359
+tel aviv university	Israel	34.807396	32.1176907
+university of helsinki	Finland	24.9535858	60.1777676
+university of melbourne	Australia	144.9585796	-37.7970965
+university of alberta	Canada	-113.5150512	53.5307049
+university of north carolina at chapel hill	United Kingdom	-0.1285332	51.5192636
+sofia medical university	Bulgaria	23.2674265	42.670711
+lund university	Sweden	13.1902511	55.7040071
+university of southern california	United States of America	-118.2801178	34.0254826
+university of arizona	United States of America	-112.0633516	33.4522701
+state university of campinas	Brazil	-47.000885	-22.8138409
+yonsei university	South Korea	126.9432361	37.5721074
+karolinska institutet	Sweden	18.0311158	59.3515953
+university of california san francisco	United States of America	-122.4559333	37.7648722
+university of pittsburgh	United States of America	-79.9489337	40.4468365
+university of leeds	United Kingdom	-1.5513552	53.804323
+university of queensland	Australia	153.020611	-27.4915542
+university of amsterdam	Netherlands	4.89017	52.3688
+georgia institute of technology	United States of America	-84.3858108	33.7835452
+university of copenhagen	Denmark	12.5733745	55.6807821
+imperial college london	United Kingdom	-0.1742745	51.5005047
+nanjing university	China	118.7782662	32.0610617
+technische universitat munchen	Germany	11.5699075	48.1514082
+universidade federal do rio grande do sul	Brazil	-49.6647263	-26.7456093
+instituto politecnico nacional	Mexico	-86.8439233	21.1358748
+michigan state university	United States of America	-84.4620589	42.735501
+northwestern university	United States of America	-87.6692516	42.0687925
+tokyo institute of technology	Japan	139.4842303	35.5175397
+university of chicago	United States of America	-87.5962878	41.7860023
+rwth aachen university	Germany	6.0706367	50.7768129
+fudan university	China	121.5066331	31.3047479
+national autonomous university of mexico	Mexico	-99.1723218	19.336812
+california institute of technology	United States of America	-118.1213812	34.1417388
+leiden university	The Netherlands	4.4856292	52.1575987
+universidade federal de minas gerais	Brazil	-43.9557773	-19.8601668
+harvard university	United States of America	-71.1104567	42.3838746
+university of nottingham	United Kingdom	-1.1814887	52.955437
+university of bonn	Germany	7.1022809	50.733848
+oak ridge national laboratory	United States of America	-84.2931905	35.938363
+federal university of rio de janeiro	Brazil	-43.22884	-22.86285
+university of barcelona	Spain	2.1649567	41.3878668
+university of birmingham	United Kingdom	-1.9189703	52.4652158
+university of bristol	United Kingdom	-2.6092402	51.458805
+national cancer institute	Egypt	31.231031	30.0241126
+university of iowa	United States of America	-91.5548795	41.6421937
+los alamos national laboratory	United States	-106.25086	35.83336
+university of new south wales	Australia	151.2584565	-33.7795439
+eth zurich	Switzerland	8.5488256	47.3771753
+university of edinburgh	United Kingdom	-3.1789046	55.9511987
+harvard medical school	United States of America	-71.1020442	42.3391784
+harbin institute of technology	China	126.6821753	45.7589447
+uppsala university	Sweden	17.63149	59.85519
+nanyang technological university	Singapore	103.6900511	1.3569054
+rutgers university	United States of America	-74.4448729	40.506266
+university of milan	United States	-88.827957	41.892396
+ecole polytechnique federale de lausanne	Switzerland	6.5721733	46.5222479
+hebrew university of jerusalem	Israel	35.244773	31.7919055
+massachusetts general hospital	United States of America	-71.0688284	42.361422
+university of vienna	Austria	16.3612496	48.2139265
+university of rochester	United States of America	-77.5875656	43.1581629
+institut national de la recherche agronomique	France	5.0715303	47.3176936
+university of sheffield	United Kingdom	-1.4770905	53.3844867
+carnegie mellon university	United States of America	-79.9374931	40.4487517
+university of liverpool	United Kingdom	-2.9616777	53.4062464
+duke university	United States of America	-78.9399586	36.0015821
+national institutes of health	United States of America	-77.0969437	39.0061879
+shandong university	China	122.0609419	37.539235
+university of colorado boulder	United States of America	-105.2725017	40.0069732
+utrecht university	The Netherlands	5.1508615	52.084955
+radboud university nijmegen	The Netherlands	5.8767063	51.8265207
+university of hong kong	China	114.140637	22.2846497
+yale university	United States of America	-72.9338118	41.3031848
+federal university of sao paulo	Brazil	-46.36499	-23.39566
+ecole normale superieure	France	2.3458135	48.8425254
+university of virginia	United States of America	-78.5034821	38.0354182
+complutense university of madrid	Spain	-3.4698551	40.5635185
+university of southampton	United Kingdom	-1.3926128	50.8940039
+university of glasgow	United Kingdom	-4.2836342	55.8752442
+charite	France	0.3553705	48.557396
+north carolina state university	United States of America	-78.6612308	35.8066088
+university of padua	Italy	11.9274607	45.4392586
+university of science and technology of china	China	117.2676538	31.8436188
+sun yat sen university	China	113.2510933	23.1132377
+sichuan university	China	104.0081669	30.5675303
+keio university	Japan	139.7446209	35.6497575
+university of utah	United States of America	-111.8394709	40.7628425
+university of florence	United States	-74.7692184	40.1359558
+arizona state university	United States of America	-111.9090843	33.4329904
+jilin university	China	113.4077739	22.0640548
+the chinese university of hong kong	China	114.2132385	22.4285692
+university of erlangen nuremberg	Germany	11.3236637	49.5730438
+karlsruhe institute of technology	Germany	8.4346999	49.0246986
+kaist	Russian Federation	31.7295089	68.2228767
+iowa state university	United States of America	-93.6296415	42.0029437
+mcmaster university	Canada	-79.9100085	43.2689356
+argonne national laboratory	United States of America	-87.9607803	41.7199167
+universite de montreal	Canada	-73.6126818	45.5085379
+wuhan university	China	114.3694147	30.5501222
+university of calgary	Canada	-114.1286576	51.0784538
+lawrence berkeley national laboratory	United States of America	-122.2520309	37.877679
+university of zurich	Switzerland	8.5490818	47.3754072
+samsung	Algeria	5.4273619	36.1534909
+memorial hospital of south bend	United States of America	-86.2506879	41.6846189
+university of california irvine	United States of America	-117.8219357	33.654776
+university of waterloo	Canada	-80.5323949	43.4768187
+delft university of technology	The Netherlands	4.3859076	52.0093205
+united states department of agriculture	United States of America	-77.0299189	38.888218
+university of tubingen	Germany	9.0841265	48.5526352
+university of oslo	Norway	10.720713	59.9413272
+university of alabama at birmingham	United States of America	-86.796452	33.5087222
+king s college london	United Kingdom	0.336112	51.7202301
+australian national university	Australia	144.9719117	-37.8133926
+vu university amsterdam	Netherlands	5.088644	52.4585648
+university of groningen	The Netherlands	6.5637798	53.2204765
+national and kapodistrian university of athens	Greece	23.734554	37.9813045
+hiroshima university	Japan	132.7123695	34.4020266
+the school of life	United Kingdom	-0.1251998	51.5255568
+national research council	Italy	12.5135132	41.9008195
+university of pisa	Italy	10.4079476	43.7201799
+virginia tech	United States of America	-80.4096569	37.2347283
+northeastern university	United States of America	-71.0873836	42.3388452
+national cheng kung university	Taiwan	120.2243887	23.003626
+polish academy of sciences	Poland	21.0189131	52.2378009
+united states naval research laboratory	United States of America	-77.0174978	38.8286606
+xi an jiaotong university	China	108.9790029	34.2463454
+university of massachusetts amherst	United States of America	-72.5045049	42.4004261
+university of california santa barbara	United States of America	-119.8385188	34.4230161
+washington university school of medicine	United States	-93.361267	39.967628
+cardiff university	United Kingdom	-3.1774647	51.4893653
+university of tsukuba	Japan	139.6995669	35.2116259
+ruhr university bochum	Germany	7.2695593	51.4483963
+university of illinois at chicago	United States of America	-87.645083	41.8753129
+national chiao tung university	Taiwan	121.0023582	24.790985
+university of georgia	United States of America	-83.3708599	33.953376
+vanderbilt university	United States of America	-86.7945138	36.1514935
+cleveland clinic	United States of America	-81.6125679	41.5056318
+university of western ontario	Canada	-72.9893875	56.5526695
+brown university	United States of America	-71.3972319	41.830841
+lawrence livermore national laboratory	United States of America	-121.6968689	37.6956163
+case western reserve university	United States of America	-81.601968	41.515859
+queen s university	United Kingdom	-0.0371712	51.5269647
+university of hamburg	Germany	9.98389	53.5669
+baylor college of medicine	United States of America	-95.3941324	29.7112828
+national institute of standards and technology	United States of America	-77.20696	39.1423277
+university of missouri	United States of America	-92.3258378	38.944688
+university of tennessee	United States of America	-83.9306894	35.9542993
+autonomous university of barcelona	Spain	2.252197	41.4929543
+university of freiburg	Germany	7.9049201	48.0288544
+university of chile	Chile	-66.4212799	-17.5064754
+monash university	Australia	145.0470901	-37.8758633
+korea university	South Korea	127.0327218	37.5892045
+universidade federal de santa maria	Brazil	-53.7019919	-29.7102628
+sandia national laboratories	United States of America	-121.69798	37.67983
+okayama university	Japan	133.9222772	34.6893893
+duke university hospital	United States of America	-78.9358984	36.0077115
+technion israel institute of technology	Israel	35.0301273	32.7817462
+academia sinica	Taiwan	121.6175254	25.0454738
+yale school of medicine	United States of America	-72.9338118	41.3031848
+tianjin university	China	117.1729316	39.1131784
+charles university in prague	Czech Republic	14.4167715	50.0892412
+louisiana state university	United States of America	-91.1662921	30.4217568
+chiba university	Japan	140.1068071	35.6329062
+university of leicester	United Kingdom	-1.1206706	52.6259572
+university of kentucky	United States of America	-84.5017257	38.0334242
+durham university	United Kingdom	-1.5729573	54.7735525
+federal university of parana	Brazil	-49.26649	-25.42849
+eindhoven university of technology	The Netherlands	5.4990836	51.4523041
+universidade federal de santa catarina	Brazil	-48.5039132	-27.5812744
+university at buffalo	United States of America	-78.7959907	42.9990709
+boston university	United States of America	-71.0950187	42.3486813
+university of valencia	Spain	-0.4219087	39.5173983
+centers for disease control and prevention	United States of America	-84.3240412	33.8008471
+kobe university	United States of America	-87.5287045	33.1936683
+southeast university	Bangladesh	90.4017244	23.7934842
+university of connecticut	United States of America	-72.2536398	41.8093148
+national university of colombia	Colombia	-74.0795341	4.6448444
+leipzig university	Germany	12.7380044	51.3678333
+university of cologne	Germany	6.9915192	50.936379
+laval university	United States of America	-90.3552984	38.6693739
+university of stuttgart	Germany	9.3679895	48.8968582
+central south university	Australia	138.5907626	-34.9419693
+university of kansas	United States of America	-95.2477002	38.958108
+free university of berlin	United States	-74.9171448	39.8158798
+colorado state university	United States of America	-105.0798692	40.5611705
+university of auckland	New Zealand	174.7718813	-36.8484945
+goddard space flight center	United States of America	-76.8340579	39.0036636
+agricultural research service	United States of America	-105.0842136	40.5594444
+national tsing hua university	Taiwan	121.0025267	24.7985837
+merck co	France	1.9574357	47.943307
+wayne state university	United States of America	-83.0620479	42.3664785
+queen s university belfast	United Kingdom	-5.796833	54.6847229
+jet propulsion laboratory	United States of America	-118.1668222	34.2062888
+university of adelaide	Australia	138.6067396	-34.9169695
+weizmann institute of science	Israel	34.8227133	31.9128103
+nankai university	China	117.17276	39.1052697
+memorial sloan kettering cancer center	United States of America	-73.9560617	40.7640749
+stony brook university	United States of America	-73.1091395	40.9072698
+university of western australia	Australia	115.8218904	-31.9753067
+university of ottawa	Canada	-75.687132	45.4260056
+brookhaven national laboratory	United States of America	-72.8484664	40.8931456
+aarhus university	Denmark	10.2131751	56.1739612
+university of geneva	Switzerland	6.14239	46.19954
+hanyang university	South Korea	127.0447598	37.5551757
+bell labs	United States of America	-74.1727862	40.3641606
+universite catholique de louvain	Belgium	4.614851	50.669874
+university of granada	United States	-95.84524	39.69647
+university of cincinnati	United States of America	-84.5013594	39.1412084
+university of nebraska lincoln	United States of America	-96.7071109	40.8201618
+beihang university	China	116.347336	39.9850524
+dresden university of technology	Germany	13.9248276	51.0569113
+hewlett packard	France	5.7461456	45.1580831
+university of gothenburg	United States	-100.1457901	40.9725113
+indian institute of science	India	77.5726914	13.0299631
+new york university	United States of America	-73.9934041	40.73286
+the catholic university of america	United States of America	-76.9945655	38.9470847
+newcastle university	United Kingdom	-1.6083557	54.9835312
+florida state university	United States of America	-84.2884573	30.449068
+stockholm university	Sweden	18.0656625	59.3676352
+hitachi	Japan	140.9559653	36.714615
+grupo mexico	Mexico	-109.9139999	27.4376667
+national academy of sciences of ukraine	Ukraine	30.5127804	50.4451469
+rice university	United States of America	-95.3938884	29.7226597
+sungkyunkwan university	South Korea	126.9792888	37.2973938
+emory university	United States of America	-84.3210492	33.8033912
+university of warwick	United Kingdom	-1.5603751	52.3793631
+faculty of chemistry	France	7.7679908	48.5814387
+royal institute of technology	Sweden	18.0730117	59.347217
+academy of sciences of the czech republic	Czech Republic	19.2783451	51.4849091
+inaf	Argentina	-58.3937215	-34.6041404
+oregon state university	United States of America	-122.6778865	45.5198941
+microsoft	United States of America	-122.069169	37.4166522
+beijing institute of technology	China	116.316901	39.9600597
+university of manitoba	Canada	-97.1161321	49.8163993
+icahn school of medicine at mount sinai	United States	-72.9949036	40.966095
+vienna university of technology	Austria	16.3708381	48.1992015
+university of bern	Switzerland	7.4386409	46.9522996
+university of buenos aires	Argentina	-58.37306	-34.59972
+new york university school of medicine	United States	-73.97037	40.7481
+university of mainz	Germany	8.2798774	49.997447
+universite libre de bruxelles	Belgium	4.3795063	50.8127949
+chalmers university of technology	Sweden	11.9824212	57.6940864
+city university of hong kong	China	114.1749414	22.3404302
+shanghai university	China	121.3931399	31.3229095
+university of bergen	United States	-94.00965	44.89204
+philips	United States of America	-81.6214832	30.3202398
+technical university of berlin	United States	-74.9171448	39.8158798
+university of jena	Germany	11.6304007	50.9599419
+maastricht university	The Netherlands	5.6875284	50.8460863
+ben gurion university of the negev	Israel	34.8062444	31.2651665
+tongji university	China	121.5070918	31.2894081
+university of texas southwestern medical center	United States of America	-96.8399419	32.812278
+university of delaware	United States of America	-75.7539683	39.6810828
+university of new mexico	United States of America	-106.6132468	35.0911457
+university of strathclyde	United Kingdom	-4.236597	55.8643291
+wageningen university and research centre	Netherlands	5.66401	51.98507
+kanazawa university	Japan	139.6197807	35.3345853
+aristotle university of thessaloniki	Greece	22.9620002	40.6342033
+pusan national university	South Korea	129.0828555	35.2326564
+university of turin	United States	-87.115997	46.246239
+stanford university school of medicine	United States	-93.361267	39.967628
+university of south florida	United States of America	-82.4017941	28.0690517
+university of notre dame	United States of America	-86.228657	41.7160693
+islamic azad university	Iran	45.0475049	37.5304195
+waseda university	Japan	139.478832	35.802811
+washington state university	United States of America	-122.6205646	45.7383518
+south china university of technology	China	113.348287	23.1720697
+hong kong polytechnic university	China	114.1813772	22.3062364
+norwegian university of science and technology	Norway	10.4117143	63.4199548
+hong kong university of science and technology	China	114.2696034	22.3404248
+universidade federal de vicosa	Brazil	-46.2220811	-19.2176297
+autonomous university of madrid	Spain	-3.4698551	40.5635185
+university of south carolina	United States of America	-81.0249655	34.0004654
+university of electronic science and technology of china	United States	-82.492211	42.817231
+department of biotechnology	Norway	10.4056559	63.4161723
+erasmus university rotterdam	The Netherlands	4.4875001	51.922892
+university of oulu	Finland	25.4702258	65.0617918
+rensselaer polytechnic institute	United States of America	-73.6609858	42.7334514
+novartis	Switzerland	7.5748098	47.5765479
+niigata university	Japan	138.9479092	37.8683177
+technical university of denmark	Denmark	12.5287714	55.7923978
+university of antwerp	United States	-85.764605	42.244857
+national university of defense technology	China	112.9995975	28.2333375
+pontifical catholic university of chile	Chile	-66.4212799	-17.5064754
+university of guelph	Canada	-80.2074053	43.5451807
+university of york	United Kingdom	-1.0130483	53.9531737
+all india institute of medical sciences	India	76.8805314	28.5088966
+simon fraser university	Canada	-122.9028781	49.2812994
+university of central florida	United States of America	-81.1866304	28.6118646
+university of twente	The Netherlands	6.8567261	52.2380639
+university of aberdeen	United Kingdom	-2.101715	57.16413
+university of houston	United States of America	-95.3349753	29.7278816
+medical university of vienna	United States	-96.127601	39.464618
+joint institute for nuclear research	Russian Federation	37.1975434	56.7440741
+hungarian academy of sciences	Hungary	19.0469539	47.5015312
+university of otago	New Zealand	170.5229494	-45.862458
+united states geological survey	United States of America	-111.6339978	35.214584
+dalhousie university	Canada	-63.5867207	44.6389525
+university of newcastle	Australia	151.7715189	-32.9276079
+osaka city university	Japan	135.5038778	34.5935972
+federal university of ceara	Brazil	-38.4221497	-3.6891971
+university of turku	Finland	21.4981348	61.132187
+kumamoto university	Japan	130.7028609	32.8383289
+university of paris	France	2.2745213	48.8710747
+oregon health science university	United States of America	-122.6847373	45.4993769
+kansas state university	United States of America	-96.576277	39.2309937
+albert einstein college of medicine	United States	-93.361267	39.967628
+nagasaki university	Japan	129.868965	32.7887988
+howard hughes medical institute	United States of America	-77.4648876	39.0713997
+lanzhou university	China	103.7375611	36.1013906
+washington university in st louis	United States of America	-90.3062311	38.6483039
+indiana university	United States of America	-84.8748559	39.872381
+trinity college	United States of America	-72.692941	41.7500339
+kyung hee university	South Korea	127.0876156	37.2482084
+university of oklahoma	United States of America	-97.4417591	35.1915294
+university of saskatchewan	Canada	-106.6057157	52.1419232
+university of naples federico ii	Mauritania	-10.0	16.5
+university college dublin	Ireland	-6.1806611	53.2973507
+indiana university school of medicine	United States of America	-86.2363434	41.6928
+martin luther university of halle wittenberg	Germany	12.9596891	51.9611664
+pohang university of science and technology	South Korea	129.3307257	36.0283607
+university of the basque country	Spain	-2.0073525	43.3138068
+university of paris sud	Haiti	-74.16667	18.3
+university of tehran	Iran	50.866509	34.7066844
+university of surrey	United Kingdom	-0.5831894	51.2455747
+university of tokushima	Japan	134.559031	34.0788568
+goethe university frankfurt	Germany	8.8493576	50.2427025
+university of california riverside	United States of America	-117.3280377	33.9735875
+auburn university	United States of America	-85.4813349	32.6073858
+pfizer	Argentina	-58.74944	-34.6027937
+university of maryland baltimore	United States of America	-76.623719	39.2871849
+university of coimbra	Portugal	-8.4254729	40.2078339
+ecole polytechnique	France	2.2214247	48.7175984
+aalborg university	Denmark	9.9898641	57.0186851
+university of cape town	RSA	18.4643375	-33.9525722
+university of pavia	United States	-78.59156	40.28082
+university of ulm	Germany	10.0150461	48.4323616
+university of st andrews	United Kingdom	-2.7930437	56.3412484
+queen mary university of london	United Kingdom	-0.0371712	51.5269647
+university of brasilia	Brazil	-29.53125	6.3296299
+polytechnic university of valencia	Spain	-0.289592	39.5349312
+university of reading	United Kingdom	-0.9589876	51.4512278
+catholic university of korea	South Korea	126.8166077	37.4899295
+toshiba	Spain	-3.5852497	40.4435566
+at t	United States of America	-87.63391	41.8805958
+university of miami	United States of America	-80.2786118	25.7195957
+loughborough university	United Kingdom	-1.2186814	52.7703862
+feinberg school of medicine	United States	-93.361267	39.967628
+bhabha atomic research centre	Cameroon	13.1835928	5.8725262
+university of dundee	United Kingdom	-2.9761309	56.4598773
+university of seville	United States	-84.726604	43.466288
+university of zaragoza	Mexico	-116.8335876	32.5879402
+imec	Belgium	4.6779281	50.8652668
+polytechnic university of turin	Italy	7.65833	45.06455
+federal university of pernambuco	Brazil	-34.9511503	-8.0516463
+kyungpook national university	South Korea	128.6167974	35.8958763
+university of ljubljana	Slovenia	14.4693897	46.0505322
+istanbul university	Turkey	28.9440048	41.006801
+tokyo medical and dental university	Japan	139.7659123	35.7027106
+hacettepe university	Turkey	32.7410835	39.876256
+university of lyon	United States of America	-118.287888	34.0247495
+syracuse university	United States of America	-76.1123267	43.0469355
+university of louisiana at monroe	United States	-92.058884	32.539734
+humboldt university of berlin	Germany	13.3948782	52.5200851
+university of siena	China	114.2104691	22.4141326
+georgetown university	United States of America	-77.0689713	38.9126841
+perelman school of medicine at the university of pennsylvania	United States	-75.180909	39.95563
+saint petersburg state university	Russian Federation	30.3011643	59.9432706
+university of bremen	Germany	8.8676095	53.1144974
+pierre and marie curie university	France	2.3607485	48.8489212
+university of belgrade	United States	-94.008393	44.2689
+york university	Canada	-79.492979	43.7812886
+clemson university	United States of America	-82.8162579	34.6828157
+siemens	United States of America	-90.0835068	46.4949475
+xiamen university	China	118.0989702	24.4443267
+medical university of south carolina	United States of America	-79.9470542	32.7844309
+shinshu university	Japan	138.1875919	36.6284268
+beth israel deaconess medical center	United States	-76.298255	36.868371
+university of warsaw	Poland	21.0175823	52.1714709
+china medical university	Republic of China	120.6814042	24.1573133
+beijing university of posts and telecommunications	China	116.3551499	39.9637401
+xidian university	China	108.83551	34.1236325
+lancaster university	United Kingdom	-2.7810559	54.0160361
+gifu university	Japan	136.742453	35.4701945
+virginia commonwealth university	United States of America	-77.4452845	37.5545046
+nec	Argentina	-58.8021999	-38.4680999
+ford motor company	Australia	144.3644195	-38.0989687
+gunma university	Japan	139.04824	36.4339233
+intel	France	1.380003	43.5799952
+west virginia university	United States of America	-81.7628549	38.3846219
+emory university school of medicine	United States of America	-84.3817146	33.7533894
+university of victoria	Canada	-123.3003288	48.470797
+university of antioquia	Colombia	-75.3845176	6.105629
+beijing normal university	China	116.3645065	39.9638788
+university of bath	United Kingdom	-2.3251831	51.3791942
+nihon university	Japan	139.7641345	35.6985674
+university of pittsburgh school of medicine	United States	-93.361267	39.967628
+rio de janeiro state university	Brazil	-43.2340584	-22.9095357
+uganda revenue authority	Uganda	32.6217853	0.3310773
+university of texas health science center at san antonio	United States	-98.260025	29.699749
+carleton university	Canada	-75.699524	45.3820703
+cairo university	Egypt	31.2013209	30.0262496
+university of patras	Greece	21.7886969	38.2899982
+chongqing university	China	106.3418361	29.6506838
+pasteur institute	United States of America	-97.7388439	30.266092
+glaxosmithkline	Poland	16.8575181	52.3953293
+forschungszentrum julich	Germany	6.4232242	50.9108523
+national central university	Taiwan	121.1967519	24.9717322
+university of lausanne	Greece	23.7306369	37.9909136
+university of basel	Switzerland	7.58403	47.55832
+george washington university	United States of America	-77.0474551	38.9046379
+china agricultural university	China	116.2842401	40.029768
+concordia university	United States of America	-97.0830228	40.915919
+texas tech university	United States of America	-101.8740588	33.6068003
+academy of medical sciences united kingdom	United Kingdom	4.8999019	61.0476494
+technische hochschule	Germany	6.0777186	50.7772676
+indiana university bloomington	United States of America	-86.5194297	39.1694811
+university of london	United Kingdom	-0.1274396	51.5228397
+universiti putra malaysia	Malaysia	101.7315993	3.0111705
+university of aveiro	Portugal	-8.6290951	40.6660576
+university of wollongong	Australia	150.8836922	-34.4017626
+university of malaya	Malaysia	101.6634568	3.1352819
+russian academy	Russian Federation	30.2915077	59.9385902
+polytechnic university of catalonia	Spain	3.3837891	42.8518677
+university of wurzburg	Germany	9.9710579	49.8196831
+hoffmann la roche	Switzerland	7.7424569	47.5385865
+federal university of paraiba	Brazil	-34.7959328	-7.0560889
+university of zagreb	Croatia	15.9719625	45.8126622
+national technical university of athens	Greece	23.733202	37.988536
+university of exeter	United Kingdom	-3.5238554	50.7418314
+leonard m miller school of medicine	United States	-93.361267	39.967628
+university of alabama	United States of America	-87.5236723	33.2225007
+medical research council	The Gambia	-16.686468	13.4767547
+united states department of veterans affairs	United States of America	-95.3579068	35.7453197
+temple university	United States of America	-75.1527268	39.9551657
+bulgarian academy of sciences	Bulgaria	23.332293	42.6949548
+thomas jefferson university	United States of America	-75.1564746	39.9486842
+environ	United Kingdom	-0.1487398	51.5150162
+university of lisbon	Portugal	-9.156092	38.7533992
+university of ulsan college of medicine	United States	-93.361267	39.967628
+east china university of science and technology	Republic of China	121.114651	24.7149048
+medical college of wisconsin	United States of America	-89.6667846	44.965709
+university of oregon	United States of America	-123.0607923	44.0494378
+university of hawaii	United States of America	-157.8111886	21.307713
+university of sussex	United Kingdom	-0.0809254	50.8737286
+united states environmental protection agency	United States of America	-77.0282995	38.8950478
+university of oviedo	Spain	-5.7893648	43.4023018
+weill cornell medical college	United States of America	-73.9548926	40.7648495
+inha university	South Korea	126.274969	36.684717
+northwestern polytechnical university	China	108.9155912	34.2495965
+brigham young university	United States of America	-111.6501032	40.2522687
+university of science and technology beijing	China	116.3591905	39.9920964
+national academy of sciences	United States of America	-77.0473188	38.8933764
+vrije universiteit brussel	Belgium	4.3232655	50.8423659
+university of louisville	United States of America	-85.7526949	38.2204261
+institute of mathematics	Philippines	121.0717271	14.6488596
+macquarie university	Australia	151.1231406	-33.7724153
+alcatel lucent	Germany	9.1530294	48.8324775
+queensland university of technology	Australia	153.0304719	-27.4754837
+university of munster	Germany	7.6285142	51.9698574
+university of delhi	India	77.1683156	28.5904097
+drexel university	United States of America	-75.1914768	39.9558557
+oklahoma state university stillwater	United States of America	-97.0627992	36.1431028
+kagoshima university	Japan	130.5460779	31.5716865
+universidade estadual de londrina	Brazil	-51.1939142	-23.3204296
+fermilab	United States of America	-88.2106163	41.8706303
+federal university of bahia	Brazil	-38.3579979	-12.8816233
+vu university medical center	United States	-110.94594	32.2405
+king s college cambridge	United States	-71.0566788	42.4137459
+university of the witwatersrand	RSA	28.0332527	-26.1837139
+dsm	United States of America	-93.6401261	41.5519156
+science college	Georgia	41.6306896	41.6436945
+university of puerto rico	United States of America	-66.0547448	18.4233018
+yamaguchi university	Japan	131.4667096	34.1468131
+open university	Israel	34.9959059	32.7784744
+nanjing medical university	China	118.8902134	31.9406664
+bar ilan university	Israel	34.8509288	32.0747261
+tufts university	United States of America	-71.110581	42.4107967
+george mason university	United States of America	-77.100851	38.8849903
+university of pretoria	RSA	28.2321543	-25.7542058
+universidade estadual de maringa	Brazil	-51.95436	-23.4007576
+university of east anglia	United Kingdom	1.2409636	52.6222071
+national yang ming university	Taiwan	120.67352	24.1452299
+dana farber cancer institute	United States of America	-71.1066292	42.3384273
+university of bari	Italy	16.9213486	41.1500626
+university of california santa cruz	United States of America	-122.0473658	37.0238785
+beijing jiaotong university	China	116.3423845	39.9488105
+istituto nazionale di fisica nucleare	Italy	9.1219319	39.2709906
+mie university	United States of America	-80.2719469	25.7197949
+national university of la plata	United States	-92.45539	39.9959
+university of arkansas	United States of America	-94.1720989	36.0687406
+griffith university	Australia	153.0605718	-27.546827
+juntendo university	Japan	139.7631311	35.7031124
+university of montpellier	France	3.8698951	43.6348461
+indian institute of technology kharagpur	India	87.3419952	22.3684902
+kindai university	Indonesia	110.3931787	-7.773793
+university of murcia	Spain	-1.091476	38.0417213
+curtin university	Australia	115.8984308	-31.9981942
+chungnam national university	South Korea	127.35667	36.3780339
+east china normal university	China	121.4013945	31.233672
+school of electrical and electronic engineering university of manchester	United Kingdom	-2.23388	53.46557
+london school of hygiene tropical medicine	United Kingdom	-0.1256987	51.5258807
+tampere university of technology	Finland	23.8676692	61.451797
+stellenbosch university	RSA	18.6187994	-33.9062299
+kyoto prefectural university of medicine	United States	-93.361267	39.967628
+massey university	New Zealand	174.7773716	-41.2992631
+yokohama city university	Japan	139.6838508	35.4890636
+general electric	United States of America	-97.5059008	35.4779618
+rutherford appleton laboratory	United Kingdom	-1.3081623	51.576052
+wuhan university of technology	China	114.3566016	30.6143039
+university of trieste	Italy	13.79342	45.65869
+university of gottingen	Germany	9.9330581	51.5287719
+technical university of madrid	Spain	-3.4698551	40.5635185
+la trobe university	Australia	144.298097	-36.7784253
+university of perugia	Italy	12.441844	43.1494675
+slovak academy of sciences	Slovakia	17.1048407	48.1473684
+national oceanic and atmospheric administration	United States of America	-97.4623172	35.237578
+university of innsbruck	Austria	11.5081778	47.3246269
+university of texas md anderson cancer center	United States of America	-95.3958997	29.7086682
+korea institute of science and technology	South Korea	127.048323	37.6050333
+warsaw university of technology	Poland	21.0115973	52.2229091
+hunan university	China	112.9913104	28.1920791
+university of los andes	Chile	-70.5885315	-32.8262291
+ehime university	Japan	132.78192	33.9752563
+tokai university	Japan	142.3068141	43.7842989
+boston university school of medicine	United States of America	-71.0715652	42.3356729
+nanjing university of science and technology	China	118.8584787	32.0386719
+tulane university	United States of America	-90.114292	29.948289
+national sun yat sen university	Taiwan	120.2666	22.6272
+king saud university	Saudi Arabia	46.6194747	24.717304
+wake forest school of medicine	United States of America	-80.2664805	36.0905529
+middle east technical university	Turkey	32.7929837	39.907723
+university of genoa	United States	-82.852669	40.209786
+university of zulia	Venezuela	-70.6896896	11.8243408
+heriot watt university	United Kingdom	-3.3124514	55.9175654
+children s hospital of philadelphia	United States	-90.10736	39.9164
+brunel university london	United Kingdom	-0.4660128	51.534788
+universidade federal de lavras	Brazil	-44.979744	-21.21978
+university of toulouse	France	1.530014	43.6733437
+catholic university of the sacred heart	United States	-95.3473358	44.7875748
+zhengzhou university	China	113.5897397	34.7463443
+second military medical university	China	121.5273597	31.309546
+technische universitat darmstadt	Germany	8.6583986	49.8769831
+university of texas at arlington	United States of America	-97.1149665	32.731205
+university of texas at dallas	United States of America	-96.7434833	32.9945741
+fujitsu	Finland	24.8770903	60.2206692
+university of canterbury	New Zealand	172.5883401	-43.5197283
+harbin engineering university	China	126.6840176	45.7811975
+university of regensburg	Germany	12.1429987	49.0417938
+university of massachusetts medical school	United States of America	-71.7586203	42.2822458
+dartmouth college	United States of America	-72.2925408	43.7048427
+jadavpur university	India	88.4147554	22.5630606
+jiangsu university	China	119.523354	32.2111885
+university of science and technology sana a	Spain	0.373535	38.9796944
+university of salamanca	Spain	-5.6689	40.96603
+monash university clayton campus	Australia	145.1451841	-37.9048661
+georgia state university	United States of America	-84.386736	33.752395
+universite de sherbrooke	Canada	-71.9210816	45.3835638
+beijing university of technology	China	116.4829918	39.8779967
+utah state university	United States of America	-111.8121808	41.7412004
+jagiellonian university	Poland	19.9094725	50.0310328
+ajou university	South Korea	127.0484191	37.28468
+national university of malaysia	Malaysia	101.7957801	2.9408441
+flinders university	Australia	138.5852657	-35.0165366
+universiti teknologi malaysia	Malaysia	103.6369564	1.5577649
+university of catania	Italy	15.1171865	37.5530243
+national institute for materials science	Japan	140.1248398	36.0762156
+ocean university of china	China	120.5003761	36.1678459
+university of luxembourg	Luxembourg	6.1141976	49.624416
+university of concepcion	Chile	-73.03689	-36.82907
+nagoya city university	Japan	136.9370088	35.140502
+banaras hindu university	India	83.0044218	25.2806292
+semmelweis university	Austria	14.3123594	48.302608
+national chung hsing university	Taiwan	120.6809737	24.1236612
+mount sinai hospital	Canada	-79.3896675	43.6579534
+university college cork	Ireland	-8.4919852	51.893485
+yamagata university	Japan	140.3517059	38.2483264
+university of bayreuth	Germany	11.609458	49.9691505
+konkuk university	South Korea	127.0829717	37.5449332
+soochow university	China	120.6395056	31.312079
+indian institute of technology madras	India	80.23295	12.991
+university of trento	Italy	11.1163733	46.0662779
+lehigh university	United States of America	-75.3781987	40.6068528
+university of akron	United States of America	-81.5044169	41.0826436
+university of malaga	United States	-81.16568	39.83651
+institute of medical science	Japan	139.724932	35.639902
+hochschule hannover	Germany	9.769208	52.3563646
+tilburg university	The Netherlands	5.0491812	51.5660969
+german cancer research center	Benin	2.4801631	8.254982
+institute of high energy physics	China	116.2465345	39.9141076
+indian institute of technology bombay	India	72.91639	19.12741
+ulster university	United Kingdom	-5.9279191	54.6055484
+amirkabir university of technology	Iran	51.4126152	35.705943
+university of palermo	United States	-92.748916	42.383993
+institute for materials research	Belgium	5.3953523	50.9326365
+istituto superiore di sanita	Italy	12.5189692	41.9048471
+universidade federal de pelotas	Brazil	-52.2104645	-31.7074318
+ege university	Turkey	27.0742685	38.3937977
+university of jyvaskyla	Finland	25.7443053	62.2303126
+bielefeld university	Germany	8.4907578	52.0369388
+universiti sains malaysia	Malaysia	100.3020878	5.3556877
+georgia regents university	United States of America	-83.3747612	33.9510527
+deakin university	Australia	144.2998148	-38.2010823
+rockefeller university	United States of America	-73.955705	40.7627243
+mississippi state university	United States of America	-88.7975972	33.4665059
+university of tasmania	Australia	147.3315056	-42.899338
+university of nebraska medical center	United States of America	-95.9704849	41.2596681
+chulalongkorn university	Thailand	100.5383395	13.7444053
+memorial university of newfoundland	Canada	-52.7257477	47.5778695
+university of nevada reno	United States of America	-119.8128228	39.5419118
+federal university of rio grande do norte	Brazil	-32.25	-3.54
+instituto superior tecnico	Portugal	-9.1366704	38.7381202
+florida international university	United States of America	-80.3682477	25.7610918
+ankara university	Turkey	32.7929837	39.907723
+ewha womans university	South Korea	126.9476203	37.562152
+czech technical university in prague	Czech Republic	14.4181596	50.0765775
+capital medical university	United States of America	-73.7784691	42.6545446
+rmit university	Australia	144.9660518	-37.8048716
+bristol myers squibb	Brazil	-46.7010797	-23.6554872
+university of wales	United Kingdom	-4.0723927	52.1154154
+astrazeneca	United States of America	-65.8802139	18.3861975
+wroclaw university of technology	Poland	17.0639411	51.108574
+pontificia universidade catolica do rio grande do sul	Brazil	-51.1692596	-30.0532874
+university of cagliari	Italy	9.1959429	39.2703056
+nagoya institute of technology	Japan	136.9271898	35.159495
+university of ioannina	Greece	20.8477074	39.6214203
+mayo medical school	United States of America	-92.4668486	44.0212254
+texas instruments	United States of America	-96.7502579	32.9174637
+university of vermont	United States of America	-73.1775016	44.485538
+tokyo metropolitan university	Japan	139.3894986	35.6246402
+san diego state university	United States of America	-117.0633128	32.7792936
+eli lilly and company	United Kingdom	-0.6745832	51.3768761
+cedars sinai medical center	United States of America	-118.3797924	34.0759155
+shizuoka university	Japan	137.7174791	34.7268564
+fred hutchinson cancer research center	United States of America	-122.3282523	47.629411
+universidade federal de goias	Brazil	-49.2859417	-16.5935032
+university of kent	United Kingdom	1.0741169	51.3013948
+university medical center groningen	The Netherlands	6.5780698	53.2240232
+university of hertfordshire	United Kingdom	-0.233928	51.7548433
+kurume university	Japan	130.552634	33.315808
+chung ang university	South Korea	126.96137	37.50787
+university of verona	United States	-94.12752	43.760672
+dupont	United Kingdom	-7.2324139	55.0449684
+showa university	Japan	139.6778306	35.6453867
+university of essex	United Kingdom	0.9515806	51.8801279
+university of wisconsin milwaukee	United States of America	-87.8683108	43.0819261
+university of north texas	United States of America	-97.1414338	33.214768
+wellcome trust	United Kingdom	-0.1340913	51.5259105
+university of valladolid	Spain	-4.7172343	41.6548577
+tata institute of fundamental research	India	73.8288056	18.5626543
+university of navarra	Spain	-0.733852	43.3386612
+southern illinois university carbondale	United States of America	-89.2199262	37.7158932
+vanderbilt university school of medicine	United States	-93.361267	39.967628
+american museum of natural history	United States of America	-73.9726347	40.7821521
+gazi university	Palestinian Territory	34.4423131	31.515334
+anschutz medical campus	United States of America	-104.8386118	39.7446994
+university of hull	United Kingdom	-0.3629521	53.7728413
+graz university of technology	Austria	15.4668758	47.0696977
+dental school	Ghana	-0.2291149	5.5380885
+cancer research institute	Canada	-76.4909958	44.2241333
+indian institute of technology kanpur	India	80.3754196	26.5187645
+national university of san marcos	United States	-97.861145	29.9396591
+ministry of education	Yemen	44.21444	15.36262
+university of tartu	Estonia	26.7203036	58.3806179
+seconda universita degli studi di napoli	Italy	14.2002256	40.9854213
+kaohsiung medical university	Taiwan	120.3113811	22.6492199
+rush university medical center	United States of America	-87.6666783	41.8751251
+university of giessen	Germany	8.7045298	50.6035385
+chungbuk national university	South Korea	127.463529	36.62469
+university of crete	Greece	25.0856847	35.3095571
+university of new brunswick	Canada	-66.6349891	45.9512099
+kek	Japan	140.0788662	36.1597996
+national taiwan university of science and technology	Taiwan	121.543863	25.0155965
+university of salford	United Kingdom	-2.2661666	53.4943649
+dokuz eylul university	Turkey	27.1935807	39.1097707
+james cook university	Singapore	103.8294804	1.3758839
+nanjing university of aeronautics and astronautics	China	118.8141186	32.0373996
+vanderbilt university medical center	United States	-110.94594	32.2405
+ames research center	United States of America	-122.0620579	37.4174756
+university of messina	Italy	15.6307983	38.2427635
+institute for advanced study	United States of America	-74.6643795	40.3327658
+wayne state university school of medicine	United States of America	-83.056993	42.3544513
+general motors	Russian Federation	30.4343763	59.8230613
+leibniz university of hanover	United States	-75.92876	41.20123
+food and drug administration	United States of America	-66.088461	18.4619039
+university of szeged	Hungary	20.1466724	46.2502233
+westinghouse electric	United States of America	-80.084428	40.6811511
+osaka prefecture university	Japan	135.5038778	34.5935972
+university of castilla la mancha	Spain	-0.947957	41.3097229
+ohio university	United States of America	-82.0887271	39.3294982
+university of rhode island	United States of America	-71.4162269	41.8296135
+university of kiel	Germany	10.1825515	54.3356426
+university of south australia	Australia	140.766513	-37.8061641
+university of dusseldorf	Germany	6.79417	51.1903
+chang gung university	Taiwan	121.3934369	25.0319665
+university of arkansas for medical sciences	United States	-92.317483	34.751671
+paris descartes university	France	2.3462428	48.8492752
+cincinnati children s hospital medical center	United States	-76.298255	36.868371
+columbia university college of physicians and surgeons	United States	-73.94222	40.84139
+university of windsor	Canada	-83.0673866	42.3081427
+ain shams university	Egypt	31.2878681	30.0787727
+university of the fraser valley	Canada	-122.2820869	49.0313118
+tokyo university of agriculture and technology	Japan	139.520865	35.7013503
+university of technology sydney	Australia	151.2026274	-33.8826497
+university of new hampshire	United States of America	-71.467251	42.9940244
+swansea university	United Kingdom	-3.9748977	51.6115399
+tokyo university of science	Japan	139.9105311	35.9194641
+motorola	United Kingdom	-1.7884589	51.6031655
+institute of zoology	United Kingdom	-0.1530862	51.5368322
+missouri university of science and technology	United States of America	-91.7711649	37.9603864
+enea	Colombia	-75.3229383	6.3100356
+cinvestav	Mexico	-89.6268004	21.0219221
+kent state university	United States of America	-81.319661	41.1536842
+illinois institute of technology	United States of America	-87.6233945	41.8395586
+hallym university	South Korea	127.7423478	37.8886493
+university of porto	Portugal	-8.5934198	41.1802346
+university of alicante	Spain	-0.4841009	38.3648376
+inje university	South Korea	128.9067749	35.2330585
+johns hopkins bloomberg school of public health	United States of America	-76.589656	39.2984378
+mitsubishi	Austria	13.4953675	48.2179988
+sapporo medical university	Japan	141.3348772	43.05635
+university of parma	United States	-84.65897	42.29093
+university of colorado denver	United States of America	-105.0000447	39.7477406
+southwest jiaotong university	China	104.0521311	30.697897
+university health network	Canada	-79.4191638	43.6446887
+university of rostock	Germany	12.133532	54.0883736
+gyeongsang national university	South Korea	128.1065819	35.160425
+university of tampere	Finland	23.7825476	61.4959937
+national renewable energy laboratory	United States of America	-105.1834708	39.7411878
+comenius university in bratislava	Slovakia	17.2382355	48.2640533
+new mexico state university	United States of America	-106.7332395	32.2861383
+universite du quebec a montreal	Canada	-73.56055	45.51227
+university of toledo	United States of America	-83.6052304	41.6630845
+college of william mary	United States of America	-76.709418	37.2708446
+university of ferrara	Italy	11.6703119	44.8694954
+saarland university	Germany	7.0468998	49.2584581
+universidade nova de lisboa	Portugal	-9.0487862	38.8252754
+binghamton university	United States of America	-75.9701529	42.0897859
+fukuoka university	Japan	130.3673222	33.5512535
+ent federal credit union	United States of America	-104.7995501	38.8924461
+stmicroelectronics	France	5.6974509	45.205396
+nippon medical school	Japan	139.759065	35.721505
+jikei university school of medicine	United States	-93.361267	39.967628
+toho university	Japan	139.7238895	35.5704615
+london school of economics and political science	United Kingdom	-0.1142124	51.5159343
+vtt technical research centre of finland	Finland	31.3917294	71.1854935
+baylor university	United States of America	-97.7042253	30.4255647
+catholic university of leuven	Belgium	4.759891	50.9028893
+university of mississippi medical center	United States of America	-90.1739265	32.3296398
+hirosaki university	Japan	140.7607355	40.8200732
+indian institute of technology delhi	India	77.1893501	28.5444676
+university of duisburg essen	Germany	6.7866599	51.4308171
+university of texas health science center at houston	United States	-94.9805527	30.2282391
+paul sabatier university	France	4.8576017	46.7775176
+university of bradford	United Kingdom	-1.765276	53.7931106
+jinan university	China	117.0579946	36.6804515
+universidade federal rural de pernambuco	Brazil	-34.8266602	-7.985436
+universidad autonoma metropolitana	Mexico	-99.0706381	19.3660844
+laboratory of molecular biology	United Kingdom	0.1332775	52.176315
+dublin city university	Ireland	-6.2588421	53.3860034
+university of pittsburgh medical center	United States	-76.298255	36.868371
+university of la laguna	United States of America	-77.869149	40.805978
+otto von guericke university magdeburg	Germany	11.6521292	52.1418259
+montana state university	United States of America	-111.052953	45.6697025
+universidade federal do espirito santo	Brazil	-39.8574973	-18.6729669
+university of southern denmark	Denmark	9.4661028	55.4914057
+university of cantabria	Spain	-3.7968864	43.4731718
+agriculture and agri food canada	Canada	-97.1668496	49.7976589
+university of toyama	Japan	137.1901416	36.701595
+saint louis university	United States of America	-90.2257492	38.6393728
+european southern observatory	Chile	-70.5999932	-33.3992253
+royal holloway university of london	United Kingdom	-0.5570379	51.4264165
+keele university	United Kingdom	-2.25335	53.0097723
+soochow university	China	120.6395056	31.312079
+anna university	India	80.2354519	13.0108225
+university of haifa	Israel	35.0248677	32.7658115
+university of brescia	United States of America	-87.1113358	37.7689874
+cranfield university	United Kingdom	-0.6216949	52.0753955
+old dominion university	United States of America	-76.2977005	36.8911917
+new jersey institute of technology	United States of America	-74.1762877	40.7446388
+budapest university of technology and economics	Hungary	19.059641	47.4832668
+university of wyoming	United States of America	-105.5780017	41.3124813
+istanbul technical university	Turkey	29.0301897	41.1084153
+universiti teknologi mara	Malaysia	101.6524159	3.0881805
+national physical laboratory	United Kingdom	-0.3429176	51.4267079
+gwangju institute of science and technology	South Korea	126.8414175	35.22701
+astron	Spain	-2.4405665	40.8871917
+karolinska university hospital	United States	-81.97981	33.473714
+langley research center	Benin	2.4801631	8.254982
+brandeis university	United States of America	-71.2521426	42.3711488
+university of idaho	United States of America	-117.0112763	46.7257206
+newyork presbyterian hospital	United States of America	-73.9538734	40.7646748
+university of debrecen	Hungary	21.8347263	47.6325455
+royal dutch shell	Chile	-70.6724323	-33.4975975
+akita university	Japan	140.160086	39.7172167
+nara institute of science and technology	Japan	135.7316854	34.731681
+genetics institute inc	China	106.3327179	38.4922523
+howard university	United States of America	-77.0166725	38.9274783
+american university of beirut	Lebanon	35.4866033	33.902678
+genentech	United States of America	-122.3914369	37.7676112
+innsbruck medical university	Austria	11.3939434	47.2670027
+northwest university	United States of America	-122.1873036	47.660348
+university of strasbourg	France	7.8579941	48.6754494
+mahidol university	Thailand	100.5339618	13.7648728
+victoria university of wellington	New Zealand	174.7680184	-41.2912989
+north dakota state university	United States of America	-96.7936018	46.904817
+southwest university	China	106.4303754	29.8348525
+yeungnam university	South Korea	128.756365	35.826617
+nara medical university	Japan	135.792939	34.503967
+university of electro communications	Japan	139.5450151	35.6596101
+worcester polytechnic institute	United States of America	-71.804282	42.2768896
+northern illinois university	United States of America	-88.7635622	41.9373363
+boston college	United States of America	-71.1702774	42.3353416
+biotechnology institute	Philippines	121.2625551	14.1509607
+iran university of science and technology	Iran	51.5138626	35.7465107
+toyota	Indonesia	115.2583823	-8.6953097
+university of memphis	United States of America	-89.9312329	35.1260646
+bayer	Germany	12.530617	48.1832659
+university of mississippi	United States of America	-89.5249732	34.3645708
+university of stirling	United Kingdom	-3.9189648	56.1465761
+panjab university chandigarh	India	76.8506546	30.8645096
+hamamatsu university school of medicine	United States	-93.361267	39.967628
+sri international	United States of America	-122.1754332	37.4589533
+university of washington school of medicine	United States	-93.361267	39.967628
+china university of mining and technology	China	117.1399041	34.2153038
+university of konstanz	Germany	9.1911959	47.6916692
+institute of biophysics	Russian Federation	92.7602184	55.9897525
+university of costa rica	Costa Rica	-82.1811676	12.1850052
+agh university of science and technology	Poland	19.9239435	50.0685382
+michigan technological university	United States of America	-88.5484324	47.1196693
+university of rochester medical center	United States	-76.298255	36.868371
+vision sciences inc	China	106.3327179	38.4922523
+miami university	United States of America	-84.7171112	39.5232009
+national university of ireland galway	Ireland	-9.0578205	53.2770459
+university of medicine and dentistry of new jersey	United States	-74.185599	40.741331
+mitsubishi electric	Japan	135.4299154	34.7624772
+loyola university chicago	Italy	12.4395972	41.9307595
+odense university	Denmark	10.3722504	55.3891181
+south china normal university	China	113.3449153	23.1478069
+amgen	United States of America	-122.3727599	47.6304277
+national chung cheng university	Taiwan	120.47557	23.56433
+charles iii university of madrid	Spain	-3.4698551	40.5635185
+king fahd university of petroleum and minerals	Saudi Arabia	50.151994	26.306161
+florida atlantic university	United States of America	-80.1089742	26.8895109
+teikyo university	United Kingdom	-1.581943	54.7637245
