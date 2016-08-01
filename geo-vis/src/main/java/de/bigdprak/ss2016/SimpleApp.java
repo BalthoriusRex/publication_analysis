@@ -1104,34 +1104,22 @@ public class SimpleApp {
 		compute = false;
 		if (compute) {
 			// extrahiere die 1000 häufigst auftretenden Affiliations
-			String outfile = folder + "affiliations_sorted_by_count.txt";
+			String outfile = folder + "affiliations_top_1000_mit_leipzig.txt";
 			String query = ""
 					+ "SELECT "
 						+ "COUNT(affiliationID) as Anzahl, "
 						+ "affiliationID as affiliationID, "
-						+ "FIRST(normalizedAffiliationName) as Name "
+						+ "FIRST(normalizedAffiliationName) as Name, "
+						+ "FIRST(originalAffiliationName) as Fullname "
 					+ "FROM PaperAuthorAffiliation "
 					+ "WHERE NOT (normalizedAffiliationName = '') "
 					+ "GROUP BY affiliationID "
 					+ "ORDER BY Anzahl DESC "
 					+ "LIMIT 1000"
-					;
-						
+					+ "";
 			List<Row> result = sql_answerQuery(sqlContext, query);
 			UTF8Writer writer = new UTF8Writer(outfile);
 			SimpleApp.printResultsToFile(writer, query, result, ",");
-			String query2 = ""
-					+ "SELECT "
-						+ "COUNT(affiliationID) as Anzahl, "
-						+ "affiliationID as affiliationID, "
-						+ "FIRST(normalizedAffiliationName) as Name "
-					+ "FROM PaperAuthorAffiliation "
-					+ "WHERE normalizedAffiliationName LIKE '%leipzig university%' "
-					+ "GROUP BY affiliationID "
-					+ "ORDER BY Anzahl DESC"
-					+ "";
-			result = sql_answerQuery(sqlContext, query2);
-			SimpleApp.appendResultsToFile(writer, query2, result, ",");
 			writer.close();
 		}
 		
@@ -1215,6 +1203,45 @@ public class SimpleApp {
 				e.printStackTrace();
 			}
 			
+		}
+		
+		// finde Leipzig in der Datenbank
+		compute = false;
+		if (compute) {
+			String query = ""
+					+ "SELECT normalizedAffiliationName, FIRST(originalAffiliationName) "
+					+ "FROM PaperAuthorAffiliation "
+					+ "WHERE normalizedAffiliationName LIKE '%leipzig%' "
+					+ "GROUP BY normalizedAffiliationName";
+			List<Row> result = sql_answerQuery(sqlContext, query);
+			for (Row row: result) {
+				System.out.println(row.toString());
+			}
+			// [leipzig university,Department for Small Animal Medicine, Faculty of Veterinary Medicine, University of Leipzig, An den Tierkliniken 23, 04103 Leipzig, Germany]
+			// [hhl leipzig graduate school of management,HHL - Leipzig Graduate School of Management]
+			// [leipzig university of applied sciences,HTWK Leipzig University of Applied Sciences]
+		}
+		
+		compute = false;
+		// filtere Zeilen aus der PaperAuthorAffiliations heraus, durch die Affiliations für ein Paper doppelt erwähnt werden.
+		if (compute) {
+			String query = ""
+					+ "SELECT "
+						+ "paperID, "
+						+ "FIRST(authorID), "
+						+ "affiliationID, "
+						+ "FIRST(originalAffiliationName), "
+						+ "FIRST(normalizedAffiliationName), "
+						+ "FIRST(authorSequenceNumber) "
+					+ "FROM PaperAuthorAffiliation "
+					+ "GROUP BY paperID, affiliationID";
+			List<Row> result = sql_answerQuery(sqlContext, query);
+			String paa_without_folder = SimpleApp.file_PaperAuthorAffiliations.substring(folder.length()); 
+			String outfile = folder + "no_duplicate_" + paa_without_folder;
+			System.out.println(outfile);
+			UTF8Writer writer = new UTF8Writer(folder + "no_duplicate_PaperAuthorAffiliations.txt");
+			printResultsToFile(writer, query, result, ",");
+			writer.close();
 		}
 		
 
