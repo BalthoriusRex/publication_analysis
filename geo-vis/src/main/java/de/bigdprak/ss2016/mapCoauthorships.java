@@ -28,7 +28,6 @@ public class mapCoauthorships {
 
 
 	public static FileWriter[] writers = new FileWriter[NUMBER_OF_WRITER];
-//	public static FileWriter fileWriter;
 	
 	public static int numberOfEdges = 0;
 	public static long countMax = 0;
@@ -44,8 +43,6 @@ public class mapCoauthorships {
 		reader.readLine();	//Initialzeilen mit Querybeschreibung
 		reader.readLine();
 		
-		//String kanten = "[";
-		//fileWriter.append("var coauthorships = [");
 		writeOnAll("var coauthorships");
 		for(int i = 0; i < NUMBER_OF_WRITER; i++)
 		{
@@ -59,16 +56,11 @@ public class mapCoauthorships {
 			initial[i] = true;
 		}
 		
-		Vector<Long> counts = new Vector<Long>();
 		
 		int presentLineNumber = 0;
 		
 		while((line = reader.readLine()) != null)
 		{
-			if(presentLineNumber%5000 == 0)
-			{
-				System.out.println("Line #"+presentLineNumber + " done");
-			}
 			presentLineNumber++;
 			
 			
@@ -96,13 +88,11 @@ public class mapCoauthorships {
 
 			String resultStart = map.get(start);
 			String resultEnd   = map.get(end);
-		//	System.out.println(end + " " + resultStart + " " + resultEnd);
 
 			int choosenWriter = -1;
 			if(count > 1500000)
 			{
 				choosenWriter = 0;
-				//continue;
 			} else if(count > 1000000)
 			{
 				choosenWriter = 1;
@@ -144,40 +134,25 @@ public class mapCoauthorships {
 				
 				if(!initial[choosenWriter])
 				{
-				//	kanten += ",";
 					writers[choosenWriter].append(",\n");
 				}
 				else
 				{
 					initial[choosenWriter] = false;
 				}
-				/*
-				String kante = "[[" + resultStart
-					   	   + "],[" + resultEnd
-						   + "]]";
-				kanten += kante;
-				*/
-				/*fileWriter.append("[["  + resultStart
-					   	        + "],[" + resultEnd
-						        + "]]");
-				*/
+
 				writers[choosenWriter].append(
 						"[["  + resultStart
 			   	        + "],[" + resultEnd
 				        + "]]");
-				numberOfEdges++;
-				
-			//	counts.addElement(count);
+				numberOfEdges++;				
 			}	
 
 		}
 		
-		//kanten += "]";
-		writeOnAll("];\n\n\n");//var anzahl = [" + counts.toString() + "];");
+		writeOnAll("];\n\n\n");
 		
 		reader.close();
-		//String[] returnArray = {kanten, counts.toString()};
-		//return returnArray; 
 	}
 	
 	public static void writeOnAll(String input) throws IOException
@@ -246,13 +221,10 @@ public class mapCoauthorships {
 	{
 		try {
 			initializeWriters(NUMBER_OF_WRITER);
-			//fileWriter = new FileWriter(new File("./Visualisierung/coauthorships_output.txt"));
 		
-			HashMap<String, String> map = generateMappingIDNormalizedAffiliationName("./Visualisierung/affiliations_top_1000.txt", "./Visualisierung/Xml/testMapping.xml");
-		//	writeCoauthorships(getCoauthorships("./Visualisierung/coauthorships_complete_reduced.txt", map));
+			HashMap<String, String> map = generateMappingIDNormalizedAffiliationName("./Visualisierung/affiliations_top_1000.txt", "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml");
 			getCoauthorships("./Visualisierung/coauthorships_complete_top_100.txt", map);
 			
-		//	fileWriter.close();
 			closeWriters();
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();

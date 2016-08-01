@@ -25,7 +25,6 @@ import de.bigdprak.ss2016.utils.UTF8Writer;
 
 public class Geocoding {
 	
-//	private static int remaining = 2500;
 	private static int whitespace_size = 35;
 
 	private final static String USER_AGENT = "Mozilla/5.0";
@@ -36,11 +35,7 @@ public class Geocoding {
 													};
 
 	private static int currentUser_index = 0;
-//	private static String currentUser;
 	private static int offset;
-//	private static int limit_per_run = 2500;//100;//-1;
-//	private static int init_remains = -1;
-//	private static int limit = 1;
 	private static long sleep_time;
 	private static HashMap<String, Integer> active_keys;
 	private static int count_all_keys = available_users.length;
@@ -51,7 +46,6 @@ public class Geocoding {
 	public static void main(String[] args) {
 		
 		String path_results = 			"./Visualisierung/affiliations_top_1000.txt";
-//		String path_results_coords = 	"./Visualisierung/affiliations_top_1000_with_coordinates.txt";
 		String path_xml = 				"./Visualisierung/affiliations_top_1000.xml"; 
 		String path_offset = 			"./Visualisierung/tmp.offset.txt";
 		
@@ -64,7 +58,6 @@ public class Geocoding {
 		
 		boolean convertResults = false;
 		if (convertResults) {
-			//convertResultsFileToResultsFileWithWhitespace(path_results, path_results_coords);
 			convertResultsFileToXML(path_results, path_xml);
 			UTF8Writer writer = new UTF8Writer(path_offset);
 			writer.clear();
@@ -80,31 +73,23 @@ public class Geocoding {
 				Geocoding.offset = TextFileReader.parseOffset(path_offset);
 			}
 			System.err.println("Starting with offset " + Geocoding.offset);
-//			System.err.println("Limit per run: " + Geocoding.limit_per_run);
 			
-			//RandomAccessFileCoordinateWriter.initializeReader("./Visualisierung/output_query_affiliations.txt", Geocoding.offset);
 			RandomAccessFileCoordinateWriter.initializeReader(path_xml, Geocoding.offset);
 			
 			JSONObject json;
 			double lng;
 			double lat;
 			//Einlesen von Affiliations
-			//String[] locations = new String[10];
 			
 			currentUser_index = 0;
 			try {
-				//currentUser = available_users[currentUser_index];
-				//init_remains = -1;
 			
 				// while not EOF
 				String locTemp = null;
-				//for(int i = 0; i < numberOfEntries; i++)
-				//int i = -1;
 				while(true) // LimitExceedException breaks while-true-loop
 				{
 					try {
 						
-						//i++;
 						locTemp = null;
 						locTemp = RandomAccessFileCoordinateWriter.readNextNormalizedAffiliation();
 						if(locTemp == null)
@@ -112,11 +97,9 @@ public class Geocoding {
 							System.out.println("File ended");
 							break;
 						}
-						//locations[i] = locTemp;
 			
 						System.out.println("loc: " + locTemp);
 						json = Geocoding.getCoordsByName(locTemp);
-						//json = null;
 						
 						// falls wir über den normalizedAffiliationName kein Ergebnis bekommen
 						// versuchen wir das ganze nochmal mit dem originalAffiliationName
@@ -125,12 +108,10 @@ public class Geocoding {
 							locTemp = RandomAccessFileCoordinateWriter.readNextOriginalAffiliation();
 							if(locTemp == null)
 							{
-								//throw new LimitExceededException(LimitExceededException.ERROR_EOF);
 								System.out.println("File ended");
 								break;
 							}
-							//locations[i] = locTemp;
-			
+					
 							System.out.println("loc: " + locTemp);
 							json = Geocoding.getCoordsByName(locTemp);
 						}
@@ -140,37 +121,26 @@ public class Geocoding {
 							lng = json.getDouble("lng");
 							lat = json.getDouble("lat");
 							//write
-							//RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
 							System.out.println("[lng lat]: [" + lng + " " + lat + "]");
 							System.out.println("_______");
 						} else {
 							lng = 0.0;
 							lat = 0.0;
-							//RandomAccessFileCoordinateWriter.writeCoords(0.0, 0.0);
 							System.out.println("No data");
 							System.out.println("_______");
 						}
 						RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
 						Geocoding.offset = Geocoding.offset+1;
 						
-//					} catch (LimitExceededException e) {
-//						System.err.println(e.getMessage());
-//						currentUser_index++;
-//						currentUser = available_users[currentUser_index];
-//						init_remains = -1;
+
 					} catch (IOException e) {
 						System.err.println(e.getMessage());
-//						currentUser_index++;
-//						currentUser = available_users[currentUser_index];
-//						init_remains = -1;
 					}
 				}
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.err.println(""
 						+ "Anscheinend haben alle User ihr Kontingent bei OpenCageData aufgebraucht...\n"
 						+ "Versuche es morgen nochmal.\n");
-			//} catch (IOException e) {
-			//	e.printStackTrace();
 			} catch (JSONException e) {
 				e.printStackTrace();
 			} catch (LimitExceededException e) {
@@ -185,24 +155,7 @@ public class Geocoding {
 			System.err.println("new offset: " + Geocoding.offset);
 			int read_offset = TextFileReader.parseOffset(path_offset);
 			System.err.println("offset in file: " + read_offset);
-			
-			
-	//		String[] locations = new String[] { "effat university",
-	//				"alnylam pharmaceuticals", "ştefan cel mare university of suceav" };
-	//
-	//		for (String loc : locations) {
-	//			JSONObject json = geo.getCoordsByName(loc);
-	//			if(json != null)
-	//			{
-	//				double lat = json.getDouble("lat");
-	//				double lng = json.getDouble("lng");
-	//				System.out.println("Location: " + loc);
-	//				System.out.println("     lat: " + lat);
-	//				System.out.println("     lng: " + lng);
-	//				System.out.println("--------------------------------");
-	//			}
-	//		}
-			
+				
 			RandomAccessFileCoordinateWriter.closeReader();
 		}
 	}
@@ -312,7 +265,6 @@ public class Geocoding {
 				}
 				String newS = ""
 						+ "\t" + "\t" + "<Placemark id='"+fullName+"'>\n"
-						//+ "\t" + "\t" + "<Placemark id='"+normalizedName+"'>\n"
 						+ "\t" + "\t" + "\t" + "<name>" + fullName + "</name>\n"
 						+ "\t" + "\t" + "\t" + "<description>" + anzahl + "</description>\n"
 						+ "\t" + "\t" + "\t" + "<Point>\n"
@@ -376,19 +328,9 @@ public class Geocoding {
 			Geocoding.sleep_time = (1000 / (count_all_keys - count_inactive_keys)) + 1;
 		}
 		active_keys.put(user_key, remaining);
-		
-//		if (init_remains < 0) {
-//			init_remains = remaining;
-//			limit = limit_per_run > -1 	? init_remains - limit_per_run
-//										: 0;
-//		}
 
 		System.out.println(access.toString());
-//		Geocoding.remaining = remaining - limit;// - 2460;
 		System.out.println("key: " + user_key + " remaining: " + remaining);
-//		if (Geocoding.remaining < 1) {
-//			throw new LimitExceededException(LimitExceededException.ERROR_LIMIT);
-//		}
 
 		JSONArray arr = obj.getJSONArray("results");
 		String content = "";
@@ -436,19 +378,7 @@ public class Geocoding {
 		if (!foundCoords) {
 			System.out.println("[ERROR] did not find any coords...");
 		}
-		
-		//obj = obj.getJSONObject("bounds");
-		//obj = obj.getJSONObject("northeast");
-		
-		// double lat = obj.getDouble("lat");
-		// double lng = obj.getDouble("lng");
-
-		// System.out.println(obj.toString());
-		// System.out.println("lat: " + lat);
-		// System.out.println("lng: " + lng);
-		// geocoding("04155 Leipzig, Blumenstraße 43");
-		// geocoding("Universität Leipzig");
-
+	
 		return ret;
 	}
 
@@ -486,7 +416,4 @@ public class Geocoding {
 		return response;
 
 	}
-	
-
-
 }
