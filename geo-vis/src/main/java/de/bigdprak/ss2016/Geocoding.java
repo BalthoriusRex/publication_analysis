@@ -241,8 +241,8 @@ public class Geocoding {
 					parts = line.split("\t");
 					anzahl = parts[0];
 					try {
-					normalizedName = parts[1];
-					fullName = parts[2];
+					normalizedName = parts[2];
+					fullName = parts[3];
 					} catch (ArrayIndexOutOfBoundsException e) {
 						normalizedName = "null island";
 						fullName = "Null Island";
@@ -259,11 +259,15 @@ public class Geocoding {
 					normalizedName = normalizedName.replace(">", "");
 					fullName       =       fullName.replace(">", "");
 					
+					normalizedName = normalizedName.replace("§", "");
+					fullName       =       fullName.replace("§", "");
+					
 				} catch (NullPointerException e) {
 					System.out.println("reached EOF");
 					break;
 				}
 				String newS = ""
+
 						+ "\t" + "\t" + "<Placemark id='"+fullName+"'>\n"
 						+ "\t" + "\t" + "\t" + "<name>" + fullName + "</name>\n"
 						+ "\t" + "\t" + "\t" + "<description>" + anzahl + "</description>\n"
