@@ -1104,7 +1104,7 @@ public class SimpleApp {
 		compute = false;
 		if (compute) {
 			// extrahiere die 1000 häufigst auftretenden Affiliations
-			String outfile = folder + "affiliations_top_1000_mit_leipzig.txt";
+			String outfile = folder + "affiliations_top_1000.txt";
 			String query = ""
 					+ "SELECT "
 						+ "COUNT(affiliationID) as Anzahl, "

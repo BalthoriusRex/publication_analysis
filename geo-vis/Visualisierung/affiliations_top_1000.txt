@@ -1,1002 +1,1002 @@
-SELECT COUNT(affiliationID) as Anzahl, affiliationID as affiliationID, FIRST(normalizedAffiliationName) as Name FROM PaperAuthorAffiliation WHERE NOT (normalizedAffiliationName = '') GROUP BY affiliationID ORDER BY Anzahl DESC LIMIT 1000
+SELECT COUNT(affiliationID) as Anzahl, affiliationID as affiliationID, FIRST(normalizedAffiliationName) as Name, FIRST(originalAffiliationName) as Fullname FROM PaperAuthorAffiliation WHERE NOT (normalizedAffiliationName = '') GROUP BY affiliationID ORDER BY Anzahl DESC LIMIT 1000
 
-645091	1294671590	centre national de la recherche scientifique
-570014	19820366	chinese academy of sciences
-461049	149899117	max planck society
-452312	1313323035	russian academy of sciences
-343056	17974374	university of sao paulo
-306512	74801974	university of tokyo
-291735	67311998	cern
-230582	86519309	university of texas at austin
-226508	98285908	osaka university
-219630	22299242	kyoto university
-217878	27837315	university of michigan
-208571	55176711	university of california
-205169	63966007	massachusetts institute of technology
-202796	201448701	university of washington
-201901	97018004	stanford university
-200258	185261750	university of toronto
-196145	1288882113	boston children s hospital
-195783	145311948	johns hopkins university
-190948	135310074	university of wisconsin madison
-187043	139264467	seoul national university
-182132	154526488	french institute of health and medical research
-176662	157725225	university of illinois at urbana champaign
-173592	99065089	tsinghua university
-171490	201537933	tohoku university
-165372	130238516	university of minnesota
-163159	76130692	zhejiang university
-162935	157674565	university of liege
-158940	52357470	ohio state university
-158610	241749	university of cambridge
-155764	40120149	university of oxford
-155642	161318765	university of california los angeles
-154023	99464096	katholieke universiteit leuven
-153415	45129253	university college london
-151450	33213144	university of florida
-151349	8204097	ludwig maximilian university of munich
-150453	95457486	university of california berkeley
-149684	130769515	pennsylvania state university
-149102	1341412227	ibm
-144691	20231570	peking university
-144525	134820265	spanish national research council
-142760	205783295	cornell university
-142364	879563668	sao paulo state university
-142144	16733864	national taiwan university
-139729	79576946	university of pennsylvania
-137514	135598925	kyushu university
-134730	141945490	university of british columbia
-134645	36258959	university of california san diego
-132694	861853513	sapienza university of rome
-131112	60134161	nagoya university
-130936	5023651	mcgill university
-128775	84218800	university of california davis
-127154	165932596	national university of singapore
-126802	19880235	moscow state university
-126231	219193219	purdue university
-125972	66946132	university of maryland college park
-125727	78577930	columbia university
-124839	183067930	shanghai jiao tong university
-124393	140287389	technical university of kenya
-123049	91045830	texas a m university
-122020	20089843	princeton university
-120419	28407311	university of manchester
-118689	223822909	heidelberg university
-118518	32597200	ghent university
-118492	129604602	university of sydney
-117447	1330342723	mayo clinic
-117030	205349734	hokkaido university
-115874	9360294	university of bologna
-115715	16391192	tel aviv university
-115010	133731052	university of helsinki
-114283	165779595	university of melbourne
-113341	154425047	university of alberta
-112695	114027177	university of north carolina at chapel hill
-112677	30147112	sofia medical university
-112545	340828355	uc berkeley college of chemistry
-111905	187531555	lund university
-111704	1174212	university of southern california
-110739	138006243	university of arizona
-110429	181391015	state university of campinas
-109314	193775966	yonsei university
-107989	28166907	karolinska institutet
-107362	180670191	university of california san francisco
-106563	170201317	university of pittsburgh
-105869	130828816	university of leeds
-105186	165143802	university of queensland
-105088	887064364	university of amsterdam
-105054	130701444	georgia institute of technology
-104845	124055696	university of copenhagen
-103334	47508984	imperial college london
-101922	881766915	nanjing university
-101824	62916508	technische universitat munchen
-101715	130442723	universidade federal do rio grande do sul
-101548	59361560	instituto politecnico nacional
-100788	87216513	michigan state university
-100773	111979921	northwestern university
-100173	47720641	huazhong university of science and technology
-99396	114531698	tokyo institute of technology
-99345	40347166	university of chicago
-98487	887968799	rwth aachen university
-98339	24943067	fudan university
-98062	8961855	national autonomous university of mexico
-97083	122411786	california institute of technology
-96326	121797337	leiden university
-95564	110200422	universidade federal de minas gerais
-95469	136199984	harvard university
-95418	142263535	university of nottingham
-94553	135140700	university of bonn
-93458	1289243028	oak ridge national laboratory
-92807	122140584	federal university of rio de janeiro
-92550	71999127	university of barcelona
-92383	79619799	university of birmingham
-92051	36234482	university of bristol
-90993	90494735	national cancer institute
-90799	126307644	university of iowa
-90506	1343871089	los alamos national laboratory
-90286	31746571	university of new south wales
-89973	35440088	eth zurich
-89818	98677209	university of edinburgh
-89041	146061311	harvard medical school
-88814	204983213	harbin institute of technology
-88586	123387679	uppsala university
-88172	172675005	nanyang technological university
-88145	102322142	rutgers university
-88140	189158943	university of milan
-87413	5124864	ecole polytechnique federale de lausanne
-86812	197251160	hebrew university of jerusalem
-86195	1287899229	massachusetts general hospital
-85329	129774422	university of vienna
-85296	5388228	university of rochester
-84713	1314251682	institut national de la recherche agronomique
-84696	91136226	university of sheffield
-84213	74973139	carnegie mellon university
-84076	146655781	university of liverpool
-84040	170897317	duke university
-84017	4923324	fraunhofer society
-83701	1299303238	national institutes of health
-83404	154099455	shandong university
-82927	188538660	university of colorado boulder
-82915	1315039220	american society for biochemistry and molecular biology
-82845	193662353	utrecht university
-82818	145872427	radboud university nijmegen
-82656	889458895	university of hong kong
-82493	32971472	yale university
-82444	88273585	federal university of sao paulo
-82378	29607241	ecole normale superieure
-81614	51556381	university of virginia
-81265	121748325	complutense university of madrid
-81236	43439940	university of southampton
-80942	7882870	university of glasgow
-80629	7877124	charite
-80101	137902535	north carolina state university
-79729	138689650	university of padua
-79660	126520041	university of science and technology of china
-79146	157773358	sun yat sen university
-78519	24185976	sichuan university
-77616	203951103	keio university
-76627	223532165	university of utah
-76380	45084792	university of florence
-76104	55732556	arizona state university
-76071	194450716	jilin university
-76008	177725633	the chinese university of hong kong
-75668	181369854	university of erlangen nuremberg
-75473	102335020	karlsruhe institute of technology
-75410	157485424	kaist
-75079	173911158	iowa state university
-75052	98251732	mcmaster university
-74732	1282105669	argonne national laboratory
-74673	70931966	universite de montreal
-73999	37461747	wuhan university
-73898	168635309	university of calgary
-73455	148283060	lawrence berkeley national laboratory
-73446	202697423	university of zurich
-72979	2250650973	samsung
-72657	1296604144	memorial hospital of south bend
-72521	204250578	university of california irvine
-72306	151746483	university of waterloo
-72185	98358874	delft university of technology
-71639	1336096307	united states department of agriculture
-70367	8087733	university of tubingen
-70311	184942183	university of oslo
-70185	32389192	university of alabama at birmingham
-70040	183935753	king s college london
-69844	118347636	australian national university
-69719	865915315	vu university amsterdam
-69711	169381384	university of groningen
-69690	200777214	national and kapodistrian university of athens
-69685	113306721	hiroshima university
-69494	914474125	the school of life
-68572	197604219	national research council
-68395	108290504	university of pisa
-68163	859038795	virginia tech
-67593	12912129	northeastern university
-67301	91807558	national cheng kung university
-66693	99542240	polish academy of sciences
-66279	1288214837	united states naval research laboratory
-66242	87445476	xi an jiaotong university
-65893	24603500	university of massachusetts amherst
-65591	154570441	university of california santa barbara
-65580	20772946	washington university school of medicine
-65465	79510175	cardiff university
-65283	146399215	university of tsukuba
-65203	904495901	ruhr university bochum
-65032	39422238	university of illinois at chicago
-64749	148366613	national chiao tung university
-64669	165733156	university of georgia
-64578	200719446	vanderbilt university
-64460	1316902750	cleveland clinic
-64366	125749732	university of western ontario
-63875	27804330	brown university
-63850	1282311441	lawrence livermore national laboratory
-63740	58956616	case western reserve university
-63691	204722609	queen s university
-63165	159176309	university of hamburg
-63158	181547552	baylor college of medicine
-62956	1321296531	national institute of standards and technology
-62936	76835614	university of missouri
-62552	75027704	university of tennessee
-62498	123044942	autonomous university of barcelona
-62228	1292875679	commonwealth scientific and industrial research organisation
-62146	161046081	university of freiburg
-62080	1283280774	brigham and women s hospital
-61859	69737025	university of chile
-61668	56590836	monash university
-61245	73613424	national institute of advanced industrial science and technology
-61244	197347611	korea university
-61014	33501960	universidade federal de santa maria
-60945	192454743	sandia national laboratories
-60814	163770644	okayama university
-60770	1329016138	duke university hospital
-60691	174306211	technion israel institute of technology
-60642	84653119	academia sinica
-60380	94278534	yale school of medicine
-60293	162868743	tianjin university
-59914	21250087	charles university in prague
-59367	121820613	louisiana state university
-59307	159385669	chiba university
-59243	153648349	university of leicester
-59035	143302722	university of kentucky
-58440	190082696	durham university
-58119	52418104	federal university of parana
-57697	83019370	eindhoven university of technology
-57609	4104125	universidade federal de santa catarina
-56833	63190737	university at buffalo
-56292	111088046	boston university
-56128	16097986	university of valencia
-55721	1289490764	centers for disease control and prevention
-55325	65837984	kobe university
-55186	76569877	southeast university
-55029	140172145	university of connecticut
-55007	36243813	national university of colombia
-54645	926574661	leipzig university
-54602	180923762	university of cologne
-54339	43406934	laval university
-54075	100066346	university of stuttgart
-53800	139660479	central south university
-53640	146416000	university of kansas
-53579	199691007	empresa brasileira de pesquisa agropecuaria
-53409	75951250	free university of berlin
-53396	92446798	colorado state university
-53167	154130895	university of auckland
-52702	1306266525	goddard space flight center
-52680	1312222531	agricultural research service
-52461	25846049	national tsing hua university
-52388	1285764155	merck co
-52323	21535869	birmingham city university faculty of health
-52152	27357992	dalian university of technology
-52062	185443292	wayne state university
-52013	126231945	queen s university belfast
-52007	1334627681	jet propulsion laboratory
-51998	5681781	university of adelaide
-51853	53964585	weizmann institute of science
-51708	205237279	nankai university
-51622	1334819555	memorial sloan kettering cancer center
-51471	59553526	stony brook university
-51360	177877127	university of western australia
-51170	153718931	university of ottawa
-50998	200870766	brookhaven national laboratory
-50575	204337017	aarhus university
-50516	114457229	university of geneva
-50430	4575257	hanyang university
-50185	72090969	bell labs
-50138	95674353	universite catholique de louvain
-49784	173304897	university of granada
-49542	63135867	university of cincinnati
-49506	114395901	university of nebraska lincoln
-49472	82880672	beihang university
-49213	78650965	dresden university of technology
-49209	1324840837	hewlett packard
-48968	881427289	university of gothenburg
-48880	59270414	indian institute of science
-48303	151201029	national scientific and technical research council
-48282	57206974	new york university
-48107	84470341	the catholic university of america
-47819	84884186	newcastle university
-47377	103163165	florida state university
-47328	161593684	stockholm university
-47216	65143321	hitachi
-47207	878065381	grupo mexico
-47094	149851306	national academy of sciences of ukraine
-46820	74775410	rice university
-46787	848706	sungkyunkwan university
-46650	150468666	emory university
-46610	39555362	university of warwick
-46364	1327103098	faculty of chemistry
-45877	86987016	royal institute of technology
-45702	202391551	academy of sciences of the czech republic
-45664	52325	oswaldo cruz foundation
-45532	875825670	inaf
-45358	131249849	oregon state university
-45146	1290206253	microsoft
-45026	125839683	beijing institute of technology
-44960	46247651	university of manitoba
-44956	98704320	icahn school of medicine at mount sinai
-44921	145847075	vienna university of technology
-44884	118564535	university of bern
-44867	24354313	university of buenos aires
-44719	28238748	new york university school of medicine
-44666	197323543	university of mainz
-44517	90267481	umea university
-44434	132053463	universite libre de bruxelles
-44028	66862912	chalmers university of technology
-44010	168719708	city university of hong kong
-43940	113940042	shanghai university
-43884	4432739	university of bergen
-43871	1329325741	philips
-43852	4577782	technical university of berlin
-43833	76198965	university of jena
-43812	34352273	maastricht university
-43766	124227911	ben gurion university of the negev
-43756	116953780	tongji university
-43678	867280407	university of texas southwestern medical center
-43675	86501945	university of delaware
-43605	169521973	university of new mexico
-43329	1327163397	state university of new york system
-43186	181647926	university of strathclyde
-43048	818668190	european atomic energy community
-43041	913481162	wageningen university and research centre
-43015	10091056	kanazawa university
-42603	21370196	aristotle university of thessaloniki
-42586	4921948	pusan national university
-42397	55143463	university of turin
-42386	63021997	stanford university school of medicine
-42351	2613432	university of south florida
-42312	107639228	university of notre dame
-42238	110525433	islamic azad university
-42145	150744194	waseda university
-41776	72951846	washington state university
-41694	90610280	south china university of technology
-41670	14243506	hong kong polytechnic university
-41647	204778367	norwegian university of science and technology
-41474	200769079	hong kong university of science and technology
-41218	146165071	universidade federal de vicosa
-41027	63634437	autonomous university of madrid
-40965	155781252	university of south carolina
-40906	150229711	university of electronic science and technology of china
-40491	56328125	department of biotechnology
-40429	913958620	erasmus university rotterdam
-40328	98381234	university of oulu
-40284	165799507	rensselaer polytechnic institute
-40030	1283582996	novartis
-39811	71395657	niigata university
-39804	96673099	technical university of denmark
-39722	149213910	university of antwerp
-39660	170215575	national university of defense technology
-39658	162148367	pontifical catholic university of chile
-39477	79817857	university of guelph
-39436	52099693	university of york
-39434	63739035	all india institute of medical sciences
-39308	18014758	simon fraser university
-39082	106165777	university of central florida
-38989	94624287	university of twente
-38978	195460627	university of aberdeen
-38956	44461941	university of houston
-38660	76134821	medical university of vienna
-38606	32699454	joint institute for nuclear research
-38589	7597260	hungarian academy of sciences
-38441	80281795	university of otago
-38435	1286329397	united states geological survey
-38351	129902397	dalhousie university
-38282	78757542	university of newcastle
-38232	317356780	osaka city university
-38169	243754102	federal university of ceara
-38003	155660961	university of turku
-37912	96036126	kumamoto university
-37910	204730241	university of paris
-37826	165690674	oregon health science university
-37816	189590672	kansas state university
-37720	129975664	albert einstein college of medicine
-37627	43777268	nagasaki university
-37562	1487293	david geffen school of medicine at ucla
-37487	1344073410	howard hughes medical institute
-37485	76214153	lanzhou university
-37245	204465549	washington university in st louis
-37242	592451	indiana university
-37193	205274468	trinity college
-36882	35928602	kyung hee university
-36871	8692664	university of oklahoma
-36858	32625721	university of saskatchewan
-36809	71267560	university of naples federico ii
-36626	1326498283	french institute for research in computer science and automation
-36501	100930933	university college dublin
-36490	24384656	indiana university school of medicine
-36339	68956291	martin luther university of halle wittenberg
-36242	123900574	pohang university of science and technology
-36130	169108374	university of the basque country
-36101	102197404	university of paris sud
-36052	23946033	university of tehran
-35997	28290843	university of surrey
-35966	922474255	university of tokushima
-35902	114090438	goethe university frankfurt
-35867	103635307	university of california riverside
-35745	82497590	auburn university
-35657	180857899	pfizer
-35615	126744593	university of maryland baltimore
-35550	76903346	university of coimbra
-35536	142476485	ecole polytechnique
-35458	891191580	aalborg university
-35435	157614274	university of cape town
-35374	25217355	university of pavia
-35255	196349391	university of ulm
-35212	16835326	university of st andrews
-35155	166337079	queen mary university of london
-35081	111277659	chonnam national university
-35022	150729083	university of brasilia
-34965	60053951	polytechnic university of valencia
-34920	71052956	university of reading
-34918	87111246	catholic university of korea
-34796	1292669757	toshiba
-34764	1283103587	at t
-34692	66760702	council of scientific and industrial research
-34661	145608581	university of miami
-34642	143804889	loughborough university
-34628	194814389	feinberg school of medicine
-34589	1329621470	bhabha atomic research centre
-34518	177639307	university of dundee
-34488	79238269	university of seville
-34418	255234318	university of zaragoza
-34372	196972281	imec
-34314	177477856	polytechnic university of turin
-34246	25112270	federal university of pernambuco
-34145	123431417	scripps research institute
-34063	31419693	kyungpook national university
-34054	153976015	university of ljubljana
-34046	67581229	istanbul university
-33815	125602781	tokyo medical and dental university
-33798	6610548	rmit school of medical sciences
-33764	161076350	indian institutes of technology
-33757	66514158	hacettepe university
-33740	203339264	university of lyon
-33640	70983195	syracuse university
-33634	71730758	university of louisiana at monroe
-33400	39343248	humboldt university of berlin
-33224	102064193	university of siena
-33143	184565670	georgetown university
-33043	919643044	perelman school of medicine at the university of pennsylvania
-32961	172901346	saint petersburg state university
-32940	180437899	university of bremen
-32940	39804081	pierre and marie curie university
-32927	4068193	university of belgrade
-32912	192455969	york university
-32750	8078737	clemson university
-32742	1325886976	siemens
-32647	191208505	xiamen university
-32170	153297377	medical university of south carolina
-32052	137975476	shinshu university
-32004	1316535847	beth israel deaconess medical center
-31941	4654613	university of warsaw
-31900	91656880	china medical university
-31874	139759216	beijing university of posts and telecommunications
-31857	149594827	xidian university
-31741	67415387	lancaster university
-31696	42405503	gifu university
-31688	184840846	virginia commonwealth university
-31511	118347220	nec
-31457	1292974536	ford motor company
-31331	165735259	gunma university
-31171	1343180700	intel
-31138	12097938	west virginia university
-31083	285772600	emory university school of medicine
-30901	102134673	linkoping university
-30889	212119943	university of victoria
-30886	35961687	university of antioquia
-30883	25254941	beijing normal university
-30857	51601045	university of bath
-30840	104946051	nihon university
-30785	166755871	university of pittsburgh school of medicine
-30747	40034438	rio de janeiro state university
-30702	1320010244	uganda revenue authority
-30665	165951966	university of texas health science center at san antonio
-30625	67031392	carleton university
-30498	145487455	cairo university
-30318	174878644	university of patras
-30184	158842170	chongqing university
-30152	157536573	pasteur institute
-30097	188950975	glaxosmithkline
-30050	171892758	forschungszentrum julich
-30034	22265921	national central university
-29865	97565354	university of lausanne
-29848	1850255	university of basel
-29835	193531525	george washington university
-29827	51317819	institute of medical sciences banaras hindu university
-29702	137720053	university of michigan health system
-29683	52158045	china agricultural university
-29543	60158472	concordia university
-29542	12315562	texas tech university
-29499	1302978242	academy of medical sciences united kingdom
-29492	53910124	technische hochschule
-29322	165450437	indiana university bloomington
-29300	124357947	university of london
-29263	130343225	universiti putra malaysia
-29260	60858718	university of aveiro
-29195	167751958	institute of chemical technology
-29188	204824540	university of wollongong
-29182	33849332	university of malaya
-29133	1325051341	russian academy
-29127	9617848	polytechnic university of catalonia
-29027	25974101	university of wurzburg
-28944	118019719	hoffmann la roche
-28937	169045520	federal university of paraiba
-28936	181343428	university of zagreb
-28930	142606810	pacific northwest national laboratory
-28929	174458059	national technical university of athens
-28895	23923803	university of exeter
-28833	177572303	leonard m miller school of medicine
-28779	17301866	university of alabama
-28692	90344618	medical research council
-28676	1322918889	united states department of veterans affairs
-28564	84392919	temple university
-28527	24768866	bulgarian academy of sciences
-28483	149251103	thomas jefferson university
-28479	875511016	environ
-28450	315704651	leibniz association
-28445	141596103	university of lisbon
-28429	177614442	university of ulsan college of medicine
-28409	143593769	east china university of science and technology
-28345	204308271	medical college of wisconsin
-28334	181233156	university of oregon
-28193	1331384533	university of hawaii
-28093	162608824	university of sussex
-27900	1302368450	united states environmental protection agency
-27847	165339363	university of oviedo
-27794	4260306	weill cornell medical college
-27762	191879574	inha university
-27743	17145004	northwestern polytechnical university
-27673	100005738	brigham young university
-27670	92403157	university of science and technology beijing
-27655	1318687432	national academy of sciences
-27531	13469542	vrije universiteit brussel
-27479	70640408	tehran university of medical sciences
-27455	1280414376	air force research laboratory
-27373	67826202	helsinki university of technology
-27365	142740786	university of louisville
-27327	121934539	institute of mathematics
-27284	99043593	macquarie university
-27279	1322087612	alcatel lucent
-27261	160993911	queensland university of technology
-27248	22465464	university of munster
-27240	110166357	university of delhi
-27211	161127581	federal fluminense university
-27102	298625061	swedish university of agricultural sciences
-27101	72816309	drexel university
-27002	115475287	oklahoma state university stillwater
-26915	107139324	kagoshima university
-26881	1309859654	national institute of allergy and infectious diseases
-26643	127110123	universidade estadual de londrina
-26621	1314696892	fermilab
-26601	126158947	federal university of bahia
-26501	911458345	vu university medical center
-26479	202177556	king s college cambridge
-26461	192619145	university of the witwatersrand
-26324	127558574	dsm
-26072	81082344	science college
-26026	52996974	harvard smithsonian center for astrophysics
-25915	200399037	university of puerto rico
-25907	173915773	yamaguchi university
-25904	204136569	open university
-25818	83519826	nanjing medical university
-25804	13955877	bar ilan university
-25764	121934306	tufts university
-25731	162714631	george mason university
-25652	69552723	university of pretoria
-25638	123443094	universidade estadual de maringa
-25597	1118541	university of east anglia
-25543	96323854	national yang ming university
-25522	1288530672	dana farber cancer institute
-25516	5561750	university of bari
-25507	185103710	university of california santa cruz
-25455	21193070	beijing jiaotong university
-25449	160013858	istituto nazionale di fisica nucleare
-25408	178574317	mie university
-25390	874386039	national university of la plata
-25384	78715868	university of arkansas
-25376	11701301	griffith university
-25345	34809795	hannover medical school
-25334	34077901	juntendo university
-25158	19894307	university of montpellier
-25078	145894827	indian institute of technology kharagpur
-25035	916559398	kindai university
-24978	80180929	university of murcia
-24904	205640436	curtin university
-24882	9916479	fourth military medical university
-24877	196345858	chungnam national university
-24831	106456161	harvard t h chan school of public health
-24812	2388115	japan atomic energy research institute
-24787	66867065	east china normal university
-24764	22798298	school of electrical and electronic engineering university of manchester
-24732	70978881	london school of hygiene tropical medicine
-24698	80611190	chonbuk national university
-24667	129409704	tampere university of technology
-24580	26092322	stellenbosch university
-24542	40677808	kyoto prefectural university of medicine
-24521	21491767	aix marseille university
-24512	51158804	massey university
-24445	89630735	yokohama city university
-24429	1332737386	general electric
-24371	1286704778	rutherford appleton laboratory
-24369	196699116	wuhan university of technology
-24362	142444530	university of trieste
-24205	74656192	university of gottingen
-24201	88060688	technical university of madrid
-24176	196829312	la trobe university
-24069	27483092	university of perugia
-23955	198357145	national heart lung and blood institute
-23887	115228651	agency for science technology and research
-23561	207624831	slovak academy of sciences
-23531	1308126019	national oceanic and atmospheric administration
-23531	190249584	university of innsbruck
-23497	1343551460	university of texas md anderson cancer center
-23387	1329882472	visual sciences
-23383	58716616	korea institute of science and technology
-23354	108403487	warsaw university of technology
-23350	16609230	hunan university
-23334	162096671	university of los andes
-23323	43545212	ehime university
-23307	1314466530	tokai university
-23297	150623626	boston university school of medicine
-23237	36399199	nanjing university of science and technology
-23206	114832834	tulane university
-23179	142974352	national sun yat sen university
-23166	28022161	king saud university
-23162	106365116	wake forest school of medicine
-23133	201799495	middle east technical university
-23116	83816512	university of genoa
-23092	1648549	university of zulia
-23088	32062511	heriot watt university
-23077	1335321130	children s hospital of philadelphia
-23012	59433898	brunel university london
-22997	1315085146	universidade federal de lavras
-22996	148297040	netherlands organisation for applied scientific research
-22912	133529467	sharif university of technology
-22896	1310053265	st george s hospital
-22879	17866349	university of toulouse
-22863	103320735	catholic university of the sacred heart
-22825	38877650	zhengzhou university
-22823	177933477	second military medical university
-22806	31512782	technische universitat darmstadt
-22740	189196454	university of texas at arlington
-22709	2252230247	gunadarma university
-22664	162577319	university of texas at dallas
-22633	2252096349	fujitsu
-22567	185492890	university of canterbury
-22531	151727225	harbin engineering university
-22483	60668342	university of regensburg
-22463	166722992	university of massachusetts medical school
-22443	107672454	dartmouth college
-22374	170979836	jadavpur university
-22371	115592961	jiangsu university
-22252	44703657	university of science and technology sana a
-22251	184999862	university of salamanca
-22240	78570951	monash university clayton campus
-22228	64189623	kitasato university
-22129	181565077	georgia state university
-22109	55302922	university of texas medical branch
-22105	19719545	national institute of mental health
-22071	135117807	universite de sherbrooke
-21914	37796252	beijing university of technology
-21907	121980950	utah state university
-21853	126596746	jagiellonian university
-21832	57664883	ajou university
-21829	885383172	national university of malaysia
-21829	169541294	flinders university
-21807	4576418	universiti teknologi malaysia
-21738	39063666	university of catania
-21725	205401836	national institute for materials science
-21718	59028903	ocean university of china
-21674	186903577	university of luxembourg
-21657	172787465	university of concepcion
-21617	33858575	nagoya city university
-21561	91357014	banaras hindu university
-21480	142401562	electronics and telecommunications research institute
-21479	101202996	semmelweis university
-21477	4588055	tottori university
-21469	162838928	national chung hsing university
-21465	1324220072	mount sinai hospital
-21449	27577105	university college cork
-21443	112524849	yamagata university
-21428	54009628	university of bayreuth
-21382	24062138	konkuk university
-21364	3923682	soochow university
-21314	24676775	indian institute of technology madras
-21229	193223587	university of trento
-21159	186143895	lehigh university
-21136	110152177	university of akron
-21128	82767444	university of malaga
-21115	36426075	institute of medical science
-21094	140025399	hochschule hannover
-21046	193700539	tilburg university
-21039	17937529	german cancer research center
-21019	47076751	institute of high energy physics
-21000	162827531	indian institute of technology bombay
-20935	138801177	ulster university
-20885	158248296	amirkabir university of technology
-20872	900890020	university of palermo
-20793	2785411	institute for materials research
-20744	27897274	istituto superiore di sanita
-20632	169248161	universidade federal de pelotas
-20597	41641357	ege university
-20584	94722563	university of jyvaskyla
-20552	20121455	bielefeld university
-20485	139322472	universiti sains malaysia
-20449	25041050	georgia regents university
-20389	149704539	deakin university
-20255	119454577	nanjing agricultural university
-20224	83399316	rockefeller university
-20220	99041443	mississippi state university
-20218	129801699	university of tasmania
-20161	59130452	university of nebraska medical center
-20134	158708052	chulalongkorn university
-20109	76023543	keck school of medicine of usc
-20076	130438778	memorial university of newfoundland
-20042	134113660	university of nevada reno
-20010	35046152	federal university of rio grande do norte
-19989	118892805	instituto superior tecnico
-19964	19700959	florida international university
-19822	149218525	ankara university
-19821	138925566	ewha womans university
-19811	44504214	czech technical university in prague
-19798	183519381	capital medical university
-19794	82951845	rmit university
-19789	117197279	japan atomic energy agency
-19786	157075465	bristol myers squibb
-19780	97429440	university of wales
-19775	105036370	astrazeneca
-19733	11923345	wroclaw university of technology
-19725	45643870	pontificia universidade catolica do rio grande do sul
-19720	172446870	university of cagliari
-19714	197274945	nagoya institute of technology
-19601	177483745	joseph fourier university
-19479	194019607	university of ioannina
-19441	19920983	mayo medical school
-19440	74760111	texas instruments
-19392	111236770	university of vermont
-19295	69740276	tokyo metropolitan university
-19277	26538001	san diego state university
-19265	168537998	eli lilly and company
-19256	1282927834	cedars sinai medical center
-19194	1298590031	shizuoka university
-19192	65081225	china university of geosciences
-19160	1326427960	fred hutchinson cancer research center
-19140	68106152	universidade federal de goias
-19129	20581793	university of kent
-19127	1334415907	university medical center groningen
-19064	141584323	university of hertfordshire
-19061	105296287	kurume university
-19058	67900169	chung ang university
-19046	119439378	university of verona
-19023	204823248	huazhong agricultural university
-18960	1316910977	dupont
-18920	119182057	showa university
-18916	110002522	university of essex
-18891	43579087	university of wisconsin milwaukee
-18886	123534392	university of north texas
-18849	87048295	wellcome trust
-18836	108103353	university of valladolid
-18828	11947397	tata institute of fundamental research
-18802	88155538	university of navarra
-18792	110378019	southern illinois university carbondale
-18741	137551562	vanderbilt university school of medicine
-18649	1338124936	american museum of natural history
-18622	95634034	gazi university
-18608	51713134	anschutz medical campus
-18553	191240316	university of hull
-18521	4092182	graz university of technology
-18521	154430654	dental school
-18508	169071179	cancer research institute
-18426	169238054	czechoslovak academy of sciences
-18383	116067653	university of rome tor vergata
-18338	94234084	indian institute of technology kanpur
-18309	1313298211	st jude children s research hospital
-18267	192513696	national university of san marcos
-18182	1288702032	ministry of education
-18150	56085075	university of tartu
-18121	197809005	seconda universita degli studi di napoli
-18115	152743029	kaohsiung medical university
-18043	1285301757	rush university medical center
-18034	200763008	university of giessen
-18017	163753206	chungbuk national university
-18003	142617266	university of crete
-17971	227586296	american physical therapy association
-17967	106938459	university of new brunswick
-17921	392282	university at albany suny
-17889	138728355	kek
-17865	154864474	national taiwan university of science and technology
-17828	54459138	university of salford
-17818	193615760	dokuz eylul university
-17812	86467917	james cook university
-17787	9842412	nanjing university of aeronautics and astronautics
-17770	901861585	vanderbilt university medical center
-17712	1280536761	ames research center
-17663	112862951	university of messina
-17662	40036882	institute for advanced study
-17634	72580772	wayne state university school of medicine
-17560	156144747	harbin medical university
-17554	118136607	general motors
-17510	189268942	university of alcala
-17502	114112103	leibniz university of hanover
-17457	1320320070	food and drug administration
-17455	227486990	university of szeged
-17453	9217761	westinghouse electric
-17436	15807432	osaka prefecture university
-17429	79189158	university of castilla la mancha
-17360	22759111	ohio university
-17342	17626003	university of rhode island
-17335	32021983	university of kiel
-17313	170239107	university of south australia
-17293	44260953	university of dusseldorf
-17285	173093425	chang gung university
-17260	79620101	university of arkansas for medical sciences
-17210	110736937	paris descartes university
-17190	1285204247	cincinnati children s hospital medical center
-17165	102235749	university of manchester institute of science and technology
-17139	157940539	columbia university college of physicians and surgeons
-17129	74413500	university of windsor
-17122	107720978	ain shams university
-17053	170606269	university of the fraser valley
-17050	92614990	tokyo university of agriculture and technology
-17047	114017466	university of technology sydney
-17046	75390827	beijing university of chemical technology
-17045	161057412	university of new hampshire
-17045	180585399	dalian institute of chemical physics
-17023	39586589	swansea university
-17001	161296585	tokyo university of science
-16981	1333370159	motorola
-16967	44921830	institute of zoology
-16953	20382870	missouri university of science and technology
-16949	110120368	enea
-16949	68368234	cinvestav
-16885	149910238	kent state university
-16884	180949307	illinois institute of technology
-16768	21449261	masaryk university
-16729	146824383	hallym university
-16710	182534213	university of porto
-16700	130194489	university of alicante
-16688	104338594	inje university
-16661	169357873	johns hopkins bloomberg school of public health
-16657	1306287861	mitsubishi
-16654	180987434	eunice kennedy shriver national institute of child health and human development
-16632	141882310	sapporo medical university
-16625	124601658	university of parma
-16621	2252135952	petersburg nuclear physics institute
-16612	921990950	university of colorado denver
-16610	4800084	southwest jiaotong university
-16590	1325899441	university health network
-16566	4665924	university of rostock
-16546	189442560	gyeongsang national university
-16533	166825849	university of tampere
-16530	1297288678	national renewable energy laboratory
-16524	74788687	comenius university in bratislava
-16520	10052268	new mexico state university
-16515	159129438	universite du quebec a montreal
-16470	90871651	university of toledo
-16458	16285277	college of william mary
-16395	201324441	university of ferrara
-16388	91712215	saarland university
-16385	83558840	universidade nova de lisboa
-16375	123946342	binghamton university
-16323	204553293	china university of petroleum
-16263	31784960	fukuoka university
-16201	894799257	ent federal credit union
-16189	131827901	stmicroelectronics
-16152	80188885	nippon medical school
-16118	115498069	jikei university school of medicine
-16067	129634264	toho university
-16061	909854389	london school of economics and political science
-16040	87653560	vtt technical research centre of finland
-15976	157394403	baylor university
-15966	865419266	catholic university of leuven
-15913	29606459	university of mississippi medical center
-15912	146516829	hirosaki university
-15909	68891433	indian institute of technology delhi
-15882	62318514	university of duisburg essen
-15870	919571938	university of texas health science center at houston
-15850	111599522	jiangnan university
-15818	134560555	paul sabatier university
-15810	178621518	institute for high energy physics
-15803	139894009	university of bradford
-15791	159948400	jinan university
-15784	1320897668	max planck institute of psychiatry
-15759	142947616	institute of cancer research
-15756	62921916	universidade federal rural de pernambuco
-15713	200362191	universidad autonoma metropolitana
-15712	200246676	school of medicine shanghai jiao tong university
-15707	170203145	laboratory of molecular biology
-15707	42934936	dublin city university
-15650	1334968043	university of pittsburgh medical center
-15641	158438070	university of la laguna
-15630	95793202	otto von guericke university magdeburg
-15590	23732399	montana state university
-15550	51235708	universidade federal do espirito santo
-15535	177969490	university of southern denmark
-15527	13134134	university of cantabria
-15525	1331897569	agriculture and agri food canada
-15485	42766147	university of toyama
-15471	47838141	saint louis university
-15467	79431787	tongji medical college
-15448	1321434546	european southern observatory
-15418	184558857	royal holloway university of london
-15303	56007636	keele university
-15294	185940356	soochow university
-15244	33585257	anna university
-15227	91203450	university of haifa
-15215	889315371	agricultural applied economics association
-15211	79940851	university of brescia
-15210	82284825	cranfield university
-15172	81365321	old dominion university
-15172	118118575	new jersey institute of technology
-15141	29770179	budapest university of technology and economics
-15135	12834331	university of wyoming
-15093	48912391	istanbul technical university
-15091	82724352	universiti teknologi mara
-15085	134421475	national physical laboratory
-15042	39534123	gwangju institute of science and technology
-15024	922237871	astron
-14928	1335113835	karolinska university hospital
-14866	1319063186	langley research center
-14824	6902469	brandeis university
-14800	155093810	university of idaho
-14796	1340179700	newyork presbyterian hospital
-14791	132735039	university of debrecen
-14749	7923278	royal dutch shell
-14748	203765153	akita university
-14725	166416128	united states army research laboratory
-14687	75917431	nara institute of science and technology
-14656	871966649	genetics institute inc
-14644	137853757	howard university
-14643	142066694	industrial technology research institute
-14620	98635879	american university of beirut
-14613	233745408	pontifical xavierian university
-14580	1306430637	st vincent s health system
-14572	183934855	genentech
-14555	143397708	innsbruck medical university
-14545	36819085	northwest university
-14519	68947357	university of strasbourg
-14499	25399158	mahidol university
-14446	207014233	kyushu institute of technology
-14442	41156924	victoria university of wellington
-14441	57328836	north dakota state university
-14420	142108993	southwest university
-14415	55240360	yeungnam university
-14412	64926303	nara medical university
-14353	20529979	university of electro communications
-14328	107077323	worcester polytechnic institute
-14318	102502594	northern illinois university
-14314	103531236	boston college
-14265	180203408	yokohama national university
-14260	1312106833	biotechnology institute
-14250	67009956	iran university of science and technology
-14238	1293612202	toyota
-14223	94658018	university of memphis
-14189	67348948	bayer
-14179	368840534	university of mississippi
-14174	170013655	isfahan university of technology
-14170	12093191	university of stirling
-14150	51452335	panjab university chandigarh
-14139	10761972	hamamatsu university school of medicine
-14139	1298353152	sri international
-14108	173592870	university of washington school of medicine
-14094	118517470	lebedev physical institute
-14075	25757504	china university of mining and technology
-14028	189712700	university of konstanz
-14023	105804677	institute of biophysics
-13993	31944674	university of costa rica
-13963	125373518	rmit school of health sciences
-13926	151075929	third military medical university
-13911	686019	agh university of science and technology
-13894	11957088	michigan technological university
-13849	28792581	university of rochester medical center
-13848	896857757	vision sciences inc
-13846	83328450	miami university
-13791	188760350	national university of ireland galway
-13789	195342982	university of medicine and dentistry of new jersey
-13783	39854257	mitsubishi electric
-13781	1925986	loyola university chicago
-13781	160994706	odense university
-13769	187400657	south china normal university
-13769	1320553840	amgen
-13716	148099254	national chung cheng university
-13698	50357001	charles iii university of madrid
-13689	134085113	king fahd university of petroleum and minerals
-13676	63772739	florida atlantic university
-13669	87531838	teikyo university
+645091	1294671590	centre national de la recherche scientifique	§Génétique Expérimentale et Moléculaire, Centre National de la Recherche Scientifique, Orléans, France; and
+570014	19820366	chinese academy of sciences	Chinese Academy of Sciences
+461049	149899117	max planck society	Surface Science (OP), Max Planck Institute for Plasma Physics, Max Planck Society
+452312	1313323035	russian academy of sciences	Institute of Solid-State Chemistry of the Ural Branch of the Russian Academy of Sciences Ekaterinburg Russia
+343056	17974374	university of sao paulo	Universidade de São Paulo, São Paulo, Brazil
+306512	74801974	university of tokyo	Research Center for Advanced Science and Technology,  The University of Tokyo, 4-6-1 Komaba,Meguro, Tokyo,Japan.
+291735	67311998	cern	CERN|||University of Lausanne
+230582	86519309	university of texas at austin	Department of Psychology, University of Texas at Austin|||Department of Psychology, University of Texas at Austin
+226508	98285908	osaka university	Department of Geriatric Medicine, Osaka University Graduate School of Medicine|||Department of Geriatric Medicine, Osaka University Graduate School of Medicine
+219630	22299242	kyoto university	Kyoto University
+217878	27837315	university of michigan	Altitude Engineering Laboratory|Departments of Aerospace Engineering and Atmospheric and Oceanic Science|University of Michigan
+208571	55176711	university of california	University of California Departments of Chemistry & Biochemistry Department of Materials, Center of Polymers and Organic Solids Santa Barbara CA USA
+205169	63966007	massachusetts institute of technology	Massachusetts Institute of Technology 02139 Cambridge MA USA|||Massachusetts Institute of Technology 02139 Cambridge MA USA|||Massachusetts Institute of Technology 02139 Cambridge MA USA|||Massachusetts Institute of Technology 02139 Cambridge MA USA
+202796	201448701	university of washington	Director, High School Student Relations and Orientation, University of Washington
+201901	97018004	stanford university	Solid State and Photonics Lab|Stanford University|||Solid State and Photonics Lab|Stanford University
+200258	185261750	university of toronto	Department of Microbiology The University of Toronto and the Wellesley Hospital, Toronto, Ontario, Canada
+196145	1288882113	boston children s hospital	Department of Paediatrics, Queen Silvia Children’s Hospital, University of Gothenburg, Rondvägen 15, Gothenburg, 41685, Sweden
+195783	145311948	johns hopkins university	Johns Hopkins University School of Medicine
+190948	135310074	university of wisconsin madison	Department of Materials Science and Engineering University of Wisconsin-Madison 53706 Madison WI USA|||Department of Materials Science and Engineering University of Wisconsin-Madison 53706 Madison WI USA
+187043	139264467	seoul national university	School of Biological Sciences, Seoul National University, Seoul 151‐742, Korea
+182132	154526488	french institute of health and medical research	Laboratoire de Recherches sur les Hormones Vasoactives, INSERM U-28, Hôpital Broussais, Paris, France
+176662	157725225	university of illinois at urbana champaign	Department of Astronomy, University of Illinois, 1002 West Green Street, Urbana, IL 61801
+173592	99065089	tsinghua university	#N#Department of Materials Science and Engineering, Tsinghua University, Beijing, China #N#
+171490	201537933	tohoku university	Tohoku University Institute of Development, Aging, and Cancer 4-1 Seiryo-machi, Aob-ku 980-8575 Sendai-shi Japan|||Tohoku University Institute of Development, Aging, and Cancer 4-1 Seiryo-machi, Aob-ku 980-8575 Sendai-shi Japan
+165372	130238516	university of minnesota	University of Minnesota, Minneapolis, MN 55455, USA
+163159	76130692	zhejiang university	Zhejiang University
+162935	157674565	university of liege	Center for Education and Research on Macromolecules (C.E.R.M), University of Liège, Sart Tilman B6, B‐4000 Liège (Belgium), Fax: (+32) 4–3663497
+158940	52357470	ohio state university	The Ohio State University
+158610	241749	university of cambridge	Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, CB2 1EW, U.K.
+155764	40120149	university of oxford	University of Southampton, Southampton General Hospital|||University of Oxford
+155642	161318765	university of california los angeles	University of California, Los Angeles, California 90089
+154023	99464096	katholieke universiteit leuven	Department of Pediatrics, University Hospital Leuven, Leuven, Belgium
+153415	45129253	university college london	University College London
+151450	33213144	university of florida	Department of Psychology, University of Florida, Gainesville, FL 32611, United States
+151349	8204097	ludwig maximilian university of munich	Multidisciplinary Pain Center, Department of Anaesthesiology, University of Munich (LMU), Munich, Germany|||Institute for Medical Information Sciences, Biometry and Epidemiology, University of Munich (LMU), Munich, Germany
+150453	95457486	university of california berkeley	University of California, Berkeley, California
+149684	130769515	pennsylvania state university	Materials Research Laboratory, The Pennsylvania State University, University Park, PA, 16802, USA
+149102	1341412227	ibm	Res. Div., IBM Thomas J. Watson Res. Center, Yorktown Heights, NY, USA
+144691	20231570	peking university	Peking University, Beijing, China
+144525	134820265	spanish national research council	Departamento de Microbiología Molecular, Centro de Investigaciones Biológicas del CSIC, Velázquez 144 Madrid Spain|||Unidad de Bioquímica, Departamento de Química Aplicada, Facultad de Química, Universidad del País Vasco, Apdo. 1072 San Sebastián Spain
+142760	205783295	cornell university	Department of Plant Pathology & Plant Microbe‐Biology, Cornell University, Ithaca, New York 14853–5904|||
+142364	879563668	sao paulo state university	Division of Oral and Maxillofacial Surgery, School of Dentistry of Araçatuba, UNESP, São Paulo State University, Araçatuba, SP
+142144	16733864	national taiwan university	Dept. of Phys., Nat. Taiwan Univ., Taipei, Taiwan
+139729	79576946	university of pennsylvania	Undergraduate Student, (maliza@sas.upenn.edu), School of Arts and Sciences, University of Pennsylvania, 249 South 36th Street, Philadelphia, PA 19104.
+137514	135598925	kyushu university	Kyushu University
+134730	141945490	university of british columbia	The Univ. of British Columbia (Canada)
+134645	36258959	university of california san diego	University of California/San Diego Department of Psychiatry 0680 Clinical Sciences Building, 9500 Gilman Drive 92093-0680 La Jolla CA|||University of California/San Diego Department of Psychiatry 0680 Clinical Sciences Building, 9500 Gilman Drive 92093-0680 La Jolla CA
+132694	861853513	sapienza university of rome	Department of Human Physiology and Pharmacology, University of Rome ‘La Sapienza’, Ple A. Moro 5, 00185 Rome, Italy|||Department of Human|Physiology and Pharmacology|University of Rome|||Department of Human Physiology and Pharmacology, University of Rome ‘La Sapienza’, Ple A. Moro 5, 00185 Rome, Italy|||Department of Human|Physiology and Pharmacology|University of Rome
+131112	60134161	nagoya university	Department of Chemistry, College of General Education, Nagoya University, Nagoya, Japan
+130936	5023651	mcgill university	Department of Biology, McGill University, Montreal, Quebec, Canada H3A 1B1
+128775	84218800	university of california davis	Author Olson is with Dept. of Food Science and Technology, Univ. of California, Davis, One Shields Ave., Davis, CA 95616, U.S.A. Author Teuber is with Div. of Rheumatology, Allergy and Clinical Immunology, Univ. of California, Davis, One Shields Ave. ‐ 6513 GBSF, Davis, CA 95616, U.S.A. Author Bruhn is with Dept. of Food Science and Technology, Room 2036 RMI Sensory Building, One Shields Ave., Univ. of California, Davis, Davis, CA 95616‐8598, U.S.A. Direct inquiries to author Bruhn (
+127154	165932596	national university of singapore	A*STAR Institute of High Performance Computing|||National University of Singapore
+126802	19880235	moscow state university	Department of Physics, M. V. Lomonosov Moscow State University, Leninskie gori, Moscow 119992, Russia
+126231	219193219	purdue university	Purdue University, W. Lafayette, IN
+125972	66946132	university of maryland college park	University of Maryland, College Park, MD
+125727	78577930	columbia university	Political Science Department|Columbia University
+124839	183067930	shanghai jiao tong university	Shanghai Key Laboratory of Digital Manufacture for Thin-Walled Structures,Shanghai Jiao Tong University,Shanghai 200240, China
+124393	140287389	technical university of kenya	Samara State Technical University
+123049	91045830	texas a m university	Department of Veterinary Anatomy and Public Health, College of Veterinary Medicine, Texas A&M University, College Station, TX 77843-4458, USA
+122020	20089843	princeton university	Dept. of Elec. Engrg. Princeton University
+120419	28407311	university of manchester	School of Pharmacy and Pharmaceutical Sciences, University of Manchester, Manchester, United Kingdom
+118689	223822909	heidelberg university	University of Heidelberg
+118518	32597200	ghent university	Department of Molecular Biology, University of Gent and Flanders Interuniversity Institute for Biotechnology, Gent, Belgium
+118492	129604602	university of sydney	‡Department of Surgery, University of Sydney, Sydney, Australia
+117447	1330342723	mayo clinic	Department of Neuroscience, Mayo Clinic, Jacksonville, Florida, USA
+117030	205349734	hokkaido university	Graduate School of Information Science and Technology Hokkaido University, Sapporo, Japan
+115874	9360294	university of bologna	Alma Mater Studiorum - Università di Bologna
+115715	16391192	tel aviv university	Tel Aviv University
+115010	133731052	university of helsinki	Institute of Physics|Dept . of Physics|University of Helsinki
+114283	165779595	university of melbourne	Department of Pathology, The University of Melbourne, Victoria 3010, Australia
+113341	154425047	university of alberta	Division of Neurology, Department of Medicine, University of Alberta, Edmonton, Alta., Canada
+112695	114027177	university of north carolina at chapel hill	University of North Carolina at Chapel Hill, Chapel Hill, NC
+112677	30147112	sofia medical university	Department of Cardiovascular Sciences, Tokyo Women’s Medical University, Tokyo, Japan
+112545	340828355	uc berkeley college of chemistry	College of Chemistry & Materials Science, Northwest University, Key Laboratory of Synthetic and Natural Functional Molecule Chemistry of Ministry of Education, Xi’an, China
+111905	187531555	lund university	Head Office, Lund University Libraries, Lund, Sweden
+111704	1174212	university of southern california	Program for Neural, Informational, and Behavioral Sciences and Department of Biological Sciences, University of Southern California, Los Angeles, California 90089‐2520
+110739	138006243	university of arizona	Large Binocular Telescope Observatory, University of Arizona, 933 N Cherry Ave, Tucson, AZ 85721-0065, USA
+110429	181391015	state university of campinas	Molecular Biology Center and Genetic Engineering (CBMEG), University of Campinas (UNICAMP), Campinas, São Paulo, Brazil|||Department of Plant Biology, Biology Institute, University of Campinas (UNICAMP), Campinas, São Paulo, Brazil
+109314	193775966	yonsei university	Yonsei University College of Medicine
+107989	28166907	karolinska institutet	Division of Geriatric Epidemiology, Neurotec, Karolinska Institutet, Box 6401, SE-113 82 Stockholm, Sweden
+107362	180670191	university of california san francisco	Gladstone Institute of Cardiovascular Disease, University of California, San Francisco, CA 94158, USA
+106563	170201317	university of pittsburgh	University of Pittsburgh
+105869	130828816	university of leeds	University of Leeds
+105186	165143802	university of queensland	Renal Transplant Unit, University of Queensland Department of Surgery and Departments of Pathology and Haematology, Princess Alexandra Hospital, Woolloongabba, Queensland, Australia 4102.
+105088	887064364	university of amsterdam	Institute of Mass Spectrometry, University of Amsterdam, Nieuwe Achtergracht 129, 1018 WS Amsterdam, The Netherlands
+105054	130701444	georgia institute of technology	Georgia Institute of Technology, Atlanta, GA
+104845	124055696	university of copenhagen	Centre for Social Evolution, Department of Biology, University of Copenhagen, Copenhagen, Denmark|||Biology I, University of Regensburg, Regensburg, Germany
+103334	47508984	imperial college london	Imaging Sciences Department, Imperial College, London, UK
+101922	881766915	nanjing university	Institute of Surficial Geochemistry, Department of Earth Sciences, Nanjing University, Nanjing 210093, China|||Institute of Surficial Geochemistry, Department of Earth Sciences, Nanjing University, Nanjing 210093, China
+101824	62916508	technische universitat munchen	Physik Department E22, Biophysics Laboratory, Technische Universität München, James-Franck-Strasse, 85747 Garching, Germany
+101715	130442723	universidade federal do rio grande do sul	Universidade Federal do Rio Grande do Sul (UFRGS)
+101548	59361560	instituto politecnico nacional	Unversità degli Studi di Milano|||Istituto di Fisica del Politecnico
+100788	87216513	michigan state university	Michigan State University
+100773	111979921	northwestern university	Northwestern Polytech. Univ., Xian
+100173	47720641	huazhong university of science and technology	Huazhong University of Science and Technology
+99396	114531698	tokyo institute of technology	Graduate School of Information Science and Engineering, Tokyo Institute of Technology, Tokyo, 152‐8552 Japan
+99345	40347166	university of chicago	The James Franck Institute and Department of Physics, The University of Chicago, Chicago, Illinois 60637|||The James Franck Institute and Department of Physics, The University of Chicago, Chicago, Illinois 60637
+98487	887968799	rwth aachen university	Faculty of Mechanical Engineering, RWTH Aachen University, 52056, Germany
+98339	24943067	fudan university	Department of Applied Mechanics, Fudan University, Shanghai, 200433, P.R. China
+98062	8961855	national autonomous university of mexico	UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO
+97083	122411786	california institute of technology	Norman W. Church Laboratory of Chemical Biology, Division of Chemistry and Chemical Engineering, California Institute of Technology, Pasadena, California 91109, USA|||Norman W. Church Laboratory of Chemical Biology, Division of Chemistry and Chemical Engineering, California Institute of Technology, Pasadena, California 91109, USA
+96326	121797337	leiden university	Department of Molecular Epidemiology, Leiden University Medical Center, Leiden, the Netherlands
+95564	110200422	universidade federal de minas gerais	Universidade Federal de Minas Gerais|||Associação Nacional de Pesquisa e Pós-graduação em Psicologia, Belo Horizonte, Brasil
+95469	136199984	harvard university	Department of Psychology, Harvard University|||Department of Psychology, Harvard University
+95418	142263535	university of nottingham	Dep. Chem., Univ., Nottingham NG7 2RD, UK
+94553	135140700	university of bonn	Department of General Internal Medicine, University of Bonn, Sigmund-Freud-Strasse 25, Bonn, Germany
+93458	1289243028	oak ridge national laboratory	Chemical Physics Section, Oak Ridge National Laboratory, Oak Ridge, Tennessee 37831-6378
+92807	122140584	federal university of rio de janeiro	 Departamento de Microbiologia Geral, Universidade Federal do Rio de Janeiro (UFRJ), Brazil
+92550	71999127	university of barcelona	IDIBAPS, CIBERNED and Departament de Bioquímica i Biologia Molecular, Facultat de Biologia, Universitat de Barcelona, Barcelona, Spain
+92383	79619799	university of birmingham	Institute of Archaeology and Antiquity, The University of Birmingham, Edgbaston, Birmingham B15 2TT, UK
+92051	36234482	university of bristol	University of Bristol|||Champalimaud Centre for the Unknown
+90993	90494735	national cancer institute	Laboratory of Cancer Prevention, Center for Cancer Research, National Cancer Institute, National Institutes of Health, Bethesda, Maryland, USA
+90799	126307644	university of iowa	Department of Biochemistry, University of Iowa, Iowa City 52242.
+90506	1343871089	los alamos national laboratory	Theoretical Division, Los Alamos National Laboratory, Los Alamos, NM 87545, USA
+90286	31746571	university of new south wales	Australian Centre for Astrobiology, University of New South Wales, NSW 2052, Australia
+89973	35440088	eth zurich	ETH Zurich Institute of Mircobiology Swiss Federal Institute of Technology Zurich Switzerland
+89818	98677209	university of edinburgh	University of Edinburgh, School of Biological Sciences, Ashworth Laboratories, The King's Buildings, West Mains Road, Edinburgh EH9 3JT, United Kingdom
+89041	146061311	harvard medical school	Harvard Medical School Department of Psychiatry, Boston Children's Hospital Boston Massachusetts United States
+88814	204983213	harbin institute of technology	Biocomput. Res. Center, Harbin Inst. of Technol., Harbin, China
+88586	123387679	uppsala university	Department of Physics and Material Science, Uppsala University, Box 530, SE-75121 Uppsala, Sweden
+88172	172675005	nanyang technological university	Nanyang Technol. Univ., Singapore, Singapore
+88145	102322142	rutgers university	Lawrence Livermore Laboratory|||Rutgers University
+88140	189158943	university of milan	Università degli Studi di Milano
+87413	5124864	ecole polytechnique federale de lausanne	Ecole Polytechnique Fédérale de Lausanne (EPFL)
+86812	197251160	hebrew university of jerusalem	Department of Pathology, The Hebrew University, Hadassah Medical School, Jerusalem, Israel
+86195	1287899229	massachusetts general hospital	Massachusetts General Hospital, Harvard Medical School, Charlestown, MA, USA
+85329	129774422	university of vienna	Universität Wien
+85296	5388228	university of rochester	Rochester, MN
+84713	1314251682	institut national de la recherche agronomique	INRA, UR1282, Infectiologie Animale et Santé Publique, Nouzilly F-37380, France
+84696	91136226	university of sheffield	Department of Molecular Biology and Biotechnology, The University of Sheffield, UK
+84213	74973139	carnegie mellon university	Carnegie Mellon University, Pittsburgh, PA
+84076	146655781	university of liverpool	Radiology, Royal Liverpool University Hospital
+84040	170897317	duke university	Duke University
+84017	4923324	fraunhofer society	Fraunhofer-Institute for Applied Optics and Precision Engineering Jena
+83701	1299303238	national institutes of health	Department of Biomedical Sciences, National Institute of Health, Seoul 122‐701, Korea
+83404	154099455	shandong university	Shandong University
+82927	188538660	university of colorado boulder	University of Colorado at Boulder
+82915	1315039220	american society for biochemistry and molecular biology	Department of Biochemistry and Molecular Biology, Monash University, Building 13D, Melbourne 3800, Australia
+82845	193662353	utrecht university	Molecular Microbiology and Institute of Biomembranes, Utrecht University, the Netherlands;  
+82818	145872427	radboud university nijmegen	Department of Cellular Animal Physiology, Nijmegen Institute for Neurosciences, University of Nijmegen, Toernooiveld 1, 6525 ED Nijmegen, The Netherlands.
+82656	889458895	university of hong kong	The University of Hong Kong
+82493	32971472	yale university	Department of Applied Physics, Yale University, New Haven, Connecticut 06520-8284|||Department of Applied Physics, Yale University, New Haven, Connecticut 06520-8284|||Department of Applied Physics, Yale University, New Haven, Connecticut 06520-8284
+82444	88273585	federal university of sao paulo	Universidade Federal de São Paulo, São Paulo, Brazil
+82378	29607241	ecole normale superieure	F. Augé, F. Balembois, P. Georges, and A. Brun are with the Laboratoire Charles Fabry de l’Institut d’Optique, Orsay, France.F. Mougel, G. Aka, A. Kahn-Harari, and D. Vivien are with the Laboratoire de Chimie Appliquée de l’Etat Solide, Ecole Nationale Supérieure Chimie de Paris, Unité Mixte de Recherche 7574 11, Paris, France.F. Mougel is also with Crismatec, B.P. 521, Nemours, France.
+81614	51556381	university of virginia	Dept. of Elect. and Comp. Eng., University of Virginia, Charlottesville, Virginia 22904
+81265	121748325	complutense university of madrid	Departamento de Economía Cuantitativa, Universidad Complutense de Madrid
+81236	43439940	university of southampton	Optoelectron. Res. Centre, Univ. of Southampton, Southampton, UK
+80942	7882870	university of glasgow	University of Glasgow, School of Engineering, Rankine Building, Oakfield Avenue, Glasgow G12 8LT, UK
+80629	7877124	charite	Charité Universitätsmedizin Berlin (Germany)
+80101	137902535	north carolina state university	Department of Chemical and Biomolecular Engineering, North Carolina State University, Raleigh, North Carolina 27695, USA,Center for High-Performance Computer Simulation (CHiPS), North Carolina State University, Raleigh, North Carolina 27695, USA,Department of Physics, North Carolina State University, Raleigh, North Carolina 27695, USA
+79729	138689650	university of padua	University of Padua, Italy
+79660	126520041	university of science and technology of china	Hefei National Laboratory for Physical Sciences at the Microscale, University of Science and Technology of China, Hefei 230026, People's Republic of China
+79146	157773358	sun yat sen university	Ind. Inst. Fine Chem. Synth. Drugs, Sch. Pharm. Sci., Sun Yat‐Sen Univ., Guangzhou, Guangdong 510080, Peop. Rep. China
+78519	24185976	sichuan university	State Key Laboratory of Oral Diseases, Sichuan University, Chengdu 610041, PR China
+77616	203951103	keio university	Institute for Advanced Biosciences, Keio University, Tsuruoka, Japan|||PRESTO, Japan Science and Technology Agency, Chiyoda-ku, Japan
+76627	223532165	university of utah	1Pediatrics-Neonatology University of Utah Salt Lake City UT United States
+76380	45084792	university of florence	University of Florence
+76104	55732556	arizona state university	Department of Biology, Arizona State University, Tempe, AZ 85287, USA Tel. +1-480-965-9747; Fax +1-480-965-2519 e-mail: j.elser@asu.edu US
+76071	194450716	jilin university	College of Automotive Engineering, Jilin University, Changchun 130022, China
+76008	177725633	the chinese university of hong kong	Department of Obstetrics and Gynecology, Prince of Wales Hospital, The Chinese University of Hong Kong, Shatin, Hong Kong SAR, China
+75668	181369854	university of erlangen nuremberg	Institute for Factory Automation and Production Systems (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) Erlangen, Germany
+75473	102335020	karlsruhe institute of technology	Inst. for Process Control & Robotics, Karlsruhe Univ.
+75410	157485424	kaist	Department of Materials Science and Engineering, KAIST,,Republic of Korea|||Graphene Research Center in KI for Nano Century, KAIST,,Republic of Korea
+75079	173911158	iowa state university	Iowa State University, Howe Hall, Ames, IA#TAB#
+75052	98251732	mcmaster university	Department of Chemistry, McMaster University, 1280 Main St. W., Hamilton, ON L8S 4M1, Canada
+74732	1282105669	argonne national laboratory	Argonne National Lab., IL United States). Reactor Analysis Division
+74673	70931966	universite de montreal	Centre de Recherche du Centre Hospitalier de l'Universite de Montreal (CRCHUM) Montreal Diabetes Research Center Montreal Quebec Canada|||University of Montreal Department of Pathology and Cell Biology Montreal Quebec Canada
+73999	37461747	wuhan university	Nat. Eng. Res. Center for Multimedia Software, Wuhan Univ., Wuhan
+73898	168635309	university of calgary	HMRB 155, Foothills Hospital, Canada University of Calgary Department of Clinical Neurosciences and the Hotchkiss Brain Institute Calgary Alberta Canada
+73455	148283060	lawrence berkeley national laboratory	3Life Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California.
+73446	202697423	university of zurich	University of Zurich
+72979	2250650973	samsung	Department of Pediatrics, Samsung Medical Center, Sungkyunkwan University School of Medicine, Seoul, Korea
+72657	1296604144	memorial hospital of south bend	Department of Community Medicine, Institute of Post-Graduate Medical Education and Research and Seth Sukhlal Karnani Memorial Hospital, Kolkata, India
+72521	204250578	university of california irvine	Department of Chemistry, University of California,Irvine,USA
+72306	151746483	university of waterloo	School of Computer Science, University of Waterloo, 200 University Avenue West, Waterloo, Ontario, Canada.
+72185	98358874	delft university of technology	Delft Institute of Earth Observation and Space Systems (DEOS), Delft University of Technology
+71639	1336096307	united states department of agriculture	Department of Agriculture, Okayama University, Okayama, 700-8530, Japan
+70367	8087733	university of tubingen	Abt. Hämatologie/Onkologie und Rheumatologie Universität Tübingen Otfried-Mueller Str. 10 72076 Tübingen Germany
+70311	184942183	university of oslo	Institutes of Pathology and Medical Biochemistry University of Oslo Oslo, Norway
+70185	32389192	university of alabama at birmingham	Laboratory of Molecular Biophysics, University of Alabama in Birmingham, Birmingham, Alabama
+70040	183935753	king s college london	KING'S COLLEGE LONDON
+69844	118347636	australian national university	The Australian National University
+69719	865915315	vu university amsterdam	VU University Amsterdam
+69711	169381384	university of groningen	Department of Clinical Pharmacology, University Medical Centre Groningen, University of Groningen, Groningen, Julius Centre for Health Sciences and Primary Care, University Medical Centre Utrecht, Utrecht and
+69690	200777214	national and kapodistrian university of athens	Department of Genetics and Biotechnology, Faculty of Biology, University of Athens, Panepistimiopolis, 15701 Athens, Greece
+69685	113306721	hiroshima university	Hiroshima University Hospital
+69494	914474125	the school of life	School of Life Science and Technology, Tongji University, Shanghai 200092, P.R. China
+68572	197604219	national research council	Steacie Institute for Molecular Sciences, National Research Council, Ottawa, K1A OR9, Canada
+68395	108290504	university of pisa	Dept. of Electr. Syst. & Autom., Univ. of Pisa, Pisa, Italy
+68163	859038795	virginia tech	Department of Physics, Virginia Tech, Blacksburg, VA 24061, USA|||Kavli Institute for the Physics and Mathematics of the Universe (WPI), The University of Tokyo, Kashiwa-shi, Chiba-ken 277-8583, Japan
+67593	12912129	northeastern university	Northeastern University, Boston, Mass., USA
+67301	91807558	national cheng kung university	Institute of Basic Medical Sciences, College of Medicine, National Cheng Kung University, Tainan, Taiwan|||Department of Microbiology and Immunology, College of Medicine, National Cheng Kung University, Tainan, Taiwan|||Center for Infectious Disease and Signaling Research, National Cheng Kung University, Tainan, Taiwan
+66693	99542240	polish academy of sciences	Neuropeptide Laboratory, Medical Research Center, Polish Academy of Sciences (D.K., A.W.L.),Warsaw, Poland
+66279	1288214837	united states naval research laboratory	US Naval Res. Lab., Washington, DC, USA
+66242	87445476	xi an jiaotong university	Key Laboratory of Photonics Technology for Information, Shanxi province, Xi'an Jiaotong University, Xi'an 710049, China
+65893	24603500	university of massachusetts amherst	Department of Computer and Information Science|University of Massachusetts , Amherst|||Department of Computer and Information Science|University of Massachusetts , Amherst
+65591	154570441	university of california santa barbara	University of California Santa Barbara
+65580	20772946	washington university school of medicine	Washington University School of Medicine
+65465	79510175	cardiff university	School of Physics and Astronomy, Cardiff University, Queens Buildings The Parade, Cardiff CF24 3AA, UK
+65283	146399215	university of tsukuba	University of Tsukuba.
+65203	904495901	ruhr university bochum	Lehrstuhl für Biochemie der Pflanzen, Ruhr‐University, D‐4630 Bochum 1, Germany.
+65032	39422238	university of illinois at chicago	School of Public Health, University of Illinois, Chicago, Illinois, 60680, USA|||School of Public Health, University of Illinois, Chicago, Illinois, 60680, USA
+64749	148366613	national chiao tung university	Dept. of Comput. Sci., Nat. Chiao-Tung Univ., Hsinchu, Taiwan
+64669	165733156	university of georgia	University of Georgia Warnell School of Forestry and Natural Resources Athens GA USA
+64578	200719446	vanderbilt university	Vanderbilt University
+64460	1316902750	cleveland clinic	Cleveland Clinic Cleveland Ohio
+64366	125749732	university of western ontario	Department of Anthropology, The University of Western Ontario, London, ON, Canada, N6A 5C2
+63875	27804330	brown university	Neuroscience Section, Brown Unversity, Providence, Rhode Island 02912
+63850	1282311441	lawrence livermore national laboratory	Lawrence Livermore National Lab. (United States)
+63740	58956616	case western reserve university	Department of Macromolecular Science and Center for Applied Polymer Research, Case Western Reserve University, Cleveland, Ohio 44106|||Department of Macromolecular Science and Center for Applied Polymer Research, Case Western Reserve University, Cleveland, Ohio 44106
+63691	204722609	queen s university	Department of Physics|Queen ' s University|||Department of Physics|Queen ' s University
+63165	159176309	university of hamburg	Institut für Geophysik, Universität Hamburg, Bundesstraße 55, 20146 Hamburg, Germany|||Institut für Geophysik|Universität Hamburg|||Institut für Geophysik, Universität Hamburg, Bundesstraße 55, 20146 Hamburg, Germany|||Institut für Geophysik|Universität Hamburg
+63158	181547552	baylor college of medicine	Baylor College of Medicine
+62956	1321296531	national institute of standards and technology	National Bureau of Standards, Washington 25, D. C.
+62936	76835614	university of missouri	Department of Chemistry and Biochemistry|University of Missouri-St
+62552	75027704	university of tennessee	Department of Electric Engineering and Computer Science, The University of Tennessee, Knoxville, TN
+62498	123044942	autonomous university of barcelona	Institute of Environmental Science and Technology, Universitat Autònoma de Barcelona, Bellaterra 08193, Catalonia, Spain
+62228	1292875679	commonwealth scientific and industrial research organisation	Australian e-Health Research Centre, CSIRO ICT Centre, Australia
+62146	161046081	university of freiburg	Department of Psychology, Laboratory for Biological and Personality Psychology, University of Freiburg, Stefan-Meier-Strasse 8, D-79104 Freiburg, Germany
+62080	1283280774	brigham and women s hospital	†Center for Neurologic Diseases, Brigham and Women’s Hospital, Harvard Medical School, Boston, MA 02115;
+61859	69737025	university of chile	Universidad de Chile, Santiago, Chile
+61668	56590836	monash university	Monash University
+61245	73613424	national institute of advanced industrial science and technology	FC-Cubic, National Institute of Advanced Industrial Science and Technology (AIST)
+61244	197347611	korea university	Korea University Division of Oncology and Hematology, Department of Internal Medicine, College of Medicine Seoul Korea
+61014	33501960	universidade federal de santa maria	Universidade Federal de Santa Maria, Santa Maria, Brazil
+60945	192454743	sandia national laboratories	Sandia National Laboratories, Albuquerque, NM, USA
+60814	163770644	okayama university	Okayama University, Graduate School of Medicine and Dentistry Department of Ophthalmology Okayama Japan Okayama Japan
+60770	1329016138	duke university hospital	Duke University Medical Center
+60691	174306211	technion israel institute of technology	Dept. of Phys., Technion-Israel Inst. of Technol., Haifa
+60642	84653119	academia sinica	Institute of Atomic and Molecular Sciences, Academia Sinica, Taipei, Taiwan 10764|||Institute of Atomic and Molecular Sciences, Academia Sinica, Taipei, Taiwan 10764|||Institute of Atomic and Molecular Sciences, Academia Sinica, Taipei, Taiwan 10764
+60380	94278534	yale school of medicine	Yale school of medicine|Department of Pathology|||Yale school of medicine|Department of Pathology|||Yale school of medicine|Department of Pathology
+60293	162868743	tianjin university	School of Chemical Engineering and Technology, Tianjin University, Tianjin 300072, People's Republic of China
+59914	21250087	charles university in prague	Institute of Physics, Charles University, Ke Karlovu 5, CZ-121 16 Prague 2, Czech Republic XX
+59367	121820613	louisiana state university	Department of Physics and Astronomy, Louisiana State University, Baton Rouge, LA 70803, USA
+59307	159385669	chiba university	Department of Mechanical Engineering, Chiba University, 1-33 Yayoi, Inage-ku, Chiba, 263-8522, Japan
+59243	153648349	university of leicester	Leicester General Hospital, Leicester, UK.|||Leicester General Hospital, Leicester, UK.
+59035	143302722	university of kentucky	University of Kentucky|||University of Kentucky
+58440	190082696	durham university	Division of Maternal-Fetal Medicine, Department of Obstetrics and Gynecology, Durham, North Carolina, USA|||Division of Maternal-Fetal Medicine, Department of Obstetrics and Gynecology, Durham, North Carolina, USA
+58119	52418104	federal university of parana	Universidade Federal do Paraná
+57697	83019370	eindhoven university of technology	Eindhoven University of Technology
+57609	4104125	universidade federal de santa catarina	Universidade Federal de Santa Catarina, Centro de Ciências Agrárias, Departamento de Aquicultura, Florianópolis, SC
+56833	63190737	university at buffalo	University at Buffalo Departments of Biomedical Engineering and Chemical and Biological Engineering 210 Bonner Hall Buffalo NY USA
+56292	111088046	boston university	Department of Electrical and Computer Engineering, Boston University, Boston, MA 02215, http/engc.bu.edu-mbunea
+56128	16097986	university of valencia	Departament de Química Orgànica, Facultat de Farmàcia, Universitat de València c/ Vicent Andrés Estellés S/N, Burjassot, 46100 Valencia (Spain)|||Departament de Química Orgànica, Facultat de Farmàcia, Universitat de València c/ Vicent Andrés Estellés S/N, Burjassot, 46100 Valencia (Spain)
+55721	1289490764	centers for disease control and prevention	National Center on Birth Defects and Developmental Disabilities, Centers for Disease Control and Prevention, Atlanta, GA.
+55325	65837984	kobe university	Organization of Advanced Science and Technology, Kobe University, Kobe, Japan
+55186	76569877	southeast university	State Key Laboratory of Millimetre Waves, Southeast University, Nanjing 210096, China
+55029	140172145	university of connecticut	University of Connecticut
+55007	36243813	national university of colombia	Universidad Nacional de Colombia sede Palmira, Palmira, Colombia
+54645	926574661	leipzig university	Department for Small Animal Medicine, Faculty of Veterinary Medicine, University of Leipzig, An den Tierkliniken 23, 04103 Leipzig, Germany
+54602	180923762	university of cologne	Department of Dermatology, University of Köln, Joseph‐Stelzmann‐Str. 9, D‐5000 Köln 41, F.R.G.
+54339	43406934	laval university	Laboratoire de Physique Nucléaire, Département de Physique, de Génie Physique et d'Optique, Université Laval, Québec, G1K 7P4 Canada
+54075	100066346	university of stuttgart	Institute of Physical Chemistry, University of Stuttgart, Pfaffenwaldring 55, 70569 Stuttgart, Germany|||Institute of Physical Chemistry, University of Stuttgart, Pfaffenwaldring 55, 70569 Stuttgart, Germany
+53800	139660479	central south university	Business School, Central South University, Hunan Changsha, 410083, China
+53640	146416000	university of kansas	1Department of Geology, University of Kansas, Lawrence, Kansas, USA 66047
+53579	199691007	empresa brasileira de pesquisa agropecuaria	Embrapa Hortaliças, Brasília
+53409	75951250	free university of berlin	Department of Cardiopulmology, Benjamin Franklin Medical Center. Free University of Berlin, Berlin, Germany
+53396	92446798	colorado state university	Department of psychology, Colorado State University, USA
+53167	154130895	university of auckland	School of Pharmacy, University of Auckland, Auckland, New Zealand
+52702	1306266525	goddard space flight center	NASA Goddard Space Flight Ctr.
+52680	1312222531	agricultural research service	Agricultural Research Service, Division of Agricultural Chemicals, Indian Agricultural Research Institute, New Delhi 110012 India|||Agricultural Research Service, Division of Agricultural Chemicals, Indian Agricultural Research Institute, New Delhi 110012 India
+52461	25846049	national tsing hua university	Department of Materials Science and Engineering, National Tsing-Hua University, Hsinchu, Taiwan 300, Republic of China
+52388	1285764155	merck co	Department of Medicinal Chemistry, Merck Research Laboratories, Rahway, NJ 07065, USA|||Department of Medicinal Chemistry, Merck Research Laboratories, Rahway, NJ 07065, USA
+52323	21535869	birmingham city university faculty of health	Department of Psychiatry, Faculty of Health Sciences McMaster University Canada
+52152	27357992	dalian university of technology	Department of Physics|Dalian University of Technology|||Department of Physics|Dalian University of Technology|||Department of Physics|Dalian University of Technology
+52062	185443292	wayne state university	Department of Molecular Oncology, The John Wayne Cancer Institute, Saint John's Health Center, Santa Monica Blvd, Santa Monica, California 90404, USA
+52013	126231945	queen s university belfast	Queen's University, Belfast, Northern Ireland
+52007	1334627681	jet propulsion laboratory	Jet Propulsion Laboratory, California Institute of Technology
+51998	5681781	university of adelaide	Department of Cardiology, The Queen Elizabeth Hospital, The University of Adelaide, Woodville, SA.|||The Howard Florey Institute of Experimental Physiology & Medicine, The University of Melbourne, Parkville, Vic, 3052, Australia.
+51853	53964585	weizmann institute of science	The Weizmann Institute of Science Department of Membrane Research Rehovot Israel
+51708	205237279	nankai university	Department of Automation, Nankai University, Tianjin, China
+51622	1334819555	memorial sloan kettering cancer center	Oncology Research Laboratory|Memorial Sloan-Kettering Cancer Center
+51471	59553526	stony brook university	State University of New York at Stony Brook
+51360	177877127	university of western australia	Department of Agronomy, University of Western Australia, Nedlands, Western Australia 6009
+51170	153718931	university of ottawa	MEIRA, University of Ottawa and Carleton University, Ottawa, Canada, K1S 2M8
+50998	200870766	brookhaven national laboratory	Radiological Sciences Division, Department of Nuclear Energy, Brookhaven National Laboratory, Upton, New York 11973.
+50575	204337017	aarhus university	Aarhus University
+50516	114457229	university of geneva	University of Geneva Department of Basic Neurosciences School of Medicine Geneva Switzerland
+50430	4575257	hanyang university	Dept. of Informations and Communications, Hanyang Univ., 17, Haengdang-dong, Seongdong-gu, Seoul
+50185	72090969	bell labs	Bell Laboratories — Lucent Technologies, Murray Hill, New Jersey, 07974, USA
+50138	95674353	universite catholique de louvain	Physics Department, Applied Optics Laboratory, Université catholique de Louvain, Chemin du Cyclotron, 2, B-1348 Louvain-la-Neuve, Belgium
+49784	173304897	university of granada	Instituto del Agua, Universidad de Granada, Ramón y Cajal 4 (edif. Fray Luis de Granada), Granada, Spain
+49542	63135867	university of cincinnati	University of Cincinnati
+49506	114395901	university of nebraska lincoln	Department of Psychology, University of Nebraska—Lincoln
+49472	82880672	beihang university	School of Electronic and Information Engineering, Beihang University, Beijing 10083, China
+49213	78650965	dresden university of technology	Technische Universität Dresden, Institut für Kern- und Teilchenphysik, Dresden, Germany
+49209	1324840837	hewlett packard	Service de gynécologie-obstétrique, hôpital Lariboisière, AP–HP, 2, rue Ambroise-Paré, 75010 Paris, France
+48968	881427289	university of gothenburg	Department of Infectious Diseases/Virology, University of Gothenburg, Gothenburg, Sweden
+48880	59270414	indian institute of science	Department of High-Voltage Engineering, Indian Institute of Science, Bangalore-12, India|||Department of High-Voltage Engineering, Indian Institute of Science, Bangalore-12, India|||Department of High-Voltage Engineering, Indian Institute of Science, Bangalore-12, India
+48303	151201029	national scientific and technical research council	National Council for Scientific and Technical Research (CONICET), Argentina|||National Council for Scientific and Technical Research (CONICET), Argentina
+48282	57206974	new york university	New York University Child Study Center
+48107	84470341	the catholic university of america	Daegu Catholic University School of Medicine
+47819	84884186	newcastle university	Department of Electrical and Electronic Engineering, University of Newcastle upon Tyne, U.K.
+47377	103163165	florida state university	Florida State Univ., FL
+47328	161593684	stockholm university	Stockholm University
+47216	65143321	hitachi	Power Systems, Nuclear Engineering and Product Division, Hitachi, Ltd., 3-1-1 Saiwai-cho, Hitachi-shi, Ibaraki, 317-8511
+47207	878065381	grupo mexico	Laboratorio de microbiología de alimentos. Grupo de Biotecnología y Microbiología Ambiental. Facultad de Ciencias. Pontificia Universidad Javeriana. Cra 7 no 43-82, Bogotá
+47094	149851306	national academy of sciences of ukraine	National Academy of Sciences of Ukraine|||National Academy of Sciences of Ukraine
+46820	74775410	rice university	Department of Mechanical Engineering and Materials Science, Rice University, Houston, Texas, U.S.A.
+46787	848706	sungkyunkwan university	School of Information and Communication Engineering, Sungkyunkwan University, Suwon 440‐746, Republic of Korea
+46650	150468666	emory university	From the #N#‡Department of Pathology, Emory University, Atlanta, Georgia 30322, the #N##N#¶Department of Biological Sciences, Purdue University, West Lafayette, Indiana 47907, #N##N#‖Medical Research Council Laboratory of Molecular Biology, Cambridge CB2 2QH, United Kingdom, #N##N#**Frederick Douglas High School, Atlanta, Georgia 30030, the#N##N#‡Microchemical Facility, Winship Cancer Institute, Emory University, Atlanta, Georgia 30322, and#N##N#§§BIMCORE, Molecular Graphics, Emory University, Atlanta, Georgia 30322#N#
+46610	39555362	university of warwick	Institute of Horticultural Research, Wellesbourne, Warwick CV35 9EF, UK
+46364	1327103098	faculty of chemistry	Department of Chemistry, Faculty of Chemistry, “Al. I. Cuza” University, 700506 Iasi, Romania
+45877	86987016	royal institute of technology	Department of Chemical Engineering, Royal Institute of Technology, S-100 44 Stockholm, Sweden
+45702	202391551	academy of sciences of the czech republic	Academy of Sciences of the Czech Republic Institute of Molecular Genetics Vídeňská 1083 142 20 Praha 4 Czech Republic|||Academy of Sciences of the Czech Republic Institute of Molecular Genetics Vídeňská 1083 142 20 Praha 4 Czech Republic
+45664	52325	oswaldo cruz foundation	Fundação Oswaldo Cruz, Rio de Janeiro, Brasil
+45532	875825670	inaf	INAF, Osservatorio Astronomico di Trieste, via G.B. Tiepolo 11, 34131 Trieste, Italy
+45358	131249849	oregon state university	Sch. of Electr. Eng. & Comput. Sci., Oregon State Univ., Corvallis, OR, USA
+45146	1290206253	microsoft	Microsoft Research, Redmond, WA
+45026	125839683	beijing institute of technology	Beijing Institute of Technology (China)
+44960	46247651	university of manitoba	University of Manitoba
+44956	98704320	icahn school of medicine at mount sinai	Department of Emergency Medicine, Mount Sinai School of Medicine, New York, New York
+44921	145847075	vienna university of technology	Inst. f. Machine & Processautom., Vienna Univ. of Technol., Australia
+44884	118564535	university of bern	Technical University Munich|||University of Bern
+44867	24354313	university of buenos aires	University of Buenos Aires Stable Isotope Laboratory Applied to Biology and Medicine, Physics Department, School of Pharmacy and Biochemistry Buenos Aires Argentina
+44719	28238748	new york university school of medicine	Division of Movement Disorders, Department of Neurology, NYU School of Medicine, New York, NY|||Oncology and Neuroscience Department, G. D'Annunzio University Chieti‐Pescara, Chieti, Italy|||Division of Movement Disorders, Department of Neurology, NYU School of Medicine, New York, NY
+44666	197323543	university of mainz	Institut für Organische Chemie der Universität Mainz Duesbergweg 10–14, 55128 Mainz, Deutschland, Fax: (+49) 6131‐392‐4786
+44517	90267481	umea university	Centre for Population Studies, Ageing and Living Conditions, and Department of Statistics, Umeå University, SE-901 87 Umeå, Sweden
+44434	132053463	universite libre de bruxelles	Laboratory of Experimental Medicine, Université Libre de Bruxelles (ULB), Brussels, Belgium
+44028	66862912	chalmers university of technology	Chalmers University of Technology
+44010	168719708	city university of hong kong	Department of Computer Science, City University of Hong Kong, Hong Kong#TAB#
+43940	113940042	shanghai university	Sch. of Comput. Sci., Shanghai Univ., Shanghai, China
+43884	4432739	university of bergen	University of Bergen
+43871	1329325741	philips	Advanced Algorithm Research Center|Philips Medical Systems|||Advanced Algorithm Research Center|Philips Medical Systems
+43852	4577782	technical university of berlin	Institut für Biotechnologie,Technische Universität Berlin, Ackerstraße 71‐76, D‐13355 Berlin
+43833	76198965	university of jena	Institute of Physical Chemistry and Abbe Center of Photonics, Friedrich Schiller University Jena, Jena, Germany
+43812	34352273	maastricht university	#N#1Pulmonary Diseases, Maastricht University Medical Center#N#
+43766	124227911	ben gurion university of the negev	Ben‐Gurion University of the Negev Department of Solar Energy and Environmental Physics, Jacob Blaustein Institutes for Desert Research Sede Boqer Campus Israel
+43756	116953780	tongji university	Sch. of Electron. & Inf. Eng., Tongji Univ., Shanghai
+43678	867280407	university of texas southwestern medical center	Department of Psychiatry, University of Texas Southwestern Medical Center, Dallas, Texas
+43675	86501945	university of delaware	From the Department of Chemistry and Biochemistry, University of Delaware, Newark, Delaware 19716
+43605	169521973	university of new mexico	Department of Earth and Planetary Sciences|University of New Mexico
+43329	1327163397	state university of new york system	Surgery, Kings County Hospital-State University of New York Health Science Center at Brooklyn, NY, U.S.A.
+43186	181647926	university of strathclyde	University of Strathclyde, Glasgow, G1 1XW, UK
+43048	818668190	european atomic energy community	Euratom-CEA, St-Paul-Lez-Durance
+43041	913481162	wageningen university and research centre	Resource Ecology Group, Department of Environmental Sciences, Wageningen University, P.O. Box 47, 6700 AA Wageningen, The Netherlands
+43015	10091056	kanazawa university	Division of Radiation Biology, Faculty of Pharmaceutical Science, Kanazawa University, 13‐1 Takara‐machi, Kanazawa 920
+42603	21370196	aristotle university of thessaloniki	Department of Nuclear Medicine, Aristotle University of Thessaloniki, Greece
+42586	4921948	pusan national university	Department of Ophthalmology, Pusan National University School of Medicine, Busan, Korea
+42397	55143463	university of turin	Internal Medicine IDepartment of Clinical and Biological Sciences, San Luigi Gonzaga Hospital, University of Turin, Regione Gonzole 10, 10043 Orbassano, Italy1Endocrine Oncology and Nuclear MedicineIGR, Villejuif, France2Department of Medicine IUniversity Hospital of Würzburg, Würzburg, Germany3Erasmus Medical CentreRotterdam, The Netherlands4Academic Medical CentreAmsterdam, The Netherlands5Pharmacology6PathologySan Luigi Gonzaga Hospital, University of Turin, Orbassano, Italy7Internal MedicineMaxima Medical Centre, Eindhoven, The Netherlands8Department of Internal Medicine IVHospital of the University of Munich, Munich, Germany9OncologySan Luigi Gonzaga Hospital, University of Turin, Orbassano, Italy
+42386	63021997	stanford university school of medicine	aDepartment of Pathology, Stanford University School of Medicine, Stanford, California, USA
+42351	2613432	university of south florida	Movement Disorder Center, University of South Florida, Tampa, Florida, USA
+42312	107639228	university of notre dame	University of Notre Dame
+42238	110525433	islamic azad university	Department of Chemistry, Islamic Azad University – Mashhad Branch, Mashhad, Iran
+42145	150744194	waseda university	Waseda University Department of Metallurgical Engineering USA|||Waseda University Department of Metallurgical Engineering USA
+41776	72951846	washington state university	Washington State Univ. (USA)
+41694	90610280	south china university of technology	Department of Applied Chemistry, South China University of Technology, Guangzhou 510641, PR China
+41670	14243506	hong kong polytechnic university	Department of Electronic and Information Engineering, Hong Kong Polytechnic University, Hong Kong, People's Republic of China
+41647	204778367	norwegian university of science and technology	Norwegian University of Science and Technology, Dept. of Hydraulic and Environmental Engineering, S.P. Andersensvei 5, N‐7491 Trondheim, Norway|||Norwegian University of Science and Technology, Dept. of Hydraulic and Environmental Engineering, S.P. Andersensvei 5, N‐7491 Trondheim, Norway
+41474	200769079	hong kong university of science and technology	Department of Chemistry, The Hong Kong University of Science and Technology, Hong Kong
+41218	146165071	universidade federal de vicosa	Universidade Federal de Viçosa, MG
+41027	63634437	autonomous university of madrid	Departamento de Biología|Facultad de Ciencias|Universidad Autónoma de Madrid|||Departamento de Biología|Facultad de Ciencias|Universidad Autónoma de Madrid
+40965	155781252	university of south carolina	School of Public Health, University of South Carolina, 800 Sumter Street, Columbia, SC 29208, USA|||School of Medicine University of South Carolina, 6311 Garners Ferry Road, Columbia, SC 29209, USA
+40906	150229711	university of electronic science and technology of china	National Key Lab of Science and Technology on Communication, University of Electronic Science and Technology of China, Chengdu, China
+40491	56328125	department of biotechnology	Department of Biotechnology, University of New South Wales, Kensington, New South Wales, 2033 Australia
+40429	913958620	erasmus university rotterdam	Department of Clinical Genetics, Erasmus University Medical Center, Rotterdam, The Netherlands
+40328	98381234	university of oulu	Department of Neurology, Oulu University Central Hospital;
+40284	165799507	rensselaer polytechnic institute	Rensselaer Polytechnic Institute
+40030	1283582996	novartis	Pharmaceuticals Division CIBA-GEIGY Ltd. CH-4002 Basel Switzerland
+39811	71395657	niigata university	Division of Endocrinology and Metabolism, Department of Homeostatic Regulation and Development, Niigata University Graduate School of Medical and Dental Sciences, Asahimachi 1-757, Niigata 951-8510, Japan
+39804	96673099	technical university of denmark	Informatics and Mathematical Modelling, Technical University of Denmark, Richard Petersens Plads, Building 321, DK-2800 Kongens Lyngby, Denmark
+39722	149213910	university of antwerp	Organic Synthesis, Department of Chemistry, University of Antwerp, Groenenborgerlaan 171, 2020 Antwerp (Belgium), Fax: (+32) 032653233
+39660	170215575	national university of defense technology	College of Mechatronic Engineering and Automation, National University of Defense Technology, Changsha, 410073, China
+39658	162148367	pontifical catholic university of chile	Pontificia Universidad Católica de Chile Departamento de Ingeniería Química y Bioprocesos P.O. Box 306, Santiago 22, Chile
+39477	79817857	university of guelph	Department of Environmental Biology, University of Guelph, Guelph, Ontario, Canada N1G 2W1
+39436	52099693	university of york	2York Trials Unit, Department of Health Sciences, University of York, York YO10 5DD, UK
+39434	63739035	all india institute of medical sciences	All India Institute of Medical Sciences Department of Pharmacology New Delhi India
+39308	18014758	simon fraser university	Department of Physics|Simon Fraser University|||Department of Physics, Simon Fraser University, Burnaby, British Columbia V5A 1S6, Canada
+39082	106165777	university of central florida	University of Central Florida, Cocoa, FL
+38989	94624287	university of twente	Faculty of Geo-Information Science and Earth Observation, University of Twente, P.O. Box 6, 7500 AA, Enschede, The Netherlands|||Faculty of Geo-Information Science and Earth Observation, University of Twente, P.O. Box 6, 7500 AA, Enschede, The Netherlands
+38978	195460627	university of aberdeen	Senior Research Fellow, Immpact, University of Aberdeen, Scotland
+38956	44461941	university of houston	Department of Physics, Torino University and INFN, Sezione di Torino, via P. Giuria 1, 10125 Torino, Italy|||Department of Physics, University of Houston, Houston, TX 77204, USA
+38660	76134821	medical university of vienna	Institut Universitaire de Cancérologie|||Medical University of Vienna
+38606	32699454	joint institute for nuclear research	Joint Institute for Nuclear Research (Russian Federation)
+38589	7597260	hungarian academy of sciences	Hungarian Academy of Sciences
+38441	80281795	university of otago	Department of Physiology, University of Otago Medical School, P.O. Box 913, Dunedin, New Zealand
+38435	1286329397	united states geological survey	* U.S. Geological Survey, Western Fisheries Research Center, 5501 A Cook‐Underwood Road, Cook, WA 98605, U.S.A., ‡ U.S. Fish and Wildlife Service, Idaho Fishery Resource Office, P. O. Box 18, Ahsahka, ID 81530, U.S.A. and § Division of Statistics, University of Idaho, Moscow, ID 83844‐1136, U.S.A.
+38351	129902397	dalhousie university	Dalhousie University|Department of Oceanography|||Dalhousie University|Department of Oceanography
+38282	78757542	university of newcastle	Department of Medicine|University of Newcastle|||Department of Medicine, University of Newcastle upon Tyne, Newcastle upon Tyne, UK, , , , GB
+38232	317356780	osaka city university	Osaka City University Graduate School of Medicine
+38169	243754102	federal university of ceara	Universidade Federal do Ceará, Fortaleza, Brasil
+38003	155660961	university of turku	Department of Pathology, University of Turku, Turku, Finland|||University of Turku, Department of Pathology, Kiinamyllynkatu 10, FIN – 20 520 Turku, Finland (Tel: +358‐21‐2613972; Fax: +358‐21‐6337459)
+37912	96036126	kumamoto university	Department of Radiology, Kumamoto University School of Medicine, 1‐1‐1 Honjo, Kumamoto 860, Japan
+37910	204730241	university of paris	Department of Clinical Pharmacology, University of Bern, Switzerland;|||University of Paris V, France;
+37826	165690674	oregon health science university	Oregon Health & Science University
+37816	189590672	kansas state university	James R. Macdonald Laboratory, Department of Physics, Kansas State University, Manhattan, KS 66506-2604, USA|||James R. Macdonald Laboratory, Department of Physics, Kansas State University, Manhattan, KS 66506-2604, USA
+37720	129975664	albert einstein college of medicine	Department of Biochemistry, Albert Einstein College of Medicine, Bronx, New York 10461, USA
+37627	43777268	nagasaki university	Nagasaki University Graduate School of Biomedical Sciences Division of Surgical Oncology Department of Surgery Nagasaki Japan
+37562	1487293	david geffen school of medicine at ucla	1Department of Nuclear Medicine, University Hospital Würzburg, Würzburg, Germany|||4Ahmanson Translational Imaging Division, Department of Molecular and Medical Pharmacology, David Geffen School of Medicine at UCLA, Los Angeles, California; and
+37487	1344073410	howard hughes medical institute	*Departments of Pediatrics and Genetics, and the Howard Hughes Medical Institute, Stanford University School of Medicine, Stanford, California 94305
+37485	76214153	lanzhou university	School of Mathematics and Statistics, Lanzhou University, 730000, PR China
+37245	204465549	washington university in st louis	the §Department of Biology, Washington University, St. Louis, Missouri 63130, and
+37242	592451	indiana university	From Departments of Cardiovascular Medicine (T.S., S.K., T. Noguchi, Y.A., T.K., T. Nagai, K. Nakao, M.F., K.K., T.A., Y.G., H.O., S.Y.), Stroke and Cerebrovascular Disease (T.T., K. Nagatsuka), Pathology (H.I.-U.), and Preventive Medicine and Epidemiologic Informatics, Center for Cerebral and Cardiovascular Disease Information (K. Nishimura, Y.M.), National Cerebral and Cardiovascular Center, Suita, Japan.
+37193	205274468	trinity college	Trinity College, DublinUK|||Trinity College, DublinUK
+36882	35928602	kyung hee university	Department of Radiology, Kyung Hee University Hospital at Gangdong, Kyung Hee University, Korea
+36871	8692664	university of oklahoma	School of Computer Science, University of Oklahoma, Norman, OK
+36858	32625721	university of saskatchewan	College of Pharmacy, University of Saskatchewan, Saskatoon, Saskatchewan, Canada
+36809	71267560	university of naples federico ii	Headache Centre, Department of Neurological Sciences “Federico II” University of Naples Via Pansini 5 I-80131 Naples Italy
+36626	1326498283	french institute for research in computer science and automation	Univ. Paris Sud; LRI; INRIA;, F-91405 Orsay, France
+36501	100930933	university college dublin	#N#            1Children’s University Hospital, Dublin, Ireland|||#N#            2University College Dublin, Dublin, Ireland|||#N#            3National Maternity Hospital, Dublin, Ireland
+36490	24384656	indiana university school of medicine	Departments of Psychiatry and Pharmacology, Institute of Psychiatric Research, Indiana University School of Medicine, Indianapolis, Ind., USA
+36339	68956291	martin luther university of halle wittenberg	Institut f. Anorg. Chem., Martin‐Luther‐Universität Halle‐Wittenberg Geusaer Straße, D‐06217 Merseburg, Germany
+36242	123900574	pohang university of science and technology	Pohang University of Science & Technology (POSTECH)
+36130	169108374	university of the basque country	Univ. of the Basque Country, Bilbao
+36101	102197404	university of paris sud	LAL, Université Paris-Sud and CNRS/IN2P3
+36052	23946033	university of tehran	Faculty of Physical Education & Sport Sciences, University of Tehran, Tehran, Iran
+35997	28290843	university of surrey	Univ. of Surrey, UK
+35966	922474255	university of tokushima	University of Tokushima
+35902	114090438	goethe university frankfurt	Johann Wolfgang Goethe-University Institute for Organic Chemistry and Chemical Biology, Center for Biomolecular Magnetic Resonance Max-von-Laue-Strasse 7 60438 Frankfurt/Main Germany|||Johann Wolfgang Goethe-University Institute for Organic Chemistry and Chemical Biology, Center for Biomolecular Magnetic Resonance Max-von-Laue-Strasse 7 60438 Frankfurt/Main Germany|||Johann Wolfgang Goethe-University Institute for Organic Chemistry and Chemical Biology, Center for Biomolecular Magnetic Resonance Max-von-Laue-Strasse 7 60438 Frankfurt/Main Germany
+35867	103635307	university of california riverside	Red Sismológica Nacional (RSN: UCR-ICE)
+35745	82497590	auburn university	Dep. Chem. Biochem., Auburn Univ., Auburn, AL 36849, USA
+35657	180857899	pfizer	Pfizer Global R & D, Fresnes, France
+35615	126744593	university of maryland baltimore	University of Maryland, Baltimore, Maryland, USA
+35550	76903346	university of coimbra	2Center for Neurosciences and Cell Biology, University of Coimbra, Portugal;
+35536	142476485	ecole polytechnique	Laboratoire GAGE, École polytechnique, F-91128, Palaiseau Cedex, France
+35458	891191580	aalborg university	Aalborg University, IT University of Gothenburg and Ericsson AB and Georgia State University#TAB#
+35435	157614274	university of cape town	Head of Division of Occupational Therapy, Department of Health and Rehabilitation Sciences, University of Cape Town, Cape Town, South Africa
+35374	25217355	university of pavia	Department of Paediatrics, University of Pavia and IRCCS Policlinico San Matteo, Pavia;,
+35255	196349391	university of ulm	University of Ulm
+35212	16835326	university of st andrews	Department of Zoology, The University, St. Andrews
+35155	166337079	queen mary university of london	School of Biological & Chemical Sciences, Queen Mary, University of London, London, UK
+35081	111277659	chonnam national university	The Heart Center of Chonnam National University Hospital, Gwangju, Korea
+35022	150729083	university of brasilia	Universidade de Brasília - UnB, Brasília, Brasil|||Universidade de Brasília - UnB, Brasília, Brasil
+34965	60053951	polytechnic university of valencia	Nanophotonics Technology Center, Universitat Politècnica de València, Spain
+34920	71052956	university of reading	Department of Agricultural Botany, Plant Science Laboratories, University of Reading, Whiteknights Park, Reading, Berkshire, RG6 2AS
+34918	87111246	catholic university of korea	The Catholic University of Korea, Seoul St. Mary’s Hospital
+34796	1292669757	toshiba	Toshiba Corp. (Japan)
+34764	1283103587	at t	AT&T Bell Labs., Murray Hill, NJ, USA
+34692	66760702	council of scientific and industrial research	CSIR‐Central Drug Research Institute Division of Medicinal and Process Chemistry Lucknow UP India
+34661	145608581	university of miami	Cooperative Institute of Marine and Atmospheric Studies, Rosenstiel School, University of Miami, 4600 Rickenbacker Causeway, Miami, FL 33149, USA
+34642	143804889	loughborough university	Loughborough University, UK, LE11 3TU
+34628	194814389	feinberg school of medicine	Northwestern University, Feinberg School of Medicine Department of Microbiology‐Immunology Chicago Illinois
+34589	1329621470	bhabha atomic research centre	Labelled Compounds Section Isotope Division, BARC Bombey 400 085 India
+34518	177639307	university of dundee	University of Dundee, Dundee, United Kingdom
+34488	79238269	university of seville	University of Seville
+34418	255234318	university of zaragoza	Laboratory of Nuclear and High Energy Physics, University of Zaragoza, 500009 Zaragoza, Spain
+34372	196972281	imec	Holst Centre - IMEC-NL, High Tech Campus, Eindhoven, the Netherlands
+34314	177477856	polytechnic university of turin	iXem Labs, Electronics Department, Politecnico di Torino, Torino, Italy
+34246	25112270	federal university of pernambuco	Universidade Federal de Pernambuco
+34145	123431417	scripps research institute	Department of Neuropharmacology The Scripps Research Institute
+34063	31419693	kyungpook national university	Department of Otorhinolaryngology-Head and Neck Surgery, Kyungpook National University College of Medicine, Daegu, Korea
+34054	153976015	university of ljubljana	Department of Biology, Biotechnical Faculty, University of Ljubljana, Večna pot 111, 1000 Ljubljana, Slovenia
+34046	67581229	istanbul university	Department of Pediatrics|Faculty of Medicine|Istanbul University|||Department of Pediatrics|Faculty of Medicine|Istanbul University
+33815	125602781	tokyo medical and dental university	Department of Neurophysiology, Medical Research Institute, Tokyo Medical and Dental University, 2-3-10 Kanda-surugadai, Chiyoda-ku, Tokyo, 101, Japan Fax: +81-3-5280-8073 e-mail: hosokawa.nphy@mri.tmd.ac.jp JP JP|||Department of Neurophysiology|Medical Research Institute|Tokyo Medical and Dental University
+33798	6610548	rmit school of medical sciences	Department of Physiology, School of Medical Sciences, University of Bristol, Bristol, BS8 1TD, United Kingdom
+33764	161076350	indian institutes of technology	Chemistry Department, Indian Institute of Technology, Powai, Bombay 400 076, India
+33757	66514158	hacettepe university	Pediatric Pathology, Hacettepe University, Faculty of Medicine, Ankara, Turkey
+33740	203339264	university of lyon	University of Lyon 1
+33640	70983195	syracuse university	Department of Physics|Syracuse University|||Department of Physics|Syracuse University
+33634	71730758	university of louisiana at monroe	Abteilung für Hämatologie und Gerinnungsforschung Zentrums für Innere Medizin und Kinderheilkunde der Universität Ulm Steinhövelstr. 9 Ulm/Donau|||Abteilung für Hämatologie und Gerinnungsforschung Zentrums für Innere Medizin und Kinderheilkunde der Universität Ulm Steinhövelstr. 9 Ulm/Donau|||Abteilung für Hämatologie und Gerinnungsforschung Zentrums für Innere Medizin und Kinderheilkunde der Universität Ulm Steinhövelstr. 9 Ulm/Donau
+33400	39343248	humboldt university of berlin	Humboldt Universität zu Berlin
+33224	102064193	university of siena	Unità Operativa Autonoma di Chirurgia Gastroenterologica, Dipartimento di Chirurgia Generale e Spec. Chirurgiche, Università di Siena
+33143	184565670	georgetown university	*Laboratory of Biochemistry and Vascular Biology, Division of Hematology, Center for Biologics Evaluation and Research, Food and Drug Administration, Bethesda, MD 20892; and|||†Department of Microbiology and Immunology, Georgetown University Medical Center, Washington, DC 20057
+33043	919643044	perelman school of medicine at the university of pennsylvania	Department of Pathology and Laboratory Medicine, Center for Neurodegenerative Disease Research, University of Pennsylvania School of Medicine, Philadelphia, Pennsylvania
+32961	172901346	saint petersburg state university	St . Petersburg State University|||St. Petersburg State University Universitetskaya nab. 7/9 St. Petersburg 199034 Russia
+32940	180437899	university of bremen	Institute of Environmental Physics, University of Bremen, D‐28334 Bremen, Germany
+32940	39804081	pierre and marie curie university	Laboratoire de Physique The´orique des Liquides, Universite´ Pierre et Marie Curie, 4, Place Jussieu, 75252, Paris Cedex 05, France|||Laboratoire de Physique The´orique des Liquides, Universite´ Pierre et Marie Curie, 4, Place Jussieu, 75252, Paris Cedex 05, France
+32927	4068193	university of belgrade	University of Belgrade
+32912	192455969	york university	Department of Biology, York University, Downsview, Ontario, Canada M3J 1P3
+32750	8078737	clemson university	Clemson Univ. (USA)
+32742	1325886976	siemens	com.pub2web.rdf.cci.facet.ContentItem[id=http://iet.metastore.ingenta.com/content/journals/10.1049/el_20050748-af1,webId=/content/journals/10.1049/el_20050748-af1,properties={vcard_country-name=Portugal, vcard_locality=Aveiro, vcard_organisation-name=Siemens S.A. and Instituto de Telecomunicações, University of Aveiro, vcard_organisation-unit=R&D Optical Networks Communications Group}]
+32647	191208505	xiamen university	First Affiliated Hospital of Xiamen University
+32170	153297377	medical university of south carolina	Medical University of South Carolina
+32052	137975476	shinshu university	Dep. Funct. Polym. Sci., Fac. Text. Sci. Technol., Shinshu Univ., Ueda, Nagano 386, Japan
+32004	1316535847	beth israel deaconess medical center	Beth Israel Medical Center|Mount Sinai School of Medicine
+31941	4654613	university of warsaw	Limburgs Universitair Centrum|||Limburgs Universitair Centrum|||Warsaw University|University of Antwerp|Hasselt University|||Warsaw University|University of Antwerp|Hasselt University
+31900	91656880	china medical university	Department of Obstetrics and Gynecology, China Medical University Hospital, Taichung, Taiwan
+31874	139759216	beijing university of posts and telecommunications	Shandong Provincial Key Laboratory of Computer Networks, Shandong Computer Science Center (National Supercomputer Center in Jinan), Jinan 250014, China|||Information Security Center, State Key Laboratory of Networking and Switching Technology, Beijing University of Posts and Telecommunications, Beijing 100876, China|||Corresponding author. E-mail: xsj3917@163.com
+31857	149594827	xidian university	Xidian University
+31741	67415387	lancaster university	Dept. of Phys., Lancaster Univ., UK
+31696	42405503	gifu university	Gifu University, Gifu, Japan#TAB#
+31688	184840846	virginia commonwealth university	Virginia Commonwealth University,Richmond,Virginia
+31511	118347220	nec	NEC Corp. (Japan)
+31457	1292974536	ford motor company	Division of Gynecology Oncology, Department of Women’s Health Services, Henry Ford Hospital, Detroit, USA
+31331	165735259	gunma university	Gunma University School of Medicine G. I. Laboratories, Department of Surgery 371 Maebashi Japan|||Gunma University School of Medicine G. I. Laboratories, Department of Surgery 371 Maebashi Japan
+31171	1343180700	intel	Components Research,Intel Corporation,Hillsboro,OR 97124,USA
+31138	12097938	west virginia university	Department of Physics, West Virginia University, Morgantown, West Virginia 26506, USA|||Department of Physics, West Virginia University, Morgantown, West Virginia 26506, USA
+31083	285772600	emory university school of medicine	Sleep Disorders Center, Emory University School of Medicine, Atlanta, Georgia
+30901	102134673	linkoping university	Linköping University
+30889	212119943	university of victoria	School of Public Administration, University of Victoria, British Columbia, Canada
+30886	35961687	university of antioquia	Universidad de Antioquia
+30883	25254941	beijing normal university	State Key Joint Laboratory of Environmental Science and Pollution Control, School of Environment, Beijing Normal University, Beijing 100875, China
+30857	51601045	university of bath	Department of Biology & Biochemistry|University of Bath|||Department of Biology & Biochemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK
+30840	104946051	nihon university	Nihon University School of Medicine Third Department of Internal Medicine Japan
+30785	166755871	university of pittsburgh school of medicine	University of Pittsburgh School of Medicine Department of Radiology Pittsburgh PA USA
+30747	40034438	rio de janeiro state university	Rio de Janeiro State University
+30702	1320010244	uganda revenue authority	Laboratoire de Physiologie Comparée de la Thermorégulation, URA 1341 CNRS-LA INRA Université Claude Bernard Lyon-I, 43 bd. du 11 novembre 1918, Bât 404, 69622 Villeurbanne cedex, France
+30665	165951966	university of texas health science center at san antonio	UT Health Science Center at San Antonio
+30625	67031392	carleton university	Department of Biology and Institute of Biochemistry, Carleton University, Ottawa, Ontario, Canada K1S 5B6
+30498	145487455	cairo university	Cairo University|||Children Cancer Hospital
+30318	174878644	university of patras	Laboratory of Biochemistry, School of Medicine, University of Patras, Patras, Greece
+30184	158842170	chongqing university	School of Automation, Chongqing University, Chongqing, China
+30152	157536573	pasteur institute	Laboratoire de Biochimie et Biologie Moléculaire des Insectes, Institut Pasteur, Paris, France,
+30097	188950975	glaxosmithkline	Centre of Excellence for Drug Discovery, Psychiatry, GlaxoSmithKline Research Centre, via Fleming 4, I-37135 Verona, Italy
+30050	171892758	forschungszentrum julich	NIC, Forschungszentrum Jülich, D-52425 Jülich, Germany
+30034	22265921	national central university	Department of Electrical Engineering, National Central University
+29865	97565354	university of lausanne	University of Lausanne School of Pharmaceutical Sciences University of Geneva Geneva Switzerland
+29848	1850255	university of basel	[Kappos, Ludwig] Univ Basel, Univ Hosp, Dept Neurol, CH-4031 Basel, Switzerland.; [Kappos, Ludwig] Univ Basel, Univ Hosp, Dept Biomed, CH-4031 Basel, Switzerland.; [Radue, Ernst-Wilhelm] Univ Basel, Univ Hosp, Med Image Anal Ctr, CH-4031 Basel, Switzerland.; [Agoropoulou, Catherine; Leyk, Malgorzata; Zhang-Auberson, Lixin; Burtin, Pascale] Novartis Pharmaceut, Basel, Switzerland.; [Polman, Chris] Free Univ Amsterdam, Med Ctr, Amsterdam, Netherlands.; [O'Connor, Paul] St Michaels Hosp, Toronto, ON M5B 1W8, Canada.; [Calabresi, Peter] Johns Hopkins Univ Hosp, Baltimore, MD 21287 USA.; [Selmaj, Krzysztof] Med Univ Lodz, Lodz, Poland.
+29835	193531525	george washington university	Department of Anatomy and Regenerative Biology, George Washington University Medical Center, Washington DC 20037, USA
+29827	51317819	institute of medical sciences banaras hindu university	Department of Respiratory Medicine, Postgraduate Institute of Medical Sciences, University of Health Sciences, Rohtak, India
+29702	137720053	university of michigan health system	University of Michigan Health System, Ann Arbor, Michigan
+29683	52158045	china agricultural university	China Agricultural University
+29543	60158472	concordia university	Concordia University
+29542	12315562	texas tech university	Texas Tech University
+29499	1302978242	academy of medical sciences united kingdom	Institute of Basic Medical Sciences, Chinese Academy of Medical Sciences & Peking Union Medical College
+29492	53910124	technische hochschule	Soil Physics, Institute of Terrestrial Ecology, Eidgenössische Technische Hochschule Zürich, Zurich, Switzerland|||Soil Physics, Institute of Terrestrial Ecology, Eidgenössische Technische Hochschule Zürich, Zurich, Switzerland
+29322	165450437	indiana university bloomington	Department of Business Economics and Public Policy, Graduate School of Business, Indiana University, Bloomington, IN 47405-1701, USA|||Department of Business Economics and Public Policy, Graduate School of Business, Indiana University, Bloomington, IN 47405-1701, USA|||Department of Business Economics and Public Policy, Graduate School of Business, Indiana University, Bloomington, IN 47405-1701, USA
+29300	124357947	university of london	University of London, Egham Computer Learning Research Centre, Department of Computer Science Royal Holloway Surrey TW20 0EX UK|||University of London, Egham Computer Learning Research Centre, Department of Computer Science Royal Holloway Surrey TW20 0EX UK
+29263	130343225	universiti putra malaysia	Universiti Putra Malaysia
+29260	60858718	university of aveiro	Universidade de Aveiro
+29195	167751958	institute of chemical technology	CrystalGenomics, Inc., SEOUL, Republic of Korea, Korea Research Institute of Chemical Technology, DAEJEON, Republic of Korea
+29188	204824540	university of wollongong	Dept. of Mater. Eng., Wollongong Univ., NSW, Australia
+29182	33849332	university of malaya	Department of Parasitology, Faculty of Medicine, University of Malaya, Kuala Lumpur, 50603, Malaysia
+29133	1325051341	russian academy	Russian Academy of Medical Sciences
+29127	9617848	polytechnic university of catalonia	Universitat Politecnica de Catalunya Department of Materials Science and Metallurgy E-08028 Barcelona Spain|||Universitat Politecnica de Catalunya Department of Materials Science and Metallurgy E-08028 Barcelona Spain
+29027	25974101	university of wurzburg	Department of Pathology, University of Würzburg, 97080 Würzburg, Germany
+28944	118019719	hoffmann la roche	Department of Clinical Research, Central Nervous System, F. Hoffmann‐La Roche Ltd., Basel, Switzerland
+28937	169045520	federal university of paraiba	Universidade Federal da Paraíba, João Pessoa, Brasil|||Universidade Federal da Paraíba, João Pessoa, Brasil
+28936	181343428	university of zagreb	Department of Obstetrics and Gynecology, Medical School, University of Zagreb, Sveti Duh Hospital, Zagreb, Croatia, and  
+28930	142606810	pacific northwest national laboratory	Pacific Northwest National Laboratory
+28929	174458059	national technical university of athens	Department of Chemical Engineering|National Technical University of Athens|||Department of Chemical Engineering|National Technical University of Athens
+28895	23923803	university of exeter	University of Exeter
+28833	177572303	leonard m miller school of medicine	Department of Surgery, Division of Transplantation, University of Miami School of Medicine, Miami, Florida
+28779	17301866	university of alabama	Center for Materials for Information Technology (MINT Center), University of Alabama,Tuscaloosa,USA|||Department of Metallurgical and Materials Engineering, University of Alabama,Tuscaloosa,USA
+28692	90344618	medical research council	From #N#‡The Medical Research Council Immunochemistry Unit, Department of Biochemistry, University of Oxford, Oxford OX1 3QU, United Kingdom, #N##N#§Celltech plc, 216, Bath Road, Slough, Berks SL1 4EN, United Kingdom, the #N##N#¶Institute of Molecular Genetics, Academy of Sciences of the Czech Republic, Prague, Czech Republic, and the #N##N#‖Department of Tumor Immunology, University of Nijmegen, 6525 EX Nijmegen, The Netherlands#N#
+28676	1322918889	united states department of veterans affairs	Neuroendocrine Research Laboratory, Minneapolis Veterans Administration Medical Center, Minneapolis, MN, and the Division of Endocrinology, Departments of Medicine and Food Science and Nutrition, University of Minnesota, Minneapolis‐St. Paul, MN
+28564	84392919	temple university	Department of Strategic Communication, School of Communications & Theatre, Temple University, Philadelphia, Pennsylvania, USA
+28527	24768866	bulgarian academy of sciences	Institute of Solid State Physics, Bulgarian Academy of Sciences, Tzarigradsko Chaussee 72, 1784 Sofia, Bulgaria
+28483	149251103	thomas jefferson university	Department of Radiation Oncology, Kimmel Cancer Center, Jefferson Medical College of Thomas Jefferson University, Philadelphia, Pennsylvania
+28479	875511016	environ	Coll. of Environ., Hohai Univ., Nanjing, China
+28450	315704651	leibniz association	Leibniz‐Institute of Atmospheric Physics Kühlungsborn Germany
+28445	141596103	university of lisbon	Instituto de Oceanografia, Faculdade de Ciências da Universidade de Lisboa, Rua Ernesto de Vasconcelos, 1749-016 Lisboa, Portugal
+28429	177614442	university of ulsan college of medicine	1Department of Pulmonary and Critical Care Medicine, Asan Medical Center, University of Ulsan College of Medicine, Seoul, South Korea
+28409	143593769	east china university of science and technology	Sch. of Bus., East China Univ. of Sci. & Technol.
+28345	204308271	medical college of wisconsin	Departments of Anesthesia, Medical College of Wisconsin, Mount Sinai Medical Center, Milwaukee, Wisconsin
+28334	181233156	university of oregon	The Division of Experimental Medicine, University of Oregon Medical School Portland, Oregon
+28193	1331384533	university of hawaii	Department of Oceanography, University of Hawaii, Honolulu
+28093	162608824	university of sussex	University of Sussex
+27900	1302368450	united states environmental protection agency	The authors are with the National Exposure Research Laboratory, U.S. Environmental Protection Agency, P.O. Box 93478, Las Vegas, Nevada 89193.
+27847	165339363	university of oviedo	Department of Business Administration, Faculty of Economics, University of Oviedo, Avda. Del Cristo, s/n, 33071, Oviedo, Asturias, Spain
+27794	4260306	weill cornell medical college	Department of Neurology, Cornell Medical Center, The New York Hospital, 525 East 68th Street, New York, N.Y. 10021, U.S.A.
+27762	191879574	inha university	Department of Chemical Engineering, Inha University, 253 Yonghyun-Dong, Nam-Ku,Incheon 402-751,South Korea
+27743	17145004	northwestern polytechnical university	The Key Laboratory of Space Applied Physics and Chemistry, Ministry of Education and Shaanxi Key Laboratory of Optical Information Technology, School of Science, Northwestern Polytechnical University, Xi'an 710072, China
+27673	100005738	brigham young university	Department of Botany and Range Science, Brigham Young University, Provo, UT 84602, USA.
+27670	92403157	university of science and technology beijing	School of Materials Science and Engineering, University of Science and Technology Beijing, Beijing
+27655	1318687432	national academy of sciences	National Academy of Sciences of Armenia
+27531	13469542	vrije universiteit brussel	Department of Pediatrics, UZ Brussel, Vrije Universiteit Brussel, Laarbeeklaan 101, Brussels, 1090, Belgium
+27479	70640408	tehran university of medical sciences	Department of Microbiology, School of Medicine, Tehran University of Medical Sciences, Tehran, Iran
+27455	1280414376	air force research laboratory	Air Force Research Laboratory, Space Vehicles Directorate, Kirtland Air Force Base, NM, USA
+27373	67826202	helsinki university of technology	Helsinki University of Technology, Department of Biotechnology and Chemical Technology, P.O. 6100, FI-02015 TKK, Finland|||Helsinki University of Technology, Department of Biotechnology and Chemical Technology, P.O. 6100, FI-02015 TKK, Finland
+27365	142740786	university of louisville	*J.G. Brown Cancer Center and|||†Department of Microbiology and Immunology, School of Medicine, University of Louisville, Louisville, KY 40202
+27327	121934539	institute of mathematics	Complex Systems and Artificial Intelligence Research Center, Institute of Mathematics of the Romanian Academy, Bucureşti, Romania#TAB#
+27284	99043593	macquarie university	School of Chemistry, Macquarie University, Sydney, New South Wales 2109, Australia
+27279	1322087612	alcatel lucent	Lucent Technol. Bell Labs, Holmdel, NJ, USA
+27261	160993911	queensland university of technology	Discipline of Mathematical Sciences, Queensland University of Technology, Brisbane, Queensland
+27248	22465464	university of munster	Department of Behavioural Biology, University of Münster, Münster, Germany|||Otto Creutzfeldt Center for Cognitive and Behavioral Neuroscience, University of Münster, Münster, Germany
+27240	110166357	university of delhi	Department of Physics and Astrophysics, University of Delhi, Delhi - 110007, India
+27211	161127581	federal fluminense university	Universidade Federal Fluminense
+27102	298625061	swedish university of agricultural sciences	Department of Clinical Sciences, Swedish University of Agricultural Sciences, Uppsala, Sweden|||Swedish Dairy Association, Uppsala, Sweden
+27101	72816309	drexel university	Drexel University
+27002	115475287	oklahoma state university stillwater	Oklahoma State University
+26915	107139324	kagoshima university	Department of Bioengineering, Faculty of Engineering, Kagoshima University, Korimoto, Kagoshima 890-0065, Japan
+26881	1309859654	national institute of allergy and infectious diseases	B Cell Molecular Immunology Section, Laboratory of Immunoregulation, National Institute of Allergy and Infectious Diseases, National Institutes of Health, Bethesda, MD 20892
+26643	127110123	universidade estadual de londrina	Universidade Estadual de Londrina, Londrina, Brazil
+26621	1314696892	fermilab	Fermilab
+26601	126158947	federal university of bahia	Universidade Federal da Bahia (UFBA)
+26501	911458345	vu university medical center	VU University Medical Center, Neurocampus Neurochemistry Laboratory and Biobank, Department of Clinical Chemistry Amsterdam the Netherlands
+26479	202177556	king s college cambridge	King's College Hospital Early Pregnancy and Acute Gynecology Assessment Unit London United Kingdom
+26461	192619145	university of the witwatersrand	Clinical HIV Research Unit, University of the Witwatersrand, Johannesburg, South Africa
+26324	127558574	dsm	Laboratoire AIM, CEA/DSM-CNRS-Université Paris Diderot, IRFU/Service d’Astrophysique, Bât. 709, CEA-Saclay, 91191 Gif-sur-Yvette Cedex, France
+26072	81082344	science college	Department of Behavioral Science, College of Medicine, University of Kentucky|||Department of Behavioral Science, College of Medicine, University of Kentucky
+26026	52996974	harvard smithsonian center for astrophysics	Harvard-Smithsonian Ctr. for Astrophysics (USA)
+25915	200399037	university of puerto rico	Centre International Recherche Agronomique Développement UPR 67 UMR 5175 Montpellier Cedex 5 France
+25907	173915773	yamaguchi university	Department of Biological Chemistry, Faculty of Agriculture, Yamaguchi University, Yamaguchi 753-8515, Japan
+25904	204136569	open university	The Open University, Milton Keynes, UK
+25818	83519826	nanjing medical university	Department of Neurology, Qingdao Municipal Hospital, Nanjing Medical University, Qingdao, China
+25804	13955877	bar ilan university	School of Engineering, Bar-Ilan University, Ramat-Gan 52900, Israel|||School of Engineering, Bar-Ilan University, Ramat-Gan 52900, Israel
+25764	121934306	tufts university	Tufts Cummings School of Veterinary Medicine, Department of Biomedical Sciences, 200 Westboro Road, North Grafton, MA 01536, United States
+25731	162714631	george mason university	George Mason University
+25652	69552723	university of pretoria	Department of Mathematics and Applied Mathematics, University of Pretoria, Pretoria, South Africa
+25638	123443094	universidade estadual de maringa	Universidade Estadual de Maringá, Maringá, Brasil
+25597	1118541	university of east anglia	Univ. of East Anglia (United Kingdom)
+25543	96323854	national yang ming university	Institute of Oral Biology, National Yang-Ming University, Taipei, Taiwan
+25522	1288530672	dana farber cancer institute	Dana-Farber Cancer Institute, Boston, Massachusetts 02115, USA.
+25516	5561750	university of bari	Department of Gastroenterology, University of Bari, Bari, Italy
+25507	185103710	university of california santa cruz	University of California Santa Cruz
+25455	21193070	beijing jiaotong university	Key-Laboratory of All-Optical Networks and Advanced Communication Networks (Ministry of Education), Beijing Jiaotong University, Beijing 100044|||Key-Laboratory of All-Optical Networks and Advanced Communication Networks (Ministry of Education), Beijing Jiaotong University, Beijing 100044
+25449	160013858	istituto nazionale di fisica nucleare	Istituto Nazionale di Fisica Nucleare|||Istituto Nazionale di Fisica Nucleare|||Istituto Nazionale di Fisica Nucleare INFN, LNF, Frascati, Italy|||Istituto Nazionale di Fisica Nucleare INFN, LNF, Frascati, Italy|||Istituto Nazionale di Fisica Nucleare|||Istituto Nazionale di Fisica Nucleare INFN, LNF, Frascati, Italy
+25408	178574317	mie university	Department of Immunology, Mie University Graduate School of Medicine, Tsu, Mie, Japan
+25390	874386039	national university of la plata	Facultad de Ciencias Naturales y Museo (UNLP)
+25384	78715868	university of arkansas	Department of Biological Sciences, University of Arkansas, Fayetteville 72701.
+25376	11701301	griffith university	Griffith University|||Griffith University
+25345	34809795	hannover medical school	Hannover Medical School
+25334	34077901	juntendo university	Department of Anatomy, Juntendo University School of Medicine, Hongo, Tokyo 113‐0033, Japan|||Department of Anatomy, Juntendo University School of Medicine, Hongo, Tokyo 113‐0033, Japan
+25158	19894307	university of montpellier	Centre d'Electronique et de Micro-optoelectronique de Montpellierr, Montpellier Univ., France
+25078	145894827	indian institute of technology kharagpur	Dept. of Phys. & Meteorol., Indian Inst. of Technol., Kharagpur
+25035	916559398	kindai university	Department of Genome Biology, Kinki University School of Medicine, 377‐2 Ohno‐Higashi, Osaka Sayama, Osaka, 589‐8511;
+24978	80180929	university of murcia	Department of Management and Finance, University of Murcia, Murcia, Spain
+24904	205640436	curtin university	18School of Physiotherapy and Exercise Science, Curtin University, Perth, WA, Australia
+24882	9916479	fourth military medical university	Fourth Military Medical University Department of Dermatology Xijing Hospital Xi'an Shaanxi China
+24877	196345858	chungnam national university	Department of Dermatology and Research Institute for Medical Sciences, School of Medicine, Chungnam National University, 55 Munhwa-ro, Daejeon 301-747, Republic of Korea
+24831	106456161	harvard t h chan school of public health	Department of Environmental Science and Physiology, Harvard School of Public Health, 655 Huntington Avenue, Boston, MA 02115|||Department of Environmental Science and Physiology, Harvard School of Public Health, 655 Huntington Avenue, Boston, MA 02115
+24812	2388115	japan atomic energy research institute	Department of Radiation Research for Environment and Resources, Japan Atomic Energy Research Institute, Watanuki-machi 1233, Takasaki, Gunma 370-12, Japan
+24787	66867065	east china normal university	State Key Laboratory of Estuarine and Coastal Research, East China Normal University, 3663 Zhongshan Road North, Shanghai 200062, PR China
+24764	22798298	school of electrical and electronic engineering university of manchester	School of Electrical and Electronic Engineering, Yonsei University, 50 Yonsei-ro, Seodaemun-gu, Seoul, 120-749, Republic of Korea
+24732	70978881	london school of hygiene tropical medicine	London School of Hygiene & Tropical Medicine, London, UK
+24698	80611190	chonbuk national university	Department of Orthopaedic Surgery, Chonbuk National University Medical School, Jeonju 561-756, Republic of Korea
+24667	129409704	tampere university of technology	Tampere Univ. of Technology (Finland)
+24580	26092322	stellenbosch university	Faculty of Education, University of Stellenbosch, Private Bag X1, Matieland 7602, South Africa
+24542	40677808	kyoto prefectural university of medicine	Department of Neurology, Research Institute for Neurological Diseases and Geriatrics, Kyoto Prefectural University of Medicine, Kyoto, Japan
+24521	21491767	aix marseille university	Aix-Marseille University (AMSE), CNRS and EHESS
+24512	51158804	massey university	Department of Statistics, Massey University, Palmerston North, NEW ZEALAND
+24445	89630735	yokohama city university	Department of Plastic and Reconstructive Surgery, Yokohama City University Hospital, Yokohama City University, 3‐9 Fukuura, Kanazawa‐ku, Yokohama 236‐0004, Japan
+24429	1332737386	general electric	Semiconductor Products Department, General Electric Company, Syracuse, N.Y.
+24371	1286704778	rutherford appleton laboratory	Rutherford Appleton Laboratory
+24369	196699116	wuhan university of technology	Reliability Engineering Institute, School of Energy and Power Engineering, Wuhan University of Technology, 430063, China
+24362	142444530	university of trieste	Eye Clinic, University of Trieste, Trieste, Italy
+24205	74656192	university of gottingen	Institute of Silviculture, Georg-August University of Goettingen, Buesgenweg 1, 37077 Goettingen, Germany
+24201	88060688	technical university of madrid	Universidad Politécnica de Madrid, Madrid
+24176	196829312	la trobe university	Specialist on Eastern Europe, civil society, and international human rights at La Trobe University in Australia.
+24069	27483092	university of perugia	Dipartimento di Chimica e Tecnologia del Farmaco-Sez, Tecnologie Farmaceutiche, Università degli Studi di Perugia, Italy
+23955	198357145	national heart lung and blood institute	Department of Cystic Fibrosis, National Heart and Lung Institute, Imperial College London, London, United Kingdom
+23887	115228651	agency for science technology and research	Inst. for Infocomm. Res., Agency for Sci. Technol. & Res., Singapore
+23561	207624831	slovak academy of sciences	Institute of Experimental Endocrinology, Slovak Academy of Sciences|||Faculty of Medicine, Comenius University
+23531	1308126019	national oceanic and atmospheric administration	NOAA Air Resources Laboratory Silver Spring Maryland USA
+23531	190249584	university of innsbruck	2nd Department of Surgery University of Innsbruck Anichstrasse 35 6020 Innsbruck Austria
+23497	1343551460	university of texas md anderson cancer center	Department of Experimental Therapeutics, M. D. Anderson Cancer Center, Houston, TX 77030, United States
+23387	1329882472	visual sciences	Neurological and Visual Sciences, Section Ophthalmology R, San Martino Hospital, Padua
+23383	58716616	korea institute of science and technology	Optoelectronic Materials Research Center, Korea Institute of Science and Technology, P.O. Box 131, Cheongryang, Seoul 130-650, Korea
+23354	108403487	warsaw university of technology	Warsaw University of Technology, Institute of Heavy Machinery Engineering, ul. Narbutta 85, 02-524 Warsaw, Poland
+23350	16609230	hunan university	Hunan University
+23334	162096671	university of los andes	Universidad de Los Andes (ULA)
+23323	43545212	ehime university	Department of Otolaryngology, Ehime University School of Medicine, Ehime, Japan
+23307	1314466530	tokai university	Department of Physiology, Tokai University School of Medicine, Bohseidai, Isehara 259–1193, Japan
+23297	150623626	boston university school of medicine	Maxwell Finland Laboratory for Infectious Diseases, Boston University School of Medicine and Boston Medical Center, Boston, MA 02118, USA
+23237	36399199	nanjing university of science and technology	Nanjing University of Science and Technology
+23206	114832834	tulane university	Tulane University
+23179	142974352	national sun yat sen university	Institute of Electro-Optical Engineering, National Sun Yat-Sen University, Lien-Hai Road, Kaohsiung 80424, Taiwan, Republic of China
+23166	28022161	king saud university	King Saud University Department of Chemical Engineering, College of Engineering Riyadh Saudi Arabia
+23162	106365116	wake forest school of medicine	Wake Forest University School of Medicine Department of Biostatistical Sciences Winston‐Salem NC 27157 USA
+23133	201799495	middle east technical university	Middle East Technical Univ. (Turkey)
+23116	83816512	university of genoa	Department of Internal Medicine, University of Genoa, Genoa, Italy
+23092	1648549	university of zulia	Universidad del Zulia-Venezuela
+23088	32062511	heriot watt university	Dept. of Phys., Heriot-Watt Univ., Edinburgh, UK
+23077	1335321130	children s hospital of philadelphia	The Children’s Hospital of Philadelphia
+23012	59433898	brunel university london	Wolfson Centre for Materials Processing incorporating the Centre for Phosphors and Display Materials, Brunel University, Uxbridge, Middlesex UB8 3PH, UK
+22997	1315085146	universidade federal de lavras	Universidade Federal de Lavras, Lavras
+22996	148297040	netherlands organisation for applied scientific research	Gaubius Laboratory TNO‐PG, Leiden, the Netherlands
+22912	133529467	sharif university of technology	Department of Civil Engineering, Sharif University of Technology
+22896	1310053265	st george s hospital	Colorectal Unit, St George Hospital, Sydney, New South Wales, Australia
+22879	17866349	university of toulouse	Université de Toulouse<br/>#R##N#Institut de Mathématiques de Toulouse<br/>#R##N#118, route de Narbonne<br/>#R##N#31062 Toulouse<br/> France
+22863	103320735	catholic university of the sacred heart	Dipartimento di Matematica e Fisica, Università Cattolica, via dei Musei 41,Brescia,Italy|||Laboratorio Nazionale TASC-INFM-CNR, SS 14, Km 163.5,Basovizza (TS),Italy
+22825	38877650	zhengzhou university	Physical Engineering College, Zhengzhou University,Zhengzhou,China
+22823	177933477	second military medical university	Department of Organic Chemistry, School of Pharmacy, Second Military Medical University, No. 325 Guohe Road, Shanghai 200433, P. R. China, (phone/fax: +86‐21‐81871228)
+22806	31512782	technische universitat darmstadt	Dept. of Biology, Technische Universität Darmstadt, Schnittspahnstrasse 10, D‐64287 Darmstadt, Germany.
+22740	189196454	university of texas at arlington	Chemistry and Biochemistry Department, University of Texas, Arlington, TX 76019, USA
+22709	2252230247	gunadarma university	Gunadarma University
+22664	162577319	university of texas at dallas	University of Texas/Dallas
+22633	2252096349	fujitsu	Fujitsu Lab. Ltd., Hyogo, Japan
+22567	185492890	university of canterbury	Department of Geography, University of Canterbury, Private Bag 4800, Christchurch, New Zealand
+22531	151727225	harbin engineering university	Harbin Eng. Univ., Harbin
+22483	60668342	university of regensburg	¶Institute for Immunology, University of Regensburg, Regensburg 93053, Germany; and
+22463	166722992	university of massachusetts medical school	Department of Cell Biology, University of Massachusetts Medical School, Worcester, Massachusetts
+22443	107672454	dartmouth college	Dartmouth College (United States)
+22374	170979836	jadavpur university	Division of Biochemistry, Department of Pharmaceutical Technology, Jadavpur University, Kolkata 700032, India
+22371	115592961	jiangsu university	College of Electronic and Information Engineering, Jiangsu University, Zhenjiang 212013, China
+22252	44703657	university of science and technology sana a	PLA University of Science and Technology
+22251	184999862	university of salamanca	Universidad de Salamanca|Sociología de la Facultad de Ciencias Políticas|Administración Pública de la Universidad Autónoma
+22240	78570951	monash university clayton campus	Dept. of Electr. & Comput. Syst. Eng., Monash Univ., Clayton, VIC
+22228	64189623	kitasato university	Department of Veterinary Anatomy|School of Veterinary Medicine and Animal Sciences|Kitasato University|Department of Toxicology|School of Veterinary Medicine and Animal Sciences|Kitasato University|National Institute of Advanced Industrial Science and Technology
+22129	181565077	georgia state university	Georgia State University University Plaza Atlanta
+22109	55302922	university of texas medical branch	Department of Surgery|University of Texas Medical Branch
+22105	19719545	national institute of mental health	Dept of Neurophysiology, National Institute of Mental Health and Neuro Sciences (NIMHANS Deemed University), Bangalore 560029, India
+22071	135117807	universite de sherbrooke	Centre de Recherche en Physique du Solide, Département de Physique, Université de Sherbrooke, Sherbrooke, Québec, J1K 2R1, Canada
+21914	37796252	beijing university of technology	Beijing Embedded System Key Lab, Beijing University of Technology, 100124, China
+21907	121980950	utah state university	Utah State Univ.
+21853	126596746	jagiellonian university	Department of Microbiology, Jagiellonian University, Cracow, Poland
+21832	57664883	ajou university	Ajou University
+21829	885383172	national university of malaysia	Psychology Science Centre and Humanity Resources, Faculty of Social Sciences and Humanity, Universiti Kebangsaan Malaysia, Bangi
+21829	169541294	flinders university	Flinders Endogynaecology, Department of Obstetrics and Gynaecology, Flinders University and Flinders Medical Centre, Adelaide, Australia
+21807	4576418	universiti teknologi malaysia	Department of Information Systems, Faculty of Computing, Universiti Teknologi Malaysia, 81310 UTM Johor Bahru, Johor, Malaysia
+21738	39063666	university of catania	2Oncology, University of Catania, Catania, Italy
+21725	205401836	national institute for materials science	National Institute for Materials Science 1-2-1 Sengen Tsukuba, Ibaraki 305-0047 Japan 1-2-1 Sengen Tsukuba, Ibaraki 305-0047 Japan|||National Institute for Materials Science 1-2-1 Sengen Tsukuba, Ibaraki 305-0047 Japan 1-2-1 Sengen Tsukuba, Ibaraki 305-0047 Japan|||National Institute for Materials Science 1-2-1 Sengen Tsukuba, Ibaraki 305-0047 Japan 1-2-1 Sengen Tsukuba, Ibaraki 305-0047 Japan
+21718	59028903	ocean university of china	Ocean University of China College of Chemistry and Chemical Engineering 26603 Qingdao China|||Ocean University of China College of Chemistry and Chemical Engineering 26603 Qingdao China|||Ocean University of China College of Chemistry and Chemical Engineering 26603 Qingdao China
+21674	186903577	university of luxembourg	University of Luxembourg > Faculty of Science, Technology and Communication (FSTC) > Physics and Materials Science Research Unit >
+21657	172787465	university of concepcion	Universidad de Concepción, Chile
+21617	33858575	nagoya city university	Graduate School of Design|Nagoya City University
+21561	91357014	banaras hindu university	Sir Sunder Lal Hospital, IMS, BHU|||Rajindra Hospital
+21480	142401562	electronics and telecommunications research institute	Electronics and Telecommunications Research Institute
+21479	101202996	semmelweis university	Semmelweis University
+21477	4588055	tottori university	Division of Dermatology, Department of Sensory and Motor Organs, Faculty of Medicine, Tottori University, Yonago, Japan
+21469	162838928	national chung hsing university	National Chung‐Hsing University Institute of Biochemistry Taichung Taiwan
+21465	1324220072	mount sinai hospital	Mount Sinai Medical Center. New York. Estados Unidos
+21449	27577105	university college cork	Department of Food Engineering, University College Cork, Ireland
+21443	112524849	yamagata university	Second Department of Surgery, Yamagata University School of Medicine, Yamagata, Japan
+21428	54009628	university of bayreuth	University of Bayreuth, 95440 Bayreuth Macromolecular Chemistry I Germany
+21382	24062138	konkuk university	Konkuk University
+21364	3923682	soochow university	School of Radiation Medicine and Protection and Jiangsu Provincial Key Laboratory of Radiation Medicine and Protection, Soochow University, Suzhou 215123, China
+21314	24676775	indian institute of technology madras	Department of Mathematics, Indian Institute of Technology Madras, Chennai 600 036, India
+21229	193223587	university of trento	Dipartimento di Fisica, Universita di Trento and Istituto Nazionale di Fisica della Materia, I-38050 Povo (Trento), Italy
+21159	186143895	lehigh university	Lehigh University
+21136	110152177	university of akron	The Firestone Tire & Rubber Company, Akron, Ohio 44317
+21128	82767444	university of malaga	Universidad de Málaga, Málaga, España
+21115	36426075	institute of medical science	Division of Clinical Immunology, Advanced Clinical Research Center, Institute of Medical Science, University of Tokyo, Tokyo, Japan,
+21094	140025399	hochschule hannover	Medizinische Hochschule Hannover
+21046	193700539	tilburg university	Department of Urology, St. Elisabeth Hospital, Hilvarenbeekseweg 60, Tilburg, 5022 GC, The Netherlands
+21039	17937529	german cancer research center	Division of Immunogenetics, Tumorimmunology Program, German Cancer Research Center, Im Neuenheimer Feld 280, D-69120 Heidelberg, Germany
+21019	47076751	institute of high energy physics	Institute of High Energy Physics
+21000	162827531	indian institute of technology bombay	National Centre for Photovoltaic Research and Education (NCPRE), Indian Institute of Technology, Bombay (IITB), Mumbai-400076, India
+20935	138801177	ulster university	University of Ulster
+20885	158248296	amirkabir university of technology	Department of computer engineering, Amirkabir University of Technology, Tehran, Iran
+20872	900890020	university of palermo	Department of Oncology, University of Palermo, Italy
+20793	2785411	institute for materials research	Institute for Materials Research, Tohoku University, Oarai, Ibaraki 311-1313, Japan
+20744	27897274	istituto superiore di sanita	Dipartimento di Tecnologie e Salute, Istituto Superiore di Sanità, Viale Regina Elena 299, 00161 Rome, Italy
+20632	169248161	universidade federal de pelotas	Universidade Federal de Pelotas
+20597	41641357	ege university	Department of Prosthodontics, Ege University School of Dentistry, Izmir, Turkey
+20584	94722563	university of jyvaskyla	Faculty of Sport and Health Sciences, University of Jyväskylä, P.O.Box 35 (L) FI-40014, Jyväskylä, Finland
+20552	20121455	bielefeld university	Fakultät für Chemie, Universität Bielefeld, Postfach 100131, 33501 Bielefeld (Germany)
+20485	139322472	universiti sains malaysia	Discipline of Social & Administrative Pharmacy, School of Pharmaceutical Sciences, Universiti Sains Malaysia, Minden, 11800, Penang, Malaysia
+20449	25041050	georgia regents university	Program of Developmental|Institute of Molecular Medicine and Genetics|Medical College of Georgia
+20389	149704539	deakin university	Deakin University, Burwood, VIC, Australia
+20255	119454577	nanjing agricultural university	Department of Plant Pathology, Nanjing Agricultural University and State Ministry of Education Key Laboratory of Integrated Management of Crop Pathogens and Insect Pests, Nanjing 210095, China
+20224	83399316	rockefeller university	Laboratory of Molecular Immunology, The Rockefeller University NY USA
+20220	99041443	mississippi state university	Mississippi State Univ., MS, USA
+20218	129801699	university of tasmania	Institute of Antarctic and Southern Ocean Studies, University of Tasmania, Private Bag 77, Hobart, Tasmania 7001, Australia (igan@postoffice.utas.edu.au
+20161	59130452	university of nebraska medical center	#N#            1University of Nebraska Medical Center, Omaha, NE, USA
+20134	158708052	chulalongkorn university	Department of Pharmacology, Faculty of Veterinary Science,Chulalongkorn University,Henri Dunant Road,Bangkok 10330,Thailand
+20109	76023543	keck school of medicine of usc	Keck School of Medicine, University of Southern California, United States
+20076	130438778	memorial university of newfoundland	Memorial University of Newfoundland
+20042	134113660	university of nevada reno	Shearing Eye Institute, Univ. of Nevada Medical School and C (USA)
+20010	35046152	federal university of rio grande do norte	Universidade Federal do Rio Grande do Norte, Natal, Brazil|||Universidade Federal do Rio Grande do Norte, Natal, Brazil
+19989	118892805	instituto superior tecnico	Institute for Systems and Robotics / Instituto Superior Técnico
+19964	19700959	florida international university	Department of Geology, Florida International University, Miami, FL 33199, USA|||Department of Geology, Florida International University, Miami, FL 33199, USA
+19822	149218525	ankara university	Vocational School of Health, Ankara University, 06290 Kecioren, Ankara, Turkey
+19821	138925566	ewha womans university	Department of Internal Medicine, Ewha Womans University School of Medicine, Seoul, Korea
+19811	44504214	czech technical university in prague	Department of Control Engineering, Faculty of Electrical Engineering of Czech Technical University in Prague, Technická 2, 166 27 Praha 6, Czech Republic
+19798	183519381	capital medical university	Department of Epidemiology, Capital Medical University Affiliated Beijing Anzhen Hospital, Beijing Institute of Heart, Lung and Blood Vessel Diseases, Beijing, China
+19794	82951845	rmit university	RMIT University, Australia
+19789	117197279	japan atomic energy agency	National Institute for Fusion Science|Japan Atomic Energy Agency
+19786	157075465	bristol myers squibb	Bristol-Meyers Squibb Pharmaceutical Research Institute
+19780	97429440	university of wales	Department of Mathematics|University of Wales|||Department of Mathematics, University of Wales Swansea, Swansea, SA2 8PP, UK
+19775	105036370	astrazeneca	Cardiovascular and Gastrointestinal Innovative Medicines Unit, AstraZeneca R&D, Mereside, Alderley Park, Macclesfield,Cheshire,UK
+19733	11923345	wroclaw university of technology	Wroclaw University of Technology
+19725	45643870	pontificia universidade catolica do rio grande do sul	Department of Oral Medicine at Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS), Porto Alegre, Brazil
+19720	172446870	university of cagliari	University of Cagliari Department of Toxicology Cagliari Italy|||University of Cagliari via Ospedale Department of Life & Environment Sciences – Drug Sciences Section Cagliari Italy
+19714	197274945	nagoya institute of technology	Department of Computer Science and Engineering, Nagoya Institute of Technology, Gokiso-cho, Showa-ku, Nagoya, Aichi, 466-8555 Japan
+19601	177483745	joseph fourier university	Lab. Nat. des Champs Magnetiques Intenses, LNCMI, UJF, Grenoble, France
+19479	194019607	university of ioannina	University of Ioannina; Ioannina, Greece
+19441	19920983	mayo medical school	Computer-Aided Molecular Design Laboratory, Mayo Clinic College of Medicine, Rochester, MN, USA
+19440	74760111	texas instruments	Texas Instruments, Inc., Dallas, TX
+19392	111236770	university of vermont	Department of Pharmacology, College of Medicine, University of Vermont, Burlington, VT 05401
+19295	69740276	tokyo metropolitan university	Department of Chemistry, Graduate School of Science and Engineering, Tokyo Metropolitan University, Tokyo, Japan
+19277	26538001	san diego state university	Biology Department, San Diego State University, 5500 Campanile Drive, San Diego, CA 92182, USA
+19265	168537998	eli lilly and company	Lilly Research Laboratories|A Division of Eli Lilly and Company
+19256	1282927834	cedars sinai medical center	Cedars Sinai Med Cntr, Los Angeles, CA
+19194	1298590031	shizuoka university	1 Faculty of Science, Shizuoka University, 836 Ohya, Shizuoka 422‐8529, Japan (email: slin@ipc.shizuoka.ac.jp),2Graduate School of Science, Kyoto University, Kyoto 606‐8502, Japan,3Fuji Research Institute, 2‐3 Kandanishiki‐cho, Tokyo 101‐8443, Japan,4Faculty of Science, Kobe University, Nada‐ku, Kobe 657‐8501, Japan,5Faculty of Science, Ehime University, Matsuyama 790‐8577, Japan,6Network ‘the Earth’ Co Ltd, Motomachi, Saitama City, Saitama 336‐0003, Japan and7Faculty of Integrated Arts and Sciences, Tokushima University, Tokushima 770‐8502, Japan
+19192	65081225	china university of geosciences	China University of Geosciences State Key Laboratory of Geological Processes and Mineral Resources Beijing 100083 China
+19160	1326427960	fred hutchinson cancer research center	Long Island|College Hospital-SUNY Health Science|Fred Hutchinson Cancer Research Center
+19140	68106152	universidade federal de goias	Universidade Federal de Goiás, Goiânia
+19129	20581793	university of kent	University of Kent, Canterbury
+19127	1334415907	university medical center groningen	Department of Haematology, Cambridge University Hospitals NHS Trust, Cambridge, UK|||Department of Hematology, University Medical Center Groningen, Groningen, the Netherlands
+19064	141584323	university of hertfordshire	University of Hertfordshire
+19061	105296287	kurume university	Kurume University School of Medicine
+19058	67900169	chung ang university	Division of Cardiology, Department of Internal Medicine, College of Medicine, Chung-Ang University, Seoul, Korea
+19046	119439378	university of verona	Department of Biomedical and Surgical Sciences, Section of Internal Medicine, University of Verona, Verona, Italy
+19023	204823248	huazhong agricultural university	College of Plant Science & Technology, Huazhong Agricultural University
+18960	1316910977	dupont	Marion duPont Scott Equine Medical Center, Virginia‐Maryland Regional College of Veterinary Medicine, PO Box 1938, Leesburg, VA 22075, USA
+18920	119182057	showa university	Digestive Disease Center, Showa University Northern Yokohama Hospital, Yokohama, Japan
+18916	110002522	university of essex	University of Essex, United Kingdom
+18891	43579087	university of wisconsin milwaukee	University of Wisconsin–Milwaukee, Milwaukee, WI, USA
+18886	123534392	university of north texas	Department of Physics, University of North Texas, Denton, TX 76203, U.S.A.
+18849	87048295	wellcome trust	Malaria Programme, Wellcome Trust Sanger Institute, Cambridge CB10 1SA, UK
+18836	108103353	university of valladolid	Bioforge - University of Valladolid, Valladolid, Spain
+18828	11947397	tata institute of fundamental research	National Center for Biological Sciences, Tata Institute of Fundamental Research, Bangalore, India,
+18802	88155538	university of navarra	Departamento de Medicina Interna, Facultad de Medicina, Universidad de Navarra, 31080 Pamplona, Spain
+18792	110378019	southern illinois university carbondale	Department of Physics, Southern Illinois University, Carbondale, Illinois 62901-4401|||Department of Physics, Southern Illinois University, Carbondale, Illinois 62901-4401
+18741	137551562	vanderbilt university school of medicine	.Department of Medicine, Division of General Internal Medicine, Vanderbilt University School of Medicine,Nashville, Tennessee
+18649	1338124936	american museum of natural history	Swedish Museum of Natural History
+18622	95634034	gazi university	Gazi University Faculty of Medicine E Blok 9. Kat Besevler Ankara Turkey
+18608	51713134	anschutz medical campus	Department of Obstetrics & Gynecology, University of Colorado, Anschutz Medical Campus, Aurora, Colorado, United States of America
+18553	191240316	university of hull	Dept. of Applied Phys., Univ. of Hull, Hull, UK
+18521	4092182	graz university of technology	IICM, Graz Univ. of Technol., Graz, Austria
+18521	154430654	dental school	Molecular and Cellular Biology Section, OCBS/Dental School, University of Maryland, Baltimore, Maryland
+18508	169071179	cancer research institute	Department of Pathology, Cancer Research Institute and Infection Signaling Network Research Center, College of Medicine, Chungnam National University, Daejeon 301-747, Republic of Korea|||Department of Pathology, Cancer Research Institute and Infection Signaling Network Research Center, College of Medicine, Chungnam National University, Daejeon 301-747, Republic of Korea
+18426	169238054	czechoslovak academy of sciences	Faculty of Nuclear Physics and Physical Engineering, Czechoslovak Academy of Sciences, Prague
+18383	116067653	university of rome tor vergata	Department of Mechanical Engineering, University of Rome “Tor Vergata”, Via del Politecnico n. 1, 00133 Rome, Italy
+18338	94234084	indian institute of technology kanpur	Materials Science Program, Indian Institute of Technology, Kanpur U.P., India
+18309	1313298211	st jude children s research hospital	1Department of Pharmaceutical Sciences, St Jude Children’s Research Hospital, Memphis, Tennessee, USA|||5Department of Clinical Pharmacy, College of Pharmacy, University of Tennessee Health Science Center, Memphis, Tennessee, USA
+18267	192513696	national university of san marcos	Laboratorio de Fisiología Animal, Facultad de Medicina Veterinaria, Universidad Nacional Mayor de San Marcos, Lima
+18182	1288702032	ministry of education	Department of Ecology, and Key Laboratory for Earth Surface Processes of the Ministry of Education, Peking University, Beijing 100871 (China)
+18150	56085075	university of tartu	Department of Evolutionary Biology, University of Tartu and Estonian Biocentre, Tartu, Estonia
+18121	197809005	seconda universita degli studi di napoli	Second University of Naples
+18115	152743029	kaohsiung medical university	Department of Neurology, Kaohsiung Medical University, Kaohsiung, Taiwan|||Department of Neurology, Kaohsiung Medical University Hospital, Kaohsiung, Taiwan
+18043	1285301757	rush university medical center	Department of Biochemistry, Rush‐Presbyterian‐St. Luke's Medical Center, Rush University, 1653 West Congress Parkway, Chicago, IL 60612, USA
+18034	200763008	university of giessen	Medical Clinic III|University of Giessen
+18017	163753206	chungbuk national university	School of Electrical Engineering, Chungbuk National University, Cheongju, 361-763, KOREA
+18003	142617266	university of crete	Univ. of Crete (Greece)
+17971	227586296	american physical therapy association	Department of Medicine and Physical Therapy, Faculty of Medicine, Tokyo University, Tokyo, and Torii & Co. Research Laboratories, Ichikawa, Japan|||Department of Medicine and Physical Therapy, Faculty of Medicine, Tokyo University, Tokyo, and Torii & Co. Research Laboratories, Ichikawa, Japan
+17967	106938459	university of new brunswick	Department of Mechanical Engineering, University of New Brunswick, Fredericton, New Brunswick, Canada
+17921	392282	university at albany suny	Atmospheric Sciences Research Center, University at Albany, State University of New York, Albany, New York
+17889	138728355	kek	High Energy Accelerator Research Organization (KEK)
+17865	154864474	national taiwan university of science and technology	Department of Electrical Engineering, National Taiwan University of Science and Technology, Taipei, Taiwan
+17828	54459138	university of salford	Department of Mechanical Engineering, University of Salford, Salford, M54WT, England
+17818	193615760	dokuz eylul university	Department of Pediatrics and Department of General Surgery, Dokuz Eylül University, İzmir, Turkey.
+17812	86467917	james cook university	Australian Centre for Tropical Freshwater Research|James Cook University|||Australian Centre for Tropical Freshwater Research|James Cook University
+17787	9842412	nanjing university of aeronautics and astronautics	College of Electronic and Information Engineering, Nanjing University of Aeronautics and Astronautics, China
+17770	901861585	vanderbilt university medical center	Vanderbilt University Medical Center, Department of Pathology, Microbiology and Immunology, Nashville, TN.
+17712	1280536761	ames research center	NASA Ames Research Center, Moffett Field, CA 94035-1000, USA
+17663	112862951	university of messina	School and Division of Allergy and Clinical Immunology, Department of Human Pathology, University of Messina, Italy
+17662	40036882	institute for advanced study	Freiburg Institute for Advanced Studies (FRIAS) – Soft Matter Research, Institut für Makromolekulare Chemie and Freiburger Materialforschungszentrum (FMF) of the Albert‐Ludwigs University Freiburg, Stefan‐Meier‐Strasse 31, 79104 Freiburg, Germany|||Freiburg Institute for Advanced Studies (FRIAS) – Soft Matter Research, Institut für Makromolekulare Chemie and Freiburger Materialforschungszentrum (FMF) of the Albert‐Ludwigs University Freiburg, Stefan‐Meier‐Strasse 31, 79104 Freiburg, Germany
+17634	72580772	wayne state university school of medicine	Department of Plastic Surgery, Wayne State University School of Medicine, 3390 John R. Street, Detroit, MI 48201, USA US US
+17560	156144747	harbin medical university	The First Affiliated Hospital of Harbin Medical University, Harbin 150001, China
+17554	118136607	general motors	Università Politecnica delle Marche – Azienda Ospedaliero-Universitaria Ospedali Riuniti Umberto I – GM Lancisi – G Salesi
+17510	189268942	university of alcala	Department of Physiology, University of Alcala, Alcalá de Henares, Madrid, Spain
+17502	114112103	leibniz university of hanover	Leibniz Universität Hannover
+17457	1320320070	food and drug administration	1CBER, FDA, Bethesda, MD.
+17455	227486990	university of szeged	University of Szeged Department of Biochemistry and Molecular Biology, Faculty of Science and Informatics Szeged Hungary
+17453	9217761	westinghouse electric	Westinghouse Savannah River Co., Aiken, SC United States
+17436	15807432	osaka prefecture university	Osaka Prefecture University Department of Applied Chemistry, Graduate School of Engineering Osaka Japan
+17429	79189158	university of castilla la mancha	Dept. of Comput. Syst., Univ. of Castilla-La Mancha, Albacete, Spain
+17360	22759111	ohio university	Clippinger Lab., Ohio Univ. Cent. Intell. Chem. Instrumentation, Athens, OH 45701, USA
+17342	17626003	university of rhode island	University of Rhode Island|||Sensata Technologies
+17335	32021983	university of kiel	Institute of Ecosystem Research, University of Kiel, Olshausenstr. 40, 24098 Kiel, Germany
+17313	170239107	university of south australia	University of South Australia
+17293	44260953	university of dusseldorf	Department of Otorhinolaryngology, Heinrich-Heine-University, Düsseldorf, Germany
+17285	173093425	chang gung university	Department of Electronic Engineering, Chang Gung University, 259 Wen-Hwa 1st Rd., Kwei-Shan, Tao-Yuan 333, Taiwan|||Department of Electronic Engineering, Chang Gung University, 259 Wen-Hwa 1st Rd., Kwei-Shan, Tao-Yuan 333, Taiwan
+17260	79620101	university of arkansas for medical sciences	Department of Pharmacology and Toxicology, University of Arkansas for Medical Sciences, Little Rock, Arkansas, USA
+17210	110736937	paris descartes university	Paris Cardiovascular Research Center (PARCC), INSERM Unit 970|||Université Paris Descartes-Sorbonne Paris Cité|||Paris Sudden Death Expertise Center|||Cochin-Hotel-Dieu Hospital, APHP
+17190	1285204247	cincinnati children s hospital medical center	5Center for Pulmonary Imaging Research, Cincinnati Children's Hospital, Cincinnati, Ohio;|||6Department of Radiology, Cincinnati Children's Hospital, Cincinnati, Ohio; and|||7Department of Pediatrics, Cincinnati Children's Hospital, Cincinnati, Ohio
+17165	102235749	university of manchester institute of science and technology	Department of Polymer and Fibre Science UMIST Sackville Street Manchester M60 1QD
+17139	157940539	columbia university college of physicians and surgeons	Department of Microbiology, Columbia University College of Physicians and Surgeons
+17129	74413500	university of windsor	University of Windsor, Department of Kinesiology, 401 Sunset Avenue, Windsor, N9B 3P4, ON, Canada
+17122	107720978	ain shams university	Biological and Geological Sciences Department, Faculty of Education, Ain Shams University, Heliopolis, Roxy, Cairo
+17053	170606269	university of the fraser valley	UFV
+17050	92614990	tokyo university of agriculture and technology	Faculty of Technology Tokyo University of Agriculture and Technology Koganeishi Tokyo Japan
+17047	114017466	university of technology sydney	University of Technology Sydney Plant Functional Biology and Climate Change Cluster Sydney NSW Australia|||University of Technology Sydney National Centre for Groundwater Research and Training Sydney NSW Australia
+17046	75390827	beijing university of chemical technology	Beijing University of Chemical Technology
+17045	161057412	university of new hampshire	Department of Earth Sciences, University of New Hampshire, 56 College Rd., Durham, NH 03824, USA
+17045	180585399	dalian institute of chemical physics	State Key Laboratory of Catalysis, Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian National Laboratory for Clean Energy, 457 Zhongshan Road, Dalian 116023 (P. R. China), Fax: (+86)‐411‐84694447
+17023	39586589	swansea university	Department of Computer Science, Swansea University, UK and College of Engineering, Swansea University, UK
+17001	161296585	tokyo university of science	Tokyo Univ. of Sci., Tokyo
+16981	1333370159	motorola	Motorola Digital DNATM Labs., Austin, TX, USA
+16967	44921830	institute of zoology	State Key Laboratory of Reproductive Biology, Institute of Zoology, Chinese Academy of Sciences, Beijing, China
+16953	20382870	missouri university of science and technology	Univ. of Missouri-Rolla, Rolla
+16949	110120368	enea	ENEA
+16949	68368234	cinvestav	Sección Externa de Toxicología, CINVESTAV, Ave. IPN #2508, Colonia Zacatenco, Mexico City 07360, Mexico
+16885	149910238	kent state university	Dept. of Mathematics Kent State University 44242 Kent Ohio U.S.A.|||Dept. of Mathematics Kent State University 44242 Kent Ohio U.S.A.
+16884	180949307	illinois institute of technology	Illinois Institute of Technology Department of Metallurgical and Materials Engineering 60616 Chicago IL|||Illinois Institute of Technology Department of Metallurgical and Materials Engineering 60616 Chicago IL
+16768	21449261	masaryk university	Department of Biochemistry, Faculty of Science Masaryk University Kotlářská 2 611 37 Brno Czech Republic|||Department of Biochemistry, Faculty of Science Masaryk University Kotlářská 2 611 37 Brno Czech Republic|||Department of Biochemistry, Faculty of Science Masaryk University Kotlářská 2 611 37 Brno Czech Republic
+16729	146824383	hallym university	Department of Surgery, College of Medicine, Hallym University, Chuncheon, Korea
+16710	182534213	university of porto	University of Porto, Vairão, Portugal|||University of Porto, Portugal
+16700	130194489	university of alicante	Departamento de Biotecnología, Facultad de Ciencias, Universidad de Alicante, 99. E‐03080 Alicante, Spain
+16688	104338594	inje university	Department of Ophthalmology, Ilsan Paik Hospital, Inje University College of Medicine, Goyang, Korea
+16661	169357873	johns hopkins bloomberg school of public health	Bloomberg School of Public Health, Johns Hopkins University, Baltimore, Maryland
+16657	1306287861	mitsubishi	ULSI Dev. Center, Mitsubishi Electr. Corp., Hyogo, Japan
+16654	180987434	eunice kennedy shriver national institute of child health and human development	Laboratory of Physical and Structural Biology, NICHD, National Institutes of Health, Bethesda, Maryland 20892
+16632	141882310	sapporo medical university	Sapporo Medical University, School of Medicine
+16625	124601658	university of parma	Department of Industrial Engineering, University of Parma, Viale G.P. Usberti, 181/A, 43100 Parma, Italy
+16621	2252135952	petersburg nuclear physics institute	Petersburg Nuclear Physics Institute
+16612	921990950	university of colorado denver	1University of Colorado Denver, Aurora, CO, USA
+16610	4800084	southwest jiaotong university	Center for Information Photonics & Communications, School of Information Science and Technology, Southwest Jiaotong University, Chengdu 610031, Sichuan, China
+16590	1325899441	university health network	Division of Rheumatology, Department of Medicine, University Health Network, Toronto, Canada
+16566	4665924	university of rostock	Institute of Physics, University of Rostock, Universitätsplatz 3, 18055 Rostock (Germany)
+16546	189442560	gyeongsang national university	Gyeongsang National University
+16533	166825849	university of tampere	38Dept. of Clinical Chemistry, Centre for Laboratory Medicine Tampere Finn, University of Tampere and Tampere University Hospital, Medi 2, 3th, floor, PO Box 2000, 33521 Tampere, Finland
+16530	1297288678	national renewable energy laboratory	NREL's National Wind Technology Center, 1617 Cole Blvd, Golden, CO, 80401 USA
+16524	74788687	comenius university in bratislava	Department of Computer Science, Faculty of Mathematics, Physics and Informatics, Comenius University, Mlynská dolina, 84248 Bratislava, Slovak Republic|||Department of Computer Science, Faculty of Mathematics, Physics and Informatics, Comenius University, Mlynská dolina, 84248 Bratislava, Slovak Republic
+16520	10052268	new mexico state university	Department of Counseling and Educational Psychology, New Mexico State University
+16515	159129438	universite du quebec a montreal	Professeur, Département de sociologie, Université du Québec à Montréal, MEOS-CRI-GRASP
+16470	90871651	university of toledo	University of Toledo, Toledo, OH
+16458	16285277	college of william mary	College of William and Mary
+16395	201324441	university of ferrara	University of Ferrara
+16388	91712215	saarland university	ICREA Infection Biology Laboratory, Department of Experimental and Health Sciences, University Pompeu Fabra, Barcelona 08003, Spain|||Department of Virology, Saarland University, Homburg D-66421, Germany
+16385	83558840	universidade nova de lisboa	REQUIMTE, Faculdade de Ciências e Tecnologia, Universidade Nova de Lisboa, Caparica, Portugal
+16375	123946342	binghamton university	Dept. of Electr. & Comput. Eng., State Univ. of New York at Binghamton, Binghamton, NY
+16323	204553293	china university of petroleum	Centre for China Oil and Gas Industry Development Research, China University of Petroleum, Beijing, China
+16263	31784960	fukuoka university	Fukuoka University Division of Biology, Department of Earth System of Science, Faculty of Science Fukuoka Japan
+16201	894799257	ent federal credit union	Department of ENT, SMS Medical College, Jaipur|||Department of ENT, SMS Medical College, Jaipur
+16189	131827901	stmicroelectronics	STMicroelectronics, Agrate Brianza, Italy
+16152	80188885	nippon medical school	Nippon Medical School Department of Neurosurgery 1-1-5 Sendagi, Bunkyo-ku 113-8603 Tokyo Japan
+16118	115498069	jikei university school of medicine	Division of Kidney and Hypertension, Department of Internal Medicine, Jikei University School of Medicine, Tokyo, Japan
+16067	129634264	toho university	Toho University Medical Center, Omori Hospital
+16061	909854389	london school of economics and political science	LSE
+16040	87653560	vtt technical research centre of finland	VTT Industrial Systems, P.O. Box 1300, FIN-02044 VTT, Filand
+15976	157394403	baylor university	Graduate Program in Structural and Computational Biology and Molecular Biophysics, One Baylor Plaza, Baylor College of Medicine,National Center for Macromolecular Imaging, Verna and Marrs McLean Department of Biochemistry and Molecular Biology, One Baylor Plaza, Baylor College of Medicine
+15966	865419266	catholic university of leuven	Department of Public Health and Epidemiology, School of Medicine, The University of Birmingham, Birmingham, United Kingdom|||Department of General Practice, Comprehensive Cancer Institute Limburg, Catholic University of Leuven, Leuven, Belgium
+15913	29606459	university of mississippi medical center	2University of Mississippi Medical Center, Jackson, MS.
+15912	146516829	hirosaki university	Department of School Health Science, Faculty of Education, Hirosaki University, Bunkyo‐cho 1, 036‐8560 Japan
+15909	68891433	indian institute of technology delhi	Electrical Engineering Department, Indian Institute of Technology Delhi, Hauz Khas, New Delhi, India ¿ 110016. sdjoshi@ee.iitd.ac.in
+15882	62318514	university of duisburg essen	Materials Science and Engineering II, University of Duisburg‐Essen, Duisburg, Germany
+15870	919571938	university of texas health science center at houston	Department of Dermatology, University of Texas Health Science Center, Houston, TX and Center for Clinical Studies, Houston, TX
+15850	111599522	jiangnan university	Jiangnan University
+15818	134560555	paul sabatier university	Laboratoire des Hétérocycles du Phosphore et de l'Azote (Chimie‐Physique II), Université Paul Sabatier, 118 route de Narbonne, 31077 Toulouse Cédex, France
+15810	178621518	institute for high energy physics	Institute for High Energy Physics
+15803	139894009	university of bradford	School of Mathematics, University of Bradford, Bradford, Yorkshire, England
+15791	159948400	jinan university	Department of Physiology, Medical College, Jinan University, China
+15784	1320897668	max planck institute of psychiatry	Max Planck Institute of Psychiatry, Max Planck Society
+15759	142947616	institute of cancer research	The Chester Beatty Research Institute, Institute of Cancer Research, Royal Cancer Hospital, London, England
+15756	62921916	universidade federal rural de pernambuco	Universidade Federal Rural de Pernambuco, Recife
+15713	200362191	universidad autonoma metropolitana	Health Science Department, Universidad Autónoma Metropolitana, Mexico City 09340, Mexico
+15712	200246676	school of medicine shanghai jiao tong university	Department of Surgery, Sixth People's Hospital, School of Medicine, Shanghai Jiao Tong University, Shanghai 200233, P.R. China
+15707	170203145	laboratory of molecular biology	MRC Laboratory of Molecular Biology, Hills Road, Cambridge, CB2 2QH, UK
+15707	42934936	dublin city university	Sch. of Electron. Eng., Dublin City Univ., Dublin
+15650	1334968043	university of pittsburgh medical center	University of Pittsburgh Medical Center, USA
+15641	158438070	university of la laguna	Universidad de La Laguna, Dpto. de Química-Física, Instituto de Materiales y Nanotecnología, Avda. Astrofísico Francisco Sánchez s/n,38071 La Laguna,Spain
+15630	95793202	otto von guericke university magdeburg	Otto-von-Guericke Univ. of Magdeburg, Magdeburg, Germany
+15590	23732399	montana state university	Department of Mathematical Sciences, Montana State University, Bozeman, MT 59717, USA
+15550	51235708	universidade federal do espirito santo	Universidade Federal do Espírito Santo
+15535	177969490	university of southern denmark	University of Southern Denmark, Odense, Denmark#TAB#
+15527	13134134	university of cantabria	Departamento de Física Moderna, Universidad de Cantabria, Instituto de Estudios Avanzados en Física Moderna y Biología Molecular, CSIC-UC, Avenida Los Castros, E-39005 Santander, Spain
+15525	1331897569	agriculture and agri food canada	Retired from Agriculture and Agri-Food Canada and World Bank
+15485	42766147	university of toyama	Life Science Research Center, University of Toyama, Toyama 930-0194, Japan|||Life Science Research Center, University of Toyama, Toyama 930-0194, Japan
+15471	47838141	saint louis university	Department of Biology, Saint Louis University, St. Louis, Missouri, United States of America
+15467	79431787	tongji medical college	Tongji Medical University Department of Otolaryngology, Tongji Hospital Wuhan
+15448	1321434546	european southern observatory	European Southern Observatory, Karl Schwarzschild Strasse 2, D-85748 Garching bei München, Germany|||Osservatorio Astronomico di Bologna, Via Ranzani 1, 40127 Bologna, Italy
+15418	184558857	royal holloway university of london	Department of Psychology, Royal Holloway College, University of London, Egham, UK
+15303	56007636	keele university	Department of Physics, University of Keele
+15294	185940356	soochow university	Soochow University School of Basic Medicine and Biological Sciences Suzhou Jiangsu People's Republic of China
+15244	33585257	anna university	Anna University, India
+15227	91203450	university of haifa	Haifa University
+15215	889315371	agricultural applied economics association	Department of Agricultural Economics, Box 42132, Texas Tech University, Lubbock, Texas 79409-2132, USA|||Department of Agricultural Economics, Box 42132, Texas Tech University, Lubbock, Texas 79409-2132, USA
+15211	79940851	university of brescia	University of Brescia
+15210	82284825	cranfield university	Cranfield University
+15172	81365321	old dominion university	Old Dominion University, USA
+15172	118118575	new jersey institute of technology	New Jersey Inst. of Technol., Newark, NJ
+15141	29770179	budapest university of technology and economics	Department of Control Engineering and Information Technology Budapest University of Technology and Economics
+15135	12834331	university of wyoming	Department of Atmospheric Science|University of Wyoming
+15093	48912391	istanbul technical university	Istanbul Technical University
+15091	82724352	universiti teknologi mara	Faculty of Applied Sciences, Universiti Teknologi MARA, 40450 Shah Alam, Malaysia
+15085	134421475	national physical laboratory	National Physical Laboratory, Dr. K. S. Krishnan Road, New Delhi, 110012, India
+15042	39534123	gwangju institute of science and technology	Advanced Photonics Research Institute, Gwangju Institute of Science and Technology Gwangju 500‐712 (Korea)
+15024	922237871	astron	Dept. of Phys. & Astron., Maryland Univ., College Park, MD, USA
+14928	1335113835	karolinska university hospital	Karolinska University Hospital
+14866	1319063186	langley research center	NASA Langley Research Center
+14824	6902469	brandeis university	Dept. of Chemistry, Brandeis University, P. O. Box 9110, Waltham, MA, 02454-9110, USA
+14800	155093810	university of idaho	College of Forestry, Wildlife and Range Sciences, University of Idaho, Moscow, ID, 83844, USA
+14796	1340179700	newyork presbyterian hospital	New York Hospital and Cornell Medical School
+14791	132735039	university of debrecen	University of Debrecen
+14749	7923278	royal dutch shell	Koninklijke/Shell-Laboratorium
+14748	203765153	akita university	Department of Dermatology, Akita University School of Medicine, Akita, and
+14725	166416128	united states army research laboratory	US Army Research Laboratory
+14687	75917431	nara institute of science and technology	Graduate School of Materials Science, Nara Institute of Science and Technology, 8916-5 Takayama, Ikoma, Nara 630-0101, Japan
+14656	871966649	genetics institute inc	Department of Medical Genetics, Institute of Mother and Child, Warsaw, Poland|||Department of Molecular and Human Genetics, Room 604B, Baylor College of Medicine, One Baylor Plaza, Texas Medical Center, Houston, TX 77030‐3498.
+14644	137853757	howard university	Howard Florey Institute and Centre for Neuroscience, University of Melbourne, Parkville, Victoria, 3010, Australia
+14643	142066694	industrial technology research institute	Industrial Technology Research Institute, Hsinchu, Taiwan
+14620	98635879	american university of beirut	Faculty of Engineering & Architecture, American University of Beirut, AUB, 850 Third Avenue, New York, NY 10022, U.S.A.|||Faculty of Engineering and Architecture, American University of Beirut, P.O. Box 11‐236, Beirut, Lebanon
+14613	233745408	pontifical xavierian university	Odontólogo CES, Cirujano Maxilofacial P. U. Javeriana. Docente pregrado y postgrado CES
+14580	1306430637	st vincent s health system	#N#1Department of Cardiology, St Vincent's Hospital, Melbourne, Australia|||#N#2Department of Medicine St Vincent's, University of Melbourne, Melbourne, Australia
+14572	183934855	genentech	Genentech, Inc.
+14555	143397708	innsbruck medical university	Department of Biostatistics, Innsbruck Medical University, Innsbruck, Austria
+14545	36819085	northwest university	Northwest University, Xi'an, China
+14519	68947357	university of strasbourg	Université Strasbourg 1, Institut Charles Sadron CNRS UPR 22, 23 rue du Loess, BP 84047, 67034 Strasbourg Cedex (France)
+14499	25399158	mahidol university	Mahidol University
+14446	207014233	kyushu institute of technology	Center for Microelectronic Systems, Kyushu Institute of Technology, 680-4 Kawazu, Iizuka, Fukuoka 820-8502, Japan
+14442	41156924	victoria university of wellington	Victoria University of Wellington, School of Earth Sciences, Wellington, New Zealand
+14441	57328836	north dakota state university	North Dakota State University, Fargo, ND 58105 USA
+14420	142108993	southwest university	Southwest University
+14415	55240360	yeungnam university	Yeungnam University
+14412	64926303	nara medical university	Department of Obstetrics and Gynecology, Nara Medical University, Kashihara, Nara 634-8522, Japan
+14353	20529979	university of electro communications	The University of Electro-Communications, Tokyo, Japan
+14328	107077323	worcester polytechnic institute	Department of Social Science and Policy Studies, Worcester Polytechnic Institute, 100 Institute Road, Worcester, MA 01609, U.S.A.|||Department of Social Science and Policy Studies, Worcester Polytechnic Institute, 100 Institute Road, Worcester, MA 01609, U.S.A.
+14318	102502594	northern illinois university	Northern Illinois Univ., DeKalb United States
+14314	103531236	boston college	Merkert Chemistry Center, Boston College, Chestnut Hill, MA‐02467‐3860 (USA)
+14265	180203408	yokohama national university	Department of Physics, Yokohama National University, 79-5 Tokiwadai, Hodogaya-ku, Yokohama 240-8501, Japan
+14260	1312106833	biotechnology institute	State Key Laboratory of Freshwater Ecology and Biotechnology, Institute of Hydrobiology, Chinese Academy of Sciences, Wuhan|||Fisheries College, Huazhong Agricultural University, Wuhan, China
+14250	67009956	iran university of science and technology	Iran Univ. of Sci. & Technol., Tehran
+14238	1293612202	toyota	Toyota Motor Corp.
+14223	94658018	university of memphis	Integrated Microscopy Center and Department of Biological Sciences, The University of Memphis, Memphis, TN, USA
+14189	67348948	bayer	Avigen, Inc.,Bayer HealthCare LLC
+14179	368840534	university of mississippi	National Center for Natural Products Research, Research Institute of Pharmaceutical Sciences, School of Pharmacy, The University of Mississippi, University, MS 38677, USA
+14174	170013655	isfahan university of technology	Department of Electrical Engineering, Isfahan University Of Technology, Isfahan, Iran
+14170	12093191	university of stirling	Livilands Lane Stirling
+14150	51452335	panjab university chandigarh	Theoretical Chemistry Group, Department of Chemistry, Panjab University, Chandigarh—160014, India
+14139	10761972	hamamatsu university school of medicine	Department of Radiology, Hamamatsu University School of Medicine, 3600 Handa, Hamamatsu, Shizuoka 431–3192, Japan
+14139	1298353152	sri international	Stanford Research Institute|||Stanford Research Institute
+14108	173592870	university of washington school of medicine	University of Washington, School of Medicine
+14094	118517470	lebedev physical institute	P.N. Lebedev Physical Institute, Moscow, Russian Federation
+14075	25757504	china university of mining and technology	Coll. of Inf. & Electr. Eng., China Univ. of Mining & Technol., XuZhou
+14028	189712700	university of konstanz	Univ. of Konstanz, Konstanz, Germany
+14023	105804677	institute of biophysics	Institute of Biophysics, Bulgarian Academy of Sciences, Acad. G. Bonchev St., Bl. 21, 1113 Sofia, Bulgaria
+13993	31944674	university of costa rica	Escuela de Química, Universidad de Costa Rica
+13963	125373518	rmit school of health sciences	School of Health Sciences, University of KwaZulu-Natal, Westville,Durban-4000,South Africa
+13926	151075929	third military medical university	Third Military Medical University
+13911	686019	agh university of science and technology	#N#Faculty of Physics and Applied Computer Science, AGH University of Science and Technology, 30–059 Krakow, Poland
+13894	11957088	michigan technological university	Department of Mathematical Sciences, Michigan Technological University, Houghton, MI 49931, USA|||Department of Mathematical Sciences, Michigan Technological University, Houghton, MI 49931, USA
+13849	28792581	university of rochester medical center	University of Rochester Medical Center Department of Imaging Sciences Rochester New York
+13848	896857757	vision sciences inc	Vision Sciences Laboratory, Harvard University
+13846	83328450	miami university	Department of Geology, Miami University, Oxford, OH 45056, USA
+13791	188760350	national university of ireland galway	Chem. Dep., Univ. Coll. Galway, Ire.
+13789	195342982	university of medicine and dentistry of new jersey	lewismj@umdnj.edu
+13783	39854257	mitsubishi electric	Mitsubishi Electric Corp., Kanagawa, Japan
+13781	1925986	loyola university chicago	Loyola University of Chicago
+13781	160994706	odense university	Department of Obstetrics and Gynaecology, Odense University Hospital, Odense, Denmark
+13769	187400657	south china normal university	South China Normal University
+13769	1320553840	amgen	Amgen Inc.
+13716	148099254	national chung cheng university	Dept. of Electr. Eng., Nat. Chung Cheng Univ., Chiayi, Taiwan
+13698	50357001	charles iii university of madrid	DEI Lab, Computer Science Department, Universidad Carlos III de Madrid, Spain
+13689	134085113	king fahd university of petroleum and minerals	King Fahd University of Petroleum and Minerals
+13676	63772739	florida atlantic university	Florida Atlantic University
+13669	87531838	teikyo university	Teikyo University School of Medicine, Japan
