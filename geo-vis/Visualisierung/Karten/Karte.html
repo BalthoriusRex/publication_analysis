@@ -80,8 +80,13 @@ var i 		           = 0;
 
 function createGlyphStyle(feature) {
   var name   = feature.get('name');
-  var anzahl = feature.get('description');
-  var radius = 5+Math.log2(anzahl);//anzahl/10. > 20 ? 20 : anzahl/10.;
+  var description = feature.get('description');
+/*
+  var anzahl   = description.substr(0, description.indexOf(' ')-1);
+  var landInfo = description.substr(description.indexOf(' ')+1);
+*/
+  var anzahl = description;
+  var radius   = 5+Math.log2(anzahl);//anzahl/10. > 20 ? 20 : anzahl/10.;
 
   coordinatesUnProcessed[i] = feature.getGeometry().getCoordinates();
   i++;
@@ -89,10 +94,12 @@ function createGlyphStyle(feature) {
   var geometry = feature.getGeometry();
   var coords = geometry.getCoordinates();
 
+ 
   if(coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
   {
 	radius = 0;	
   }
+
 
   return new ol.style.Style({
     geometry: geometry,
@@ -152,7 +159,8 @@ function styleFunction(feature, resolution) {
   {
     return new ol.style.Style({fill: new ol.style.Fill({color: [0,0,0,0]})});
   }
-  
+ 
+
 
   if (size > 1) {
     style = [new ol.style.Style({
@@ -271,6 +279,7 @@ function newMultiLineLayer(sourceInformation, color, width)
 	map.addLayer(vectorLayer);
 }
 //---------------------Lines End
+
 
 newMultiLineLayer(coauthorships9	, "#313695", 0.05	);
 newMultiLineLayer(coauthorships8	, "#4575b4", 0.1	);

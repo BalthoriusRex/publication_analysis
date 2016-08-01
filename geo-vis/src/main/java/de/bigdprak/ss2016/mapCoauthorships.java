@@ -122,8 +122,9 @@ public class mapCoauthorships {
 				choosenWriter = 9;
 			}
 			
-			
-			if(!(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")))
+
+
+			if(!(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")) )
 			{			
 
 				
