@@ -315,7 +315,7 @@ public class SimpleApp {
 	}
 	
 	@SuppressWarnings("serial")
-	private static void buildTables(JavaSparkContext sc, SQLContext sqlContext) {
+	public static void buildTables(JavaSparkContext sc, SQLContext sqlContext) {
 		/*
 		// MUSTER
 		// create Table Affiliation
@@ -542,7 +542,7 @@ public class SimpleApp {
 	}
 	
 	@SuppressWarnings("serial")
-	private static void buildViews(JavaSparkContext sc, SQLContext sqlContext) {
+	public static void buildViews(JavaSparkContext sc, SQLContext sqlContext) {
 
 		// create Table View_pID_affID_affName
 		sqlContext.createDataFrame(
