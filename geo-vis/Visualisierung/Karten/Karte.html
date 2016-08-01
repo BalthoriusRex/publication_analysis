@@ -18,6 +18,7 @@
 <script src="../KantenListen/coauthorships_output7.txt"></script>
 <script src="../KantenListen/coauthorships_output8.txt"></script>
 <script src="../KantenListen/coauthorships_output9.txt"></script>
+<script src="../KantenListen/coauthorships_odense_universityoutput.txt"></script>
 
 
 <style>
@@ -79,8 +80,13 @@ var i 		           = 0;
 
 function createGlyphStyle(feature) {
   var name   = feature.get('name');
-  var anzahl = feature.get('description');
-  var radius = 5+Math.log2(anzahl);//anzahl/10. > 20 ? 20 : anzahl/10.;
+  var description = feature.get('description');
+/*
+  var anzahl   = description.substr(0, description.indexOf(' ')-1);
+  var landInfo = description.substr(description.indexOf(' ')+1);
+*/
+  var anzahl = description;
+  var radius   = 5+Math.log2(anzahl);//anzahl/10. > 20 ? 20 : anzahl/10.;
 
   coordinatesUnProcessed[i] = feature.getGeometry().getCoordinates();
   i++;
@@ -88,10 +94,12 @@ function createGlyphStyle(feature) {
   var geometry = feature.getGeometry();
   var coords = geometry.getCoordinates();
 
+ 
   if(coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
   {
 	radius = 0;	
   }
+
 
   return new ol.style.Style({
     geometry: geometry,
@@ -151,7 +159,8 @@ function styleFunction(feature, resolution) {
   {
     return new ol.style.Style({fill: new ol.style.Fill({color: [0,0,0,0]})});
   }
-  
+ 
+
 
   if (size > 1) {
     style = [new ol.style.Style({
@@ -270,17 +279,19 @@ function newMultiLineLayer(sourceInformation, color, width)
 	map.addLayer(vectorLayer);
 }
 //---------------------Lines End
-/*
+
+
 newMultiLineLayer(coauthorships9	, "#313695", 0.05	);
 newMultiLineLayer(coauthorships8	, "#4575b4", 0.1	);
 newMultiLineLayer(coauthorships7	, "#74add1", 0.15	);
 newMultiLineLayer(coauthorships6	, "#abd9e9", 0.2	);
 newMultiLineLayer(coauthorships5	, "#e0f3f8", 0.25	);
-newMultiLineLayer(coauthorships4	, "#f3e690", 0.5	);*/
+newMultiLineLayer(coauthorships4	, "#f3e690", 0.5	);
 newMultiLineLayer(coauthorships3	, "#fdae61", 0.75	);
 newMultiLineLayer(coauthorships2	, "#f46d43", 1.0	);
 newMultiLineLayer(coauthorships1	, "#d73027", 1.5	);
 newMultiLineLayer(coauthorships0 	, "#a50026", 2.0	);
+//newMultiLineLayer(coauthorships 	, "#a50026", 0.5	);
 
 
 

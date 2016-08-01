@@ -122,8 +122,9 @@ public class mapCoauthorships {
 				choosenWriter = 9;
 			}
 			
-			
-			if(!(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")))
+
+
+			if(!(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")) )
 			{			
 
 				
@@ -223,7 +224,7 @@ public class mapCoauthorships {
 			initializeWriters(NUMBER_OF_WRITER);
 		
 			HashMap<String, String> map = generateMappingIDNormalizedAffiliationName("./Visualisierung/affiliations_top_1000.txt", "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml");
-			getCoauthorships("./Visualisierung/coauthorships_complete_top_100.txt", map);
+			getCoauthorships("./Visualisierung/coauthorships_leipzig_university.txt", map);
 			
 			closeWriters();
 		} catch (XPathExpressionException e) {
