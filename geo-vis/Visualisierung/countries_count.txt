@@ -1,0 +1,73 @@
+SELECT COUNT(countryName) AS Anzahl, countryName AS Name FROM View_pID_Country GROUP BY countryName ORDER BY Anzahl DESC 
+
+5313955	United States of America
+1469606	United Kingdom
+1048585	China
+850830	Japan
+772199	United States
+760006	Canada
+690290	Germany
+541975	Brazil
+518469	France
+509719	Australia
+304428	Italy
+290967	Russian Federation
+279805	Spain
+277811	South Korea
+257220	The Netherlands
+248073	Belgium
+205762	Taiwan
+198887	Israel
+190674	Sweden
+176981	Switzerland
+134604	India
+134203	Mexico
+116987	Finland
+111502	Denmark
+104352	Singapore
+94719	Austria
+92887	Greece
+91878	Netherlands
+89772	Poland
+80363	New Zealand
+79748	Chile
+72291	Norway
+65507	Turkey
+62171	Kenya
+61645	Portugal
+60855	RSA
+58900	Argentina
+55262	Egypt
+53431	Iran
+51607	Bulgaria
+51488	Colombia
+51208	Malaysia
+47993	Czech Republic
+41161	Ireland
+35949	Hungary
+26175	Philippines
+22394	Algeria
+20247	Bangladesh
+19200	Saudi Arabia
+18849	Ukraine
+18065	Republic of China
+16487	Slovakia
+16165	Slovenia
+15964	Benin
+14676	Thailand
+14576	Indonesia
+14474	Luxembourg
+14113	Haiti
+13556	Croatia
+12873	Mauritania
+12439	The Gambia
+12389	Uganda
+11981	Georgia
+11880	Cameroon
+9833	Costa Rica
+9498	Venezuela
+7826	Palestinian Territory
+7546	Ghana
+7485	Estonia
+6271	Lebanon
+4709	Yemen

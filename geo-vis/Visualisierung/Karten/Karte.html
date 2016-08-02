@@ -18,7 +18,6 @@
 <script src="../KantenListen/coauthorships_output7.txt"></script>
 <script src="../KantenListen/coauthorships_output8.txt"></script>
 <script src="../KantenListen/coauthorships_output9.txt"></script>
-<script src="../KantenListen/coauthorships_odense_universityoutput.txt"></script>
 
 
 <style>
@@ -134,7 +133,7 @@ function calculateClusterInfo(resolution) {
     maxFeatureCount = Math.max(maxFeatureCount, jj);
     radius = 0.25 * (ol.extent.getWidth(extent) + ol.extent.getHeight(extent)) /
         resolution;
-    feature.set('radius', radius);
+    feature.set('radius', radius + glyphSize);
   }
 }
 

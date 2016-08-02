@@ -32,6 +32,7 @@ import de.bigdprak.ss2016.database.PaperAuthorAffiliation;
 import de.bigdprak.ss2016.database.PaperKeyword;
 import de.bigdprak.ss2016.database.PaperReference;
 import de.bigdprak.ss2016.database.PaperURL;
+import de.bigdprak.ss2016.database.View_pID_Country;
 import de.bigdprak.ss2016.database.View_pID_affID_affName;
 import de.bigdprak.ss2016.utils.UTF8Writer;
 
@@ -51,6 +52,7 @@ public class SimpleApp {
 	private static String file_FieldsOfStudy;
 	private static String file_Journals;
 	private static String file_PaperAuthorAffiliations;
+	private static String file_PaperAuthorAffiliations_by_Country;
 	private static String file_PaperKeywords;
 	private static String file_PaperReferences;
 	private static String file_Papers;
@@ -67,8 +69,9 @@ public class SimpleApp {
 		file_FieldsOfStudy = folder + "FieldsOfStudy.txt";
 		file_Journals = folder + "Journals.txt";
 		//file_PaperAuthorAffiliations = folder + "PaperAuthorAffiliations.txt";
-		//file_PaperAuthorAffiliations = folder + "reduced_top_1000_PaperAuthorAffiliations.txt";
-		file_PaperAuthorAffiliations = folder + "reduced_top_100_PaperAuthorAffiliations.txt";
+		file_PaperAuthorAffiliations = folder + "reduced_top_1000_PaperAuthorAffiliations.txt";
+		//file_PaperAuthorAffiliations = folder + "reduced_top_100_PaperAuthorAffiliations.txt";
+		file_PaperAuthorAffiliations_by_Country = folder + "reduced_countries_PaperAuthorAffiliations.txt";
 		file_PaperKeywords = folder + "PaperKeywords.txt";
 		file_PaperReferences = folder + "PaperReferences.txt";
 		file_Papers = folder + "Papers.txt";
@@ -557,6 +560,22 @@ public class SimpleApp {
 			),
 			View_pID_affID_affName.class)
 		.registerTempTable("View_pID_affID_affName");
+		
+		// create Table View_pID_Country
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(file_PaperAuthorAffiliations_by_Country).map(
+				new Function<String, View_pID_Country>() {
+					public View_pID_Country call(String line) throws Exception {
+						String[] parts = line
+											.substring(1, line.length() - 1)
+											.split(",");
+						return new View_pID_Country(Long.parseLong(parts[0]), parts[1]);
+					}
+				}
+			),
+			View_pID_Country.class)
+		.registerTempTable("View_pID_Country");
 	}
 	
 	/**
@@ -642,6 +661,57 @@ public class SimpleApp {
 		m = m - h * 60;
 		System.out.println("[DURATION] " + h + "h " + m + "m " + s + "s " + ms + "ms");
 		
+		return result;
+	}
+	
+	@SuppressWarnings("serial")
+	public static List<Row> sql_answerQuery_LimitOffset(SQLContext sqlContext ,String query, int limit, int offset) {
+		
+		System.out.println(""
+				+ "[Method] sql_answerQuery\n"
+				+ "[CURRENT JOB] Answer Query\n"
+				+ "       query: " + query);
+		
+		long t_start = System.currentTimeMillis();
+		DataFrame content = sqlContext.sql(query);
+		int lineCount = content.javaRDD().map(
+			new Function<Row, Integer>() {
+				public Integer call(Row row) {
+					return 1;
+				}
+			}
+		).reduce(
+			new Function2<Integer, Integer, Integer>() {
+				public Integer call(Integer a, Integer b) {
+					return a + b;
+				}
+			}
+		);
+		// int lineCount = 1364903166; // ohne reflexive kanten
+		// int lineCount = 672314; // ohne reflexive kanten und aggregiert
+		System.out.println("lineCount: " + lineCount);
+		
+		int min = offset;
+		int max = offset + limit;
+		boolean[] row_number = new boolean[lineCount];
+		for (int i = 0; i < lineCount; i++) {
+			row_number[i] = (i >= min && i < max);
+		}
+		
+		
+		
+		
+		long t_end = System.currentTimeMillis();
+		long ms = t_end - t_start;
+		long s = ms / 1000;
+		long m = s / 60;
+		long h = m / 60;
+		ms = ms - s * 1000;
+		s = s - m * 60;
+		m = m - h * 60;
+		System.out.println("[DURATION] " + h + "h " + m + "m " + s + "s " + ms + "ms");
+		
+		List<Row> result = null;
 		return result;
 	}
 	
@@ -1065,7 +1135,7 @@ public class SimpleApp {
 		
 		compute = false;
 		if (compute) {
-			//String affiliation = "odense university";
+			//String affiliation = "leipzig university";
 			//String repl_affiliation = affiliation.replace(" ", "_");
 			String outfile;
 			//outfile = folder + "coauthorships_" + repl_affiliation + ".txt";
@@ -1094,9 +1164,56 @@ public class SimpleApp {
 					+ "";
 			
 			List<Row> result = sql_answerQuery(sqlContext, query);
+			//List<Row> result = sql_answerQuery_LimitOffset(sqlContext, query, limit, offset);
 			
 			UTF8Writer writer = new UTF8Writer(outfile);
 			printResultsToFile(writer, query, result, "  ");
+			writer.close();
+		}
+		
+		compute = false;
+		if (compute) {
+			// extrahiere Ko-Autor-Beziehungen auf Landesebene
+			String outfile = folder + "coauthorships_by_country.txt";
+			String query = ""
+					+ "SELECT "
+						+ "A.countryName AS affID_A,  "
+						+ "B.countryName AS affID_B,  "
+						+ "COUNT(A.countryName, B.countryName) AS anzahl "
+					+ "FROM "
+						+ "View_pID_Country A JOIN "
+						+ "View_pID_Country B "
+						+ "ON A.paperID = B.paperID "
+					+ "WHERE NOT(A.countryName = B.countryName) "
+//						+ "AND A.normalizedAffiliationName = '" + affiliation + "' "
+					+ "GROUP BY "
+						+ "A.countryName, B.countryName"
+					+ "";
+			
+			List<Row> result = sql_answerQuery(sqlContext, query);
+			
+			UTF8Writer writer = new UTF8Writer(outfile);
+			printResultsToFile(writer, query, result, "  ");
+			writer.close();
+		}
+		
+		compute = true;
+		if (compute) {
+			// bestimme Häufigkeiten der einzelnen Countries
+			String outfile = folder + "countries_count.txt";
+			String query = ""
+					+ "SELECT "
+						+ "COUNT(countryName) AS Anzahl, "
+						+ "countryName AS Name "
+					+ "FROM View_pID_Country "
+					+ "GROUP BY countryName "
+					+ "ORDER BY Anzahl DESC "
+					+ "";
+			
+			List<Row> result = sql_answerQuery(sqlContext, query);
+			
+			UTF8Writer writer = new UTF8Writer(outfile);
+			printResultsToFile(writer, query, result, ",");
 			writer.close();
 		}
 		
@@ -1249,8 +1366,9 @@ public class SimpleApp {
 	}
 	
 	public static void main(String[] args) {
-		LocationDecoder.main(args);
-
+		//LocationDecoder.main(args);
+		main2(args);
+		
 		System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
 	}
 }

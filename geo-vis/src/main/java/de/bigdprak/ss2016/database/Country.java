@@ -29,5 +29,9 @@ public class Country {
 		return latitude;
 	}
 	
+	public String toString() {
+		return "" + name + " [" + continent + "]";
+	}
+	
 	
 }

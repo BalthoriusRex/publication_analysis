@@ -1,0 +1,4634 @@
+SELECT A.countryName AS affID_A,  B.countryName AS affID_B,  COUNT(A.countryName, B.countryName) AS anzahl FROM View_pID_Country A JOIN View_pID_Country B ON A.paperID = B.paperID WHERE NOT(A.countryName = B.countryName) GROUP BY A.countryName, B.countryName
+
+United States	Finland	2762
+Mauritania	Israel	68
+Chile	RSA	252
+Haiti	United States of America	1847
+United States of America	Thailand	1761
+Mexico	Japan	657
+Norway	New Zealand	105
+Benin	Bulgaria	68
+Malaysia	Australia	1060
+China	Finland	1216
+South Korea	Sweden	411
+Greece	Brazil	606
+Russian Federation	Argentina	355
+Poland	Haiti	405
+Netherlands	New Zealand	178
+India	Georgia	71
+New Zealand	Kenya	223
+Cameroon	France	272
+Austria	Saudi Arabia	15
+United Kingdom	Venezuela	55
+Egypt	Republic of China	27
+Costa Rica	Denmark	8
+Mauritania	Hungary	19
+Algeria	Kenya	6
+Colombia	Croatia	3
+Republic of China	Mexico	20
+Estonia	The Gambia	12
+The Gambia	Algeria	1
+Estonia	Benin	4
+Chile	Luxembourg	14
+Lebanon	Benin	2
+Saudi Arabia	New Zealand	9
+Benin	Thailand	4
+Lebanon	The Gambia	3
+RSA	Venezuela	2
+Czech Republic	Belgium	817
+Chile	Bulgaria	48
+United States	South Korea	4261
+Georgia	Singapore	17
+Ireland	China	595
+Germany	Ukraine	200
+Ukraine	Germany	200
+New Zealand	Chile	365
+Chile	Thailand	121
+Uganda	Poland	49
+Ukraine	Mauritania	3
+Switzerland	Ghana	69
+Croatia	Ghana	6
+Slovakia	Uganda	4
+Finland	Indonesia	29
+Iran	Hungary	52
+Iran	Israel	6
+Indonesia	Sweden	23
+RSA	Yemen	2
+Algeria	Chile	3
+Egypt	Ukraine	2
+United States	United States of America	119990
+Belgium	Poland	1072
+Austria	Hungary	1573
+United States of America	Czech Republic	3836
+New Zealand	Brazil	421
+Czech Republic	Kenya	611
+South Korea	Saudi Arabia	138
+Russian Federation	Algeria	964
+Algeria	Brazil	30
+Greece	Turkey	550
+Ireland	Iran	58
+Hungary	The Netherlands	300
+Malaysia	Russian Federation	136
+Cameroon	United States	225
+Slovenia	Kenya	109
+Australia	Croatia	109
+Japan	Estonia	43
+Ukraine	Slovakia	28
+Brazil	Estonia	25
+The Gambia	Ghana	4
+Israel	Thailand	16
+Uganda	Estonia	4
+Ukraine	Singapore	3
+The Netherlands	Georgia	8
+Japan	Sweden	2071
+Mauritania	France	116
+Norway	Poland	554
+Netherlands	Poland	655
+Brazil	Sweden	816
+Belgium	Estonia	108
+Slovenia	Chile	182
+Finland	Uganda	7
+United Kingdom	Cameroon	303
+France	Croatia	146
+Czech Republic	Chile	399
+Kenya	Netherlands	269
+Bulgaria	Argentina	99
+Luxembourg	Kenya	5
+Estonia	Slovenia	19
+Lebanon	Switzerland	49
+Republic of China	Denmark	14
+Saudi Arabia	Poland	23
+Venezuela	Argentina	5
+Lebanon	Slovenia	5
+Mauritania	Bangladesh	1
+RSA	Austria	164
+Norway	France	1377
+Thailand	United States of America	1761
+Italy	Finland	1196
+China	Republic of China	2350
+Israel	Ghana	19
+Czech Republic	Brazil	542
+Russian Federation	Czech Republic	1362
+Iran	France	440
+Israel	Czech Republic	412
+Spain	RSA	366
+Palestinian Territory	Haiti	77
+South Korea	Hungary	303
+Ireland	Taiwan	131
+South Korea	Israel	400
+Spain	Luxembourg	50
+New Zealand	Turkey	226
+Venezuela	United Kingdom	55
+Netherlands	Estonia	51
+Costa Rica	Sweden	24
+Republic of China	Egypt	27
+Philippines	Portugal	47
+Algeria	Turkey	6
+Yemen	Switzerland	13
+Saudi Arabia	Estonia	6
+Iran	Lebanon	1
+Luxembourg	Chile	14
+Iran	Bangladesh	4
+Turkey	Bangladesh	5
+Poland	Venezuela	1
+Ukraine	Colombia	1
+Sweden	Netherlands	1069
+Spain	Bulgaria	278
+Portugal	Sweden	563
+Switzerland	China	1994
+Georgia	Netherlands	8
+Croatia	China	67
+Spain	Thailand	127
+Brazil	Saudi Arabia	25
+Japan	Saudi Arabia	126
+Austria	Bangladesh	5
+Ghana	Mexico	16
+Taiwan	Indonesia	39
+Bulgaria	Algeria	21
+China	Ukraine	31
+Uganda	Norway	6
+Indonesia	Israel	10
+Austria	Lebanon	5
+Indonesia	Hungary	2
+Poland	Yemen	1
+Belgium	Norway	562
+Germany	United States of America	51048
+United States of America	Mexico	9191
+Norway	United States	3092
+Benin	Mexico	17
+Czech Republic	Turkey	427
+Kenya	Belgium	514
+Cameroon	Germany	302
+Switzerland	Iran	130
+Belgium	Saudi Arabia	46
+The Gambia	China	72
+Georgia	Spain	12
+Argentina	Indonesia	44
+Colombia	Thailand	5
+Ukraine	Australia	23
+Croatia	Iran	3
+South Korea	France	1312
+Brazil	Israel	618
+France	Argentina	2453
+Japan	Israel	1302
+Netherlands	Norway	497
+Netherlands	Palestinian Territory	120
+Hungary	Japan	521
+Japan	Hungary	521
+Turkey	Canada	575
+Croatia	Bulgaria	33
+United States	Haiti	749
+Chile	Mexico	950
+Norway	Palestinian Territory	120
+Canada	Netherlands	1619
+Brazil	Hungary	310
+Ukraine	Spain	52
+The Gambia	Iran	4
+South Korea	Bangladesh	53
+Saudi Arabia	Palestinian Territory	22
+Portugal	Saudi Arabia	20
+Bulgaria	Ghana	14
+South Korea	Lebanon	16
+India	Estonia	8
+Saudi Arabia	Norway	35
+Uganda	Hungary	22
+Bangladesh	Greece	5
+Taiwan	Uganda	19
+The Gambia	Luxembourg	1
+Mauritania	Philippines	3
+Cameroon	Slovakia	2
+Venezuela	Italy	4
+Russian Federation	China	2951
+Poland	Austria	434
+Israel	China	1329
+India	Sweden	382
+Sweden	Belgium	1788
+Austria	Canada	1227
+Bangladesh	United Kingdom	486
+Belgium	Hungary	615
+Georgia	Belgium	26
+Ukraine	Russian Federation	978
+Mexico	Finland	405
+Philippines	Poland	293
+Australia	Thailand	276
+Ghana	Denmark	33
+Switzerland	Taiwan	749
+Finland	Croatia	57
+Kenya	Chile	289
+Croatia	Taiwan	5
+Israel	Mexico	371
+Iran	Philippines	11
+Argentina	Uganda	9
+Italy	Republic of China	40
+Colombia	Czech Republic	93
+Indonesia	France	77
+Costa Rica	Israel	17
+The Gambia	Bulgaria	20
+Ireland	Georgia	7
+Colombia	Ghana	2
+Republic of China	India	6
+Indonesia	Bangladesh	2
+Portugal	Israel	376
+Kenya	Brazil	402
+Sweden	Kenya	417
+Portugal	Hungary	143
+Mexico	South Korea	383
+Benin	Denmark	251
+The Netherlands	Estonia	141
+Mauritania	Germany	192
+Austria	Philippines	82
+Russian Federation	Iran	80
+Israel	Iran	6
+Republic of China	Portugal	15
+Italy	Ukraine	43
+Ghana	Egypt	6
+Cameroon	Colombia	17
+The Gambia	Taiwan	9
+Singapore	Uganda	5
+Philippines	Estonia	8
+Thailand	Haiti	4
+Bangladesh	Algeria	2
+The Netherlands	Sweden	2638
+United States of America	Egypt	11198
+Japan	France	5499
+Brazil	France	3808
+Canada	Belgium	3127
+Australia	Czech Republic	576
+RSA	Switzerland	458
+Poland	Ireland	254
+Japan	Bangladesh	122
+Sweden	Chile	530
+Slovakia	Argentina	191
+Chile	Denmark	395
+Iran	Germany	268
+Benin	Egypt	240
+Brazil	Bangladesh	7
+Australia	Ghana	130
+Mauritania	Singapore	7
+Japan	Lebanon	25
+India	Saudi Arabia	63
+Brazil	Lebanon	25
+Republic of China	New Zealand	5
+Iran	Mauritania	4
+Austria	Germany	4850
+Spain	Mexico	4584
+Bulgaria	China	1261
+France	Czech Republic	2174
+Russian Federation	Taiwan	921
+Canada	Kenya	517
+Sweden	Brazil	816
+Kenya	Turkey	335
+Norway	Slovakia	319
+Slovakia	United Kingdom	891
+Germany	Haiti	564
+France	Ghana	46
+Netherlands	Slovakia	211
+Chile	Egypt	137
+Bangladesh	Italy	29
+Egypt	Austria	194
+United States	Venezuela	35
+Austria	Mauritania	39
+Costa Rica	France	31
+Georgia	Brazil	34
+South Korea	Philippines	167
+Iran	Singapore	40
+Belgium	Bangladesh	30
+Cameroon	Australia	49
+Saudi Arabia	Slovakia	6
+Costa Rica	Lebanon	1
+Portugal	France	1681
+Colombia	Mexico	1144
+Finland	Argentina	426
+Switzerland	Georgia	23
+Canada	Chile	1259
+Bulgaria	Iran	71
+Colombia	China	104
+India	Israel	246
+United States	Yemen	22
+India	Hungary	268
+Austria	Singapore	104
+Taiwan	Croatia	5
+Saudi Arabia	Bangladesh	8
+Indonesia	Philippines	8
+Philippines	Norway	89
+Slovenia	Finland	67
+Croatia	Georgia	3
+Netherlands	Bangladesh	9
+Malaysia	Kenya	52
+Mexico	Republic of China	20
+The Netherlands	Saudi Arabia	47
+Bulgaria	Luxembourg	8
+Palestinian Territory	Austria	12
+Haiti	Cameroon	2
+Greece	Republic of China	9
+Portugal	Lebanon	5
+Philippines	Saudi Arabia	2
+Venezuela	RSA	2
+Sweden	Turkey	367
+Canada	Brazil	6041
+Greece	Ukraine	55
+United Kingdom	Uganda	258
+South Korea	Germany	1350
+Uganda	Canada	109
+Slovenia	South Korea	31
+Cameroon	Russian Federation	217
+Malaysia	Chile	81
+Egypt	Ireland	107
+Colombia	Iran	5
+Argentina	Croatia	21
+Norway	Colombia	37
+South Korea	Mauritania	23
+Costa Rica	United States	89
+Luxembourg	Finland	18
+Republic of China	Poland	8
+Estonia	Malaysia	8
+Georgia	Turkey	2
+Lebanon	Malaysia	6
+The Gambia	Georgia	1
+United States of America	India	6855
+Bulgaria	Taiwan	194
+Australia	China	14014
+Belgium	Canada	3127
+The Netherlands	Israel	1766
+Spain	Denmark	996
+Poland	Switzerland	1204
+Portugal	United States	1469
+Australia	Mexico	545
+South Korea	Singapore	589
+Mauritania	Australia	48
+Slovakia	Italy	371
+Japan	Philippines	426
+Poland	Slovenia	272
+The Netherlands	Hungary	300
+Indonesia	Germany	86
+Philippines	Hungary	77
+Egypt	Benin	240
+Benin	India	18
+Brazil	Philippines	243
+Egypt	The Gambia	46
+Indonesia	Mauritania	5
+Ghana	Portugal	2
+Finland	Algeria	14
+Luxembourg	South Korea	13
+New Zealand	Republic of China	5
+Estonia	Uganda	4
+Georgia	The Netherlands	8
+Yemen	Malaysia	2
+United States	Austria	3100
+United States of America	Portugal	3843
+France	China	5262
+India	France	1200
+China	Austria	750
+Mauritania	Spain	97
+Canada	Turkey	575
+Saudi Arabia	Canada	407
+Chile	India	281
+Spain	Egypt	340
+Norway	Australia	839
+Mexico	Haiti	131
+Netherlands	Canada	1619
+Turkey	Netherlands	294
+Hungary	Finland	550
+Iran	Australia	429
+Australia	Iran	429
+Russian Federation	Georgia	37
+Ukraine	The Netherlands	59
+New Zealand	Ukraine	3
+India	Bangladesh	4
+Ghana	New Zealand	9
+Indonesia	Singapore	22
+India	Lebanon	8
+Algeria	Ukraine	1
+Benin	Portugal	8
+Germany	Venezuela	4
+Brazil	Germany	2631
+United States of America	New Zealand	6505
+Japan	Germany	5444
+Taiwan	Argentina	416
+Finland	Ghana	30
+Ireland	Sweden	355
+Iran	Spain	179
+Mauritania	Russian Federation	51
+France	Iran	440
+Finland	Czech Republic	550
+Chile	Portugal	268
+Hungary	South Korea	303
+Germany	Yemen	21
+Thailand	Cameroon	108
+Brazil	Mauritania	34
+Portugal	Philippines	47
+Japan	Mauritania	39
+Benin	New Zealand	33
+Czech Republic	Republic of China	9
+Slovenia	Republic of China	1
+Bangladesh	Luxembourg	4
+Kenya	Finland	412
+The Netherlands	France	4103
+Denmark	United Kingdom	5780
+Austria	Spain	862
+Brazil	Singapore	174
+Israel	Portugal	376
+Egypt	Switzerland	352
+Republic of China	Norway	159
+Japan	Singapore	1053
+China	Ireland	595
+Chile	New Zealand	365
+Yemen	United Kingdom	143
+Bangladesh	Bulgaria	12
+Costa Rica	Germany	69
+The Netherlands	Bangladesh	26
+Czech Republic	Ukraine	65
+The Netherlands	Lebanon	34
+Iran	Russian Federation	80
+Philippines	Bangladesh	8
+Bangladesh	Thailand	1
+Uganda	Singapore	5
+Egypt	Slovenia	9
+Mauritania	Costa Rica	3
+Costa Rica	Mauritania	3
+France	Taiwan	1296
+Portugal	Germany	1296
+United Kingdom	Croatia	291
+Turkey	Belgium	551
+Austria	Russian Federation	592
+Palestinian Territory	Switzerland	122
+China	Benin	130
+Germany	Cameroon	302
+Taiwan	Algeria	71
+Singapore	Argentina	54
+Denmark	Algeria	20
+China	The Gambia	72
+Ireland	Saudi Arabia	39
+Bulgaria	Georgia	16
+Iran	Costa Rica	1
+Portugal	Mauritania	18
+Costa Rica	Singapore	6
+Ghana	Poland	9
+Costa Rica	Slovakia	1
+United States of America	Poland	7849
+Singapore	United Kingdom	3901
+Georgia	Japan	323
+Turkey	Kenya	335
+South Korea	Spain	793
+Spain	India	511
+Slovakia	RSA	208
+Portugal	Slovakia	157
+Argentina	Algeria	36
+Indonesia	Australia	85
+Portugal	Singapore	25
+India	Philippines	48
+Estonia	Croatia	12
+Benin	Poland	24
+Austria	Costa Rica	5
+Slovakia	Luxembourg	8
+Cameroon	Netherlands	2
+Lebanon	Croatia	3
+Switzerland	Sweden	1879
+South Korea	Russian Federation	4797
+Finland	China	1216
+Spain	Portugal	1678
+Algeria	United States of America	1925
+Ireland	Israel	132
+Philippines	Canada	450
+United States of America	Estonia	543
+Denmark	Italy	1210
+Chile	Poland	521
+Turkey	Chile	364
+Croatia	Sweden	76
+RSA	Malaysia	47
+Singapore	Algeria	31
+Ireland	Hungary	124
+Slovakia	Bulgaria	99
+Benin	France	350
+Ukraine	Japan	73
+Costa Rica	Colombia	36
+Yemen	Italy	5
+Indonesia	Spain	54
+Taiwan	Ghana	12
+Mexico	Yemen	2
+United States	Switzerland	5485
+India	Germany	1333
+Italy	Ireland	554
+Israel	Poland	585
+Ghana	United States	280
+China	Switzerland	1994
+The Gambia	Sweden	169
+India	Mauritania	17
+The Netherlands	Philippines	310
+China	Slovenia	243
+Slovakia	Taiwan	205
+Turkey	Brazil	474
+Spain	New Zealand	376
+Indonesia	Russian Federation	55
+Colombia	Portugal	76
+Portugal	Colombia	76
+Finland	Iran	69
+Uganda	Netherlands	15
+Argentina	Ghana	1
+South Korea	Costa Rica	5
+Kenya	Republic of China	3
+Brazil	Spain	2422
+Czech Republic	United States of America	3836
+Switzerland	Saudi Arabia	10
+Austria	Brazil	373
+United Kingdom	Argentina	4267
+Italy	Benin	250
+Benin	United States	486
+Japan	Spain	2959
+Belgium	Netherlands	1976
+Bulgaria	Denmark	275
+Singapore	Italy	403
+RSA	Greece	286
+Russian Federation	Estonia	122
+Hungary	Haiti	84
+India	Singapore	388
+Italy	The Gambia	95
+France	Georgia	48
+Malaysia	Finland	120
+Kenya	Ukraine	101
+Republic of China	Bangladesh	43
+Ghana	Norway	15
+Israel	Estonia	22
+Costa Rica	Australia	26
+Ghana	Palestinian Territory	4
+Venezuela	Denmark	2
+The Netherlands	Germany	7284
+RSA	United Kingdom	3057
+United States of America	Norway	5729
+Chile	United States	1282
+Japan	Russian Federation	2791
+Russian Federation	Sweden	1747
+Norway	Netherlands	497
+Australia	Portugal	478
+Portugal	Australia	478
+United States of America	Saudi Arabia	1214
+Costa Rica	Spain	91
+Ireland	France	892
+Mexico	Austria	252
+Brazil	Russian Federation	896
+Finland	Taiwan	427
+Malaysia	South Korea	245
+Mauritania	The Netherlands	135
+The Netherlands	Mauritania	135
+Cameroon	Kenya	169
+Sweden	Republic of China	52
+Benin	Norway	50
+The Gambia	Saudi Arabia	2
+Poland	Indonesia	32
+Venezuela	Egypt	4
+Saudi Arabia	Netherlands	11
+Bangladesh	Mexico	1
+Lebanon	Argentina	7
+Ireland	Lebanon	3
+Ireland	Bangladesh	7
+Estonia	Argentina	5
+Philippines	Mauritania	3
+Benin	Palestinian Territory	2
+Croatia	Hungary	62
+Taiwan	China	6088
+The Netherlands	Singapore	370
+Cameroon	Chile	194
+Portugal	Spain	1678
+Spain	Poland	1279
+Switzerland	Hungary	465
+Switzerland	Israel	1376
+Chile	Norway	249
+Chile	Palestinian Territory	113
+United Kingdom	Algeria	277
+Poland	Malaysia	125
+Iran	The Netherlands	94
+Philippines	Singapore	43
+Uganda	Belgium	124
+Brazil	Costa Rica	110
+Sweden	Ukraine	51
+Costa Rica	Russian Federation	4
+Croatia	Israel	50
+Japan	Costa Rica	15
+Uganda	Costa Rica	1
+Ireland	United States	851
+Austria	The Netherlands	1041
+Israel	Norway	637
+Argentina	China	790
+United States of America	Hungary	2710
+Denmark	RSA	371
+Colombia	Poland	63
+Portugal	Russian Federation	457
+Italy	Slovenia	423
+The Gambia	Israel	39
+Greece	Ireland	220
+Mexico	Ireland	203
+Russian Federation	Saudi Arabia	25
+Republic of China	Canada	168
+Canada	Republic of China	168
+Taiwan	Iran	86
+Uganda	Kenya	16
+Israel	Saudi Arabia	8
+The Gambia	Hungary	8
+Yemen	RSA	2
+Denmark	Luxembourg	20
+Belgium	Costa Rica	10
+Slovakia	Georgia	1
+Norway	Belgium	562
+Egypt	Indonesia	12
+Greece	Benin	140
+Netherlands	Belgium	1976
+Denmark	Thailand	23
+Denmark	Bulgaria	275
+RSA	Italy	468
+United Kingdom	Ghana	629
+Poland	Greece	752
+Bulgaria	Sweden	428
+Belgium	Kenya	514
+Uganda	Chile	26
+Saudi Arabia	Belgium	46
+Mexico	The Gambia	16
+Bangladesh	Denmark	32
+Greece	The Gambia	61
+Venezuela	Sweden	5
+Canada	Ukraine	32
+Malaysia	Republic of China	8
+Colombia	Estonia	3
+Portugal	Costa Rica	7
+Argentina	Iran	8
+Yemen	Bulgaria	3
+Ghana	Slovakia	2
+Spain	United States	8502
+Switzerland	France	6794
+Poland	United Kingdom	5749
+South Korea	The Netherlands	446
+Belgium	Chile	850
+Russian Federation	Hungary	593
+India	Spain	511
+Croatia	France	146
+New Zealand	Ireland	249
+Australia	Poland	957
+Russian Federation	Israel	1118
+Netherlands	Kenya	269
+Norway	Kenya	214
+Slovenia	Austria	123
+Egypt	Malaysia	79
+Estonia	Czech Republic	39
+Israel	Hungary	200
+Uganda	Brazil	52
+Singapore	RSA	77
+Singapore	Luxembourg	22
+Saudi Arabia	Kenya	22
+Switzerland	Lebanon	49
+Ireland	Philippines	22
+Lebanon	Czech Republic	4
+Switzerland	Bangladesh	13
+Benin	Slovakia	6
+Finland	Georgia	4
+Bangladesh	Egypt	3
+Croatia	Lebanon	3
+Hungary	Yemen	1
+Spain	Norway	762
+The Netherlands	Australia	2987
+Belgium	Brazil	1167
+Argentina	Taiwan	416
+India	Russian Federation	524
+Netherlands	Chile	430
+Germany	Uganda	112
+United States of America	Bangladesh	984
+Norway	Chile	249
+New Zealand	The Gambia	84
+Spain	Palestinian Territory	118
+Chile	Slovakia	166
+Luxembourg	Austria	42
+The Gambia	France	121
+Australia	Estonia	132
+Bulgaria	Saudi Arabia	16
+Ukraine	Finland	37
+Philippines	Netherlands	89
+Singapore	Bulgaria	57
+Mauritania	Japan	39
+Egypt	Uganda	8
+Indonesia	The Netherlands	19
+New Zealand	Benin	33
+Saudi Arabia	Chile	5
+The Gambia	Lebanon	3
+Ghana	Colombia	2
+Algeria	Benin	3
+The Netherlands	Spain	2334
+Singapore	Taiwan	732
+Ireland	Germany	821
+Mexico	Switzerland	763
+Georgia	United States of America	1458
+Netherlands	Brazil	655
+Iran	Japan	182
+Philippines	Spain	161
+Slovakia	Denmark	213
+Greece	Slovenia	302
+Croatia	United States	337
+Czech Republic	Ireland	164
+Saudi Arabia	Brazil	25
+Slovenia	Ireland	15
+France	Estonia	126
+Colombia	Norway	37
+Mexico	Slovenia	63
+Ukraine	South Korea	63
+Ireland	Mauritania	10
+Benin	Colombia	6
+Uganda	Turkey	9
+Venezuela	New Zealand	2
+Russian Federation	France	4281
+United Kingdom	China	24787
+Poland	Italy	1440
+Brazil	The Netherlands	1095
+Hungary	Austria	1573
+Chile	Colombia	662
+Japan	The Netherlands	1833
+Bulgaria	Hungary	244
+Austria	Japan	2235
+France	Sweden	3724
+Bulgaria	Israel	191
+The Netherlands	Russian Federation	1313
+The Gambia	United States	348
+China	Indonesia	156
+Belgium	Turkey	551
+Palestinian Territory	Greece	118
+Russian Federation	Bangladesh	23
+Greece	Cameroon	208
+Slovakia	Egypt	29
+Czech Republic	Benin	96
+Ireland	Singapore	120
+Ghana	Canada	77
+Ghana	Australia	130
+Slovenia	The Gambia	4
+Israel	Bangladesh	10
+Russian Federation	Lebanon	6
+Venezuela	Israel	1
+Czech Republic	The Gambia	9
+Luxembourg	Ireland	7
+Slovenia	Benin	3
+United States of America	Canada	90232
+United Kingdom	Luxembourg	301
+Australia	Saudi Arabia	199
+China	Malaysia	558
+United States	Malaysia	288
+United Kingdom	Iran	571
+Taiwan	Georgia	206
+Australia	Norway	839
+Haiti	Greece	248
+Palestinian Territory	United Kingdom	193
+Norway	Turkey	295
+Netherlands	Turkey	294
+Estonia	China	97
+Benin	Australia	184
+RSA	Luxembourg	5
+Colombia	Hungary	16
+New Zealand	Slovenia	22
+Switzerland	Philippines	117
+Philippines	Belgium	136
+Saudi Arabia	Turkey	74
+Lebanon	China	34
+Costa Rica	The Netherlands	15
+The Netherlands	Costa Rica	15
+Bangladesh	India	4
+Luxembourg	The Gambia	1
+Luxembourg	Benin	3
+Croatia	Philippines	2
+United Kingdom	Bulgaria	1673
+Chile	Australia	1044
+South Korea	Japan	5380
+Haiti	United Kingdom	988
+Spain	Slovakia	297
+RSA	Thailand	28
+Portugal	The Netherlands	682
+RSA	Bulgaria	102
+New Zealand	Cameroon	183
+Hungary	Ireland	124
+France	Saudi Arabia	116
+China	Uganda	36
+Algeria	Cameroon	1
+Ireland	Colombia	36
+Argentina	Georgia	7
+Estonia	Iran	3
+Lebanon	Iran	1
+The Gambia	Philippines	10
+Palestinian Territory	Algeria	1
+Bangladesh	Portugal	1
+Yemen	Mexico	2
+Switzerland	Germany	9994
+Croatia	Germany	347
+Israel	Canada	4017
+Indonesia	Japan	4288
+United States	Greece	2712
+Slovakia	Sweden	437
+United Kingdom	Taiwan	2657
+Australia	Hungary	242
+Bulgaria	France	1229
+Singapore	Georgia	17
+Slovenia	Switzerland	289
+Cameroon	Finland	186
+Switzerland	Mauritania	117
+Bangladesh	New Zealand	30
+Venezuela	France	18
+Bulgaria	Lebanon	8
+Republic of China	Netherlands	7
+Croatia	Mauritania	11
+Egypt	Croatia	11
+Turkey	Republic of China	7
+United States	United Kingdom	25090
+Italy	Indonesia	52
+France	Hungary	999
+France	Israel	3231
+Russian Federation	Philippines	200
+Ireland	Australia	592
+Finland	Estonia	527
+Spain	Colombia	760
+Israel	Philippines	197
+Switzerland	Singapore	397
+Cameroon	South Korea	264
+Palestinian Territory	Italy	135
+Slovakia	India	63
+Croatia	Slovakia	31
+Philippines	Brazil	243
+Czech Republic	Cameroon	192
+The Gambia	Germany	181
+Turkey	Ukraine	19
+Kenya	Ireland	91
+Luxembourg	Switzerland	69
+Croatia	Singapore	9
+Lebanon	Taiwan	10
+The Gambia	Mauritania	8
+Estonia	Taiwan	2
+Luxembourg	Slovenia	3
+Colombia	Bangladesh	1
+United States of America	Singapore	8014
+Brazil	Japan	1336
+Finland	Sweden	3210
+Bulgaria	United States	2066
+Poland	Luxembourg	30
+Ireland	Spain	539
+Haiti	Italy	518
+Poland	RSA	354
+India	The Netherlands	281
+Kenya	Benin	26
+Italy	Malaysia	135
+Thailand	Argentina	15
+The Gambia	Singapore	39
+Venezuela	United States	35
+Yemen	Denmark	5
+Austria	Ukraine	26
+Kenya	The Gambia	8
+Ukraine	Haiti	2
+Russian Federation	Germany	5368
+Israel	Mauritania	68
+Spain	Canada	2752
+Sweden	Ireland	355
+Ireland	Russian Federation	381
+Hungary	Switzerland	465
+Russian Federation	Mauritania	51
+Philippines	Turkey	44
+Denmark	Egypt	236
+Poland	Thailand	122
+Italy	Uganda	142
+Australia	Bangladesh	169
+Switzerland	Colombia	176
+Slovakia	New Zealand	36
+Croatia	Colombia	3
+Yemen	Egypt	4
+Republic of China	Belgium	20
+Hungary	Slovenia	48
+Costa Rica	Japan	15
+Bangladesh	Poland	5
+United States	Italy	23184
+Norway	Finland	805
+United Kingdom	Georgia	246
+Colombia	Canada	228
+France	Lebanon	114
+Slovakia	Israel	248
+China	Croatia	67
+Portugal	Japan	423
+Sweden	The Gambia	169
+Russian Federation	Singapore	177
+Israel	Singapore	292
+France	Bangladesh	70
+Singapore	Denmark	276
+Malaysia	Austria	52
+Sweden	Benin	404
+Finland	Saudi Arabia	19
+Egypt	Argentina	73
+Bulgaria	Philippines	39
+Mauritania	South Korea	23
+Iran	Finland	69
+Thailand	Algeria	9
+Ireland	Costa Rica	4
+Republic of China	Kenya	3
+Germany	United Kingdom	20896
+Canada	Ireland	775
+Singapore	Egypt	67
+Mauritania	United States of America	901
+Switzerland	Australia	2208
+Iran	South Korea	190
+Poland	Czech Republic	1012
+RSA	Mexico	127
+Kenya	Slovenia	109
+Croatia	Australia	109
+Mexico	Indonesia	23
+Lebanon	Georgia	1
+Greece	Indonesia	16
+Ghana	Netherlands	4
+Estonia	Georgia	1
+Australia	Canada	8825
+Bulgaria	Germany	2232
+Switzerland	Spain	2082
+Taiwan	Sweden	424
+Turkey	United States of America	4114
+United States of America	Netherlands	8361
+Iran	United States of America	1561
+Austria	South Korea	251
+Canada	The Gambia	289
+Palestinian Territory	RSA	108
+Germany	Algeria	72
+Canada	Benin	325
+Republic of China	Brazil	17
+Finland	Hungary	550
+Finland	Israel	432
+The Gambia	Australia	198
+Malaysia	Ireland	106
+Thailand	Italy	152
+Mexico	Malaysia	119
+Bangladesh	United States	79
+Croatia	Spain	65
+Bulgaria	Mauritania	29
+Benin	Netherlands	62
+Georgia	Yemen	9
+Venezuela	Germany	4
+Austria	United States of America	6740
+Switzerland	Russian Federation	1445
+India	Japan	1121
+Slovakia	France	801
+Sweden	Slovenia	354
+Chile	Netherlands	430
+Denmark	India	179
+Argentina	Sweden	695
+Haiti	RSA	186
+Croatia	Russian Federation	47
+Palestinian Territory	Bulgaria	13
+Australia	Philippines	273
+Bulgaria	Slovakia	99
+The Gambia	Spain	54
+Colombia	Mauritania	51
+Bulgaria	Singapore	57
+Greece	Uganda	30
+Bangladesh	Norway	3
+Malaysia	Benin	12
+Ukraine	Yemen	4
+Malaysia	The Gambia	6
+Uganda	Ukraine	4
+Slovakia	Lebanon	1
+Bangladesh	Palestinian Territory	1
+Haiti	Luxembourg	1
+Palestinian Territory	Thailand	2
+Germany	Italy	5168
+Singapore	Sweden	320
+United Kingdom	Denmark	5780
+Russian Federation	Australia	1183
+Israel	Netherlands	849
+China	Argentina	790
+Taiwan	Saudi Arabia	82
+Belgium	Ukraine	40
+Mexico	Greece	519
+Ghana	Belgium	51
+RSA	Denmark	371
+The Gambia	Russian Federation	28
+France	Philippines	270
+Norway	Republic of China	159
+Italy	Croatia	147
+Egypt	Czech Republic	172
+Sweden	Cameroon	42
+Indonesia	Finland	29
+Saudi Arabia	Republic of China	4
+Haiti	Bulgaria	28
+Georgia	Cameroon	12
+Netherlands	Republic of China	7
+Colombia	Singapore	14
+Egypt	Ghana	6
+Switzerland	Costa Rica	14
+Republic of China	Turkey	7
+Haiti	Thailand	4
+Yemen	Portugal	1
+Finland	France	1939
+South Korea	United States of America	23976
+United States of America	Belgium	15232
+United States	Luxembourg	187
+The Netherlands	Japan	1833
+Slovakia	United States	631
+United States	RSA	951
+Poland	Mexico	417
+Mexico	United Kingdom	3303
+Russian Federation	Spain	1432
+Benin	Belgium	192
+Australia	Mauritania	48
+Israel	Spain	1134
+Philippines	Japan	426
+Canada	Slovenia	354
+United States of America	Costa Rica	516
+Singapore	India	388
+Denmark	New Zealand	299
+RSA	Egypt	55
+Bulgaria	Colombia	11
+Finland	Lebanon	14
+Indonesia	South Korea	82
+Ghana	Kenya	4
+Norway	Ukraine	11
+New Zealand	Uganda	10
+Czech Republic	Indonesia	7
+Netherlands	Ukraine	8
+Finland	Bangladesh	13
+Venezuela	Colombia	18
+Argentina	Saudi Arabia	10
+Yemen	New Zealand	6
+France	Germany	14821
+United States of America	Kenya	3278
+Australia	Singapore	4485
+Indonesia	United States of America	989
+France	Mauritania	116
+United States	Thailand	283
+Chile	Belgium	850
+Taiwan	Israel	442
+United States	Bulgaria	2066
+Denmark	Israel	664
+Ireland	The Netherlands	491
+Slovakia	Palestinian Territory	117
+Benin	Kenya	26
+Canada	Cameroon	28
+Taiwan	Hungary	238
+Malaysia	Switzerland	114
+Malaysia	Slovenia	18
+Slovenia	Malaysia	18
+Ghana	Chile	6
+Ukraine	Austria	26
+Mauritania	Haiti	1
+Israel	Belgium	965
+Ghana	Brazil	607
+United States of America	Chile	7655
+Argentina	Israel	585
+Japan	South Korea	5380
+Spain	Netherlands	1138
+Thailand	RSA	28
+Brazil	South Korea	474
+Singapore	New Zealand	576
+France	Singapore	646
+Bulgaria	Australia	349
+Chile	Kenya	289
+Czech Republic	Uganda	27
+Argentina	Hungary	68
+Russian Federation	Costa Rica	4
+Benin	Chile	11
+Bangladesh	Slovakia	4
+Israel	Costa Rica	17
+Costa Rica	Finland	10
+Luxembourg	Malaysia	1
+Iran	Haiti	3
+Venezuela	Australia	3
+Japan	United States of America	48178
+Brazil	United States of America	18849
+United States of America	Brazil	18849
+United Kingdom	Sweden	8961
+Poland	Denmark	579
+Bulgaria	Spain	278
+Egypt	China	566
+United States	Czech Republic	1843
+Italy	Argentina	2452
+China	Czech Republic	666
+Mexico	Italy	1837
+Uganda	United States of America	879
+Portugal	Finland	242
+Colombia	Netherlands	64
+Slovenia	Greece	302
+Greece	Croatia	76
+Mexico	Croatia	44
+Thailand	Bulgaria	27
+Singapore	Israel	292
+Austria	Haiti	76
+China	Ghana	58
+Lebanon	Estonia	5
+Costa Rica	South Korea	5
+Hungary	Indonesia	2
+Yemen	Poland	1
+Belgium	United States of America	15232
+Germany	RSA	1037
+Slovakia	Germany	763
+Denmark	France	1989
+Taiwan	France	1296
+Ghana	Turkey	19
+Bulgaria	Russian Federation	1075
+Estonia	Sweden	536
+Colombia	Spain	760
+RSA	India	148
+Poland	Egypt	191
+Thailand	Taiwan	156
+Germany	Luxembourg	280
+Hungary	Malaysia	72
+Finland	Philippines	113
+Egypt	Iran	56
+Palestinian Territory	Mexico	10
+Portugal	South Korea	90
+Luxembourg	Greece	27
+Taiwan	Lebanon	10
+Lebanon	Sweden	16
+Venezuela	Russian Federation	4
+Bangladesh	Colombia	1
+Spain	Belgium	2243
+Switzerland	The Netherlands	2619
+Germany	Bulgaria	2232
+United Kingdom	Saudi Arabia	479
+United States of America	Turkey	4114
+Australia	Netherlands	1430
+Argentina	France	2453
+Israel	Brazil	618
+Croatia	The Netherlands	107
+South Korea	Haiti	77
+Haiti	Mexico	131
+RSA	Portugal	188
+Germany	Thailand	208
+Turkey	Benin	10
+Benin	Turkey	10
+Philippines	Ukraine	17
+Kenya	Indonesia	5
+Turkey	The Gambia	10
+Argentina	Lebanon	7
+New Zealand	Croatia	9
+Bulgaria	Costa Rica	1
+Finland	Germany	2719
+Spain	Kenya	728
+Denmark	United States	3348
+Australia	Spain	1783
+Taiwan	United States	1252
+Germany	Taiwan	1163
+Hungary	Greece	385
+Finland	Mauritania	42
+The Gambia	The Netherlands	174
+Chile	Turkey	364
+RSA	New Zealand	210
+Yemen	United States	22
+Singapore	France	646
+Lebanon	Saudi Arabia	12
+Cameroon	Austria	98
+Egypt	Taiwan	198
+Ireland	Japan	195
+Bangladesh	Canada	143
+Colombia	Belgium	71
+Singapore	Lebanon	10
+Colombia	Costa Rica	36
+Kenya	Malaysia	52
+Estonia	Saudi Arabia	6
+United Kingdom	Israel	6814
+France	Spain	6333
+Spain	Chile	1623
+United States	Mexico	3525
+Argentina	United States	2352
+Italy	Czech Republic	1043
+Hungary	United Kingdom	1346
+United Kingdom	Hungary	1346
+Greece	Argentina	324
+India	South Korea	669
+Israel	Turkey	356
+Denmark	Palestinian Territory	119
+Palestinian Territory	Denmark	119
+Finland	Singapore	124
+Slovenia	Croatia	205
+Czech Republic	Croatia	58
+Italy	Ghana	83
+Kenya	Uganda	16
+Ukraine	Switzerland	15
+Sweden	Indonesia	23
+Slovakia	Colombia	9
+Ukraine	Slovenia	2
+Yemen	Norway	1
+India	United States of America	6855
+France	Russian Federation	4281
+Haiti	Denmark	220
+Spain	Brazil	2422
+Israel	The Netherlands	1766
+Australia	Belgium	1923
+Singapore	United States	728
+Russian Federation	The Netherlands	1313
+Poland	India	357
+Japan	Haiti	326
+Brazil	Haiti	424
+Mexico	RSA	127
+Taiwan	Philippines	131
+Cameroon	Ireland	88
+Estonia	Hungary	35
+China	Iran	149
+Estonia	Israel	22
+Lebanon	Hungary	9
+Austria	Yemen	6
+Thailand	Georgia	4
+Lebanon	Israel	16
+Australia	Costa Rica	26
+Palestinian Territory	Egypt	7
+Luxembourg	Croatia	2
+The Netherlands	South Korea	446
+New Zealand	Argentina	85
+Canada	Indonesia	117
+Slovakia	Australia	237
+Colombia	Brazil	592
+RSA	Poland	354
+Poland	Portugal	318
+Algeria	Argentina	36
+Mexico	Thailand	120
+Turkey	Cameroon	185
+Greece	Algeria	18
+Sweden	Uganda	47
+Mauritania	Austria	39
+France	Costa Rica	31
+Haiti	Egypt	7
+Argentina	Philippines	11
+Singapore	Palestinian Territory	2
+South Korea	Venezuela	1
+Cameroon	The Gambia	1
+United Kingdom	France	20255
+China	Taiwan	6088
+The Netherlands	United States of America	21278
+United States	Denmark	3348
+Taiwan	Germany	1163
+Poland	New Zealand	299
+Norway	Austria	316
+Taiwan	Mauritania	13
+Philippines	United States of America	1732
+Switzerland	Japan	2070
+Ghana	Finland	30
+Spain	Turkey	790
+Hungary	Italy	619
+Portugal	Haiti	161
+Croatia	Japan	98
+Iran	Austria	74
+Austria	Cameroon	98
+United Kingdom	Lebanon	250
+Germany	Georgia	53
+Malaysia	Indonesia	9
+South Korea	Yemen	11
+Egypt	Georgia	12
+Republic of China	Ukraine	1
+Italy	China	4092
+Argentina	Germany	1126
+Australia	Brazil	1766
+Finland	Australia	935
+Taiwan	Singapore	732
+United States	Egypt	2867
+Bulgaria	The Netherlands	443
+Colombia	Turkey	36
+Taiwan	Slovakia	205
+Slovakia	Russian Federation	676
+Czech Republic	Argentina	258
+Denmark	Slovakia	213
+Mexico	Czech Republic	416
+Benin	Finland	98
+Canada	Uganda	109
+Estonia	France	126
+Greece	Ghana	100
+The Gambia	Japan	89
+Estonia	Lebanon	5
+New Zealand	Algeria	6
+Argentina	Mauritania	21
+Yemen	Slovakia	1
+United Kingdom	United States	25090
+RSA	United States	951
+Netherlands	Ireland	283
+Finland	Spain	1087
+Chile	Finland	413
+Singapore	Germany	661
+Thailand	Denmark	23
+Belgium	Benin	192
+South Korea	Cameroon	264
+Kenya	Croatia	49
+Norway	Ireland	108
+Italy	Iran	188
+Cameroon	Switzerland	227
+Argentina	Singapore	54
+Belgium	The Gambia	79
+Colombia	The Netherlands	93
+Brazil	Venezuela	28
+Saudi Arabia	Ireland	39
+Uganda	Venezuela	1
+Palestinian Territory	India	2
+Japan	Venezuela	3
+Cameroon	Slovenia	1
+Russian Federation	Japan	2791
+Finland	Russian Federation	1416
+Israel	Japan	1302
+Haiti	India	70
+India	Haiti	70
+Australia	Turkey	434
+United Kingdom	Palestinian Territory	193
+RSA	Palestinian Territory	108
+RSA	Norway	338
+Palestinian Territory	Portugal	73
+Denmark	Colombia	34
+New Zealand	Czech Republic	227
+Malaysia	Greece	104
+Japan	Yemen	69
+Netherlands	The Gambia	73
+Thailand	Egypt	120
+Taiwan	Colombia	34
+Norway	Benin	50
+Norway	The Gambia	51
+Singapore	Slovakia	9
+Saudi Arabia	The Gambia	2
+Netherlands	Benin	62
+New Zealand	Ghana	9
+Saudi Arabia	Benin	3
+Czech Republic	Algeria	3
+Belgium	Venezuela	5
+Brazil	Yemen	1
+Algeria	Ghana	2
+Slovenia	Thailand	1
+China	Georgia	620
+Australia	The Netherlands	2987
+Italy	Taiwan	1101
+Germany	Denmark	2957
+United Kingdom	Philippines	725
+Haiti	Portugal	161
+Argentina	Colombia	174
+Indonesia	Austria	41
+Sweden	Croatia	76
+Ireland	Finland	336
+Lebanon	Canada	156
+Poland	Estonia	60
+Bangladesh	Netherlands	9
+Finland	Costa Rica	10
+Portugal	Venezuela	1
+Ghana	Republic of China	1
+Venezuela	Kenya	1
+Palestinian Territory	New Zealand	4
+France	The Netherlands	4103
+Taiwan	Australia	1117
+United States	India	875
+Greece	China	860
+Germany	Egypt	870
+Denmark	Australia	1949
+The Netherlands	Haiti	339
+Slovenia	Czech Republic	331
+Hungary	RSA	74
+Ireland	South Korea	142
+Brazil	Cameroon	189
+Japan	Cameroon	100
+Mauritania	Switzerland	117
+Venezuela	Chile	87
+Yemen	Canada	34
+Hungary	Luxembourg	12
+Philippines	Haiti	10
+Slovenia	Ghana	7
+Singapore	Colombia	14
+Haiti	New Zealand	12
+Estonia	Philippines	8
+Czech Republic	Ghana	4
+Benin	Republic of China	4
+Portugal	Yemen	1
+United Kingdom	Germany	20896
+Bulgaria	Japan	3569
+Norway	Switzerland	739
+Ireland	United States of America	4379
+Japan	Austria	2235
+Argentina	Australia	837
+Taiwan	Spain	1015
+United States of America	Ukraine	714
+Netherlands	Slovenia	231
+United States	Portugal	1469
+United Kingdom	Mauritania	442
+Norway	Slovenia	289
+Kenya	Argentina	96
+Canada	Croatia	67
+Hungary	Thailand	109
+Belgium	Cameroon	204
+Thailand	Sweden	85
+Iran	Switzerland	130
+Greece	Iran	85
+Luxembourg	Czech Republic	7
+Saudi Arabia	Slovenia	1
+Singapore	Australia	4485
+Argentina	Spain	1363
+United Kingdom	Singapore	3901
+United States	New Zealand	874
+New Zealand	China	1208
+Poland	Norway	554
+Taiwan	Russian Federation	921
+United Kingdom	Slovakia	891
+RSA	Slovakia	208
+Poland	Palestinian Territory	113
+Palestinian Territory	Poland	113
+Algeria	China	222
+Colombia	Japan	163
+Estonia	Germany	274
+Thailand	India	143
+Bangladesh	Belgium	30
+Lebanon	Germany	47
+Egypt	Estonia	8
+Costa Rica	Austria	5
+Chile	Ukraine	10
+Malaysia	Croatia	5
+Saudi Arabia	Cameroon	5
+Estonia	Mauritania	4
+Netherlands	Cameroon	2
+Germany	Sweden	5021
+Switzerland	Finland	1064
+Egypt	Sweden	446
+Portugal	Austria	250
+Israel	Ukraine	128
+Hungary	Czech Republic	391
+Sweden	Argentina	695
+Haiti	Poland	405
+Greece	Taiwan	473
+Argentina	Russian Federation	355
+Croatia	Finland	57
+Lebanon	Singapore	10
+New Zealand	Iran	78
+Algeria	Iran	1
+Taiwan	Costa Rica	8
+Estonia	Singapore	11
+Italy	Georgia	22
+Bangladesh	Kenya	1
+Australia	Japan	4236
+Germany	India	1333
+Czech Republic	China	666
+Georgia	United Kingdom	246
+United Kingdom	Colombia	437
+Ukraine	Greece	55
+Slovenia	China	243
+Switzerland	South Korea	726
+Singapore	Russian Federation	177
+Croatia	South Korea	50
+The Gambia	Finland	60
+Mexico	Egypt	160
+RSA	Colombia	24
+Slovenia	Mexico	63
+Algeria	Bulgaria	21
+Argentina	Costa Rica	10
+Turkey	Uganda	9
+Costa Rica	Ireland	4
+Bangladesh	Chile	3
+Switzerland	United States of America	20804
+France	Japan	5499
+United States	Poland	2389
+New Zealand	Taiwan	346
+Kenya	Czech Republic	611
+Ukraine	United Kingdom	293
+Finland	The Netherlands	1306
+Canada	Argentina	1412
+India	Cameroon	1093
+Palestinian Territory	United States	164
+Luxembourg	China	59
+Algeria	Taiwan	71
+Bangladesh	Brazil	7
+Egypt	Saudi Arabia	279
+Portugal	Ireland	109
+Luxembourg	Mexico	20
+Spain	Republic of China	26
+Czech Republic	Iran	53
+Indonesia	Switzerland	62
+Georgia	Algeria	22
+Kenya	Ghana	4
+The Netherlands	Yemen	4
+Sweden	Algeria	17
+The Gambia	South Korea	13
+Slovenia	Iran	4
+Thailand	Israel	16
+Philippines	Yemen	2
+United Kingdom	Australia	22658
+Russian Federation	Finland	1416
+United States	Estonia	310
+Slovakia	Kenya	529
+RSA	Canada	984
+Germany	New Zealand	1060
+Haiti	United States	749
+Palestinian Territory	Norway	120
+China	Estonia	97
+Luxembourg	Iran	5
+Spain	Ukraine	52
+Ireland	Haiti	114
+United Kingdom	Spain	9635
+Russian Federation	South Korea	4797
+Germany	Israel	3682
+Brazil	Switzerland	1212
+China	Sweden	2445
+Japan	Switzerland	2070
+Egypt	Israel	284
+Czech Republic	Taiwan	457
+Canada	Algeria	271
+Slovakia	Chile	166
+Haiti	Palestinian Territory	77
+Haiti	Norway	275
+Hungary	Mexico	323
+Estonia	Australia	132
+The Netherlands	Cameroon	27
+Sweden	Ghana	27
+Cameroon	Malaysia	62
+Egypt	Hungary	145
+Greece	Georgia	8
+Philippines	Cameroon	3
+Georgia	Italy	22
+Republic of China	Ireland	3
+Poland	Bangladesh	5
+Bangladesh	Turkey	5
+Colombia	Ukraine	1
+Israel	United States of America	24816
+Russian Federation	United States of America	14398
+Denmark	Netherlands	957
+Mexico	India	394
+The Netherlands	Austria	1041
+United Kingdom	Russian Federation	4886
+Thailand	France	235
+Thailand	Lebanon	8
+Malaysia	Thailand	151
+Estonia	Spain	79
+Lebanon	Spain	27
+Ukraine	Italy	43
+Yemen	Netherlands	7
+Costa Rica	Switzerland	14
+Republic of China	Benin	4
+Costa Rica	Slovenia	1
+Mexico	Portugal	1116
+United States	Norway	3092
+Canada	Czech Republic	781
+China	Saudi Arabia	434
+Portugal	Slovenia	217
+Portugal	Switzerland	595
+Kenya	China	546
+Taiwan	The Netherlands	404
+United States	Palestinian Territory	164
+Estonia	Russian Federation	122
+Bulgaria	Finland	265
+Cameroon	Greece	208
+Canada	Ghana	77
+Algeria	Georgia	22
+New Zealand	Georgia	12
+Turkey	Croatia	36
+Lebanon	Russian Federation	6
+Australia	Ukraine	23
+Venezuela	Finland	1
+Germany	France	14821
+Thailand	United States	283
+Argentina	The Netherlands	821
+Switzerland	Haiti	497
+Finland	Japan	1969
+Egypt	France	458
+Poland	Canada	1388
+Bulgaria	South Korea	202
+Palestinian Territory	Slovakia	117
+Croatia	Haiti	26
+Hungary	Denmark	218
+Malaysia	Czech Republic	85
+Italy	Estonia	67
+Mexico	New Zealand	279
+Ghana	Austria	34
+Kenya	Iran	85
+Norway	Indonesia	33
+Egypt	Lebanon	38
+Malaysia	Ghana	7
+Netherlands	Indonesia	8
+Egypt	Bangladesh	3
+Ireland	Venezuela	3
+Venezuela	South Korea	1
+Estonia	Costa Rica	1
+Lebanon	Costa Rica	1
+Iran	Malaysia	610
+Sweden	China	2445
+China	Israel	1329
+Italy	Sweden	2270
+Haiti	Slovakia	204
+Norway	Malaysia	177
+Benin	Austria	95
+China	Hungary	340
+Belgium	Uganda	124
+Hungary	Egypt	145
+Ireland	Yemen	3
+Czech Republic	Georgia	5
+The Gambia	Haiti	2
+Yemen	Belgium	5
+Republic of China	Slovenia	1
+Thailand	Palestinian Territory	2
+Germany	United States	17464
+Colombia	United States of America	1696
+Denmark	Kenya	365
+Chile	Austria	320
+India	Switzerland	445
+Sweden	Iran	97
+Kenya	Taiwan	273
+Ghana	Ireland	30
+Mauritania	Greece	65
+Netherlands	Uganda	15
+Norway	Uganda	6
+Palestinian Territory	Colombia	2
+Georgia	RSA	7
+Yemen	Kenya	1
+Thailand	Philippines	5
+Canada	China	11315
+United States	Slovakia	631
+Russian Federation	Haiti	453
+Mexico	Poland	417
+Slovenia	Portugal	217
+Mauritania	United Kingdom	442
+Egypt	Canada	1126
+Israel	Haiti	263
+Germany	Palestinian Territory	155
+Denmark	Chile	395
+Turkey	Argentina	224
+Iran	Greece	85
+Italy	Saudi Arabia	97
+Algeria	Denmark	20
+Haiti	Colombia	42
+Benin	Ireland	35
+Georgia	Bulgaria	16
+Georgia	Thailand	4
+Lebanon	Brazil	25
+Ghana	Benin	11
+Ghana	The Gambia	4
+Bangladesh	Finland	13
+Ukraine	RSA	4
+Yemen	Chile	1
+Cameroon	Croatia	1
+Australia	United States of America	37998
+The Netherlands	Switzerland	2619
+France	South Korea	1312
+Taiwan	Japan	2543
+China	France	5262
+Sweden	Taiwan	424
+Canada	Iran	819
+United States of America	Benin	5245
+China	Bangladesh	3154
+Ireland	Austria	199
+Malaysia	China	558
+Iran	United Kingdom	571
+Singapore	Kenya	42
+Chile	Ireland	152
+Georgia	Taiwan	206
+RSA	Netherlands	398
+Palestinian Territory	Australia	118
+Palestinian Territory	Canada	127
+Malaysia	Mexico	119
+Thailand	Germany	208
+United States	Bangladesh	79
+Luxembourg	Portugal	24
+Ukraine	Bulgaria	64
+Switzerland	Venezuela	3
+China	Lebanon	34
+Egypt	Philippines	10
+Benin	The Gambia	37
+Mexico	Estonia	10
+Yemen	Brazil	1
+France	United States of America	50538
+United Kingdom	The Netherlands	12588
+Austria	United Kingdom	3175
+Argentina	Japan	2022
+Malaysia	Iran	610
+Haiti	Canada	475
+Italy	Israel	1648
+Greece	Sweden	1175
+Italy	Hungary	619
+Haiti	Australia	246
+Hungary	India	268
+United States of America	Venezuela	146
+Turkey	Algeria	6
+Chile	Benin	11
+Singapore	Chile	55
+Indonesia	Malaysia	9
+Switzerland	Yemen	13
+Chile	The Gambia	10
+Uganda	Croatia	1
+Mauritania	Italy	1998
+Belgium	Croatia	92
+Denmark	Turkey	328
+Canada	Taiwan	1417
+Hungary	Portugal	143
+Egypt	Germany	870
+Estonia	The Netherlands	141
+Slovakia	Finland	223
+South Korea	Greece	364
+Egypt	Mauritania	108
+Ghana	Switzerland	69
+New Zealand	Estonia	34
+Ukraine	Czech Republic	65
+Lebanon	The Netherlands	34
+Bulgaria	Haiti	28
+Ghana	Slovenia	7
+Kenya	Georgia	5
+Austria	Algeria	11
+United States	Canada	11461
+Benin	Switzerland	204
+China	Canada	11315
+Germany	Slovakia	763
+Egypt	Singapore	67
+Turkey	Ghana	19
+New Zealand	Sweden	319
+South Korea	United Kingdom	3724
+RSA	Belgium	486
+Mexico	Norway	217
+Slovenia	Poland	272
+Hungary	New Zealand	227
+Slovakia	South Korea	77
+Norway	Croatia	38
+Iran	Italy	188
+Netherlands	Croatia	41
+Philippines	Uganda	10
+Colombia	Haiti	42
+Bangladesh	Republic of China	43
+Cameroon	Argentina	16
+Greece	Saudi Arabia	33
+Mexico	Saudi Arabia	28
+Algeria	Sweden	17
+Israel	Venezuela	1
+Indonesia	Greece	16
+Thailand	Colombia	5
+Russian Federation	Venezuela	4
+Benin	Slovenia	3
+Switzerland	Austria	1545
+Italy	France	6483
+United States of America	Cameroon	614
+South Korea	Algeria	7044
+Austria	Italy	1022
+Poland	Netherlands	655
+Luxembourg	Poland	30
+Chile	Slovenia	182
+China	Philippines	865
+Israel	Yemen	6
+Chile	Switzerland	856
+Spain	Ireland	539
+RSA	Kenya	155
+Italy	Bangladesh	29
+Indonesia	United Kingdom	225
+Croatia	Austria	103
+Sweden	Georgia	17
+Slovenia	Estonia	19
+Costa Rica	Malaysia	2
+Italy	Lebanon	48
+Portugal	Indonesia	5
+Russian Federation	Yemen	14
+RSA	Chile	252
+Greece	Israel	601
+Japan	Greece	709
+Germany	Colombia	282
+Greece	Hungary	385
+Czech Republic	Sweden	759
+Thailand	Australia	276
+Brazil	Greece	606
+Spain	Benin	65
+Australia	Haiti	246
+Finland	South Korea	378
+Mexico	Hungary	323
+Spain	The Gambia	54
+Uganda	Argentina	9
+Portugal	Malaysia	37
+The Gambia	Austria	16
+New Zealand	Saudi Arabia	9
+Luxembourg	Estonia	2
+Finland	United States of America	8230
+China	Germany	5655
+Brazil	United Kingdom	6391
+United Kingdom	Japan	14048
+Japan	United Kingdom	14048
+France	Haiti	3021
+South Korea	Italy	1189
+RSA	Brazil	442
+Belgium	Argentina	618
+Canada	Georgia	147
+China	Mauritania	155
+Hungary	Poland	458
+Ireland	Switzerland	439
+Costa Rica	Greece	10
+Israel	Cameroon	25
+Ukraine	Mexico	33
+Republic of China	Indonesia	10
+Croatia	Ireland	11
+Germany	Australia	5476
+Indonesia	Italy	52
+China	Singapore	7442
+Poland	Belgium	1072
+New Zealand	Israel	306
+Norway	Argentina	316
+Brazil	Algeria	30
+Netherlands	Argentina	463
+Portugal	Greece	455
+Russian Federation	Austria	592
+Slovenia	Norway	289
+Turkey	China	593
+The Gambia	Ireland	22
+New Zealand	Hungary	227
+Cameroon	Czech Republic	192
+Thailand	Russian Federation	127
+Japan	Algeria	223
+Hungary	Estonia	35
+Costa Rica	United Kingdom	76
+Estonia	Japan	43
+Algeria	Israel	18
+Czech Republic	Saudi Arabia	9
+Lebanon	Japan	25
+Mauritania	Luxembourg	2
+Colombia	Venezuela	18
+Saudi Arabia	Argentina	10
+Bulgaria	Yemen	3
+Mauritania	RSA	7
+Slovenia	Saudi Arabia	1
+Portugal	United Kingdom	3118
+Greece	France	2887
+Belgium	Algeria	68
+Palestinian Territory	Netherlands	120
+Poland	Kenya	1358
+Denmark	Finland	1232
+Egypt	Spain	340
+Spain	Slovenia	297
+RSA	Turkey	210
+Taiwan	Finland	427
+Iran	Luxembourg	5
+Luxembourg	Norway	19
+Italy	Philippines	126
+Georgia	Denmark	11
+Turkey	Iran	117
+Greece	Lebanon	12
+Mauritania	Bulgaria	29
+Iran	RSA	17
+Greece	Bangladesh	5
+Mexico	Bangladesh	1
+Turkey	Luxembourg	3
+Austria	RSA	164
+Germany	Russian Federation	5368
+Japan	Italy	2900
+Taiwan	South Korea	1085
+Kenya	Estonia	66
+Turkey	Bulgaria	196
+Argentina	Finland	426
+Iran	Bulgaria	71
+Brazil	Italy	1908
+Czech Republic	Hungary	391
+Haiti	Netherlands	308
+Czech Republic	Israel	412
+Poland	Chile	521
+Austria	Luxembourg	42
+Egypt	Russian Federation	208
+Netherlands	Algeria	9
+Malaysia	Portugal	37
+Iran	Thailand	36
+Georgia	Egypt	12
+Slovenia	Hungary	48
+Ukraine	Denmark	18
+Australia	Venezuela	3
+Saudi Arabia	Algeria	2
+Italy	Mauritania	1998
+Taiwan	United States of America	17925
+Italy	Germany	5168
+Poland	Brazil	756
+New Zealand	France	762
+Bulgaria	Austria	772
+Austria	Bulgaria	772
+Austria	Thailand	106
+Belgium	Ghana	51
+India	Greece	288
+Kenya	Sweden	417
+Algeria	France	136
+Turkey	Taiwan	395
+Singapore	Finland	124
+Croatia	Slovenia	205
+Hungary	Norway	122
+Argentina	South Korea	200
+New Zealand	Bangladesh	30
+France	Venezuela	18
+Croatia	Switzerland	83
+Egypt	Costa Rica	6
+Australia	Yemen	39
+Hungary	Palestinian Territory	10
+Luxembourg	Hungary	12
+New Zealand	Lebanon	10
+Colombia	Cameroon	17
+Costa Rica	Italy	19
+Algeria	Lebanon	4
+Ukraine	Egypt	2
+India	United Kingdom	2749
+Norway	Czech Republic	456
+Argentina	United States of America	9515
+United States	Netherlands	3262
+Portugal	Italy	737
+Mexico	Canada	1195
+Singapore	South Korea	589
+Finland	Haiti	143
+The Gambia	Switzerland	77
+Italy	Singapore	403
+Cameroon	China	214
+South Korea	RSA	100
+Cameroon	Mexico	195
+Norway	Ghana	15
+The Gambia	Slovenia	4
+France	Yemen	36
+Palestinian Territory	Belgium	25
+South Korea	Luxembourg	13
+Netherlands	Ghana	4
+Saudi Arabia	Ghana	1
+The Netherlands	Greece	1160
+China	Spain	2893
+Czech Republic	France	2174
+Haiti	Belgium	230
+Bulgaria	Ireland	54
+South Korea	Thailand	217
+Poland	Turkey	438
+South Korea	Bulgaria	202
+Algeria	United States	566
+Georgia	Sweden	17
+Greece	Philippines	32
+Yemen	Republic of China	16
+Palestinian Territory	Kenya	73
+India	Algeria	35
+Cameroon	Iran	49
+Kenya	Saudi Arabia	22
+Philippines	Argentina	11
+Australia	Cameroon	49
+Ghana	Malaysia	7
+Denmark	Republic of China	14
+Indonesia	RSA	2
+Czech Republic	Lebanon	4
+Venezuela	Ireland	3
+Benin	Indonesia	1
+The Netherlands	United Kingdom	12588
+China	Russian Federation	2951
+Russian Federation	Switzerland	1445
+Palestinian Territory	Chile	113
+Haiti	Kenya	107
+Chile	Indonesia	17
+Indonesia	Bulgaria	84
+Georgia	India	71
+Indonesia	Thailand	5
+France	Cameroon	272
+Malaysia	Poland	125
+Egypt	Brazil	342
+Uganda	China	36
+Canada	Estonia	118
+Benin	Malaysia	12
+Yemen	Ukraine	4
+Algeria	Palestinian Territory	1
+Luxembourg	Bangladesh	4
+Republic of China	Croatia	1
+Greece	Germany	2741
+United Kingdom	Finland	5011
+Belgium	China	2095
+United States	Belgium	6556
+Czech Republic	United States	1843
+Canada	Sweden	2857
+Brazil	RSA	442
+India	Italy	564
+Kenya	Hungary	571
+United States of America	Uganda	879
+Japan	Luxembourg	15
+The Netherlands	Algeria	25
+Kenya	Israel	274
+Haiti	Chile	169
+Japan	RSA	460
+Palestinian Territory	Brazil	131
+Chile	Malaysia	81
+Singapore	Republic of China	93
+Sweden	Saudi Arabia	21
+Thailand	The Netherlands	49
+Mauritania	Mexico	18
+New Zealand	Philippines	38
+China	Costa Rica	17
+Greece	Mauritania	65
+Brazil	Luxembourg	17
+Uganda	Iran	2
+Malaysia	Estonia	8
+Turkey	Georgia	2
+Ukraine	India	3
+Philippines	Algeria	3
+Algeria	Philippines	3
+Netherlands	China	1227
+Japan	Bulgaria	3569
+Germany	Netherlands	2646
+Norway	China	964
+Saudi Arabia	China	434
+United Kingdom	South Korea	3724
+Mexico	Singapore	86
+Japan	Thailand	862
+Taiwan	Haiti	231
+United States	Kenya	1067
+Haiti	Brazil	424
+Slovenia	Canada	354
+Brazil	Bulgaria	166
+Brazil	Thailand	139
+Ukraine	Portugal	12
+Belgium	Luxembourg	179
+Belgium	Iran	165
+Chile	Uganda	26
+Greece	Singapore	83
+Uganda	Bulgaria	20
+Iran	Mexico	85
+Georgia	New Zealand	12
+Costa Rica	RSA	4
+Finland	Venezuela	1
+Italy	Spain	3313
+United States	Chile	1282
+Palestinian Territory	Turkey	1623
+Bulgaria	Switzerland	466
+The Netherlands	Italy	2636
+Sweden	Israel	935
+Egypt	The Netherlands	373
+Belgium	Bulgaria	587
+Canada	Saudi Arabia	407
+Sweden	Hungary	381
+New Zealand	Germany	1060
+Austria	Mexico	252
+Portugal	RSA	188
+Argentina	Haiti	277
+Algeria	Germany	72
+Czech Republic	Philippines	99
+Norway	Iran	97
+Luxembourg	Canada	78
+Ireland	Malaysia	106
+Bulgaria	Slovenia	42
+Portugal	Luxembourg	24
+Slovenia	Philippines	33
+Philippines	Italy	126
+Georgia	Israel	37
+Venezuela	Switzerland	3
+Ukraine	New Zealand	3
+Lebanon	South Korea	16
+Netherlands	Iran	37
+Israel	Uganda	49
+Finland	Yemen	3
+Saudi Arabia	Iran	16
+Estonia	South Korea	9
+New Zealand	Mauritania	11
+Uganda	Taiwan	19
+Bangladesh	Ireland	7
+Costa Rica	Thailand	1
+United States	Brazil	15860
+Lebanon	United States of America	828
+Kenya	France	1442
+Italy	Russian Federation	1776
+China	Brazil	1216
+Belgium	Taiwan	413
+Estonia	United States of America	543
+Malaysia	Saudi Arabia	255
+Slovakia	Austria	326
+Haiti	Turkey	162
+Malaysia	Norway	177
+New Zealand	Singapore	576
+Greece	Colombia	96
+Thailand	Kenya	78
+Mauritania	Denmark	54
+Spain	Indonesia	54
+Kenya	Bangladesh	1
+Portugal	Thailand	9
+Luxembourg	Philippines	3
+Republic of China	Argentina	4
+Bangladesh	The Gambia	1
+Kenya	Lebanon	1
+Czech Republic	Germany	2326
+Canada	Israel	4017
+Netherlands	Taiwan	295
+Norway	Taiwan	777
+Saudi Arabia	Taiwan	82
+United Kingdom	Republic of China	347
+South Korea	Mexico	383
+Canada	Hungary	422
+Hungary	Canada	422
+Mauritania	Egypt	108
+Ireland	Greece	220
+Thailand	Chile	121
+Ghana	Croatia	6
+Iran	Denmark	76
+Czech Republic	Mauritania	30
+RSA	Republic of China	4
+Italy	Costa Rica	19
+Slovenia	Mauritania	4
+Germany	Kenya	2854
+United States	Turkey	1153
+Ireland	United Kingdom	3916
+Sweden	France	3724
+Ukraine	Poland	275
+Czech Republic	Slovakia	966
+Greece	Australia	799
+Sweden	Bangladesh	41
+Austria	Denmark	521
+Mexico	Netherlands	208
+Portugal	Czech Republic	348
+United States of America	Croatia	737
+India	RSA	148
+Finland	Austria	508
+Slovakia	Ireland	10
+Georgia	France	48
+Malaysia	Hungary	72
+Spain	Uganda	129
+Iran	Egypt	56
+Indonesia	Mexico	23
+Czech Republic	Singapore	33
+Slovenia	Singapore	10
+Sweden	Lebanon	16
+Georgia	Lebanon	1
+India	Luxembourg	9
+Luxembourg	Mauritania	2
+RSA	Ukraine	4
+Republic of China	Algeria	5
+Germany	Chile	1355
+China	The Netherlands	2333
+Greece	Spain	1400
+India	Bulgaria	88
+Austria	Egypt	194
+Switzerland	Malaysia	114
+India	Thailand	143
+Luxembourg	Singapore	22
+Chile	Croatia	11
+Taiwan	Yemen	8
+Ukraine	Estonia	9
+Croatia	Malaysia	5
+Slovakia	Benin	6
+Argentina	Venezuela	5
+Cameroon	Portugal	18
+Colombia	Uganda	1
+Canada	France	8978
+Brazil	Mexico	2494
+New Zealand	Australia	4727
+Egypt	Japan	737
+Japan	Mexico	657
+United Kingdom	Haiti	988
+The Netherlands	RSA	642
+Georgia	United States	114
+South Korea	Denmark	251
+Belgium	Georgia	26
+Kenya	Philippines	125
+Greece	Russian Federation	914
+Algeria	Australia	79
+Canada	Lebanon	156
+The Netherlands	Luxembourg	117
+Canada	Bangladesh	143
+Philippines	RSA	94
+Czech Republic	Colombia	93
+The Gambia	Malaysia	6
+Republic of China	Ghana	1
+Philippines	Luxembourg	3
+Turkey	Sweden	367
+Switzerland	Greece	2726
+Ireland	Italy	554
+Costa Rica	Mexico	122
+Mexico	Costa Rica	122
+South Korea	Egypt	444
+The Netherlands	Bulgaria	443
+Mexico	Belgium	923
+Netherlands	Georgia	8
+Norway	Georgia	91
+Mauritania	India	17
+Algeria	Spain	47
+Saudi Arabia	Georgia	39
+Croatia	Greece	76
+New Zealand	Spain	376
+Australia	Uganda	50
+Philippines	Bulgaria	39
+The Netherlands	Thailand	49
+Palestinian Territory	Finland	16
+Greece	Costa Rica	10
+Indonesia	Denmark	14
+Malaysia	Bangladesh	5
+Ghana	Argentina	1
+Poland	Republic of China	8
+Georgia	Palestinian Territory	4
+Estonia	Haiti	3
+Kenya	Germany	2854
+Switzerland	United Kingdom	9585
+United States of America	Argentina	9515
+Portugal	Mexico	1116
+Czech Republic	Australia	576
+Indonesia	Egypt	12
+Taiwan	Austria	189
+Poland	Ukraine	275
+New Zealand	Russian Federation	270
+Mexico	Kenya	357
+Algeria	Russian Federation	964
+Sweden	Philippines	101
+Slovenia	Netherlands	231
+Croatia	United Kingdom	291
+Haiti	Finland	143
+Denmark	Austria	521
+Slovakia	Switzerland	373
+Slovakia	Slovenia	217
+Russian Federation	Malaysia	136
+Philippines	Taiwan	131
+Iran	India	70
+Ukraine	Norway	11
+Kenya	Mauritania	20
+The Gambia	Greece	61
+Mauritania	Portugal	18
+Benin	Argentina	7
+Ukraine	Palestinian Territory	1
+Czech Republic	Spain	846
+Brazil	Denmark	635
+Italy	The Netherlands	2636
+Argentina	Austria	280
+Chile	Argentina	1629
+The Gambia	United Kingdom	2722
+Kenya	Singapore	42
+Japan	Denmark	879
+Mexico	Chile	950
+Slovenia	Spain	297
+Cameroon	Poland	199
+Austria	India	162
+Turkey	Saudi Arabia	74
+Luxembourg	Netherlands	34
+Spain	Croatia	65
+Iran	Portugal	24
+Uganda	Denmark	13
+Mauritania	New Zealand	11
+New Zealand	Costa Rica	3
+Sweden	Germany	5021
+China	Japan	11342
+Mexico	Brazil	2494
+Belgium	Denmark	1349
+Finland	Switzerland	1064
+Japan	Egypt	737
+Israel	Argentina	585
+Malaysia	Canada	344
+Republic of China	China	2350
+United States of America	Algeria	1925
+Canada	Philippines	450
+Denmark	Ireland	199
+Austria	Portugal	250
+Czech Republic	Russian Federation	1362
+Russian Federation	Greece	914
+Bulgaria	Indonesia	84
+Luxembourg	Spain	50
+Singapore	Austria	104
+Brazil	Egypt	342
+Sweden	Mauritania	75
+Georgia	Germany	53
+Iran	New Zealand	78
+Yemen	Ireland	3
+Israel	United Kingdom	6814
+Sweden	Singapore	320
+India	Mexico	394
+Austria	New Zealand	251
+Russian Federation	United Kingdom	4886
+Switzerland	Italy	3144
+South Korea	India	669
+Portugal	Denmark	445
+Hungary	Netherlands	149
+Denmark	Benin	251
+Turkey	Israel	356
+Croatia	Italy	147
+United Kingdom	Yemen	143
+Turkey	Hungary	238
+Slovenia	Belgium	129
+Bulgaria	Malaysia	29
+Yemen	Benin	7
+Denmark	The Gambia	130
+Costa Rica	Egypt	6
+Republic of China	Iran	4
+Venezuela	Malaysia	7
+Ghana	Czech Republic	4
+Slovenia	Costa Rica	1
+Georgia	Slovakia	1
+Canada	Germany	7436
+Austria	Israel	531
+United States of America	Ghana	479
+Portugal	Egypt	25
+Indonesia	India	10
+Canada	Mauritania	100
+Thailand	Finland	139
+Mexico	Turkey	288
+The Gambia	Italy	95
+Luxembourg	Belgium	179
+Ireland	RSA	51
+Benin	Czech Republic	96
+Singapore	Ireland	120
+Israel	Algeria	18
+South Korea	Portugal	90
+Mauritania	Poland	22
+Philippines	Georgia	16
+Benin	Ghana	11
+Ireland	Luxembourg	7
+Palestinian Territory	Ukraine	1
+Poland	United States of America	7849
+Greece	The Netherlands	1160
+Spain	Argentina	1363
+The Netherlands	Mexico	572
+Bulgaria	Greece	296
+Republic of China	Taiwan	1842
+Ireland	Bulgaria	54
+Thailand	South Korea	217
+Canada	Singapore	1487
+Sweden	Colombia	102
+Kenya	Australia	417
+Chile	Czech Republic	399
+South Korea	New Zealand	461
+Ireland	Thailand	91
+Singapore	Benin	21
+Iran	Poland	72
+Singapore	The Gambia	39
+Cameroon	Norway	40
+Uganda	Sweden	47
+Malaysia	Mauritania	9
+Chile	Ghana	6
+Indonesia	Portugal	5
+Venezuela	Greece	1
+Cameroon	Saudi Arabia	5
+Haiti	Ukraine	2
+Georgia	Colombia	1
+United Kingdom	Austria	3175
+Bulgaria	United Kingdom	1673
+Germany	Finland	2719
+Austria	Poland	434
+Kenya	Spain	728
+Italy	Japan	2900
+Norway	Estonia	83
+Russian Federation	Italy	1776
+Japan	India	1121
+Belgium	Sweden	1788
+Denmark	Switzerland	1193
+Israel	Italy	1648
+India	Denmark	179
+Hungary	Belgium	615
+Brazil	India	408
+Denmark	Slovenia	208
+Taiwan	Switzerland	749
+Taiwan	Slovenia	184
+Slovenia	Brazil	205
+Turkey	France	864
+Colombia	Argentina	174
+Malaysia	Singapore	332
+United States	Republic of China	133
+Turkey	Lebanon	21
+Bangladesh	Indonesia	2
+Brazil	Portugal	1719
+Netherlands	Sweden	1069
+Sweden	Australia	2527
+Austria	France	1918
+Norway	Sweden	2181
+Egypt	South Korea	444
+New Zealand	The Netherlands	548
+Kenya	Russian Federation	2595
+Estonia	Austria	45
+Mauritania	United States	1302
+Hungary	Kenya	571
+Colombia	United Kingdom	437
+Argentina	Switzerland	1153
+Algeria	The Netherlands	25
+Japan	Portugal	423
+United States	Ukraine	76
+Spain	Algeria	47
+Germany	South Korea	1350
+Cameroon	Hungary	189
+Ireland	Czech Republic	164
+Georgia	Australia	59
+Saudi Arabia	Sweden	21
+India	Egypt	159
+Bangladesh	Malaysia	5
+Ghana	China	58
+Luxembourg	Brazil	17
+United States of America	China	70646
+Turkey	United States	1153
+Egypt	United States of America	11198
+The Netherlands	Denmark	1823
+United Kingdom	Ireland	3916
+Brazil	New Zealand	421
+Australia	Argentina	837
+Japan	New Zealand	615
+South Korea	Poland	533
+Switzerland	RSA	458
+Sweden	Spain	1775
+Portugal	India	91
+Singapore	Switzerland	397
+Slovenia	Turkey	189
+Croatia	RSA	29
+Hungary	Chile	233
+Benin	China	130
+Iran	United States	235
+RSA	Ireland	51
+Switzerland	Luxembourg	69
+Philippines	Denmark	62
+Mauritania	Norway	26
+Ghana	Iran	32
+Singapore	Slovenia	10
+Thailand	Republic of China	6
+Ukraine	Canada	32
+Mauritania	Palestinian Territory	4
+Costa Rica	Portugal	7
+Croatia	Luxembourg	2
+Kenya	Costa Rica	3
+Austria	United States	3100
+Spain	Czech Republic	846
+Australia	United Kingdom	22658
+Canada	Australia	8825
+France	Greece	2887
+Switzerland	Bulgaria	466
+United States of America	Iran	1561
+Sweden	Russian Federation	1747
+Bulgaria	Italy	540
+The Gambia	RSA	645
+RSA	The Gambia	645
+Spain	Ghana	46
+The Netherlands	Egypt	373
+Czech Republic	The Netherlands	685
+Chile	China	683
+Slovenia	The Netherlands	312
+Hungary	Brazil	310
+Switzerland	Thailand	155
+United States of America	Luxembourg	301
+Iran	Norway	97
+Republic of China	Georgia	44
+Georgia	Russian Federation	37
+Philippines	Egypt	10
+Uganda	Israel	49
+Indonesia	Poland	32
+Norway	Saudi Arabia	35
+Iran	Palestinian Territory	6
+Netherlands	Saudi Arabia	11
+RSA	Benin	9
+Slovakia	Indonesia	2
+Costa Rica	New Zealand	3
+Luxembourg	Turkey	3
+Croatia	Thailand	1
+Benin	Iran	1
+France	United Kingdom	20255
+Belgium	Israel	965
+United States of America	Bulgaria	3686
+Canada	Spain	2752
+Austria	Norway	316
+Greece	Japan	709
+Turkey	Philippines	44
+Colombia	Italy	740
+Australia	Algeria	79
+Luxembourg	The Netherlands	117
+Malaysia	Netherlands	71
+Sweden	Costa Rica	24
+Portugal	New Zealand	70
+Chile	Iran	58
+Slovakia	Malaysia	14
+Germany	Republic of China	73
+Ghana	Taiwan	12
+Austria	Palestinian Territory	12
+The Gambia	Thailand	10
+United States of America	Taiwan	17925
+Switzerland	Czech Republic	906
+China	South Korea	3376
+Japan	Poland	1254
+South Korea	United States	4261
+Canada	Russian Federation	1795
+Netherlands	Israel	849
+Brazil	Poland	756
+Norway	Israel	637
+Israel	RSA	417
+France	Algeria	136
+Netherlands	Hungary	149
+Russian Federation	RSA	268
+Malaysia	Spain	355
+Croatia	Czech Republic	58
+Norway	Hungary	122
+Ireland	Mexico	203
+Hungary	Turkey	238
+Israel	Luxembourg	24
+Benin	Taiwan	32
+Saudi Arabia	Israel	8
+Russian Federation	Luxembourg	9
+Saudi Arabia	Hungary	7
+China	United States of America	70646
+United Kingdom	Switzerland	9585
+Uganda	France	1670
+Australia	Italy	2637
+New Zealand	Japan	615
+United Kingdom	Slovenia	751
+South Korea	Norway	771
+Israel	Bulgaria	191
+Russian Federation	Bulgaria	1075
+India	Portugal	91
+Philippines	Sweden	101
+Turkey	Germany	1188
+Mauritania	Slovakia	8
+Slovakia	Greece	378
+RSA	Slovenia	163
+Chile	Taiwan	428
+Canada	Costa Rica	51
+Indonesia	United States	175
+Turkey	Mauritania	40
+Russian Federation	Thailand	127
+Finland	Malaysia	120
+Algeria	Japan	223
+South Korea	Palestinian Territory	14
+Costa Rica	Poland	3
+The Gambia	Czech Republic	9
+Belgium	France	7468
+France	Italy	6483
+Israel	Taiwan	442
+Spain	China	2893
+Malaysia	Belgium	171
+Poland	The Gambia	56
+Portugal	Poland	318
+Turkey	Slovakia	195
+India	New Zealand	220
+The Netherlands	India	281
+Cameroon	Canada	28
+Estonia	Switzerland	55
+Turkey	Singapore	39
+Egypt	Haiti	7
+Philippines	India	48
+Indonesia	Norway	33
+Malaysia	Costa Rica	2
+Poland	Benin	24
+Belgium	Lebanon	17
+RSA	Cameroon	3
+Costa Rica	Estonia	1
+Indonesia	Palestinian Territory	1
+Japan	United States	9875
+Brazil	United States	15860
+Netherlands	France	2080
+Czech Republic	Japan	918
+Ireland	Denmark	199
+Spain	Iran	179
+Austria	Slovakia	326
+Finland	Greece	690
+The Netherlands	Portugal	682
+Kenya	The Netherlands	602
+Slovenia	Japan	270
+Bulgaria	RSA	102
+Saudi Arabia	France	116
+Saudi Arabia	Lebanon	12
+Uganda	United States	112
+Mauritania	Colombia	51
+Portugal	Estonia	24
+Netherlands	Lebanon	15
+Cameroon	Philippines	3
+Norway	Bangladesh	3
+Ghana	Georgia	4
+Norway	Lebanon	2
+Finland	United Kingdom	5011
+Belgium	United States	6556
+Brazil	Norway	464
+Italy	South Korea	1189
+Japan	Norway	1814
+The Netherlands	New Zealand	548
+Switzerland	Mexico	763
+United States of America	Georgia	1458
+Luxembourg	Japan	15
+Turkey	Colombia	36
+Japan	Palestinian Territory	170
+Brazil	Palestinian Territory	131
+Croatia	Mexico	44
+Bulgaria	Thailand	27
+Ireland	Egypt	107
+Iran	Colombia	5
+Colombia	RSA	24
+Philippines	New Zealand	38
+Mexico	Ukraine	33
+Haiti	Austria	76
+Denmark	Indonesia	14
+Benin	Georgia	7
+Colombia	Luxembourg	7
+Sweden	The Netherlands	2638
+Italy	United States of America	46305
+Netherlands	United States	3262
+Spain	Taiwan	1015
+India	Poland	357
+Philippines	Israel	197
+Slovakia	Croatia	31
+South Korea	Slovakia	77
+Mauritania	Canada	100
+Taiwan	Malaysia	203
+Malaysia	Brazil	130
+Saudi Arabia	United States	125
+Uganda	Philippines	10
+Denmark	Malaysia	50
+Colombia	Bulgaria	11
+Austria	Colombia	67
+The Gambia	Mexico	16
+Belgium	Palestinian Territory	25
+Costa Rica	Norway	4
+Ukraine	Netherlands	8
+Palestinian Territory	Ireland	2
+Chile	Georgia	4
+Iran	Canada	819
+Australia	RSA	1244
+Norway	Canada	1096
+Portugal	Norway	272
+Australia	Luxembourg	76
+China	Haiti	391
+Portugal	Palestinian Territory	73
+Turkey	Australia	434
+Bulgaria	Czech Republic	276
+Poland	Cameroon	199
+Haiti	Ireland	114
+Belgium	Philippines	136
+Republic of China	Sweden	52
+Israel	Georgia	37
+Colombia	Taiwan	34
+Argentina	Malaysia	22
+Bangladesh	Argentina	17
+Egypt	Venezuela	4
+Denmark	Uganda	13
+Singapore	Indonesia	22
+Indonesia	Slovakia	2
+Cameroon	Singapore	13
+Venezuela	Czech Republic	2
+Palestinian Territory	The Gambia	1
+Palestinian Territory	Benin	2
+Canada	The Netherlands	3995
+Croatia	Denmark	87
+Austria	Australia	765
+Finland	Italy	1196
+The Netherlands	Poland	977
+Switzerland	Denmark	1193
+Turkey	Spain	790
+Russian Federation	Mexico	759
+Denmark	Greece	744
+Uganda	Germany	112
+France	RSA	861
+Greece	Finland	690
+Taiwan	Greece	473
+Australia	Bulgaria	349
+Malaysia	Turkey	94
+France	Luxembourg	169
+Singapore	Malaysia	332
+Norway	Philippines	89
+Netherlands	Philippines	89
+South Korea	Colombia	37
+Egypt	Yemen	4
+Haiti	Benin	15
+Haiti	The Gambia	2
+Saudi Arabia	Philippines	2
+Costa Rica	Hungary	1
+Uganda	Mauritania	1
+Belgium	Germany	5215
+United States of America	Denmark	9026
+Australia	Taiwan	1117
+Japan	Slovakia	447
+United States	Ireland	851
+Taiwan	United Kingdom	2657
+Thailand	Austria	106
+Malaysia	The Netherlands	89
+India	United States	875
+Ukraine	Belgium	40
+Switzerland	Egypt	352
+Kenya	Japan	479
+France	Bulgaria	1229
+Argentina	Greece	324
+Philippines	France	270
+Belgium	Mauritania	101
+Brazil	Slovakia	230
+Turkey	Russian Federation	492
+Greece	South Korea	364
+France	Thailand	235
+Ireland	India	152
+Uganda	Slovakia	4
+The Gambia	Denmark	130
+Republic of China	Saudi Arabia	4
+Georgia	Kenya	5
+Croatia	Egypt	11
+Slovenia	Ukraine	2
+Norway	Germany	1618
+Greece	United States of America	7357
+Mexico	United States of America	9191
+South Korea	Canada	2605
+Netherlands	Germany	2646
+Argentina	United Kingdom	4267
+United States	Benin	486
+South Korea	Australia	1312
+Belgium	Slovakia	179
+Saudi Arabia	Germany	162
+United States	The Gambia	348
+Palestinian Territory	Slovenia	109
+India	Norway	542
+New Zealand	Finland	399
+Belgium	Singapore	209
+Ireland	Portugal	109
+Egypt	Cameroon	103
+The Gambia	Egypt	46
+Singapore	Greece	83
+Ukraine	Kenya	101
+Norway	Mauritania	26
+Turkey	Costa Rica	1
+Netherlands	Mauritania	43
+Algeria	Finland	14
+Spain	Georgia	12
+India	Palestinian Territory	2
+Saudi Arabia	Mauritania	6
+Georgia	Chile	4
+Germany	Austria	4850
+The Netherlands	United States	7372
+Norway	Singapore	125
+Algeria	South Korea	7044
+Sweden	Japan	2071
+Russian Federation	Denmark	545
+Indonesia	Canada	117
+Haiti	Switzerland	497
+Israel	Denmark	664
+Brazil	Colombia	592
+Ireland	New Zealand	249
+Philippines	United States	309
+Haiti	Slovenia	143
+Italy	Haiti	518
+Japan	Colombia	163
+Bulgaria	Mexico	121
+Thailand	Ireland	91
+New Zealand	South Korea	461
+Saudi Arabia	Singapore	56
+Netherlands	Singapore	123
+United Kingdom	Indonesia	225
+Venezuela	Mexico	37
+Republic of China	Israel	19
+Republic of China	Hungary	9
+Hungary	Republic of China	9
+RSA	Indonesia	2
+Ukraine	Chile	10
+Bangladesh	Czech Republic	1
+China	Venezuela	3
+Venezuela	China	3
+Uganda	Colombia	1
+Colombia	Georgia	1
+New Zealand	United States of America	6505
+Denmark	Croatia	87
+Taiwan	Italy	1101
+United Kingdom	Malaysia	1784
+Israel	Egypt	284
+China	Yemen	1159
+The Netherlands	Norway	1006
+Czech Republic	Finland	550
+The Netherlands	Palestinian Territory	127
+Russian Federation	Egypt	208
+Ghana	Sweden	27
+Cameroon	Spain	222
+Belgium	Colombia	71
+Hungary	Ukraine	22
+Benin	Estonia	4
+Ukraine	Brazil	18
+Thailand	Benin	4
+Thailand	The Gambia	10
+Philippines	Palestinian Territory	2
+Portugal	Bangladesh	1
+Japan	Canada	6282
+Canada	Japan	6282
+Brazil	Australia	1766
+United States of America	Sweden	16963
+Japan	Australia	4236
+Brazil	Canada	6041
+Argentina	Italy	2452
+Germany	Ireland	821
+United States	Slovenia	543
+Croatia	India	31
+Finland	RSA	186
+Netherlands	Colombia	64
+Czech Republic	South Korea	316
+Switzerland	India	445
+Australia	Georgia	59
+RSA	Uganda	5
+Benin	Sweden	404
+Uganda	Australia	50
+Finland	Luxembourg	18
+Chile	Estonia	15
+United Kingdom	Greece	5161
+Germany	Benin	1299
+Belgium	Australia	1923
+Switzerland	Portugal	595
+Ireland	Poland	254
+Slovakia	Czech Republic	966
+Slovenia	United States of America	1185
+Malaysia	Japan	772
+Chile	Sweden	530
+China	Cameroon	214
+Costa Rica	Canada	51
+India	Slovakia	63
+Finland	Thailand	139
+Finland	Bulgaria	265
+Republic of China	France	72
+Cameroon	Belgium	204
+United States	Cameroon	225
+Germany	The Gambia	181
+Ukraine	Turkey	19
+Uganda	Spain	129
+The Gambia	India	9
+Mauritania	Netherlands	43
+Croatia	Portugal	34
+Singapore	Croatia	9
+Republic of China	Lebanon	2
+Ghana	Saudi Arabia	1
+Algeria	Republic of China	5
+Slovakia	Ghana	2
+Belgium	Spain	2243
+France	Mexico	2841
+Netherlands	Australia	1430
+Switzerland	New Zealand	457
+Portugal	Canada	551
+Bangladesh	China	3154
+Israel	Sweden	935
+Saudi Arabia	Australia	199
+Estonia	Greece	58
+Bulgaria	Egypt	124
+Philippines	Germany	512
+Greece	Haiti	248
+Colombia	Denmark	34
+Thailand	Switzerland	155
+Luxembourg	United States of America	301
+Uganda	Russian Federation	71
+The Gambia	Portugal	15
+Lebanon	Greece	12
+Ireland	Estonia	19
+Iran	Netherlands	37
+Benin	Saudi Arabia	3
+Croatia	New Zealand	9
+Italy	Venezuela	4
+Thailand	Slovenia	1
+Norway	Spain	762
+Belgium	Russian Federation	1114
+Turkey	The Netherlands	566
+Saudi Arabia	Spain	51
+Ghana	Israel	19
+Russian Federation	India	524
+Netherlands	Spain	1138
+The Gambia	New Zealand	84
+Israel	India	246
+Austria	Netherlands	304
+Denmark	Argentina	389
+The Netherlands	Slovakia	315
+Estonia	United Kingdom	498
+Lebanon	United Kingdom	250
+Republic of China	United States	133
+Colombia	Egypt	26
+Philippines	Slovakia	37
+Italy	Yemen	5
+India	Colombia	30
+Chile	Saudi Arabia	5
+Ghana	Hungary	3
+Bangladesh	Iran	4
+United States of America	Israel	24816
+Germany	Switzerland	9994
+Benin	Israel	128
+Hungary	United States of America	2710
+Russian Federation	Portugal	457
+Netherlands	Russian Federation	751
+Mauritania	Belgium	101
+Australia	Denmark	1949
+Taiwan	RSA	205
+Germany	Slovenia	542
+Norway	Russian Federation	745
+Benin	Hungary	40
+Cameroon	Brazil	189
+Saudi Arabia	Russian Federation	25
+Poland	Uganda	49
+Spain	Estonia	79
+New Zealand	Haiti	12
+Lebanon	Algeria	4
+Estonia	Algeria	3
+Taiwan	Bulgaria	194
+United Kingdom	Italy	11467
+France	Denmark	1989
+India	Canada	1222
+Israel	New Zealand	306
+Russian Federation	New Zealand	270
+Argentina	RSA	236
+India	Australia	671
+Switzerland	Poland	1204
+Spain	Sweden	1775
+Chile	Israel	486
+Australia	Egypt	437
+Mexico	Benin	17
+Slovakia	China	257
+Slovakia	Mexico	170
+Kenya	South Korea	275
+Croatia	Poland	70
+RSA	Croatia	29
+Ireland	Norway	108
+Taiwan	Thailand	156
+Chile	Hungary	233
+South Korea	Netherlands	175
+Italy	Cameroon	223
+Bangladesh	Taiwan	94
+Iran	Belgium	165
+The Netherlands	Colombia	93
+Yemen	Algeria	2
+Mauritania	Kenya	20
+Norway	Costa Rica	4
+Philippines	Colombia	4
+Republic of China	Philippines	7
+Netherlands	Costa Rica	8
+Ireland	Palestinian Territory	2
+Argentina	Luxembourg	2
+Kenya	United States of America	3278
+Austria	Belgium	964
+Sweden	Finland	3210
+Italy	Austria	1022
+France	Egypt	458
+Colombia	Sweden	102
+Czech Republic	Haiti	242
+Bulgaria	India	88
+Ghana	France	46
+The Gambia	Poland	56
+Slovenia	Haiti	143
+Argentina	Bulgaria	99
+Estonia	Italy	67
+Cameroon	Turkey	185
+Argentina	Thailand	15
+Switzerland	Estonia	55
+Mexico	Venezuela	37
+Iran	Kenya	85
+Croatia	Estonia	12
+Lebanon	Italy	48
+Greece	Venezuela	1
+Mauritania	Chile	14
+Georgia	Finland	4
+Indonesia	Netherlands	8
+Palestinian Territory	Indonesia	1
+United States of America	France	50538
+The Netherlands	Canada	3995
+United States of America	Lebanon	828
+Georgia	South Korea	978
+Spain	Saudi Arabia	51
+Sweden	South Korea	411
+Taiwan	Czech Republic	457
+Finland	Mexico	405
+Denmark	Ghana	33
+Denmark	Czech Republic	409
+Palestinian Territory	Malaysia	5
+Philippines	Australia	273
+Cameroon	The Netherlands	27
+Mauritania	Brazil	34
+Austria	Kenya	406
+Bulgaria	Portugal	103
+Singapore	Thailand	86
+Iran	Chile	58
+Republic of China	Germany	73
+The Gambia	Estonia	12
+Colombia	India	30
+Benin	Lebanon	2
+Venezuela	Portugal	1
+Yemen	Ghana	1
+Yemen	Czech Republic	2
+Luxembourg	Haiti	1
+Switzerland	United States	5485
+Chile	France	2233
+Canada	Finland	1631
+Sweden	United States of America	16963
+Australia	Sweden	2527
+Norway	Brazil	464
+Russian Federation	Poland	1888
+Japan	Netherlands	811
+Brazil	Netherlands	655
+Turkey	Japan	561
+South Korea	Belgium	622
+Austria	Chile	320
+Argentina	Czech Republic	258
+Bulgaria	New Zealand	47
+Republic of China	Singapore	93
+Iran	Brazil	79
+Haiti	Malaysia	11
+Chile	Lebanon	15
+New Zealand	Venezuela	2
+Chile	Bangladesh	3
+United States of America	United States	119990
+Canada	South Korea	2605
+Switzerland	Norway	739
+Israel	France	3231
+Philippines	Russian Federation	200
+RSA	Argentina	236
+Australia	India	671
+Spain	Hungary	370
+Spain	Israel	1134
+Switzerland	Palestinian Territory	122
+United States	Indonesia	175
+South Korea	Kenya	275
+Croatia	Norway	38
+Poland	Croatia	70
+Mauritania	Turkey	40
+Ireland	Slovakia	10
+Indonesia	Belgium	76
+Uganda	The Netherlands	46
+Mexico	Cameroon	195
+Haiti	Uganda	73
+Colombia	New Zealand	11
+Croatia	Palestinian Territory	5
+Algeria	Yemen	2
+Singapore	Czech Republic	33
+Bangladesh	Georgia	9
+Israel	Lebanon	16
+Costa Rica	Netherlands	8
+Singapore	Ghana	6
+New Zealand	Yemen	6
+Greece	Austria	462
+Canada	United States of America	90232
+United Kingdom	RSA	3057
+Belgium	The Netherlands	5542
+Portugal	Netherlands	483
+France	India	1200
+Finland	Denmark	1232
+South Korea	Chile	367
+United States of America	Palestinian Territory	323
+Benin	Canada	325
+Colombia	Israel	60
+Georgia	Republic of China	44
+The Gambia	Norway	51
+Iran	Turkey	117
+Indonesia	Kenya	5
+Republic of China	Colombia	19
+Czech Republic	Venezuela	2
+The Gambia	Palestinian Territory	1
+Israel	United States	3292
+Malaysia	United States of America	1335
+Japan	Belgium	4472
+Bulgaria	Poland	650
+Australia	New Zealand	4727
+Netherlands	The Netherlands	10972
+Brazil	Belgium	1167
+Denmark	China	1530
+France	Portugal	1681
+United States of America	Philippines	1732
+Russian Federation	United States	3325
+Chile	Canada	1259
+United Kingdom	Thailand	685
+Yemen	China	1159
+Norway	The Netherlands	1006
+South Korea	Brazil	474
+Kenya	Haiti	107
+Indonesia	Chile	17
+Denmark	Mexico	299
+Austria	Turkey	210
+Finland	Egypt	267
+Thailand	Indonesia	5
+Taiwan	Mexico	264
+Estonia	RSA	19
+United States	Uganda	112
+RSA	Algeria	4
+Benin	Philippines	4
+Saudi Arabia	The Netherlands	47
+Lebanon	RSA	10
+Lebanon	Luxembourg	2
+Czech Republic	Yemen	2
+Estonia	Luxembourg	2
+Venezuela	Poland	1
+Ukraine	Republic of China	1
+Australia	Israel	1660
+Spain	France	6333
+New Zealand	Austria	251
+France	New Zealand	762
+Italy	Switzerland	3144
+Republic of China	Australia	202
+Brazil	Kenya	402
+Japan	Kenya	479
+Argentina	Mexico	558
+Ghana	Germany	138
+Israel	Palestinian Territory	124
+Russian Federation	Palestinian Territory	115
+Russian Federation	Norway	745
+Hungary	Benin	40
+Lebanon	Thailand	8
+Thailand	Malaysia	151
+Cameroon	Japan	100
+Spain	Bangladesh	93
+Denmark	Iran	76
+Bulgaria	Estonia	67
+Estonia	Bulgaria	67
+Lebanon	Bulgaria	8
+Spain	Lebanon	27
+Chile	Philippines	24
+Hungary	The Gambia	8
+Indonesia	Brazil	22
+Ghana	Mauritania	4
+Algeria	Austria	11
+Costa Rica	Belgium	10
+Estonia	Thailand	1
+United Kingdom	Czech Republic	2554
+United States of America	Germany	51048
+Singapore	China	7442
+Ireland	Canada	775
+Portugal	Belgium	597
+Benin	Germany	1299
+Poland	Argentina	543
+United States of America	Mauritania	901
+Brazil	Chile	1365
+Singapore	Mexico	86
+RSA	Czech Republic	292
+Japan	Chile	602
+South Korea	Turkey	316
+Colombia	France	439
+Sweden	Haiti	289
+Switzerland	Slovakia	373
+Germany	Indonesia	86
+India	Netherlands	95
+Palestinian Territory	Croatia	5
+Republic of China	Spain	26
+RSA	Ghana	6
+Benin	Mauritania	7
+Ghana	Singapore	6
+Colombia	Lebanon	3
+Slovenia	Cameroon	1
+Costa Rica	Kenya	3
+Chile	Germany	1355
+Czech Republic	Austria	557
+United States of America	Slovakia	1197
+Japan	Brazil	1336
+Denmark	Taiwan	259
+Taiwan	Denmark	259
+Slovakia	Portugal	157
+Portugal	Kenya	158
+Haiti	Croatia	26
+Germany	Malaysia	256
+Thailand	Greece	121
+Benin	Singapore	21
+Costa Rica	Chile	46
+Indonesia	Turkey	12
+Uganda	Japan	55
+Singapore	Iran	40
+Yemen	Taiwan	8
+Republic of China	Russian Federation	15
+Algeria	Ireland	5
+Chile	Mauritania	14
+Israel	Germany	3682
+Belgium	Japan	4472
+The Netherlands	Netherlands	10972
+France	Poland	4557
+Australia	France	4012
+Canada	Haiti	475
+Colombia	United States	1404
+Bulgaria	Norway	173
+Thailand	United Kingdom	685
+Mauritania	Finland	42
+Australia	Lebanon	43
+Finland	India	345
+Argentina	Denmark	389
+Portugal	Chile	268
+Bulgaria	Palestinian Territory	13
+Costa Rica	Brazil	110
+Taiwan	Egypt	198
+Poland	Algeria	21
+Chile	Singapore	55
+Algeria	The Gambia	1
+Kenya	Venezuela	1
+The Gambia	Bangladesh	1
+Germany	Greece	2741
+Portugal	Brazil	1719
+United States of America	Colombia	1696
+Greece	Switzerland	2726
+Norway	Japan	1814
+Netherlands	Japan	811
+Japan	Turkey	561
+Israel	Slovakia	248
+Spain	Philippines	161
+Turkey	Finland	366
+India	Belgium	424
+Finland	Portugal	242
+Philippines	The Netherlands	310
+Russian Federation	Slovakia	676
+Brazil	Turkey	474
+United States	Croatia	337
+Hungary	Cameroon	189
+Saudi Arabia	Japan	126
+Egypt	Greece	295
+Argentina	Egypt	73
+Malaysia	Haiti	11
+Colombia	Palestinian Territory	2
+Kenya	Yemen	1
+Australia	United States	5391
+Switzerland	Canada	3666
+United Kingdom	Mexico	3303
+Egypt	United Kingdom	2029
+Ukraine	United States of America	714
+India	Kenya	287
+Turkey	South Korea	316
+Bangladesh	Sweden	41
+RSA	China	457
+Palestinian Territory	Argentina	110
+Austria	Finland	508
+Finland	New Zealand	399
+Croatia	Canada	67
+Costa Rica	Turkey	1
+Sweden	Venezuela	5
+Colombia	Philippines	4
+Poland	Ghana	9
+United States of America	Australia	37998
+Spain	Germany	4282
+The Netherlands	Belgium	5542
+France	United States	11364
+Slovakia	Poland	567
+New Zealand	Switzerland	457
+Spain	Mauritania	97
+Ghana	Spain	46
+India	Chile	281
+Russian Federation	Colombia	149
+The Gambia	Canada	289
+Australia	Palestinian Territory	118
+Haiti	Argentina	277
+Portugal	Turkey	186
+Algeria	Switzerland	53
+Israel	Colombia	60
+Kenya	Cameroon	169
+Denmark	Georgia	11
+Sweden	Yemen	7
+RSA	Iran	17
+Yemen	Georgia	9
+Egypt	Algeria	15
+Estonia	Mexico	10
+Lebanon	Mexico	7
+Thailand	Croatia	1
+United States of America	Spain	16918
+Taiwan	India	441
+France	Norway	1377
+Colombia	Germany	282
+Philippines	Kenya	125
+India	Brazil	408
+The Netherlands	Kenya	602
+Benin	Spain	65
+France	Palestinian Territory	120
+South Korea	Finland	378
+Spain	Singapore	151
+Bangladesh	Saudi Arabia	8
+Kenya	Austria	406
+Mexico	Uganda	60
+Slovakia	Estonia	24
+Canada	Venezuela	28
+Germany	Croatia	347
+Israel	Australia	1660
+United States of America	Russian Federation	14398
+Finland	Poland	734
+Chile	Spain	1623
+Czech Republic	Switzerland	906
+Russian Federation	Canada	1795
+United States	Argentina	2352
+The Netherlands	Chile	1008
+China	Greece	860
+Egypt	Italy	1351
+Denmark	Portugal	445
+Taiwan	Portugal	178
+RSA	Taiwan	205
+Czech Republic	Slovenia	331
+Argentina	India	105
+Bulgaria	Bangladesh	12
+Mauritania	Ukraine	3
+Canada	Yemen	34
+Iran	Republic of China	4
+Malaysia	Venezuela	7
+Philippines	Chile	24
+Benin	Russian Federation	44
+Colombia	Slovakia	9
+Ghana	Costa Rica	1
+China	United Kingdom	24787
+Australia	Germany	5476
+The Netherlands	Brazil	1095
+Poland	China	923
+Ireland	Netherlands	283
+Chile	Russian Federation	493
+Taiwan	New Zealand	346
+United Kingdom	Egypt	2029
+Estonia	Denmark	135
+Sweden	Austria	814
+Palestinian Territory	Czech Republic	111
+Argentina	Portugal	249
+India	Turkey	219
+Lebanon	Denmark	9
+Bangladesh	Israel	10
+Austria	Republic of China	11
+Palestinian Territory	Ghana	4
+Republic of China	The Netherlands	31
+Georgia	Austria	11
+Malaysia	Yemen	2
+Cameroon	United States of America	614
+Argentina	New Zealand	85
+Japan	Finland	1969
+Uganda	Finland	7
+Slovakia	Norway	319
+Haiti	Czech Republic	242
+Australia	Slovakia	237
+Israel	Russian Federation	1118
+China	Algeria	222
+United States	Algeria	566
+Brazil	Finland	508
+Poland	Iran	72
+Chile	Costa Rica	46
+Singapore	Portugal	25
+Lebanon	Egypt	38
+Estonia	Egypt	8
+Slovakia	Saudi Arabia	6
+Finland	United States	2762
+Poland	Bulgaria	650
+Spain	Australia	1783
+The Netherlands	Turkey	566
+Belgium	Finland	1054
+Canada	Austria	1227
+France	Slovakia	801
+Bulgaria	Canada	564
+Turkey	Haiti	162
+Malaysia	Cameroon	62
+South Korea	Republic of China	71
+Uganda	South Korea	9
+Venezuela	Canada	28
+Georgia	Ireland	7
+Slovenia	Uganda	4
+China	Italy	4092
+Germany	Argentina	1126
+Denmark	Poland	579
+Finland	Norway	805
+Italy	Greece	1516
+Poland	Taiwan	523
+Taiwan	Poland	523
+United States	Ghana	280
+Ireland	Belgium	426
+Netherlands	Finland	532
+Belgium	South Korea	622
+Slovakia	Hungary	170
+Bangladesh	France	70
+Saudi Arabia	Finland	19
+Australia	Colombia	86
+Colombia	Australia	86
+Finland	Palestinian Territory	16
+South Korea	Ukraine	63
+Indonesia	Republic of China	10
+Georgia	Benin	7
+Ukraine	Ireland	1
+Benin	Brazil	21
+RSA	Georgia	7
+Georgia	The Gambia	1
+United Kingdom	India	2749
+Italy	United Kingdom	11467
+Argentina	Poland	543
+Saudi Arabia	South Korea	138
+Norway	South Korea	771
+Chile	Brazil	1365
+Switzerland	Netherlands	1155
+Denmark	Estonia	135
+Kenya	Switzerland	563
+Spain	Russian Federation	1432
+France	Colombia	439
+Palestinian Territory	China	121
+Netherlands	South Korea	175
+Croatia	Netherlands	41
+Ireland	Kenya	91
+Egypt	RSA	55
+Taiwan	Estonia	2
+Norway	United States of America	5729
+Netherlands	United States of America	8361
+United Kingdom	Portugal	3118
+Saudi Arabia	United States of America	1214
+Egypt	Bulgaria	124
+Denmark	Sweden	3410
+Ireland	Chile	152
+Colombia	Russian Federation	149
+Spain	Costa Rica	91
+Haiti	China	391
+Ghana	The Netherlands	88
+Brazil	Republic of China	17
+Republic of China	Japan	362
+Japan	Republic of China	362
+Singapore	Poland	128
+Greece	Malaysia	104
+Thailand	Czech Republic	114
+The Gambia	Netherlands	73
+Egypt	Thailand	120
+Yemen	Sweden	7
+Estonia	India	8
+Thailand	Ghana	11
+Palestinian Territory	Iran	6
+Hungary	Uganda	22
+Italy	Algeria	60
+Lebanon	India	8
+Argentina	Estonia	5
+France	Canada	8978
+Sweden	Switzerland	1879
+United Kingdom	New Zealand	4516
+United States of America	The Netherlands	21278
+France	Australia	4012
+Georgia	Switzerland	23
+India	Finland	345
+Benin	The Netherlands	176
+Ireland	Brazil	304
+Japan	Ukraine	73
+Estonia	Portugal	24
+Algeria	Indonesia	20
+Slovakia	Bangladesh	4
+Belgium	Republic of China	20
+Georgia	Slovenia	1
+Brazil	Ukraine	18
+Singapore	Estonia	11
+Cameroon	Haiti	2
+Lebanon	Portugal	5
+Haiti	Iran	3
+Germany	Czech Republic	2326
+United States	China	8829
+Australia	Russian Federation	1183
+Switzerland	Belgium	2306
+Taiwan	Norway	777
+Chile	The Netherlands	1008
+Croatia	Belgium	92
+Denmark	Norway	1247
+New Zealand	Malaysia	243
+Russian Federation	Netherlands	751
+Mexico	Argentina	558
+Germany	Ghana	138
+Taiwan	Palestinian Territory	113
+Palestinian Territory	Taiwan	113
+Finland	Slovakia	223
+Estonia	New Zealand	34
+Denmark	Saudi Arabia	37
+Portugal	Republic of China	15
+Lebanon	New Zealand	10
+Bangladesh	Philippines	8
+Algeria	Malaysia	14
+Poland	Georgia	3
+Greece	United Kingdom	5161
+Canada	Switzerland	3666
+Argentina	Norway	316
+Switzerland	Kenya	563
+Haiti	Taiwan	231
+The Netherlands	Finland	1306
+China	RSA	457
+Argentina	Palestinian Territory	110
+Croatia	Kenya	49
+China	Luxembourg	59
+Ireland	Turkey	110
+Philippines	Finland	113
+United States	Iran	235
+Portugal	Ukraine	12
+The Gambia	Belgium	79
+Uganda	Haiti	73
+United Kingdom	Poland	5749
+Singapore	Norway	125
+China	Bulgaria	1261
+Belgium	Haiti	230
+Yemen	Israel	6
+Switzerland	Chile	856
+Slovakia	Canada	428
+New Zealand	Greece	261
+Denmark	Hungary	218
+China	Thailand	233
+Thailand	China	233
+Czech Republic	Malaysia	85
+Thailand	Mexico	120
+Singapore	Saudi Arabia	56
+Algeria	Greece	18
+Bangladesh	Germany	60
+Finland	Colombia	60
+Philippines	South Korea	167
+Mexico	Algeria	2
+Croatia	Chile	11
+The Gambia	Kenya	8
+Yemen	Hungary	1
+Bangladesh	Mauritania	1
+Hungary	Croatia	62
+New Zealand	United Kingdom	4516
+Switzerland	Brazil	1212
+United States	Taiwan	1252
+Russian Federation	Belgium	1114
+Bangladesh	Singapore	190
+Bulgaria	Netherlands	163
+Norway	Haiti	275
+Netherlands	Haiti	308
+Algeria	United Kingdom	277
+United Kingdom	Estonia	498
+Croatia	Brazil	54
+Turkey	Austria	210
+Ghana	Japan	93
+RSA	Estonia	19
+Estonia	Poland	60
+Thailand	Iran	36
+Slovakia	Philippines	37
+Lebanon	Poland	7
+The Gambia	Chile	10
+India	Republic of China	6
+Venezuela	Netherlands	1
+Germany	China	5655
+United States of America	Japan	48178
+Finland	Canada	1631
+Spain	The Netherlands	2334
+Czech Republic	Greece	781
+Germany	Mexico	1464
+Greece	Italy	1516
+RSA	Sweden	578
+Russian Federation	Kenya	2595
+Slovenia	Argentina	274
+Lebanon	France	114
+Israel	Kenya	274
+Benin	Japan	171
+Singapore	Hungary	29
+Venezuela	Spain	83
+Mexico	Ghana	16
+Egypt	Mexico	160
+Mauritania	Ireland	10
+The Gambia	Brazil	38
+Palestinian Territory	Georgia	4
+India	Ukraine	3
+Czech Republic	United Kingdom	2554
+Russian Federation	Chile	493
+Switzerland	Turkey	627
+Slovenia	United Kingdom	751
+Israel	Chile	486
+Chile	Japan	602
+Italy	RSA	468
+Iran	Ireland	58
+Slovakia	Mauritania	8
+Argentina	Slovakia	191
+Germany	Iran	268
+Costa Rica	United States of America	516
+Denmark	Lebanon	9
+Turkey	Ireland	110
+Taiwan	Bangladesh	94
+Italy	Luxembourg	67
+Yemen	France	36
+Denmark	Bangladesh	32
+Croatia	Turkey	36
+Yemen	Bangladesh	15
+Mauritania	The Gambia	8
+Mauritania	Benin	7
+The Netherlands	Republic of China	31
+Philippines	Republic of China	7
+Luxembourg	Argentina	2
+United Kingdom	Norway	3088
+Portugal	United States of America	3843
+Luxembourg	United Kingdom	301
+Italy	Bulgaria	540
+Austria	Ireland	199
+Estonia	United States	310
+Bulgaria	Belgium	587
+RSA	Saudi Arabia	51
+South Korea	Austria	251
+Russian Federation	Brazil	896
+New Zealand	Italy	649
+Lebanon	United States	84
+Iran	The Gambia	4
+Italy	Thailand	152
+The Netherlands	Ukraine	59
+Argentina	Bangladesh	17
+Slovakia	Singapore	9
+Algeria	Italy	60
+The Gambia	Turkey	10
+Republic of China	Finland	7
+Venezuela	Costa Rica	4
+Venezuela	Belgium	5
+Iran	Benin	1
+Estonia	Norway	83
+France	Netherlands	2080
+United States	Georgia	114
+Singapore	Bangladesh	190
+Bulgaria	Kenya	330
+Egypt	Denmark	236
+Austria	Benin	95
+Bangladesh	Australia	169
+Estonia	Palestinian Territory	3
+Hungary	Argentina	68
+Republic of China	South Korea	71
+Austria	The Gambia	16
+Lebanon	Palestinian Territory	2
+Belgium	Yemen	5
+Lebanon	Norway	2
+Netherlands	Venezuela	1
+Bulgaria	Chile	48
+Denmark	Canada	1929
+Republic of China	United States of America	1502
+Czech Republic	Italy	1043
+Taiwan	Canada	1417
+Poland	Sweden	1290
+Colombia	Kenya	45
+Mexico	China	789
+China	Mexico	789
+RSA	Israel	417
+Russian Federation	Turkey	492
+Slovenia	Italy	423
+RSA	Hungary	74
+South Korea	Ireland	142
+Bangladesh	Spain	93
+Georgia	Indonesia	10
+Netherlands	Yemen	7
+Mauritania	Slovenia	4
+Norway	Yemen	1
+Colombia	Chile	662
+Brazil	Austria	373
+Turkey	Switzerland	627
+Sweden	Malaysia	81
+Spain	Japan	2959
+South Korea	Benin	76
+Argentina	Canada	1412
+Greece	RSA	286
+Turkey	Slovenia	189
+Kenya	Greece	507
+Bulgaria	Brazil	166
+Bangladesh	Russian Federation	23
+Luxembourg	Italy	67
+Uganda	Austria	19
+Mexico	Luxembourg	20
+Georgia	Malaysia	12
+Mexico	Iran	85
+Venezuela	Brazil	28
+Denmark	Philippines	62
+Greece	Luxembourg	27
+South Korea	The Gambia	13
+Iran	Slovenia	4
+Indonesia	Ireland	3
+Yemen	Philippines	2
+Hungary	Algeria	4
+France	Belgium	7468
+Belgium	Austria	964
+Austria	Switzerland	1545
+Kenya	United Kingdom	1546
+Greece	Bulgaria	296
+Singapore	Canada	1487
+Australia	Kenya	417
+Slovakia	Netherlands	211
+Austria	Slovenia	123
+Mexico	Bulgaria	121
+Greece	Thailand	121
+Norway	Cameroon	40
+Iran	Cameroon	49
+Poland	Saudi Arabia	23
+Indonesia	Benin	1
+China	Denmark	1530
+France	Kenya	1442
+Denmark	Germany	2957
+Australia	Chile	1044
+Canada	Malaysia	344
+Bulgaria	Turkey	196
+Slovakia	Spain	297
+United Kingdom	Bangladesh	486
+Sweden	Greece	1175
+RSA	France	861
+Netherlands	Austria	304
+New Zealand	RSA	210
+Yemen	Germany	21
+Mexico	Taiwan	264
+Brazil	Ireland	304
+Saudi Arabia	Austria	15
+Singapore	Philippines	43
+Palestinian Territory	Estonia	3
+Japan	Ireland	195
+Algeria	RSA	4
+Denmark	Mauritania	54
+Kenya	Algeria	6
+Georgia	Greece	8
+Uganda	Ireland	9
+Estonia	Slovakia	24
+Hungary	Ghana	3
+New Zealand	Luxembourg	9
+Ukraine	Uganda	4
+Ireland	Republic of China	3
+RSA	Lebanon	10
+Thailand	Portugal	9
+Lebanon	Slovakia	1
+United States of America	Finland	8230
+Sweden	United Kingdom	8961
+France	Chile	2233
+China	Egypt	566
+Greece	Czech Republic	781
+Poland	Israel	585
+Belgium	Ireland	426
+Italy	Mexico	1837
+Finland	Netherlands	532
+Palestinian Territory	Sweden	127
+South Korea	Switzerland	726
+Japan	Benin	171
+Poland	Hungary	458
+New Zealand	Bulgaria	47
+South Korea	Slovenia	31
+Uganda	The Gambia	4
+Thailand	New Zealand	151
+New Zealand	Thailand	151
+Denmark	Singapore	276
+Egypt	India	159
+Yemen	Singapore	43
+Japan	The Gambia	89
+Ireland	Ukraine	1
+Brazil	The Gambia	38
+Brazil	Benin	21
+Ghana	South Korea	13
+Algeria	Thailand	9
+Haiti	Estonia	3
+United States of America	South Korea	23976
+Canada	Greece	1319
+France	Brazil	3808
+Ghana	United States of America	479
+Germany	Portugal	1296
+Kenya	Italy	636
+Czech Republic	RSA	292
+Egypt	Portugal	25
+Slovakia	Belgium	179
+Benin	South Korea	76
+Haiti	Sweden	289
+Slovenia	RSA	163
+Singapore	Mauritania	7
+Estonia	Colombia	3
+Slovenia	Luxembourg	3
+Czech Republic	Luxembourg	7
+Lebanon	Colombia	3
+Slovakia	Costa Rica	1
+United Kingdom	Canada	24547
+Canada	United Kingdom	24547
+Benin	United States of America	5245
+Chile	South Korea	367
+Czech Republic	Bulgaria	276
+Luxembourg	RSA	5
+Israel	Finland	432
+Egypt	New Zealand	154
+Czech Republic	Thailand	114
+India	Austria	162
+Slovenia	Bulgaria	42
+Palestinian Territory	Saudi Arabia	22
+Portugal	The Gambia	15
+Malaysia	Argentina	22
+Algeria	Czech Republic	3
+Portugal	Benin	8
+Costa Rica	Venezuela	4
+United States	Sweden	10120
+Poland	France	4557
+Sweden	Italy	2270
+Malaysia	United Kingdom	1784
+Chile	United States of America	7655
+Finland	Belgium	1054
+Italy	Denmark	1210
+Lebanon	Australia	43
+France	Turkey	864
+Japan	Slovenia	270
+Slovenia	Taiwan	184
+Brazil	Slovenia	205
+Israel	South Korea	400
+Hungary	China	340
+Thailand	Poland	122
+Estonia	Canada	118
+RSA	Philippines	94
+Georgia	Croatia	3
+Mexico	Georgia	7
+Uganda	Switzerland	62
+Switzerland	Republic of China	47
+Luxembourg	Bulgaria	8
+Poland	Lebanon	7
+Uganda	Slovenia	4
+Croatia	Republic of China	1
+Taiwan	Netherlands	295
+United States of America	Republic of China	1502
+Finland	Kenya	412
+Belgium	Switzerland	2306
+Greece	Mexico	519
+China	India	688
+Italy	Egypt	1351
+Slovakia	Brazil	230
+Palestinian Territory	Israel	124
+Philippines	Austria	82
+India	Ireland	152
+Belgium	Slovenia	129
+Bangladesh	The Netherlands	26
+Hungary	Iran	52
+Switzerland	Ukraine	15
+Yemen	Australia	39
+Palestinian Territory	Hungary	10
+Malaysia	Algeria	14
+Thailand	Estonia	1
+Ukraine	Croatia	4
+Croatia	Ukraine	4
+Canada	Italy	8102
+RSA	Germany	1037
+Germany	Poland	2841
+Poland	United States	2389
+Hungary	Bulgaria	244
+Saudi Arabia	Switzerland	10
+Denmark	Spain	996
+Spain	Finland	1087
+Netherlands	Switzerland	1155
+Finland	Chile	413
+Argentina	Netherlands	463
+China	Portugal	559
+Haiti	Israel	263
+Haiti	Hungary	84
+Egypt	Poland	191
+India	Benin	18
+United States	Saudi Arabia	125
+India	The Gambia	9
+Mauritania	Indonesia	5
+Yemen	Spain	4
+Venezuela	Japan	3
+RSA	Mauritania	7
+China	New Zealand	1208
+Denmark	Russian Federation	545
+Spain	South Korea	793
+The Netherlands	Ireland	491
+Slovakia	Turkey	195
+Kenya	RSA	155
+Finland	Brazil	508
+Germany	Estonia	274
+Kenya	Luxembourg	5
+New Zealand	Mexico	279
+Malaysia	Italy	135
+Hungary	Taiwan	238
+Singapore	Netherlands	123
+Israel	Republic of China	19
+Turkey	Indonesia	12
+Colombia	Finland	60
+Mauritania	Malaysia	9
+Republic of China	Yemen	16
+Algeria	Mexico	2
+RSA	Singapore	77
+Philippines	Ireland	22
+Russian Federation	Republic of China	15
+Portugal	Cameroon	18
+Yemen	Russian Federation	14
+Iran	Indonesia	1
+United States	Israel	3292
+Spain	United States of America	16918
+Denmark	Belgium	1349
+United States of America	Haiti	1847
+United States	Hungary	970
+Greece	Denmark	744
+Taiwan	Belgium	413
+Russian Federation	Ukraine	978
+Poland	Philippines	293
+Kenya	Bulgaria	330
+The Netherlands	The Gambia	174
+Slovakia	The Netherlands	315
+Palestinian Territory	France	120
+Austria	Indonesia	41
+Mexico	Denmark	299
+Singapore	Spain	151
+The Netherlands	Benin	176
+Turkey	Malaysia	94
+Thailand	Norway	43
+Thailand	Saudi Arabia	4
+Kenya	Thailand	78
+Denmark	Costa Rica	8
+Georgia	Argentina	7
+Colombia	South Korea	37
+Philippines	Benin	4
+Slovenia	Georgia	1
+Philippines	The Gambia	10
+Palestinian Territory	Lebanon	2
+Benin	Haiti	15
+Palestinian Territory	Bangladesh	1
+Mauritania	Uganda	1
+Australia	Finland	935
+Haiti	France	3021
+Sweden	RSA	578
+Egypt	United States	2867
+Italy	India	564
+Argentina	Belgium	618
+Finland	Turkey	366
+Chile	Haiti	169
+Sweden	Luxembourg	37
+Czech Republic	Mexico	416
+India	Slovenia	44
+Austria	Malaysia	52
+Greece	Egypt	295
+Taiwan	Kenya	273
+Ukraine	Argentina	6
+Iran	Uganda	2
+France	Finland	1939
+Germany	Norway	1618
+Poland	Germany	2841
+China	Poland	923
+Italy	Portugal	737
+Bulgaria	Republic of China	92
+Australia	South Korea	1312
+Turkey	Greece	550
+Bangladesh	Japan	122
+Germany	Saudi Arabia	162
+Croatia	United States of America	737
+Taiwan	Chile	428
+Sweden	Bulgaria	428
+Argentina	Kenya	96
+Singapore	Belgium	209
+New Zealand	Denmark	299
+Thailand	Hungary	109
+Austria	Uganda	19
+Sweden	Thailand	85
+Egypt	Norway	90
+South Korea	Indonesia	82
+Poland	Mauritania	22
+Republic of China	Austria	11
+Egypt	Palestinian Territory	7
+Singapore	Costa Rica	6
+Austria	Greece	462
+United States	France	11364
+Denmark	Brazil	635
+Turkey	United Kingdom	1693
+Poland	Slovakia	567
+RSA	Australia	1244
+United Kingdom	Netherlands	5562
+Taiwan	Brazil	495
+Argentina	Chile	1629
+The Gambia	United States of America	1086
+Canada	RSA	984
+The Netherlands	Slovenia	312
+Italy	New Zealand	649
+United States	Lebanon	84
+Canada	Luxembourg	78
+Poland	Singapore	128
+New Zealand	Egypt	154
+South Korea	Malaysia	245
+Philippines	Switzerland	117
+Bulgaria	Ukraine	64
+Philippines	Slovenia	33
+Colombia	Republic of China	19
+Algeria	Egypt	15
+Ukraine	Algeria	1
+Hungary	Georgia	2
+Argentina	Brazil	1026
+Mexico	Sweden	625
+Germany	Hungary	1277
+Sweden	Czech Republic	759
+Slovenia	Denmark	208
+Canada	Bulgaria	564
+Czech Republic	Denmark	409
+RSA	Spain	366
+Malaysia	RSA	47
+Canada	Thailand	225
+Estonia	Netherlands	51
+Lebanon	Netherlands	15
+South Korea	Uganda	9
+Georgia	Czech Republic	5
+Ghana	Yemen	1
+Malaysia	Luxembourg	1
+Georgia	Ghana	4
+Palestinian Territory	Philippines	2
+China	United States	8829
+Japan	Indonesia	4288
+Slovakia	Japan	447
+Singapore	Brazil	174
+Australia	Republic of China	202
+Greece	India	288
+Spain	Haiti	510
+United States of America	Yemen	366
+Poland	Colombia	63
+Taiwan	Turkey	395
+RSA	Russian Federation	268
+Czech Republic	Egypt	172
+Malaysia	Bulgaria	29
+Benin	Yemen	7
+Chile	Venezuela	87
+Haiti	Philippines	10
+Thailand	Bangladesh	1
+Luxembourg	Denmark	20
+Brazil	Indonesia	22
+Mauritania	Croatia	11
+Slovenia	Egypt	9
+United Kingdom	Belgium	9403
+Italy	Poland	1440
+Denmark	The Netherlands	1823
+China	Norway	964
+Kenya	Mexico	357
+Japan	Malaysia	772
+Turkey	Italy	751
+Greece	Portugal	455
+China	Palestinian Territory	121
+Palestinian Territory	Germany	155
+Argentina	Turkey	224
+Ireland	The Gambia	22
+Belgium	Indonesia	76
+Malaysia	Taiwan	203
+France	Republic of China	72
+Brazil	Malaysia	130
+Egypt	Slovakia	29
+United Kingdom	Costa Rica	76
+Ireland	Benin	35
+Yemen	The Netherlands	4
+Palestinian Territory	Mauritania	4
+Iran	Croatia	3
+RSA	Costa Rica	4
+Chile	Yemen	1
+United Kingdom	Kenya	1546
+Belgium	Malaysia	171
+France	Ukraine	219
+Estonia	Belgium	108
+Haiti	Germany	564
+Cameroon	United Kingdom	303
+United States	Philippines	309
+Poland	Australia	957
+New Zealand	India	220
+Greece	New Zealand	261
+Singapore	Turkey	39
+Austria	Croatia	103
+Germany	Bangladesh	60
+Japan	Uganda	55
+Brazil	Uganda	52
+Algeria	India	35
+Germany	Lebanon	47
+Lebanon	Belgium	17
+Palestinian Territory	Singapore	2
+Haiti	Mauritania	1
+United States of America	Austria	6740
+United Kingdom	Chile	3438
+Georgia	China	620
+Bulgaria	United States of America	3686
+Singapore	The Netherlands	370
+Sweden	Mexico	625
+Chile	Cameroon	194
+Estonia	Kenya	66
+Poland	Spain	1279
+Slovenia	Sweden	354
+Saudi Arabia	Malaysia	255
+Thailand	Canada	225
+Mexico	Israel	371
+Netherlands	Malaysia	71
+Cameroon	Algeria	1
+Venezuela	United States of America	146
+Egypt	Colombia	26
+New Zealand	Portugal	70
+Georgia	Mexico	7
+Algeria	Portugal	8
+Republic of China	Switzerland	47
+Uganda	Greece	30
+Haiti	Singapore	12
+Costa Rica	Uganda	1
+Lebanon	Kenya	1
+United States	Germany	17464
+Belgium	Greece	1242
+Italy	United States	23184
+United Kingdom	Brazil	6391
+Poland	Russian Federation	1888
+United States	Mauritania	1302
+Kenya	Denmark	365
+Uganda	United Kingdom	258
+Luxembourg	Sweden	37
+South Korea	Croatia	50
+Czech Republic	India	273
+Spain	Venezuela	83
+Slovenia	India	44
+Switzerland	Ireland	439
+Ireland	Slovenia	15
+Georgia	Iran	27
+Portugal	Uganda	28
+Ukraine	China	31
+Estonia	Chile	15
+Lebanon	Chile	15
+Algeria	New Zealand	6
+Mauritania	Argentina	21
+Belgium	United Kingdom	9403
+Switzerland	Benin	204
+Germany	Canada	7436
+Kenya	Egypt	134
+Canada	Mexico	1195
+United States of America	Ireland	4379
+Netherlands	Greece	477
+Israel	Austria	531
+United States	Singapore	728
+Egypt	Australia	437
+Greece	Poland	752
+India	Indonesia	10
+Switzerland	The Gambia	77
+Czech Republic	Portugal	348
+China	Slovakia	257
+Italy	Palestinian Territory	135
+Italy	Norway	935
+Norway	Greece	515
+Cameroon	Italy	223
+Ireland	Cameroon	88
+Malaysia	Georgia	12
+Saudi Arabia	Greece	33
+Slovakia	Ukraine	28
+Estonia	Brazil	25
+Luxembourg	India	9
+Poland	Costa Rica	3
+Spain	Yemen	4
+Iran	Argentina	8
+Croatia	The Gambia	7
+Norway	United Kingdom	3088
+Mexico	France	2841
+Saudi Arabia	United Kingdom	479
+United Kingdom	Turkey	1693
+Netherlands	United Kingdom	5562
+Austria	Argentina	280
+Greece	Estonia	58
+Sweden	Denmark	3410
+Hungary	Sweden	381
+United States of America	The Gambia	1086
+Germany	Philippines	512
+Denmark	Japan	879
+Turkey	RSA	210
+Czech Republic	New Zealand	227
+India	Malaysia	220
+Bangladesh	South Korea	53
+Yemen	Japan	69
+Slovenia	New Zealand	22
+The Gambia	Benin	37
+Finland	Republic of China	7
+Mexico	Lebanon	7
+United States	Colombia	1404
+New Zealand	Poland	299
+Russian Federation	Ireland	381
+RSA	The Netherlands	642
+Sweden	Egypt	446
+Israel	Ireland	132
+Slovenia	Israel	241
+China	Colombia	104
+Bangladesh	United States of America	984
+Palestinian Territory	Spain	118
+Brazil	Croatia	54
+Japan	Croatia	98
+Estonia	Turkey	12
+Spain	Cameroon	222
+Turkey	Thailand	120
+Uganda	Italy	142
+Philippines	Indonesia	8
+India	Uganda	5
+Finland	Ukraine	37
+Algeria	Poland	21
+Thailand	Singapore	86
+Iran	Algeria	1
+Lebanon	Turkey	21
+Norway	Algeria	15
+The Netherlands	Indonesia	19
+Ukraine	Taiwan	23
+Luxembourg	New Zealand	9
+Israel	Benin	128
+Canada	Denmark	1929
+Belgium	Italy	2467
+Mexico	United States	3525
+Spain	Austria	862
+Greece	United States	2712
+The Netherlands	Malaysia	89
+Haiti	Spain	510
+Russian Federation	The Gambia	28
+Singapore	Japan	1053
+Switzerland	Slovenia	289
+Palestinian Territory	Russian Federation	115
+Germany	Mauritania	192
+South Korea	Argentina	200
+Israel	The Gambia	39
+Luxembourg	Israel	24
+Philippines	Malaysia	26
+Mauritania	Czech Republic	30
+Russian Federation	Benin	44
+Hungary	Saudi Arabia	7
+Mauritania	Ghana	4
+Algeria	Estonia	3
+United States of America	Switzerland	20804
+China	Australia	14014
+United States	Australia	5391
+Netherlands	Italy	1284
+Haiti	Russian Federation	453
+United States of America	Slovenia	1185
+Kenya	India	287
+Germany	Singapore	661
+Canada	Egypt	1126
+Czech Republic	Poland	1012
+Italy	Slovakia	371
+Greece	Palestinian Territory	118
+Greece	Norway	515
+Norway	Italy	935
+Turkey	Czech Republic	427
+The Netherlands	Uganda	46
+Switzerland	Cameroon	227
+Malaysia	Denmark	50
+Saudi Arabia	Italy	97
+Mexico	Palestinian Territory	10
+Iran	Czech Republic	53
+Colombia	Austria	67
+Iran	Ghana	32
+Portugal	Croatia	34
+Indonesia	Argentina	44
+Croatia	Cameroon	1
+United States	Spain	8502
+New Zealand	United States	874
+Austria	Czech Republic	557
+Slovakia	United States of America	1197
+Taiwan	Republic of China	1842
+Slovenia	France	609
+Kenya	Portugal	158
+Malaysia	Egypt	79
+Czech Republic	Estonia	39
+Austria	Ghana	34
+Hungary	Israel	200
+Philippines	Greece	32
+Mexico	Philippines	84
+Slovenia	Lebanon	5
+Cameroon	RSA	3
+The Gambia	Cameroon	1
+Japan	Argentina	2022
+Brazil	Argentina	1026
+Australia	Austria	765
+Sweden	India	382
+New Zealand	Norway	105
+Bulgaria	Benin	68
+Poland	The Netherlands	977
+United States	Russian Federation	3325
+Philippines	United Kingdom	725
+Israel	Slovenia	241
+Israel	Switzerland	1376
+Russian Federation	Slovenia	365
+Italy	Colombia	740
+Luxembourg	France	169
+Kenya	New Zealand	223
+Cameroon	Thailand	108
+Colombia	Ireland	36
+Thailand	Netherlands	51
+Cameroon	Bulgaria	7
+Algeria	Norway	15
+Indonesia	Algeria	20
+Taiwan	Ukraine	23
+Denmark	Ukraine	18
+Bulgaria	The Gambia	20
+Luxembourg	Lebanon	2
+Algeria	Saudi Arabia	2
+New Zealand	Palestinian Territory	4
+Argentina	Republic of China	4
+Sweden	Portugal	563
+Mexico	Germany	1464
+France	Austria	1918
+Slovenia	United States	543
+India	Croatia	31
+Mauritania	China	155
+RSA	Japan	460
+South Korea	Czech Republic	316
+Cameroon	Taiwan	202
+Russian Federation	Cameroon	217
+Thailand	Spain	127
+Uganda	RSA	5
+Mexico	Mauritania	18
+United States	Costa Rica	89
+Argentina	Ukraine	6
+Costa Rica	Argentina	10
+Colombia	Benin	6
+South Korea	Ghana	13
+Georgia	Portugal	1
+Italy	Canada	8102
+Czech Republic	Norway	456
+Luxembourg	United States	187
+Italy	Australia	2637
+Canada	India	1222
+Hungary	France	999
+Sweden	New Zealand	319
+Malaysia	Sweden	81
+Belgium	RSA	486
+Australia	Ireland	592
+Estonia	Finland	527
+Egypt	Netherlands	84
+Slovenia	Palestinian Territory	109
+Greece	Slovakia	378
+Czech Republic	Palestinian Territory	111
+Portugal	Argentina	249
+Mexico	Slovakia	170
+Turkey	Mexico	288
+Iran	China	149
+Lebanon	Finland	14
+Hungary	Lebanon	9
+Indonesia	Czech Republic	7
+Ireland	Indonesia	3
+Republic of China	Malaysia	8
+Mauritania	Iran	4
+Singapore	Ukraine	3
+Algeria	Hungary	4
+Germany	Spain	4282
+Spain	Switzerland	2082
+Austria	China	750
+The Netherlands	Croatia	107
+Canada	Portugal	551
+Kenya	Poland	1358
+Saudi Arabia	RSA	51
+Netherlands	RSA	398
+France	Ireland	892
+Norway	RSA	338
+Australia	Benin	184
+Norway	Luxembourg	19
+Australia	The Gambia	198
+Malaysia	India	220
+Thailand	Belgium	142
+Belgium	Thailand	142
+Netherlands	Luxembourg	34
+Yemen	Finland	3
+Philippines	Croatia	2
+Thailand	Costa Rica	1
+Costa Rica	Algeria	2
+Brazil	Ghana	607
+Mauritania	Taiwan	13
+Mexico	Colombia	1144
+Hungary	United States	970
+Canada	New Zealand	1806
+Norway	Bulgaria	173
+Brazil	Czech Republic	542
+Denmark	South Korea	251
+Japan	Czech Republic	918
+Netherlands	Bulgaria	163
+Slovakia	Haiti	204
+Palestinian Territory	The Netherlands	127
+France	The Gambia	121
+Japan	Ghana	93
+Saudi Arabia	Bulgaria	16
+France	Benin	350
+Austria	Iran	74
+Norway	Thailand	43
+Saudi Arabia	Thailand	4
+Uganda	Czech Republic	27
+Colombia	Switzerland	176
+Netherlands	Thailand	51
+New Zealand	Slovakia	36
+Bulgaria	Cameroon	7
+Yemen	South Korea	11
+Ireland	Uganda	9
+Colombia	Slovenia	4
+Portugal	Algeria	8
+Republic of China	Greece	9
+Belgium	Czech Republic	817
+Germany	Belgium	5215
+Denmark	United States of America	9026
+South Korea	China	3376
+Poland	Japan	1254
+Malaysia	New Zealand	243
+Turkey	Denmark	328
+Republic of China	United Kingdom	347
+Sweden	Poland	1290
+Yemen	United States of America	366
+Egypt	Belgium	322
+Haiti	The Netherlands	339
+Slovenia	Germany	542
+India	Argentina	105
+Germany	Costa Rica	69
+Iran	Taiwan	86
+Cameroon	Georgia	12
+Algeria	Bangladesh	2
+Costa Rica	Ghana	1
+Georgia	Poland	3
+Greece	Canada	1319
+China	Netherlands	1227
+Egypt	Kenya	134
+Austria	Taiwan	189
+Australia	Switzerland	2208
+Malaysia	Israel	57
+Turkey	Egypt	176
+United Kingdom	Ukraine	293
+Sweden	Estonia	536
+Kenya	United States	1067
+Mexico	Australia	545
+South Korea	Iran	190
+Netherlands	Czech Republic	433
+Indonesia	China	156
+Australia	Slovenia	315
+Slovenia	Slovakia	217
+Hungary	Philippines	77
+Luxembourg	Germany	280
+Thailand	Brazil	139
+New Zealand	Colombia	11
+Switzerland	Indonesia	62
+Saudi Arabia	Czech Republic	9
+Portugal	Ghana	2
+Bangladesh	Yemen	15
+Lebanon	Republic of China	2
+Georgia	Estonia	1
+Mexico	Spain	4584
+Singapore	United States of America	8014
+France	Switzerland	6794
+United States	The Netherlands	7372
+United States of America	Indonesia	989
+The Netherlands	Argentina	821
+France	Slovenia	609
+Canada	Poland	1388
+Egypt	Chile	137
+Kenya	Norway	214
+Kenya	Palestinian Territory	73
+Estonia	Ukraine	9
+Luxembourg	Slovakia	8
+Czech Republic	Bangladesh	1
+Indonesia	Iran	1
+Sweden	United States	10120
+United States of America	Malaysia	1335
+Germany	Brazil	2631
+Japan	China	11342
+Hungary	Germany	1277
+South Korea	Taiwan	1085
+Brazil	China	1216
+New Zealand	Canada	1806
+Mexico	Russian Federation	759
+Algeria	Canada	271
+Finland	Ireland	336
+Thailand	Turkey	120
+Ukraine	Sweden	51
+Uganda	Mexico	60
+Hungary	Mauritania	19
+Republic of China	Italy	40
+Switzerland	Uganda	62
+Slovenia	Colombia	4
+Croatia	Uganda	1
+China	Belgium	2095
+Sweden	Norway	2181
+Belgium	Mexico	923
+Japan	Iran	182
+Georgia	Norway	91
+RSA	Finland	186
+Sweden	Palestinian Territory	127
+Palestinian Territory	Japan	170
+Georgia	Saudi Arabia	39
+Hungary	Slovakia	170
+India	Czech Republic	273
+Hungary	Singapore	29
+Finland	Benin	98
+Malaysia	France	297
+The Gambia	Uganda	4
+Finland	The Gambia	60
+Bangladesh	Austria	5
+Russian Federation	Indonesia	55
+Iran	Georgia	27
+Brazil	Iran	79
+Ghana	Greece	100
+Costa Rica	China	17
+Indonesia	Taiwan	39
+Cameroon	Denmark	8
+Ireland	Croatia	11
+Israel	Indonesia	10
+Luxembourg	Colombia	7
+Philippines	Thailand	5
+Slovakia	Yemen	1
+Malaysia	Lebanon	6
+Canada	United States	11461
+United States of America	Greece	7357
+Denmark	Haiti	220
+Italy	Netherlands	1284
+Czech Republic	Canada	781
+Benin	Greece	140
+Israel	Malaysia	57
+Egypt	Turkey	176
+Norway	Mexico	217
+China	Kenya	546
+Germany	Turkey	1188
+Ghana	United Kingdom	629
+Portugal	China	559
+Netherlands	Mexico	208
+RSA	South Korea	100
+Haiti	Japan	326
+Slovenia	Australia	315
+Turkey	India	219
+Cameroon	Egypt	103
+Saudi Arabia	Mexico	28
+Costa Rica	Iran	1
+Austria	Georgia	11
+United Kingdom	United States of America	121028
+United States of America	United Kingdom	121028
+Germany	The Netherlands	7284
+RSA	United States of America	4486
+Japan	Taiwan	2543
+Brazil	Taiwan	495
+Benin	United Kingdom	730
+The Netherlands	Czech Republic	685
+Malaysia	United States	288
+Chile	Greece	420
+China	Chile	683
+Canada	Norway	1096
+Kenya	Slovakia	529
+Luxembourg	Australia	76
+Canada	Palestinian Territory	127
+Turkey	Portugal	186
+The Netherlands	Ghana	88
+Philippines	Czech Republic	99
+Russian Federation	Uganda	71
+Hungary	Colombia	16
+Portugal	Iran	24
+Slovakia	Cameroon	2
+Ghana	Algeria	2
+Georgia	Hungary	2
+Costa Rica	Bulgaria	1
+United States	Japan	9875
+Chile	United Kingdom	3438
+South Korea	Georgia	978
+Israel	Greece	601
+Ukraine	Israel	128
+Slovenia	Russian Federation	365
+Taiwan	Ireland	131
+Malaysia	Palestinian Territory	5
+Algeria	Singapore	31
+Turkey	New Zealand	226
+Portugal	Bulgaria	103
+Finland	Slovenia	67
+Uganda	Egypt	8
+Ukraine	Hungary	22
+Costa Rica	Taiwan	8
+Singapore	Haiti	12
+Benin	Algeria	3
+Poland	Finland	734
+Italy	Belgium	2467
+Netherlands	Denmark	957
+Sweden	Slovakia	437
+Hungary	Australia	242
+Norway	Denmark	1247
+India	China	688
+Kenya	Colombia	45
+Belgium	Egypt	322
+Portugal	Taiwan	178
+Spain	Malaysia	355
+Finland	Cameroon	186
+Argentina	Ireland	108
+Ireland	Argentina	108
+Ghana	Italy	83
+Malaysia	Philippines	26
+Saudi Arabia	Denmark	37
+Cameroon	Sweden	42
+Taiwan	Benin	32
+Switzerland	Croatia	83
+Indonesia	Georgia	10
+Luxembourg	Russian Federation	9
+Republic of China	RSA	4
+Taiwan	The Gambia	9
+Chile	Algeria	3
+United States of America	Italy	46305
+Greece	Netherlands	477
+Benin	Italy	250
+Poland	South Korea	533
+Republic of China	Bulgaria	92
+Italy	Kenya	636
+Thailand	Japan	862
+Netherlands	Egypt	84
+Hungary	Spain	370
+Cameroon	India	1093
+China	Turkey	593
+Saudi Arabia	Egypt	279
+Argentina	The Gambia	16
+Bulgaria	Uganda	20
+Norway	Egypt	90
+India	Iran	70
+Republic of China	Thailand	6
+Argentina	Benin	7
+Georgia	Bangladesh	9
+Venezuela	Uganda	1
+The Gambia	Croatia	7
+Denmark	Venezuela	2
+Colombia	Malaysia	4
+Mexico	The Netherlands	572
+Chile	Italy	1136
+Italy	Chile	1136
+The Netherlands	China	2333
+Spain	Greece	1400
+Kenya	Canada	517
+Japan	Georgia	323
+Ukraine	France	219
+Hungary	Russian Federation	593
+Philippines	China	865
+Turkey	Poland	438
+Canada	Slovakia	428
+Malaysia	Germany	256
+Australia	Indonesia	85
+Brazil	Georgia	34
+Philippines	Mexico	84
+Denmark	Yemen	5
+Ireland	Algeria	5
+Bangladesh	Switzerland	13
+Mauritania	Estonia	4
+Spain	United Kingdom	9635
+India	Taiwan	441
+Germany	Japan	5444
+Australia	Malaysia	1060
+Italy	Brazil	1908
+RSA	Haiti	186
+New Zealand	Netherlands	178
+Russian Federation	Croatia	47
+Egypt	Finland	267
+Turkey	Estonia	12
+Cameroon	New Zealand	183
+The Netherlands	Iran	94
+Mauritania	Sweden	75
+Uganda	India	5
+Colombia	Greece	96
+Algeria	Netherlands	9
+Philippines	Iran	11
+Israel	Croatia	50
+Malaysia	Slovakia	14
+France	Indonesia	77
+Iran	Estonia	3
+Republic of China	Czech Republic	9
+Hungary	Costa Rica	1
+Greece	Belgium	1242
+Sweden	Canada	2857
+Austria	Estonia	45
+Canada	Colombia	228
+Switzerland	Argentina	1153
+Argentina	Slovenia	274
+Georgia	Canada	147
+Belgium	India	424
+Ukraine	United States	76
+Taiwan	Cameroon	202
+France	Malaysia	297
+Iran	Sweden	97
+Singapore	Yemen	43
+Croatia	Argentina	21
+Ireland	Ghana	30
+Uganda	Portugal	28
+Cameroon	Israel	25
+Denmark	Cameroon	8
+Lebanon	Austria	5
+Portugal	Georgia	1
+France	Uganda	1670
+Belgium	Portugal	597
+Australia	Greece	799
+Czech Republic	Netherlands	433
+Austria	Sweden	814
+Italy	Turkey	751
+The Netherlands	Taiwan	404
+Greece	Kenya	507
+Norway	India	542
+Netherlands	India	95
+The Gambia	Argentina	16
+Palestinian Territory	South Korea	14
+Argentina	Cameroon	16
+Ghana	RSA	6
+Uganda	New Zealand	10
+Saudi Arabia	India	63
+Yemen	Austria	6
+Georgia	Philippines	16
+Mauritania	Saudi Arabia	6
+Malaysia	Colombia	4
+United States of America	RSA	4486
+Spain	Italy	3313
+Netherlands	Portugal	483
+Turkey	Palestinian Territory	1623
+United Kingdom	Benin	730
+Algeria	Belgium	68
+United Kingdom	The Gambia	2722
+Greece	Chile	420
+Haiti	South Korea	77
+Norway	Portugal	272
+Bulgaria	Croatia	33
+Palestinian Territory	United States of America	323
+Turkey	Norway	295
+New Zealand	Belgium	559
+Belgium	New Zealand	559
+Switzerland	Algeria	53
+Ukraine	Philippines	17
+Saudi Arabia	Portugal	20
+Ghana	Bulgaria	14
+Estonia	Ireland	19
+Ghana	Thailand	11
+Iran	Saudi Arabia	16
+South Korea	Estonia	9
+Benin	RSA	9
+Benin	Luxembourg	3
+Lebanon	Ireland	3
+Singapore	Cameroon	13
+Algeria	Costa Rica	2
