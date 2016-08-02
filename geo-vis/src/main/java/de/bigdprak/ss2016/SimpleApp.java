@@ -805,7 +805,7 @@ public class SimpleApp {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main2(String[] args) {
 		
 		boolean isRemote = false;
 		if (args.length > 1) {
@@ -1246,6 +1246,10 @@ public class SimpleApp {
 
 		// destroy Spark context
 		sc.close();
+	}
+	
+	public static void main(String[] args) {
+		LocationDecoder.main(args);
 
 		System.out.println("I'm done, sir! ... KOBOOOOOOOLD!");
 	}

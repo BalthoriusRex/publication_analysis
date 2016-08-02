@@ -5,11 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.function.Function;
+import org.apache.spark.sql.DataFrame;
+import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -331,19 +335,134 @@ public class LocationDecoder {
 			e.printStackTrace();
 		}
 	}
+
+	@SuppressWarnings("serial")
+	public static void aggregateAffiliationsToCountries(String locations_file, String countries_file, String affiliations_countries_file) {
+		initSpark();
+		
+		// create Table Location
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(locations_file).map(
+				new Function<String, Location>() {
+					public Location call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						
+						String name = parts[0];
+						String country = parts[1];
+						double longitude = Double.parseDouble(parts[2]);
+						double latitude = Double.parseDouble(parts[3]);
+						
+						return new Location(name, country, longitude, latitude);
+					}
+				}
+			),
+			Location.class)
+		.registerTempTable("Location");
+		
+		// create Table Country
+		sqlContext.createDataFrame(
+			// create JavaRDD
+			sc.textFile(locations_file).map(
+				new Function<String, Country>() {
+					public Country call(String line) throws Exception {
+						String[] parts = line.split("\t");
+						
+						String name = parts[0];
+						String continent = parts[1].equals("null") ? null : parts[1];
+						double longitude = Double.parseDouble(parts[2]);
+						double latitude = Double.parseDouble(parts[3]);
+						
+						return new Country(name, continent, longitude, latitude);
+					}
+				}
+			),
+			Country.class)
+		.registerTempTable("Country");
+		
+//		DataFrame content = sqlContext.sql(""
+//				+ "SELECT paperID, normalizedAffiliationName "
+//				+ "FROM PaperAuthorAffiliation "
+//				+ "GROUP BY paperID, normalizedAffiliationName");
+		
+		DataFrame table_PAA = sqlContext
+				.table("PaperAuthorAffiliation")
+				.select("paperID", "normalizedAffiliationName")
+				.dropDuplicates();
+		DataFrame table_Loc = sqlContext
+				.table("Location")
+				.select("name", "country");
+		DataFrame joined = table_PAA
+							.join(table_Loc, 
+									table_PAA.col("normalizedAffiliationName")
+									.equalTo(
+									table_Loc.col("name"))
+							)
+							.groupBy(
+									table_PAA.col("paperID"), 
+									table_Loc.col("name"))
+							.org$apache$spark$sql$GroupedData$$df
+							.select(table_PAA.col("paperID"), table_Loc.col("name"))
+							.dropDuplicates()
+							;
+		List<Row> result = joined.collectAsList();
+		
+		UTF8Writer writer = new UTF8Writer(affiliations_countries_file);
+		writer.clear();
+		for (Row row: result) {
+			String line = "";
+			for (int i = 0; i < row.length(); i++) {
+				if (i == 0) {
+					line += row.get(i);
+				} else {
+					line += "\t" + row.get(i);
+				}
+			}
+			writer.appendLine(line);
+		}
+		writer.close();
+		
+		
+//		String query = ""
+//				+ "SELECT "
+//					+ "PAA.paperID as paperID,  "
+//					+ "L.name as country,  "
+//					+ "COUNT(paperID, country) "
+//				+ "FROM "
+//					+ "PaperAuthorAffiliation PAA "
+//					+ "JOIN "
+//					+ "Location L "
+//					+ "ON PAA.normalizedAffiliationName = L.name "
+//				+ "GROUP BY "
+//					+ "PAA.paperID, L.name"
+//				+ "";
+//		List<Row> result = SimpleApp.sql_answerQuery(sqlContext, query);
+
+//		UTF8Writer writer = new UTF8Writer(affiliations_countries_file);
+//		SimpleApp.printResultsToFile(writer, query, result, "  ");
+//		writer.close();
+		
+		
+		closeSpark();
+	}
 	
 	public static void main(String[] args) {
-		init(isRemote(args));
-		//initSpark();
-		String affiliations_file = "./Visualisierung/affiliations_top_1000.txt";
-		String locations_file = "./Visualisierung/locations.txt";
-		String xml_file = "./Visualisierung/Karten/Xml/locations.xml";
-		String countries_file = "./Visualisierung/countries.txt";
+		boolean isRemote = isRemote(args);
+		init(isRemote);
 		
-		//generateLocations(affiliations_file, locations_file);
-		generateCountries(locations_file, countries_file);
-		//convertLocationsToXML(affiliations_file, locations_file, xml_file);
+		String affiliations_locations_file = "./Visualisierung/affiliations_top_1000.txt";
+		String affiliations_countries_file = folder + "affiliations_countries.txt";//"./Visualisierung/affiliations_countries.txt";
+		String locations_file = isRemote ? folder + "locations.txt" : "./Visualisierung/locations.txt";
+		String countries_file = isRemote ? folder + "countries.txt" : "./Visualisierung/countries.txt";
+		String xml_locations_file = "./Visualisierung/Karten/Xml/locations.xml";
+		String xml_countries_file = "./Visualisierung/Karten/Xml/countries.xml";
 		
-		//closeSpark();
+//		generateLocations(affiliations_locations_file, locations_file);
+//		generateCountries(locations_file, countries_file);
+
+//		convertLocationsToXML(affiliations_locations_file, locations_file, xml_locations_file);
+		
+		aggregateAffiliationsToCountries(locations_file, countries_file, affiliations_countries_file);
+//		convertLocationsToXML(null, countries_file, xml_countries_file);
 	}
 }
