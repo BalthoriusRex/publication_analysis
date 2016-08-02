@@ -29,6 +29,7 @@ public class LocationDecoder {
 	private static JavaSparkContext sc;
 	private static SQLContext sqlContext;
 	private static String folder;
+	private static String locationsFilter = "";
 
 	public static boolean isRemote(String[] args) {
 		boolean isRemote = false;
@@ -67,15 +68,17 @@ public class LocationDecoder {
 	public static void closeSpark() {
 		sc.close();
 	}
-	
+		
 	public static String printLocation(Location loc) {
 		return "" + loc.getName() + "\t" + loc.getCountry() + "\t" + loc.getLongitude() + "\t" + loc.getLatitude();
 	}
 	
-	public static void convertLocationsToXML(String affiliationFile, String locationFile, String xmlFile) {
+	public static void convertLocationsToXML(String affiliationFile, String locationFile, String kmlFile, String xmlFile) {
 		try {
-			UTF8Writer wr = new UTF8Writer(xmlFile);
-			wr.clear();
+			UTF8Writer wr_kml = new UTF8Writer(kmlFile);
+			UTF8Writer wr_xml = new UTF8Writer(xmlFile);
+			wr_kml.clear();
+			wr_xml.clear();
 			
 			BufferedReader br_aff = new BufferedReader(new FileReader(affiliationFile));
 			BufferedReader br_loc = new BufferedReader(new FileReader(locationFile));
@@ -86,15 +89,27 @@ public class LocationDecoder {
 			String line_aff = null;
 			String line_loc = null;
 			
-			wr.append(""
+			String append = ""
 					+ "<?xml version='1.0' encoding='UTF-8'?>\n"
 					+ "<kml xmlns='http://www.opengis.net/kml/2.2'>\n"
 					+ "\t" + "<Document>\n"
-					+ "");
+					+ "";
+			wr_kml.append(append);
+			
+			append  = ""
+					+ "<?xml version='1.0' encoding='UTF-8'?>\n"
+					+ "\t" + "<Document>\n"
+					+ "";
+			wr_xml.append(append);
 			
 			while ((line_loc = br_loc.readLine()) != null) {
 				String[] parts_loc = line_loc.split("\t");
 				String[] parts_aff = null;
+				
+				if(!parts_loc[1].equals(locationsFilter))
+				{
+					continue;
+				}
 				
 				while (true) {
 					line_aff = br_aff.readLine();
@@ -104,7 +119,7 @@ public class LocationDecoder {
 					}
 				}
 				
-				wr.append(""
+				append = ""
 						+ "\t" + "\t" + "<Placemark id='"  + parts_loc[0] +  "'>\n"
 						+ "\t" + "\t" + "\t" + "<name>" + parts_loc[1] + "</name>\n"
 						+ "\t" + "\t" + "\t" + "<description>" + parts_aff[0] + "</description>\n"
@@ -112,19 +127,29 @@ public class LocationDecoder {
 						+ "\t" + "\t" + "\t" + "\t" + "<coordinates>" + parts_loc[2] + "," + parts_loc[3] + "</coordinates>\n"
 						+ "\t" + "\t" + "\t" + "</Point>\n"
 						+ "\t" + "\t" + "</Placemark>\n"
-						+ "");
+						+ "";
+
+				wr_kml.append(append);
+				wr_xml.append(append);
 				
 			}
 			
-			wr.append(""
+			append = ""
 					+ "\t" + "</Document>\n"
 					+ "</kml>\n"
-					+ "");
+					+ "";
+			wr_kml.append(append);
+			
+			append = ""
+					+ "\t" + "</Document>\n"
+					+ "";
+			wr_xml.append(append);
 			
 			
 			br_aff.close();
 			br_loc.close();
-			wr.close();
+			wr_kml.close();
+			wr_xml.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -465,4 +490,25 @@ public class LocationDecoder {
 		aggregateAffiliationsToCountries(locations_file, countries_file, affiliations_countries_file);
 //		convertLocationsToXML(null, countries_file, xml_countries_file);
 	}
+
+	public static void initializeLocationDecoder(String filter, String pathAff)
+	{
+	//	init(isRemote(args));
+		
+		locationsFilter = filter;
+		
+		//initSpark();
+		String affiliations_file = pathAff;
+		String locations_file = "./Visualisierung/locations.txt";
+		String kml_file = "./Visualisierung/Karten/Xml/locations_USE.kml";
+		String xml_file = "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml";
+		String countries_file = "./Visualisierung/countries.txt";
+		
+		//generateLocations(affiliations_file, locations_file);
+		//generateCountries(locations_file, countries_file);
+		convertLocationsToXML(affiliations_file, locations_file, kml_file, xml_file);
+		System.out.println("Finished LocationDecoding. XML and KML ready.");
+		//closeSpark();
+	}
+
 }

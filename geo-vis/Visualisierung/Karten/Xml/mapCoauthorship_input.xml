@@ -1,479 +1,150 @@
 <?xml version='1.0' encoding='UTF-8'?>
 	<Document>
-		<Placemark id='university of cambridge'>
-			<name>United Kingdom</name>
-			<description>158610</description>
+		<Placemark id='university of barcelona'>
+			<name>Spain</name>
+			<description>92550</description>
 			<Point>
-				<coordinates>0.108564,52.205687</coordinates>
+				<coordinates>2.1649567,41.3878668</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of oxford'>
-			<name>United Kingdom</name>
-			<description>155764</description>
+		<Placemark id='complutense university of madrid'>
+			<name>Spain</name>
+			<description>81265</description>
 			<Point>
-				<coordinates>-1.2545588,51.75786</coordinates>
+				<coordinates>-3.4698551,40.5635185</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university college london'>
-			<name>United Kingdom</name>
-			<description>153415</description>
+		<Placemark id='autonomous university of barcelona'>
+			<name>Spain</name>
+			<description>62498</description>
 			<Point>
-				<coordinates>-0.1309167,51.5263952</coordinates>
+				<coordinates>2.252197,41.4929543</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of manchester'>
-			<name>United Kingdom</name>
-			<description>120419</description>
+		<Placemark id='university of valencia'>
+			<name>Spain</name>
+			<description>56128</description>
 			<Point>
-				<coordinates>-2.2262753,53.4716848</coordinates>
+				<coordinates>-0.4219087,39.5173983</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of north carolina at chapel hill'>
-			<name>United Kingdom</name>
-			<description>112695</description>
+		<Placemark id='autonomous university of madrid'>
+			<name>Spain</name>
+			<description>41027</description>
 			<Point>
-				<coordinates>-0.1285332,51.5192636</coordinates>
+				<coordinates>-3.4698551,40.5635185</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of leeds'>
-			<name>United Kingdom</name>
-			<description>105869</description>
+		<Placemark id='university of the basque country'>
+			<name>Spain</name>
+			<description>36130</description>
 			<Point>
-				<coordinates>-1.5513552,53.804323</coordinates>
+				<coordinates>-2.0073525,43.3138068</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='imperial college london'>
-			<name>United Kingdom</name>
-			<description>103334</description>
+		<Placemark id='polytechnic university of valencia'>
+			<name>Spain</name>
+			<description>34965</description>
 			<Point>
-				<coordinates>-0.1742745,51.5005047</coordinates>
+				<coordinates>-0.289592,39.5349312</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of nottingham'>
-			<name>United Kingdom</name>
-			<description>95418</description>
+		<Placemark id='toshiba'>
+			<name>Spain</name>
+			<description>34796</description>
 			<Point>
-				<coordinates>-1.1814887,52.955437</coordinates>
+				<coordinates>-3.5852497,40.4435566</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of birmingham'>
-			<name>United Kingdom</name>
-			<description>92383</description>
+		<Placemark id='polytechnic university of catalonia'>
+			<name>Spain</name>
+			<description>29127</description>
 			<Point>
-				<coordinates>-1.9189703,52.4652158</coordinates>
+				<coordinates>3.3837891,42.8518677</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of bristol'>
-			<name>United Kingdom</name>
-			<description>92051</description>
+		<Placemark id='university of oviedo'>
+			<name>Spain</name>
+			<description>27847</description>
 			<Point>
-				<coordinates>-2.6092402,51.458805</coordinates>
+				<coordinates>-5.7893648,43.4023018</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of edinburgh'>
-			<name>United Kingdom</name>
-			<description>89818</description>
+		<Placemark id='university of murcia'>
+			<name>Spain</name>
+			<description>24978</description>
 			<Point>
-				<coordinates>-3.1789046,55.9511987</coordinates>
+				<coordinates>-1.091476,38.0417213</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of sheffield'>
-			<name>United Kingdom</name>
-			<description>84696</description>
+		<Placemark id='technical university of madrid'>
+			<name>Spain</name>
+			<description>24201</description>
 			<Point>
-				<coordinates>-1.4770905,53.3844867</coordinates>
+				<coordinates>-3.4698551,40.5635185</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of liverpool'>
-			<name>United Kingdom</name>
-			<description>84076</description>
+		<Placemark id='university of science and technology sana a'>
+			<name>Spain</name>
+			<description>22252</description>
 			<Point>
-				<coordinates>-2.9616777,53.4062464</coordinates>
+				<coordinates>0.373535,38.9796944</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of southampton'>
-			<name>United Kingdom</name>
-			<description>81236</description>
+		<Placemark id='university of salamanca'>
+			<name>Spain</name>
+			<description>22251</description>
 			<Point>
-				<coordinates>-1.3926128,50.8940039</coordinates>
+				<coordinates>-5.6689,40.96603</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of glasgow'>
-			<name>United Kingdom</name>
-			<description>80942</description>
+		<Placemark id='university of valladolid'>
+			<name>Spain</name>
+			<description>18836</description>
 			<Point>
-				<coordinates>-4.2836342,55.8752442</coordinates>
+				<coordinates>-4.7172343,41.6548577</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='king s college london'>
-			<name>United Kingdom</name>
-			<description>70040</description>
+		<Placemark id='university of navarra'>
+			<name>Spain</name>
+			<description>18802</description>
 			<Point>
-				<coordinates>0.336112,51.7202301</coordinates>
+				<coordinates>-0.733852,43.3386612</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='the school of life'>
-			<name>United Kingdom</name>
-			<description>69494</description>
+		<Placemark id='university of castilla la mancha'>
+			<name>Spain</name>
+			<description>17429</description>
 			<Point>
-				<coordinates>-0.1251998,51.5255568</coordinates>
+				<coordinates>-0.947957,41.3097229</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='cardiff university'>
-			<name>United Kingdom</name>
-			<description>65465</description>
+		<Placemark id='university of alicante'>
+			<name>Spain</name>
+			<description>16700</description>
 			<Point>
-				<coordinates>-3.1774647,51.4893653</coordinates>
+				<coordinates>-0.4841009,38.3648376</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='queen s university'>
-			<name>United Kingdom</name>
-			<description>63691</description>
+		<Placemark id='university of cantabria'>
+			<name>Spain</name>
+			<description>15527</description>
 			<Point>
-				<coordinates>-0.0371712,51.5269647</coordinates>
+				<coordinates>-3.7968864,43.4731718</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='university of leicester'>
-			<name>United Kingdom</name>
-			<description>59243</description>
+		<Placemark id='astron'>
+			<name>Spain</name>
+			<description>15024</description>
 			<Point>
-				<coordinates>-1.1206706,52.6259572</coordinates>
+				<coordinates>-2.4405665,40.8871917</coordinates>
 			</Point>
 		</Placemark>
-		<Placemark id='durham university'>
-			<name>United Kingdom</name>
-			<description>58440</description>
+		<Placemark id='charles iii university of madrid'>
+			<name>Spain</name>
+			<description>13698</description>
 			<Point>
-				<coordinates>-1.5729573,54.7735525</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='queen s university belfast'>
-			<name>United Kingdom</name>
-			<description>52013</description>
-			<Point>
-				<coordinates>-5.796833,54.6847229</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='newcastle university'>
-			<name>United Kingdom</name>
-			<description>47819</description>
-			<Point>
-				<coordinates>-1.6083557,54.9835312</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of warwick'>
-			<name>United Kingdom</name>
-			<description>46610</description>
-			<Point>
-				<coordinates>-1.5603751,52.3793631</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of strathclyde'>
-			<name>United Kingdom</name>
-			<description>43186</description>
-			<Point>
-				<coordinates>-4.236597,55.8643291</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of york'>
-			<name>United Kingdom</name>
-			<description>39436</description>
-			<Point>
-				<coordinates>-1.0130483,53.9531737</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of aberdeen'>
-			<name>United Kingdom</name>
-			<description>38978</description>
-			<Point>
-				<coordinates>-2.101715,57.16413</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of surrey'>
-			<name>United Kingdom</name>
-			<description>35997</description>
-			<Point>
-				<coordinates>-0.5831894,51.2455747</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of st andrews'>
-			<name>United Kingdom</name>
-			<description>35212</description>
-			<Point>
-				<coordinates>-2.7930437,56.3412484</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='queen mary university of london'>
-			<name>United Kingdom</name>
-			<description>35155</description>
-			<Point>
-				<coordinates>-0.0371712,51.5269647</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of reading'>
-			<name>United Kingdom</name>
-			<description>34920</description>
-			<Point>
-				<coordinates>-0.9589876,51.4512278</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='loughborough university'>
-			<name>United Kingdom</name>
-			<description>34642</description>
-			<Point>
-				<coordinates>-1.2186814,52.7703862</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of dundee'>
-			<name>United Kingdom</name>
-			<description>34518</description>
-			<Point>
-				<coordinates>-2.9761309,56.4598773</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='lancaster university'>
-			<name>United Kingdom</name>
-			<description>31741</description>
-			<Point>
-				<coordinates>-2.7810559,54.0160361</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of bath'>
-			<name>United Kingdom</name>
-			<description>30857</description>
-			<Point>
-				<coordinates>-2.3251831,51.3791942</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='academy of medical sciences united kingdom'>
-			<name>United Kingdom</name>
-			<description>29499</description>
-			<Point>
-				<coordinates>4.8999019,61.0476494</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of london'>
-			<name>United Kingdom</name>
-			<description>29300</description>
-			<Point>
-				<coordinates>-0.1274396,51.5228397</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of exeter'>
-			<name>United Kingdom</name>
-			<description>28895</description>
-			<Point>
-				<coordinates>-3.5238554,50.7418314</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='environ'>
-			<name>United Kingdom</name>
-			<description>28479</description>
-			<Point>
-				<coordinates>-0.1487398,51.5150162</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of sussex'>
-			<name>United Kingdom</name>
-			<description>28093</description>
-			<Point>
-				<coordinates>-0.0809254,50.8737286</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of east anglia'>
-			<name>United Kingdom</name>
-			<description>25597</description>
-			<Point>
-				<coordinates>1.2409636,52.6222071</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='school of electrical and electronic engineering university of manchester'>
-			<name>United Kingdom</name>
-			<description>24764</description>
-			<Point>
-				<coordinates>-2.23388,53.46557</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='london school of hygiene tropical medicine'>
-			<name>United Kingdom</name>
-			<description>24732</description>
-			<Point>
-				<coordinates>-0.1256987,51.5258807</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='rutherford appleton laboratory'>
-			<name>United Kingdom</name>
-			<description>24371</description>
-			<Point>
-				<coordinates>-1.3081623,51.576052</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='heriot watt university'>
-			<name>United Kingdom</name>
-			<description>23088</description>
-			<Point>
-				<coordinates>-3.3124514,55.9175654</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='brunel university london'>
-			<name>United Kingdom</name>
-			<description>23012</description>
-			<Point>
-				<coordinates>-0.4660128,51.534788</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='ulster university'>
-			<name>United Kingdom</name>
-			<description>20935</description>
-			<Point>
-				<coordinates>-5.9279191,54.6055484</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of wales'>
-			<name>United Kingdom</name>
-			<description>19780</description>
-			<Point>
-				<coordinates>-4.0723927,52.1154154</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='eli lilly and company'>
-			<name>United Kingdom</name>
-			<description>19265</description>
-			<Point>
-				<coordinates>-0.6745832,51.3768761</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of kent'>
-			<name>United Kingdom</name>
-			<description>19129</description>
-			<Point>
-				<coordinates>1.0741169,51.3013948</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of hertfordshire'>
-			<name>United Kingdom</name>
-			<description>19064</description>
-			<Point>
-				<coordinates>-0.233928,51.7548433</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='dupont'>
-			<name>United Kingdom</name>
-			<description>18960</description>
-			<Point>
-				<coordinates>-7.2324139,55.0449684</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of essex'>
-			<name>United Kingdom</name>
-			<description>18916</description>
-			<Point>
-				<coordinates>0.9515806,51.8801279</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='wellcome trust'>
-			<name>United Kingdom</name>
-			<description>18849</description>
-			<Point>
-				<coordinates>-0.1340913,51.5259105</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of hull'>
-			<name>United Kingdom</name>
-			<description>18553</description>
-			<Point>
-				<coordinates>-0.3629521,53.7728413</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of salford'>
-			<name>United Kingdom</name>
-			<description>17828</description>
-			<Point>
-				<coordinates>-2.2661666,53.4943649</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='swansea university'>
-			<name>United Kingdom</name>
-			<description>17023</description>
-			<Point>
-				<coordinates>-3.9748977,51.6115399</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='motorola'>
-			<name>United Kingdom</name>
-			<description>16981</description>
-			<Point>
-				<coordinates>-1.7884589,51.6031655</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='institute of zoology'>
-			<name>United Kingdom</name>
-			<description>16967</description>
-			<Point>
-				<coordinates>-0.1530862,51.5368322</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='london school of economics and political science'>
-			<name>United Kingdom</name>
-			<description>16061</description>
-			<Point>
-				<coordinates>-0.1142124,51.5159343</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of bradford'>
-			<name>United Kingdom</name>
-			<description>15803</description>
-			<Point>
-				<coordinates>-1.765276,53.7931106</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='laboratory of molecular biology'>
-			<name>United Kingdom</name>
-			<description>15707</description>
-			<Point>
-				<coordinates>0.1332775,52.176315</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='royal holloway university of london'>
-			<name>United Kingdom</name>
-			<description>15418</description>
-			<Point>
-				<coordinates>-0.5570379,51.4264165</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='keele university'>
-			<name>United Kingdom</name>
-			<description>15303</description>
-			<Point>
-				<coordinates>-2.25335,53.0097723</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='cranfield university'>
-			<name>United Kingdom</name>
-			<description>15210</description>
-			<Point>
-				<coordinates>-0.6216949,52.0753955</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='national physical laboratory'>
-			<name>United Kingdom</name>
-			<description>15085</description>
-			<Point>
-				<coordinates>-0.3429176,51.4267079</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='university of stirling'>
-			<name>United Kingdom</name>
-			<description>14170</description>
-			<Point>
-				<coordinates>-3.9189648,56.1465761</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark id='teikyo university'>
-			<name>United Kingdom</name>
-			<description>13669</description>
-			<Point>
-				<coordinates>-1.581943,54.7637245</coordinates>
+				<coordinates>-3.4698551,40.5635185</coordinates>
 			</Point>
 		</Placemark>
 	</Document>
