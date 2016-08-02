@@ -21,9 +21,9 @@ import org.xml.sax.SAXException;
 
 import de.bigdprak.ss2016.utils.TextFileWriter;
 
-public class mapCoauthorships {
+public class MapCoauthorships {
 
-	public static final int NUMBER_OF_WRITER = 10;
+	public static final int NUMBER_OF_WRITER = 9;
 	
 
 
@@ -32,7 +32,7 @@ public class mapCoauthorships {
 	public static int numberOfEdges = 0;
 	public static long countMax = 0;
 	
-	
+	public static int  skipped = 0;
 	
 	public static void getCoauthorships(String authorships, HashMap<String, String> map) throws IOException, XPathExpressionException, SAXException, ParserConfigurationException
 	{
@@ -57,12 +57,8 @@ public class mapCoauthorships {
 		}
 		
 		
-		int presentLineNumber = 0;
-		
 		while((line = reader.readLine()) != null)
 		{
-			presentLineNumber++;
-			
 			
 			String[] parts = line.split("\t");
 			
@@ -74,18 +70,12 @@ public class mapCoauthorships {
 				start = parts[0];
 				end   = parts[1];
 				count = Long.parseLong(parts[2]);
-				
-				if(count > countMax)
-				{
-					countMax = count;
-				}
 			}
 			catch(ArrayIndexOutOfBoundsException e)
 			{
 				continue; //Eintrag ohne Name -> ID ist -1
 			}
-
-
+			
 			String resultStart = map.get(start);
 			String resultEnd   = map.get(end);
 
@@ -114,40 +104,51 @@ public class mapCoauthorships {
 			} else if(count > 100)
 			{
 				choosenWriter = 7;
-			} else if(count > 10)
+			}else
 			{
 				choosenWriter = 8;
-			} else
-			{
-				choosenWriter = 9;
 			}
 			
 
 
-			if(!(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")) )
+			if(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")) 
 			{			
+				continue;
+			}
 
-				
-				parts = resultStart.split(",");
-				resultStart = parts[0]+","+parts[1];
-				parts = resultEnd.split(",");
-				resultEnd = parts[0]+","+parts[1];
-				
-				if(!initial[choosenWriter])
-				{
-					writers[choosenWriter].append(",\n");
-				}
-				else
-				{
-					initial[choosenWriter] = false;
-				}
+			
+			if(resultStart.length() == 0 || resultEnd.length() == 0)
+			{
+			//	System.out.println("Not in XML - skip");
+				skipped++;
+				continue;
+			}
+			
+			if(count > countMax)
+			{
+				countMax = count;
+			}
+			
+			parts = resultStart.split(",");
+			resultStart = parts[0]+","+parts[1];
+			parts = resultEnd.split(",");
+			resultEnd = parts[0]+","+parts[1];
+			
+			if(!initial[choosenWriter])
+			{
+				writers[choosenWriter].append(",\n");
+			}
+			else
+			{
+				initial[choosenWriter] = false;
+			}
 
-				writers[choosenWriter].append(
-						"[["  + resultStart
-			   	        + "],[" + resultEnd
-				        + "]]");
-				numberOfEdges++;				
-			}	
+			writers[choosenWriter].append(
+					"[["  + resultStart
+		   	        + "],[" + resultEnd
+			        + "]]");
+			numberOfEdges++;				
+				
 
 		}
 		
@@ -218,13 +219,14 @@ public class mapCoauthorships {
 		}
 	}
 	
+	/*
 	public static void main(String args[])
 	{
 		try {
 			initializeWriters(NUMBER_OF_WRITER);
 		
 			HashMap<String, String> map = generateMappingIDNormalizedAffiliationName("./Visualisierung/affiliations_top_1000.txt", "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml");
-			getCoauthorships("./Visualisierung/coauthorships_leipzig_university.txt", map);
+			getCoauthorships("./Visualisierung/coauthorships_complete_reduced.txt", map);
 			
 			closeWriters();
 		} catch (XPathExpressionException e) {
@@ -238,5 +240,29 @@ public class mapCoauthorships {
 		}
 		System.out.println("Done (" + numberOfEdges + ")");
 		System.out.println("CountMax: " + countMax);
+	}*/
+	
+	public static void initializeMapCoauthroships(String pathAff, String pathInputXML, String pathCoAuthors)
+	{
+		try {
+			initializeWriters(NUMBER_OF_WRITER);
+		
+			HashMap<String, String> map = generateMappingIDNormalizedAffiliationName(pathAff, pathInputXML);			
+			getCoauthorships(pathCoAuthors, map);
+			
+			closeWriters();
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		}
+		System.out.println("CoAuthroship Edges - > Done (" + numberOfEdges + " / "+skipped+")");
+		System.out.println("Heaviest Edge: " + countMax);
+
 	}
+	
 }

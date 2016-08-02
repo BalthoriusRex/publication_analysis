@@ -81,6 +81,7 @@ var i 		           = 0;
 function createGlyphStyle(feature) {
   var name   = feature.get('name');
   var description = feature.get('description');
+  var id = feature.getId();
 /*
   var anzahl   = description.substr(0, description.indexOf(' ')-1);
   var landInfo = description.substr(description.indexOf(' ')+1);
@@ -111,7 +112,7 @@ function createGlyphStyle(feature) {
       stroke: glyphStroke
     }),
     text: new ol.style.Text({
-        text: anzahl.toString(),
+        text: id + " (" + anzahl.toString()+")",
         fill: textFill,
         stroke: textStroke
       })
@@ -282,27 +283,15 @@ function newMultiLineLayer(sourceInformation, color, width)
 //---------------------Lines End
 
 
-newMultiLineLayer(coauthorships9	, "#313695", 0.05	);
-newMultiLineLayer(coauthorships8	, "#4575b4", 0.1	);
-newMultiLineLayer(coauthorships7	, "#74add1", 0.15	);
-newMultiLineLayer(coauthorships6	, "#abd9e9", 0.2	);
-newMultiLineLayer(coauthorships5	, "#e0f3f8", 0.25	);
-newMultiLineLayer(coauthorships4	, "#f3e690", 0.5	);
-newMultiLineLayer(coauthorships3	, "#fdae61", 0.75	);
-newMultiLineLayer(coauthorships2	, "#f46d43", 1.0	);
-newMultiLineLayer(coauthorships1	, "#d73027", 1.5	);
+newMultiLineLayer(coauthorships8	, "#313695", 0.1	);
+newMultiLineLayer(coauthorships7	, "#4575b4", 0.25	);
+newMultiLineLayer(coauthorships6	, "#74add1", 0.5	);
+newMultiLineLayer(coauthorships5	, "#abd9e9", 0.75	);
+newMultiLineLayer(coauthorships4	, "#f3e690", 1.0	);
+newMultiLineLayer(coauthorships3	, "#fdae61", 1.25	);
+newMultiLineLayer(coauthorships2	, "#f46d43", 1.5	);
+newMultiLineLayer(coauthorships1	, "#d73027", 1.75	);
 newMultiLineLayer(coauthorships0 	, "#a50026", 2.0	);
-//newMultiLineLayer(coauthorships 	, "#a50026", 0.5	);
-
-
-
-
-
-
-
-
-
-
 
 </script>
 </body>
