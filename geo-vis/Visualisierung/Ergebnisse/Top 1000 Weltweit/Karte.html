@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Publication Data</title>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.js"></script>
+
+
+<style>
+#map {
+  position: relative;
+}
+#info {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  z-index: 100;
+}
+.tooltip.in {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: white;
+}
+.tooltip-inner {
+  border: 2px solid white;
+}
+
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<div id="Map"></div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <div id="map" class="map"></div>
+  </div>
+</div>
+
+</div>
+<script>
+var glyphFill = new ol.style.Fill({
+  color: 'rgba(0, 180, 0, 0.8)'
+});
+var glyphStroke = new ol.style.Stroke({
+  color: 'rgba(0, 180, 0, 0.2)',
+  width: 1
+});
+var textFill = new ol.style.Fill({
+  color: '#fff'
+});
+var textStroke = new ol.style.Stroke({
+  color: 'rgba(0, 0, 0, 0.6)',
+  width: 3
+});
+var invisibleFill = new ol.style.Fill({
+  color: 'rgba(255, 255, 255, 0.01)'
+});
+
+
+var coordinatesUnProcessed = [];
+var i 		           = 0;
+
+function createGlyphStyle(feature) {
+  var name   = feature.get('name');
+  var description = feature.get('description');
+  var id = feature.getId();
+
+  var anzahl = description;
+  var radius   = 5 + Math.log2(anzahl);
+
+  coordinatesUnProcessed[i] = feature.getGeometry().getCoordinates();
+  i++;
+
+  var geometry = feature.getGeometry();
+  var coords = geometry.getCoordinates();
+
+ 
+  if(coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
+  {
+	radius = 0;	
+  }
+
+
+  return new ol.style.Style({
+    geometry: geometry,
+    image: new ol.style.RegularShape({
+      radius: radius,
+      points: 4,
+      angle: Math.PI,
+      fill: glyphFill,
+      stroke: glyphStroke
+    }),
+    text: new ol.style.Text({
+        text: /*id + */" (" + anzahl.toString()+")",
+        fill: textFill,
+        stroke: textStroke
+      })
+  });
+}
+
+var maxFeatureCount;
+function calculateClusterInfo(resolution) {
+  maxFeatureCount = 0;
+  var features = vector.getSource().getFeatures();
+  var feature, radius;
+  for (var i = features.length - 1; i >= 0; --i) {
+    feature = features[i];
+    var originalFeatures = feature.get('features');
+    var extent = ol.extent.createEmpty();
+    for (var j = 0, jj = originalFeatures.length; j < jj; ++j) {
+      ol.extent.extend(extent, originalFeatures[j].getGeometry().getExtent());
+   // console.log(originalFeatures[j].getId());
+    }
+    maxFeatureCount = Math.max(maxFeatureCount, jj);
+    radius = 0.25 * (ol.extent.getWidth(extent) + ol.extent.getHeight(extent)) /
+        resolution;
+    feature.set('radius', radius);
+  }
+}
+
+var currentResolution;
+function styleFunction(feature, resolution) {
+  if (resolution != currentResolution) {
+    calculateClusterInfo(resolution);
+    currentResolution = resolution;
+  }
+
+  var style;
+  var features = feature.get('features');
+  var size = features.length;
+
+  var anzahl = 0;
+
+  for(var i = 0; i < size; i++)
+  {
+    anzahl += parseInt(features[i].get('description'));
+  }
+	
+  //Ausblenden der Elemente in Null Island
+  var coords = features[0].getGeometry().getCoordinates();
+  if( coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
+  {
+    return new ol.style.Style({fill: new ol.style.Fill({color: [0,0,0,0]})});
+  }
+ 
+
+  if (size > 1) {
+ // console.log(features[0].get('name'));
+
+    style = [new ol.style.Style({
+      image: new ol.style.Circle({
+        radius: feature.get('radius'),
+        fill: new ol.style.Fill({
+          color: [0, 180, 0, Math.min(0.8, 0.4 + (size / maxFeatureCount))]
+        })
+      }),
+      text: new ol.style.Text({
+        text: anzahl + "("+size+")",
+        fill: textFill,
+        stroke: textStroke
+      })
+    })];
+  } else {
+    var originalFeature = feature.get('features')[0];
+    style = [createGlyphStyle(originalFeature)];
+  }
+  return style;
+}
+
+function selectStyleFunction(feature, resolution) {
+  var styles = [new ol.style.Style({
+    image: new ol.style.Circle({
+      radius: feature.get('radius'),
+      fill: invisibleFill
+    })
+  })];
+  var originalFeatures = feature.get('features');
+  var originalFeature;
+  for (var i = originalFeatures.length - 1; i >= 0; --i) {
+    originalFeature = originalFeatures[i];
+    styles.push(createGlyphStyle(originalFeature));
+  }
+  return styles;
+}
+
+var vector = new ol.layer.Vector({
+  source: new ol.source.Cluster({
+    distance: 40,
+    source: new ol.source.Vector({
+      url: 'Xml/affiliations_top_1000.xml',
+      format: new ol.format.KML({
+        extractStyles: false
+      })
+    })
+  }),
+  style: styleFunction
+});
+
+var raster = new ol.layer.Tile({
+  source: new ol.source.Stamen({
+    layer: 'toner'
+  })
+ /*source: new ol.source.Stamen({
+    layer: 'toner-lite'
+  })*/
+/*
+source: new ol.source.Stamen({
+                    layer: 'terrain'
+                })
+                name: 'Terrain'*/
+//source: new ol.source.OSM()
+});
+
+
+var map = new ol.Map({
+  layers: [raster, vector],//, vectorLayer],
+  /*interactions: ol.interaction.defaults().extend([new ol.interaction.Select({
+    condition: function(evt) {
+      return evt.originalEvent.type == 'mousemove' ||
+          evt.type == 'singleclick';
+    },
+    style: selectStyleFunction
+  })]),*/
+  target: 'map',
+  view: new ol.View({
+    center: [0, 0],
+    zoom: 2
+  })
+});	
+
+
+
+//---------------------Lines Start
+
+function newMultiLineLayer(sourceInformation, color, width)
+{
+
+	var feature = new ol.Feature({
+		geometry: new ol.geom.MultiLineString(sourceInformation)
+	});
+
+	feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
+
+	var vectorSource = new ol.source.Vector({
+		features: [feature]
+	});
+
+	var vectorLayer = new ol.layer.Vector({
+		source: vectorSource,
+		style: new ol.style.Style({
+	     		stroke: new ol.style.Stroke({
+				color: color,
+				width: width
+			})
+		})
+	    
+	});
+
+	map.addLayer(vectorLayer);
+}
+//---------------------Lines End
+
+/*
+newMultiLineLayer(coauthorships8	, "#313695", 0.1	);
+newMultiLineLayer(coauthorships7	, "#4575b4", 0.25	);
+newMultiLineLayer(coauthorships6	, "#74add1", 0.5	);
+newMultiLineLayer(coauthorships5	, "#abd9e9", 0.75	);
+newMultiLineLayer(coauthorships4	, "#f3e690", 1.0	);
+newMultiLineLayer(coauthorships3	, "#fdae61", 1.25	);
+newMultiLineLayer(coauthorships2	, "#f46d43", 1.5	);
+newMultiLineLayer(coauthorships1	, "#d73027", 1.75	);
+newMultiLineLayer(coauthorships0 	, "#a50026", 2.0	);*/
+
+</script>
+</body>
+</html>
