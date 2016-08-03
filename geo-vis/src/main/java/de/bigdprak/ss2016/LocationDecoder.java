@@ -534,13 +534,13 @@ public class LocationDecoder {
 		boolean isRemote = isRemote(args);
 		init(isRemote);
 		
-		String affiliations_locations_file = folder + "affiliations_top_1000.txt";
-		String affiliations_countries_file = folder + "countries_count.txt";
+		//String affiliations_locations_file = folder + "affiliations_top_1000.txt";
+		//String affiliations_countries_file = folder + "countries_count.txt";
 		String locations_file = folder + "locations.txt";
 		String countries_file = folder + "countries.txt";
-		String xml_locations_file = "./Visualisierung/Karten/Xml/locations.xml";
-		String xml_countries_file = "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml";
-		String kml_countries_file = "./Visualisierung/Karten/Xml/locations_USE.kml";
+		//String xml_locations_file = "./Visualisierung/Karten/Xml/locations.xml";
+		//String xml_countries_file = "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml";
+		//String kml_countries_file = "./Visualisierung/Karten/Xml/locations_USE.kml";
 		
 		//generateLocations(affiliations_locations_file, locations_file);
 		//convertLocationsToXML(affiliations_locations_file, locations_file, xml_locations_file, kml_countries_file);				

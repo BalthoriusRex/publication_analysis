@@ -22,6 +22,7 @@ public class FieldOfStudyAnalytics {
 		//target = "Rasterisation";
 		//target = "Mitoplast";
 		target = "Mathematics";
+		//target = "Risk analysis";
 		
 		System.out.println("[JOB] computingn edges for field of study: " + target);
 		
@@ -97,26 +98,22 @@ public class FieldOfStudyAnalytics {
 				.drop(df_pIDs.col(pID));
 		//df_PAA_filtered.show();
 		
-		DataFrame df_1 = df_PAA_filtered.as("df1");
-		DataFrame df_2 = df_PAA_filtered.as("df2");
-		DataFrame df_edges = df_1
-				.join(df_2, df_1.col(pID).equalTo(df_2.col(pID)))
-				//.where("NOT(df1.affiliationID = df2.affiliationID)")
-				.select(df_1.col(paa_affName), df_2.col(paa_affName))
-				.toDF("location1", "location2");
-		df_edges.show();
 		
-		DataFrame df_edges_agg = df_edges
-				.as("edges")
-				.sqlContext()
-				.sql(""
-						+ "SELECT location1, location2, COUNT(location1, location2) "
-						+ "FROM edges "
-						+ "GROUP BY location1, location2 "
-						+ "ORDER BY Anzahl DESC")
-				//.groupBy("location1", "location2")
-				//.count()
-				.toDF("location1", "location2", "anzahl");
+		
+		df_PAA_filtered.registerTempTable("PAA");
+		DataFrame df_edges_agg = sql.sql(""
+					+ "SELECT "
+						+ "A."+affID+" AS affID_A,  "
+						+ "B."+affID+" AS affID_B,  "
+						+ "COUNT(A."+affID+", B."+affID+") AS anzahl "
+					+ "FROM "
+						+ "PAA A JOIN "
+						+ "PAA B "
+						+ "ON A.paperID = B.paperID "
+					+ "WHERE NOT(A."+affID+" = B."+affID+") "
+					+ "GROUP BY "
+						+ "A."+affID+", B."+affID+""
+					+ "");
 		df_edges_agg.show();
 		
 		String target_repl = target.replace(" ", "_");
