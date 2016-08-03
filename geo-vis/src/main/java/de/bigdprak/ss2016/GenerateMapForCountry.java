@@ -4,7 +4,7 @@ public class GenerateMapForCountry {
 
 	public static void main(String args[])
 	{
-		String input = "Globus"; // country name, empty string or "Globus"
+		String input = ""; // country name, empty string or "Globus"
 		
 		
 		

@@ -34,138 +34,10 @@ public class MapCoauthorships {
 	
 	public static int  skipped = 0;
 	
-	public static void getCoauthorshipsLocations(String authorships, HashMap<String, String> map, int glyphSize, int maxEdgeLevel) throws IOException, XPathExpressionException, SAXException, ParserConfigurationException
-	{
-		//Entferne KML-Tags vor Nutzung des XMLs!
-		BufferedReader reader = new BufferedReader(new FileReader(new File(authorships)));
-		
-		String line;
-		reader.readLine();	//Initialzeilen mit Querybeschreibung
-		reader.readLine();
-		
-		writeOnAll("var coauthorships");
-		for(int i = 0; i < NUMBER_OF_WRITER; i++)
-		{
-			writers[i].append(""+i);
-		}
-		writeOnAll(" = [");
-		
-		boolean initial[] = new boolean[NUMBER_OF_WRITER];
-		for(int i = 0; i < NUMBER_OF_WRITER; i++)
-		{
-			initial[i] = true;
-		}
-		
-		
-		while((line = reader.readLine()) != null)
-		{
-			
-			String[] parts = line.split("\t");
-			
-			String start = "";
-			String end   = "";
-			long   count = 0;
-			
-			try{
-				start = parts[0];
-				end   = parts[1];
-				count = Long.parseLong(parts[2]);
-			}
-			catch(ArrayIndexOutOfBoundsException e)
-			{
-				continue; //Eintrag ohne Name -> ID ist -1
-			}
-			
-			String resultStart = map.get(start);
-			String resultEnd   = map.get(end);
-
-			int choosenWriter = -1;
-			if(count > 1500000)
-			{
-				choosenWriter = 0;
-			} else if(count > 1000000)
-			{
-				choosenWriter = 1;
-			} else if(count > 500000)
-			{
-				choosenWriter = 2;
-			} else if(count > 100000)
-			{
-				choosenWriter = 3;
-			} else if(count > 50000)
-			{
-				choosenWriter = 4;
-			} else if(count > 10000)
-			{
-				choosenWriter = 5;
-			} else if(count > 1000)
-			{
-				choosenWriter = 6;
-			} else if(count > 100)
-			{
-				choosenWriter = 7;
-			}else
-			{
-				choosenWriter = 8;
-			}
-			
-			// -----------------------------------------
-			
-			if (choosenWriter > maxEdgeLevel) {
-				skipped++;
-				continue;
-			}
-			
-			if(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")) 
-			{			
-				skipped++;
-				continue;
-			}
-
-			
-			if(resultStart.length() == 0 || resultEnd.length() == 0)
-			{
-			//	System.out.println("Not in XML - skip");
-				skipped++;
-				continue;
-			}
-			
-			if(count > countMax)
-			{
-				countMax = count;
-			}
-			
-			parts = resultStart.split(",");
-			resultStart = parts[0]+","+parts[1];
-			parts = resultEnd.split(",");
-			resultEnd = parts[0]+","+parts[1];
-			
-			if(!initial[choosenWriter])
-			{
-				writers[choosenWriter].append(",\n");
-			}
-			else
-			{
-				initial[choosenWriter] = false;
-			}
-
-			writers[choosenWriter].append(
-					"[["  + resultStart
-		   	        + "],[" + resultEnd
-			        + "]]");
-			numberOfEdges++;				
-				
-
-		}
-		
-		writeOnAll("];\n\n\n");
-		
-		writers[0].append("var glyphSize = " + glyphSize + ";\n");
-		
-		reader.close();
-	}
+	public static int duplicate = 0;
 	
-	public static void getCoauthorshipsCountries(String authorships, HashMap<String, String> map, int glyphSize, int maxEdgeLevel) throws IOException, XPathExpressionException, SAXException, ParserConfigurationException
+	
+	public static void getCoauthorships(String authorships, HashMap<String, String> map, int glyphSize, int maxEdgeLevel) throws IOException, XPathExpressionException, SAXException, ParserConfigurationException
 	{
 		//Entferne KML-Tags vor Nutzung des XMLs!
 		BufferedReader reader = new BufferedReader(new FileReader(new File(authorships)));
@@ -187,6 +59,7 @@ public class MapCoauthorships {
 			initial[i] = true;
 		}
 		
+		HashMap<String, Long> edges = new HashMap<String, Long>();
 		
 		while((line = reader.readLine()) != null)
 		{
@@ -270,8 +143,100 @@ public class MapCoauthorships {
 			resultStart = parts[0]+","+parts[1];
 			parts = resultEnd.split(",");
 			resultEnd = parts[0]+","+parts[1];
+
+			//Map
 			
-			if(!initial[choosenWriter])
+			String tmpStart[] = resultStart.split(",");
+			String tmpEnd[]   =   resultEnd.split(",");
+
+			double lonStart = Double.parseDouble(tmpStart[0]);
+			double lonEnd   =   Double.parseDouble(tmpEnd[0]);
+			
+			String key  = "";
+
+			
+			if(lonStart == lonEnd)
+			{
+				double latStart = Double.parseDouble(tmpStart[1]);
+				double latEnd   =   Double.parseDouble(tmpEnd[1]);
+				
+				if(latStart > latEnd)
+				{
+					key = resultEnd+","+resultStart;
+				}
+				else
+				{
+					key = resultStart+","+resultEnd;
+				}
+				
+			}
+			else if(lonStart > lonEnd)
+			{
+				key = resultStart+","+resultEnd;
+			}
+			else
+			{
+				key = resultEnd+","+resultStart;
+			}
+			
+			
+			
+			if(edges.get(key) != null)
+			{	
+				if(count > edges.get(key)) //Aktueller Eintrag ist schon vorhanden, aber jetzt schwere Kante, nehme die aktuelle mit dazu (wird durch Layerplatzierung nach der schwachen gemalt -> oben
+											//Sollte nicht auftreten, aber da "United States" und "United States of America" beides vorkommt und einzelne Landsglyphe wird -> Gleiche Kante mit verschiedenen Gewichten...
+				{
+					edges.put(key, count);
+					
+					if(!initial[choosenWriter])
+					{
+						writers[choosenWriter].append(",\n");
+					}
+					else
+					{
+						initial[choosenWriter] = false;
+					}
+					
+					writers[choosenWriter].append(
+							"[["  + resultStart
+				   	        + "],[" + resultEnd
+					        + "]]");
+					
+					numberOfEdges++;
+				}
+				else
+				{
+					duplicate++;
+				}
+			}
+			else
+			{
+				edges.put(key, count);
+			
+				if(!initial[choosenWriter])
+				{
+					writers[choosenWriter].append(",\n");
+				}
+				else
+				{
+					initial[choosenWriter] = false;
+				}
+				
+				writers[choosenWriter].append(
+						"[["  + resultStart
+			   	        + "],[" + resultEnd
+				        + "]]");
+				
+				numberOfEdges++;
+			}
+
+			
+				//Vergleiche Koords, kleine nach vorne -> Key; An Value kommt die fertige Edge
+				
+				
+			//EndMap
+			/*
+	 		if(!initial[choosenWriter])
 			{
 				writers[choosenWriter].append(",\n");
 			}
@@ -279,16 +244,16 @@ public class MapCoauthorships {
 			{
 				initial[choosenWriter] = false;
 			}
-
 			writers[choosenWriter].append(
 					"[["  + resultStart
 		   	        + "],[" + resultEnd
 			        + "]]");
 			numberOfEdges++;				
-				
+			*/
 
 		}
 		
+				
 		writeOnAll("];\n\n\n");
 		
 		writers[0].append("var glyphSize = " + glyphSize + ";\n");
@@ -424,13 +389,15 @@ public class MapCoauthorships {
 		try {
 			initializeWriters(NUMBER_OF_WRITER);
 			
+			HashMap<String, String> map = null;
+			
 			if (countryLevel) {
-				HashMap<String, String> map = generateMappingCountryToCoords(pathAff, pathInputXML);			
-				getCoauthorshipsCountries(pathCoAuthors, map, glyphSize, maxEdgeLevel);
+				map = generateMappingCountryToCoords(pathAff, pathInputXML);	
 			} else {
-				HashMap<String, String> map = generateMappingAffIDToCoords(pathAff, pathInputXML);			
-				getCoauthorshipsLocations(pathCoAuthors, map, glyphSize, maxEdgeLevel);
+				map = generateMappingAffIDToCoords(pathAff, pathInputXML);		
 			}
+			
+			getCoauthorships(pathCoAuthors, map, glyphSize, maxEdgeLevel);
 			
 			closeWriters();
 		} catch (XPathExpressionException e) {
@@ -442,7 +409,7 @@ public class MapCoauthorships {
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		}
-		System.out.println("CoAuthroship Edges - > Done (" + numberOfEdges + " / "+skipped+")");
+		System.out.println("CoAuthroship Edges - > Done (" + numberOfEdges + " / " + skipped + " / "+ duplicate + ")");
 		System.out.println("Heaviest Edge: " + countMax);
 
 	}
