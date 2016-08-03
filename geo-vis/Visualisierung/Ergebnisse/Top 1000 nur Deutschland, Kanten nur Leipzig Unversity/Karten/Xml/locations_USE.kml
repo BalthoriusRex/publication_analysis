@@ -5,56 +5,56 @@
 			<name>Germany</name>
 			<description>151349</description>
 			<Point>
-				<coordinates>11.7687597,48.2697678</coordinates>
+				<coordinates>11.57549,48.13743</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='technische universitat munchen'>
 			<name>Germany</name>
 			<description>101824</description>
 			<Point>
-				<coordinates>11.5699075,48.1514082</coordinates>
+				<coordinates>11.5677535,48.1495545</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='rwth aachen university'>
 			<name>Germany</name>
 			<description>98487</description>
 			<Point>
-				<coordinates>6.0706367,50.7768129</coordinates>
+				<coordinates>6.0672873,50.7791703</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of bonn'>
 			<name>Germany</name>
 			<description>94553</description>
 			<Point>
-				<coordinates>7.1022809,50.733848</coordinates>
+				<coordinates>7.1022309,50.733798</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of erlangen nuremberg'>
 			<name>Germany</name>
 			<description>75668</description>
 			<Point>
-				<coordinates>11.3236637,49.5730438</coordinates>
+				<coordinates>11.07752,49.45421</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='karlsruhe institute of technology'>
 			<name>Germany</name>
 			<description>75473</description>
 			<Point>
-				<coordinates>8.4346999,49.0246986</coordinates>
+				<coordinates>8.4331256,49.1018438</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of tubingen'>
 			<name>Germany</name>
 			<description>70367</description>
 			<Point>
-				<coordinates>9.0841265,48.5526352</coordinates>
+				<coordinates>9.0712444,48.5340595</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='ruhr university bochum'>
 			<name>Germany</name>
 			<description>65203</description>
 			<Point>
-				<coordinates>7.2695593,51.4483963</coordinates>
+				<coordinates>7.2610854,51.4441947</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of hamburg'>
@@ -68,175 +68,175 @@
 			<name>Germany</name>
 			<description>62146</description>
 			<Point>
-				<coordinates>7.9049201,48.0288544</coordinates>
+				<coordinates>7.85222,47.9959</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='leipzig university'>
 			<name>Germany</name>
 			<description>54645</description>
 			<Point>
-				<coordinates>12.7380044,51.3678333</coordinates>
+				<coordinates>12.3428292,51.333396</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of cologne'>
 			<name>Germany</name>
 			<description>54602</description>
 			<Point>
-				<coordinates>6.9915192,50.936379</coordinates>
+				<coordinates>6.9889533,50.9339912</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of stuttgart'>
 			<name>Germany</name>
 			<description>54075</description>
 			<Point>
-				<coordinates>9.3679895,48.8968582</coordinates>
+				<coordinates>9.17702,48.78232</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='dresden university of technology'>
 			<name>Germany</name>
 			<description>49213</description>
 			<Point>
-				<coordinates>13.9248276,51.0569113</coordinates>
+				<coordinates>13.7526918,51.0307606</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of mainz'>
 			<name>Germany</name>
 			<description>44666</description>
 			<Point>
-				<coordinates>8.2798774,49.997447</coordinates>
+				<coordinates>8.2788611,49.9971329</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of jena'>
 			<name>Germany</name>
 			<description>43833</description>
 			<Point>
-				<coordinates>11.6304007,50.9599419</coordinates>
+				<coordinates>11.5899,50.92878</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='martin luther university of halle wittenberg'>
 			<name>Germany</name>
 			<description>36339</description>
 			<Point>
-				<coordinates>12.9596891,51.9611664</coordinates>
+				<coordinates>12.6666,51.81666</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='goethe university frankfurt'>
 			<name>Germany</name>
 			<description>35902</description>
 			<Point>
-				<coordinates>8.8493576,50.2427025</coordinates>
+				<coordinates>8.68417,50.11552</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of ulm'>
 			<name>Germany</name>
 			<description>35255</description>
 			<Point>
-				<coordinates>10.0150461,48.4323616</coordinates>
+				<coordinates>9.99155,48.39841</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='humboldt university of berlin'>
 			<name>Germany</name>
 			<description>33400</description>
 			<Point>
-				<coordinates>13.3948782,52.5200851</coordinates>
+				<coordinates>13.3935843,52.5185223</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of bremen'>
 			<name>Germany</name>
 			<description>32940</description>
 			<Point>
-				<coordinates>8.8676095,53.1144974</coordinates>
+				<coordinates>8.8556646,53.1079645</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='forschungszentrum julich'>
 			<name>Germany</name>
 			<description>30050</description>
 			<Point>
-				<coordinates>6.4232242,50.9108523</coordinates>
+				<coordinates>6.3883553,50.9028147</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='technische hochschule'>
 			<name>Germany</name>
 			<description>29492</description>
 			<Point>
-				<coordinates>6.0777186,50.7772676</coordinates>
+				<coordinates>6.0782009,50.7774531</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of wurzburg'>
 			<name>Germany</name>
 			<description>29027</description>
 			<Point>
-				<coordinates>9.9710579,49.8196831</coordinates>
+				<coordinates>9.95121,49.79391</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='alcatel lucent'>
 			<name>Germany</name>
 			<description>27279</description>
 			<Point>
-				<coordinates>9.1530294,48.8324775</coordinates>
+				<coordinates>9.1495741,48.8317124</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of munster'>
 			<name>Germany</name>
 			<description>27248</description>
 			<Point>
-				<coordinates>7.6285142,51.9698574</coordinates>
+				<coordinates>7.5992159,51.9672436</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of gottingen'>
 			<name>Germany</name>
 			<description>24205</description>
 			<Point>
-				<coordinates>9.9330581,51.5287719</coordinates>
+				<coordinates>9.932326,51.5285079</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='technische universitat darmstadt'>
 			<name>Germany</name>
 			<description>22806</description>
 			<Point>
-				<coordinates>8.6583986,49.8769831</coordinates>
+				<coordinates>8.6577467,49.8765251</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of regensburg'>
 			<name>Germany</name>
 			<description>22483</description>
 			<Point>
-				<coordinates>12.1429987,49.0417938</coordinates>
+				<coordinates>12.11923,49.03451</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of bayreuth'>
 			<name>Germany</name>
 			<description>21428</description>
 			<Point>
-				<coordinates>11.609458,49.9691505</coordinates>
+				<coordinates>11.5857085,49.9275059</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='hochschule hannover'>
 			<name>Germany</name>
 			<description>21094</description>
 			<Point>
-				<coordinates>9.769208,52.3563646</coordinates>
+				<coordinates>9.7673459,52.3554814</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='bielefeld university'>
 			<name>Germany</name>
 			<description>20552</description>
 			<Point>
-				<coordinates>8.4907578,52.0369388</coordinates>
+				<coordinates>8.4901776,52.0365422</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of giessen'>
 			<name>Germany</name>
 			<description>18034</description>
 			<Point>
-				<coordinates>8.7045298,50.6035385</coordinates>
+				<coordinates>8.67554,50.58727</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of kiel'>
 			<name>Germany</name>
 			<description>17335</description>
 			<Point>
-				<coordinates>10.1825515,54.3356426</coordinates>
+				<coordinates>10.1800305,54.3325076</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of dusseldorf'>
@@ -250,42 +250,42 @@
 			<name>Germany</name>
 			<description>16566</description>
 			<Point>
-				<coordinates>12.133532,54.0883736</coordinates>
+				<coordinates>12.14049,54.0887</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='saarland university'>
 			<name>Germany</name>
 			<description>16388</description>
 			<Point>
-				<coordinates>7.0468998,49.2584581</coordinates>
+				<coordinates>7.0408914,49.2545928</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of duisburg essen'>
 			<name>Germany</name>
 			<description>15882</description>
 			<Point>
-				<coordinates>6.7866599,51.4308171</coordinates>
+				<coordinates>6.7847069,51.4296271</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='otto von guericke university magdeburg'>
 			<name>Germany</name>
 			<description>15630</description>
 			<Point>
-				<coordinates>11.6521292,52.1418259</coordinates>
+				<coordinates>11.6453797,52.139912</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='bayer'>
 			<name>Germany</name>
 			<description>14189</description>
 			<Point>
-				<coordinates>12.530617,48.1832659</coordinates>
+				<coordinates>12.510617,48.1632659</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark id='university of konstanz'>
 			<name>Germany</name>
 			<description>14028</description>
 			<Point>
-				<coordinates>9.1911959,47.6916692</coordinates>
+				<coordinates>9.1893897,47.6899371</coordinates>
 			</Point>
 		</Placemark>
 	</Document>
