@@ -24,7 +24,31 @@ public class FieldOfStudyAnalytics {
 		target = "Mathematics";
 		//target = "Risk analysis";
 		
-		System.out.println("[JOB] computingn edges for field of study: " + target);
+		String input = "";
+		try {
+			input += args[2];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[3];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[4];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[5];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[6];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		if (input.equals("")) {
+			System.out.println("\n"
+					+ "No research topic specified...\n"
+					+ "Using default topic...\n");
+		} else {
+			target = input;
+		}
+		
+		System.out.println("[JOB] computing edges for field of study: " + target);
 		
 		String id_FoS    = "fieldOfStudyID";
 		String id_FoSH_c = "childFieldOfStudyID";
@@ -35,7 +59,7 @@ public class FieldOfStudyAnalytics {
 		String paa_affName = "normalizedAffiliationName";
 		String loc_affName = "name";
 		
-		SparkUtility.init(args);
+		SparkUtility.init(args, true, true);
 		SQLContext sql = SparkUtility.getSQL();
 		
 		long t_start = System.currentTimeMillis();

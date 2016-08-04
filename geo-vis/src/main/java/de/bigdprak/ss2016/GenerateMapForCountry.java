@@ -10,7 +10,7 @@ public class GenerateMapForCountry {
 		String FoS = "";
 		//FoS = "Mathematics";
 		
-		if (input.equals("") && !FoS.equals("")) {
+		if (!input.equals("Globus") && !FoS.equals("")) {
 			String pathAff = "./Visualisierung/affiliations_top_1000.txt";
 			String pathInputXML = "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml";
 			String pathCoAuthors = "./Visualisierung/edges_by_field_on_" + FoS.replace(" ", "_") + ".txt";
