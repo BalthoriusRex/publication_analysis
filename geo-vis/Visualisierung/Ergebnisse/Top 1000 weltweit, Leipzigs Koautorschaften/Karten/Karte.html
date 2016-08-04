@@ -81,9 +81,12 @@ function createGlyphStyle(feature) {
   var name   = feature.get('name');
   var description = feature.get('description');
   var id = feature.getId();
-
+/*
+  var anzahl   = description.substr(0, description.indexOf(' ')-1);
+  var landInfo = description.substr(description.indexOf(' ')+1);
+*/
   var anzahl = description;
-  var radius   = 5 + Math.log2(anzahl);
+  var radius   = 5+Math.log2(anzahl);//anzahl/10. > 20 ? 20 : anzahl/10.;
 
   coordinatesUnProcessed[i] = feature.getGeometry().getCoordinates();
   i++;
@@ -126,12 +129,11 @@ function calculateClusterInfo(resolution) {
     var extent = ol.extent.createEmpty();
     for (var j = 0, jj = originalFeatures.length; j < jj; ++j) {
       ol.extent.extend(extent, originalFeatures[j].getGeometry().getExtent());
-   // console.log(originalFeatures[j].getId());
     }
     maxFeatureCount = Math.max(maxFeatureCount, jj);
     radius = 0.25 * (ol.extent.getWidth(extent) + ol.extent.getHeight(extent)) /
         resolution;
-    feature.set('radius', radius);
+    feature.set('radius', radius + glyphSize);
   }
 }
 
@@ -162,8 +164,6 @@ function styleFunction(feature, resolution) {
  
 
   if (size > 1) {
- // console.log(features[0].get('name'));
-
     style = [new ol.style.Style({
       image: new ol.style.Circle({
         radius: feature.get('radius'),
@@ -172,7 +172,7 @@ function styleFunction(feature, resolution) {
         })
       }),
       text: new ol.style.Text({
-        text: anzahl + "("+size+")",
+        text: anzahl + "\n("+size+")",
         fill: textFill,
         stroke: textStroke
       })
@@ -215,7 +215,7 @@ var vector = new ol.layer.Vector({
 
 var raster = new ol.layer.Tile({
   source: new ol.source.Stamen({
-    layer: 'toner'
+    layer: 'toner-lite'
   })
  /*source: new ol.source.Stamen({
     layer: 'toner-lite'
@@ -244,6 +244,10 @@ var map = new ol.Map({
     zoom: 2
   })
 });	
+
+
+
+
 
 
 
@@ -277,7 +281,7 @@ function newMultiLineLayer(sourceInformation, color, width)
 }
 //---------------------Lines End
 
-
+/*
 newMultiLineLayer(coauthorships8	, "#313695", 0.1	);
 newMultiLineLayer(coauthorships7	, "#4575b4", 0.25	);
 newMultiLineLayer(coauthorships6	, "#74add1", 0.5	);
@@ -287,6 +291,31 @@ newMultiLineLayer(coauthorships3	, "#fdae61", 1.25	);
 newMultiLineLayer(coauthorships2	, "#f46d43", 1.5	);
 newMultiLineLayer(coauthorships1	, "#d73027", 1.75	);
 newMultiLineLayer(coauthorships0 	, "#a50026", 2.0	);
+*/
+
+/*
+newMultiLineLayer(coauthorships8	, "#ffffcc", 0.1	);
+newMultiLineLayer(coauthorships7	, "#ffeda0", 0.25	);
+newMultiLineLayer(coauthorships6	, "#fed976", 0.5	);
+newMultiLineLayer(coauthorships5	, "#feb24c", 0.75	);
+newMultiLineLayer(coauthorships4	, "#fd8d3c", 1.0	);
+newMultiLineLayer(coauthorships3	, "#fc4e2a", 1.25	);
+newMultiLineLayer(coauthorships2	, "#e31a1c", 1.5	);
+newMultiLineLayer(coauthorships1	, "#bd0026", 1.75	);
+newMultiLineLayer(coauthorships0 	, "#800026", 2.0	);*/
+
+
+newMultiLineLayer(coauthorships8	, "#7FCDBB", 0.6	);
+newMultiLineLayer(coauthorships7	, "#85C2B1", 1.1	);
+newMultiLineLayer(coauthorships6	, "#8CB7A7", 1.25	);
+newMultiLineLayer(coauthorships5	, "#98A093", 1.35	);
+newMultiLineLayer(coauthorships4	, "#745D78", 1.85	);
+newMultiLineLayer(coauthorships3	, "#A53F4F", 2.1	);
+newMultiLineLayer(coauthorships2	, "#CA2931", 2.35	);
+newMultiLineLayer(coauthorships1	, "#CB181D", 2.5	);
+newMultiLineLayer(coauthorships0 	, "#E31A1C", 3.0	);
+
+
 
 </script>
 </body>
