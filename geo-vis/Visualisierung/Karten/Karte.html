@@ -81,10 +81,6 @@ function createGlyphStyle(feature) {
   var name   = feature.get('name');
   var description = feature.get('description');
   var id = feature.getId();
-/*
-  var anzahl   = description.substr(0, description.indexOf(' ')-1);
-  var landInfo = description.substr(description.indexOf(' ')+1);
-*/
   var anzahl = description;
   var radius   = 5+Math.log2(anzahl);//anzahl/10. > 20 ? 20 : anzahl/10.;
 
@@ -94,7 +90,7 @@ function createGlyphStyle(feature) {
   var geometry = feature.getGeometry();
   var coords = geometry.getCoordinates();
 
- 
+  //Blende Glyphen aus, die es trotz defekter Koordinaten doch bis hier hin geschafft haben. Kleiner Wert ist Rundungsfehler von 0
   if(coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
   {
 	radius = 0;	
@@ -155,7 +151,7 @@ function styleFunction(feature, resolution) {
     anzahl += parseInt(features[i].get('description'));
   }
 	
-  //Ausblenden der Elemente in Null Island
+  //Ausblenden der aggregierten Glyphen in Null Island
   var coords = features[0].getGeometry().getCoordinates();
   if( coords[0] === 0 && (coords[1] === 0 || coords[1] === -7.081154551613622e-10))
   {
@@ -218,7 +214,7 @@ var raster = new ol.layer.Tile({
     layer: 'toner-lite'
   })
  /*source: new ol.source.Stamen({
-    layer: 'toner-lite'
+    layer: 'toner'
   })*/
 /*
 source: new ol.source.Stamen({
@@ -251,7 +247,7 @@ var map = new ol.Map({
 
 
 
-//---------------------Lines Start
+//---------------------Lines Start - Zeichnen der Kanten
 
 function newMultiLineLayer(sourceInformation, color, width)
 {
@@ -279,31 +275,6 @@ function newMultiLineLayer(sourceInformation, color, width)
 
 	map.addLayer(vectorLayer);
 }
-//---------------------Lines End
-
-/*
-newMultiLineLayer(coauthorships8	, "#313695", 0.1	);
-newMultiLineLayer(coauthorships7	, "#4575b4", 0.25	);
-newMultiLineLayer(coauthorships6	, "#74add1", 0.5	);
-newMultiLineLayer(coauthorships5	, "#abd9e9", 0.75	);
-newMultiLineLayer(coauthorships4	, "#f3e690", 1.0	);
-newMultiLineLayer(coauthorships3	, "#fdae61", 1.25	);
-newMultiLineLayer(coauthorships2	, "#f46d43", 1.5	);
-newMultiLineLayer(coauthorships1	, "#d73027", 1.75	);
-newMultiLineLayer(coauthorships0 	, "#a50026", 2.0	);
-*/
-
-/*
-newMultiLineLayer(coauthorships8	, "#ffffcc", 0.1	);
-newMultiLineLayer(coauthorships7	, "#ffeda0", 0.25	);
-newMultiLineLayer(coauthorships6	, "#fed976", 0.5	);
-newMultiLineLayer(coauthorships5	, "#feb24c", 0.75	);
-newMultiLineLayer(coauthorships4	, "#fd8d3c", 1.0	);
-newMultiLineLayer(coauthorships3	, "#fc4e2a", 1.25	);
-newMultiLineLayer(coauthorships2	, "#e31a1c", 1.5	);
-newMultiLineLayer(coauthorships1	, "#bd0026", 1.75	);
-newMultiLineLayer(coauthorships0 	, "#800026", 2.0	);*/
-
 
 newMultiLineLayer(coauthorships8	, "#7FCDBB", 0.1	);
 newMultiLineLayer(coauthorships7	, "#85C2B1", 0.5	);
@@ -316,6 +287,7 @@ newMultiLineLayer(coauthorships1	, "#CB181D", 2.0	);
 newMultiLineLayer(coauthorships0 	, "#E31A1C", 2.5	);
 
 
+//---------------------Lines End
 
 </script>
 </body>
