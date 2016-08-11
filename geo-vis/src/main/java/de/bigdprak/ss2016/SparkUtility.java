@@ -56,6 +56,8 @@ public class SparkUtility {
 	private static String folder_hadoop;
 	private static String folder_vis;
 	private static boolean isRemote = false;
+	private static boolean limit1000;
+	private static boolean limit100;
 	
 	private static boolean initialized = false;
 	
@@ -68,7 +70,7 @@ public class SparkUtility {
 		return isRemote;
 	}
 	
-	public static void init(String[] args) {
+	public static void init(String[] args, boolean limit1000, boolean limit100) {
 		boolean isRemote = isRemote(args);
 		
 		System.out.println("Working on " + (isRemote ? "remote PC" : "local PC" + "!"));
@@ -76,6 +78,9 @@ public class SparkUtility {
 		String user = isRemote ? "bigprak" : "balthorius"; 
 		folder_hadoop = "/home/"+user+"/progs/hadoop/input/";
 		folder_vis = "./Visualisierung/";
+
+		SparkUtility.limit1000 = limit1000;
+		SparkUtility.limit100 = limit100;
 		
 		setFileNames();
 		// initialize Spark - start
@@ -109,9 +114,13 @@ public class SparkUtility {
 		file_FieldOfStudyHierarchy = folder_hadoop + "FieldOfStudyHierarchy.txt";
 		file_FieldsOfStudy = folder_hadoop + "FieldsOfStudy.txt";
 		file_Journals = folder_hadoop + "Journals.txt";
-		//file_PaperAuthorAffiliations = folder + "PaperAuthorAffiliations.txt";
-		//file_PaperAuthorAffiliations = folder_hadoop + "reduced_top_1000_PaperAuthorAffiliations.txt";
-		file_PaperAuthorAffiliations = folder_hadoop + "reduced_top_100_PaperAuthorAffiliations.txt";
+		file_PaperAuthorAffiliations = folder_hadoop + "PaperAuthorAffiliations.txt";
+		if (limit1000) {
+			file_PaperAuthorAffiliations = folder_hadoop + "reduced_top_1000_PaperAuthorAffiliations.txt";
+		}
+		if (limit100) {
+			file_PaperAuthorAffiliations = folder_hadoop + "reduced_top_100_PaperAuthorAffiliations.txt";
+		}
 		file_PaperAuthorAffiliations_by_Country = folder_hadoop + "reduced_countries_PaperAuthorAffiliations.txt";
 		file_PaperKeywords = folder_hadoop + "PaperKeywords.txt";
 		file_PaperReferences = folder_hadoop + "PaperReferences.txt";

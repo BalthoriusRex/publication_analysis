@@ -24,7 +24,31 @@ public class FieldOfStudyAnalytics {
 		target = "Mathematics";
 		//target = "Risk analysis";
 		
-		System.out.println("[JOB] computingn edges for field of study: " + target);
+		String input = "";
+		try {
+			input += args[2];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[3];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[4];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[5];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		try {
+			input += " " + args[6];
+		} catch (ArrayIndexOutOfBoundsException e) {}
+		if (input.equals("")) {
+			System.out.println("\n"
+					+ "No research topic specified...\n"
+					+ "Using default topic...\n");
+		} else {
+			target = input;
+		}
+		
+		System.out.println("[JOB] computing edges for field of study: " + target);
 		
 		String id_FoS    = "fieldOfStudyID";
 		String id_FoSH_c = "childFieldOfStudyID";
@@ -35,7 +59,7 @@ public class FieldOfStudyAnalytics {
 		String paa_affName = "normalizedAffiliationName";
 		String loc_affName = "name";
 		
-		SparkUtility.init(args);
+		SparkUtility.init(args, true, true);
 		SQLContext sql = SparkUtility.getSQL();
 		
 		long t_start = System.currentTimeMillis();
@@ -117,7 +141,8 @@ public class FieldOfStudyAnalytics {
 		df_edges_agg.show();
 		
 		String target_repl = target.replace(" ", "_");
-		String path = SparkUtility.getFolderHadoop() + "edges_by_field_on_" + target_repl + ".txt";
+		String file = "edges_by_field_on_" + target_repl + ".txt";
+		String path = SparkUtility.getFolderHadoop() + file;
 		
 		// print results ...
 		SparkUtility.printResults(path, df_edges_agg.collect());
@@ -135,6 +160,7 @@ public class FieldOfStudyAnalytics {
 		s = s - m * 60;
 		m = m - h * 60;
 		System.out.println("[DURATION] " + h + "h " + m + "m " + s + "s " + ms + "ms");
+		System.out.println("printed results to file " + file);
 		
 		SparkUtility.close();
 	}
