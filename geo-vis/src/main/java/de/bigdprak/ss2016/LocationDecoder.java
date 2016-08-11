@@ -71,6 +71,7 @@ public class LocationDecoder {
 		return "" + loc.getName() + "\t" + loc.getCountry() + "\t" + loc.getLongitude() + "\t" + loc.getLatitude();
 	}
 	
+	//Erstellt das XML-File
 	public static void convertLocationsToXML(String affiliationFile, String locationFile, String kmlFile, String xmlFile) {
 		try {
 			UTF8Writer wr_kml = new UTF8Writer(kmlFile);

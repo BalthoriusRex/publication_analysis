@@ -28,6 +28,8 @@ public class Geocoding {
 	private static int whitespace_size = 35;
 
 	private final static String USER_AGENT = "Mozilla/5.0";
+	
+	//Mehrere Keys um schnellere Abarbeitung zu gewährleisten
 	private final static String[] available_users = { 	 "f1375e2b960b93f1538b7a4b636a7ffd"
 														,"1b9169ea5b526d47d0d508680a4e6455"
 														,"a604828e9f6eb55b7313d762e5562c69"
@@ -44,6 +46,7 @@ public class Geocoding {
 	
 	private static boolean key_rotation_initialized = false;
 	
+	//Da jede Sekunde nur eine Anfrage gestellt werden darf: Wechsel nach jeder Anfrage den genutzten Key -> Mehr als eine Anfrage pro Sekunde möglich
 	public static void init_key_rotation() {
 		if (!key_rotation_initialized) {
 			

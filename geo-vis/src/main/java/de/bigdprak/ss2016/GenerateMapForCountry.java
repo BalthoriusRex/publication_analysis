@@ -4,12 +4,17 @@ public class GenerateMapForCountry {
 
 	public static void main(String args[])
 	{
+		
+		//Eingaben um festzulegen welche Daten generiert werden sollen.
 		String input = ""; // country name, empty string or "Globus"
 		//input = "Globus;
 		//input = "Spain";
 		String FoS = "";
 		//FoS = "Mathematics";
 		
+		//Unterscheidung um welche Fälle es sich handelt und übernahme vordefinierter Einstellungen.
+		//glyphSize gibt an wie weit aggregierte Glyphen zusätzlich vergrößert werden sollen. Bei großer Fläche (Betrachtung beispielsweise weltweit) sollten diese groß sein, damit sie erkannt werden. Bei regionaler Betrachtung sorgt dies aber für zusätzliche Überdeckung
+		//maxEdgeLevel gibt an welche Klassen von Kanten weggelassen werden sollen. 
 		if (input.equals("") && !FoS.equals("")) {
 			String pathAff = "./Visualisierung/affiliations_top_1000.txt";
 			String pathInputXML = "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml";

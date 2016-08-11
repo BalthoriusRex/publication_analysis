@@ -33,14 +33,13 @@ public class MapCoauthorships {
 	
 	public static int duplicate = 0;
 	
-	
+	//Erstellen der Kanten
 	public static void getCoauthorships(String authorships, HashMap<String, String> map, int glyphSize, int maxEdgeLevel) throws IOException, XPathExpressionException, SAXException, ParserConfigurationException
 	{
-		//Entferne KML-Tags vor Nutzung des XMLs!
 		BufferedReader reader = new BufferedReader(new FileReader(new File(authorships)));
 		
 		String line;
-		reader.readLine();	//Initialzeilen mit Querybeschreibung
+		reader.readLine();	//Initialzeilen mit Querybeschreibung sollen übersprungen werden
 		reader.readLine();
 		
 		writeOnAll("var coauthorships");
@@ -80,6 +79,7 @@ public class MapCoauthorships {
 			String resultStart = map.get(start);
 			String resultEnd   = map.get(end);
 
+			//Kanten in Kategorien einteilen für die Darstellung. Abhängig von den Häufigkeiten der Kanten
 			int choosenWriter = -1;
 			if(count > 1500000)
 			{
@@ -112,18 +112,20 @@ public class MapCoauthorships {
 			
 			// -----------------------------------------
 			
+			//Kante würde eh nicht angezeigt werden sollen, daher gleich verwerfen
 			if (choosenWriter > maxEdgeLevel) {
 				skipped++;
 				continue;
 			}
 			
+			//Keine sinnvollen Koordinaten ("Null Island")
 			if(resultStart.equals("0.0,0.0,0") || resultEnd.equals("0.0,0.0,0")) 
 			{			
 				skipped++;
 				continue;
 			}
 
-			
+			//Eintrag ist nicht vollständig, eventuell Kanten zwischen Orten zu denen keine Glyphen entstehen würden -> Sinnlos und weg
 			if(resultStart.length() == 0 || resultEnd.length() == 0)
 			{
 			//	System.out.println("Not in XML - skip");
@@ -131,6 +133,7 @@ public class MapCoauthorships {
 				continue;
 			}
 			
+
 			if(count > countMax)
 			{
 				countMax = count;
@@ -141,7 +144,7 @@ public class MapCoauthorships {
 			parts = resultEnd.split(",");
 			resultEnd = parts[0]+","+parts[1];
 
-			//Map
+			//Map - Kanten bestimmen und nur dann übernehmen, wenn sie kein unnötiges Duplikat ist
 			
 			String tmpStart[] = resultStart.split(",");
 			String tmpEnd[]   =   resultEnd.split(",");
@@ -151,7 +154,7 @@ public class MapCoauthorships {
 			
 			String key  = "";
 
-			
+			//Normalisierter Key für die Map erstellen
 			if(lonStart == lonEnd)
 			{
 				double latStart = Double.parseDouble(tmpStart[1]);
@@ -226,28 +229,6 @@ public class MapCoauthorships {
 				
 				numberOfEdges++;
 			}
-
-			
-				//Vergleiche Koords, kleine nach vorne -> Key; An Value kommt die fertige Edge
-				
-				
-			//EndMap
-			/*
-	 		if(!initial[choosenWriter])
-			{
-				writers[choosenWriter].append(",\n");
-			}
-			else
-			{
-				initial[choosenWriter] = false;
-			}
-			writers[choosenWriter].append(
-					"[["  + resultStart
-		   	        + "],[" + resultEnd
-			        + "]]");
-			numberOfEdges++;				
-			*/
-
 		}
 		
 				
@@ -255,9 +236,11 @@ public class MapCoauthorships {
 		
 		writers[0].append("var glyphSize = " + glyphSize + ";\n");
 		
+		//Jaja Daniel... hier gehen die Dinger auch vorschriftsmäßig wieder zu...
 		reader.close();
 	}
 	
+	//Text, der in alle Writer muss
 	public static void writeOnAll(String input) throws IOException
 	{
 		for(int i = 0; i < NUMBER_OF_WRITER; i++)
@@ -266,6 +249,8 @@ public class MapCoauthorships {
 		}
 	}
 
+	//Mapping zwischen der affiliationID und den Koordinaten erstellen
+	//Dafür mittels XPath in XML die Daten raussuchen und in Map abspeichern.
 	public static HashMap<String, String> generateMappingAffIDToCoords(String path, String xml) throws IOException, XPathExpressionException, ParserConfigurationException, SAXException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(path));
@@ -304,6 +289,7 @@ public class MapCoauthorships {
 		return map;
 	}
 	
+	//Selbiges wie oben auf Länderebene
 	public static HashMap<String, String> generateMappingCountryToCoords(String path, String xml) throws IOException, XPathExpressionException, ParserConfigurationException, SAXException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(path));
@@ -358,28 +344,7 @@ public class MapCoauthorships {
 		}
 	}
 	
-	/*
-	public static void main(String args[])
-	{
-		try {
-			initializeWriters(NUMBER_OF_WRITER);
-		
-			HashMap<String, String> map = generateMappingIDNormalizedAffiliationName("./Visualisierung/affiliations_top_1000.txt", "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml");
-			getCoauthorships("./Visualisierung/coauthorships_complete_reduced.txt", map);
-			
-			closeWriters();
-		} catch (XPathExpressionException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Done (" + numberOfEdges + ")");
-		System.out.println("CountMax: " + countMax);
-	}*/
+
 	
 	public static void initializeMapCoauthorships(String pathAff, String pathInputXML, String pathCoAuthors, int glyphSize, int maxEdgeLevel, boolean countryLevel)
 	{
