@@ -34,7 +34,20 @@ public class MapCoauthorships {
 	public static int duplicate = 0;
 	
 	//Erstellen der Kanten
-	public static void getCoauthorships(String authorships, HashMap<String, String> map, int glyphSize, int maxEdgeLevel) throws IOException, XPathExpressionException, SAXException, ParserConfigurationException
+	/**
+	 * Erstellt Kantenlisten mit Koordinaten-Angaben für 8 Klassen von Kanten.
+	 * Diese werden direkt für die Ausgabe mittels Karte benötigt, da sie die Verbindungslinien
+	 * für Ko-Autorschaften erzeugen.
+	 * @param authorships
+	 * @param map
+	 * @param glyphSize
+	 * @param maxEdgeLevel
+	 * @throws IOException
+	 * @throws XPathExpressionException
+	 * @throws SAXException
+	 * @throws ParserConfigurationException
+	 */
+	private static void getCoauthorships(String authorships, HashMap<String, String> map, int glyphSize, int maxEdgeLevel) throws IOException, XPathExpressionException, SAXException, ParserConfigurationException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(new File(authorships)));
 		
@@ -55,9 +68,10 @@ public class MapCoauthorships {
 			initial[i] = true;
 		}
 		
+		
 		HashMap<String, Long> edges = new HashMap<String, Long>();
 		
-		while((line = reader.readLine()) != null)
+		while((line = reader.readLine()) != null) // while not EOF
 		{
 			
 			String[] parts = line.split("\t");
@@ -81,34 +95,15 @@ public class MapCoauthorships {
 
 			//Kanten in Kategorien einteilen für die Darstellung. Abhängig von den Häufigkeiten der Kanten
 			int choosenWriter = -1;
-			if(count > 1500000)
-			{
-				choosenWriter = 0;
-			} else if(count > 1000000)
-			{
-				choosenWriter = 1;
-			} else if(count > 500000)
-			{
-				choosenWriter = 2;
-			} else if(count > 100000)
-			{
-				choosenWriter = 3;
-			} else if(count > 50000)
-			{
-				choosenWriter = 4;
-			} else if(count > 10000)
-			{
-				choosenWriter = 5;
-			} else if(count > 1000)
-			{
-				choosenWriter = 6;
-			} else if(count > 100)
-			{
-				choosenWriter = 7;
-			}else
-			{
-				choosenWriter = 8;
-			}
+			if(count > 1500000) { choosenWriter = 0; } else
+			if(count > 1000000) { choosenWriter = 1; } else
+			if(count >  500000) { choosenWriter = 2; } else
+			if(count >  100000) { choosenWriter = 3; } else
+			if(count >   50000) { choosenWriter = 4; } else
+			if(count >   10000) { choosenWriter = 5; } else
+			if(count >    1000) { choosenWriter = 6; } else
+			if(count >     100) { choosenWriter = 7; } else
+			                    { choosenWriter = 8; }
 			
 			// -----------------------------------------
 			
@@ -197,10 +192,7 @@ public class MapCoauthorships {
 						initial[choosenWriter] = false;
 					}
 					
-					writers[choosenWriter].append(
-							"[["  + resultStart
-				   	        + "],[" + resultEnd
-					        + "]]");
+					writers[choosenWriter].append("[["  + resultStart + "],[" + resultEnd + "]]");
 					
 					numberOfEdges++;
 				}
@@ -222,10 +214,7 @@ public class MapCoauthorships {
 					initial[choosenWriter] = false;
 				}
 				
-				writers[choosenWriter].append(
-						"[["  + resultStart
-			   	        + "],[" + resultEnd
-				        + "]]");
+				writers[choosenWriter].append("[["  + resultStart + "],[" + resultEnd + "]]");
 				
 				numberOfEdges++;
 			}
@@ -236,12 +225,17 @@ public class MapCoauthorships {
 		
 		writers[0].append("var glyphSize = " + glyphSize + ";\n");
 		
-		//Jaja Daniel... hier gehen die Dinger auch vorschriftsmäßig wieder zu...
+		// schließe den BufferedReader
 		reader.close();
 	}
 	
-	//Text, der in alle Writer muss
-	public static void writeOnAll(String input) throws IOException
+	/**
+	 * Schreibt in jeden der Writer den gleichen Text hinten dran.
+	 * @param input
+	 * 		Text, der in alle Writer muss
+	 * @throws IOException
+	 */
+	private static void writeOnAll(String input) throws IOException
 	{
 		for(int i = 0; i < NUMBER_OF_WRITER; i++)
 		{
@@ -251,7 +245,7 @@ public class MapCoauthorships {
 
 	//Mapping zwischen der affiliationID und den Koordinaten erstellen
 	//Dafür mittels XPath in XML die Daten raussuchen und in Map abspeichern.
-	public static HashMap<String, String> generateMappingAffIDToCoords(String path, String xml) throws IOException, XPathExpressionException, ParserConfigurationException, SAXException
+	private static HashMap<String, String> generateMappingAffIDToCoords(String path, String xml) throws IOException, XPathExpressionException, ParserConfigurationException, SAXException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(path));
 
@@ -290,7 +284,7 @@ public class MapCoauthorships {
 	}
 	
 	//Selbiges wie oben auf Länderebene
-	public static HashMap<String, String> generateMappingCountryToCoords(String path, String xml) throws IOException, XPathExpressionException, ParserConfigurationException, SAXException
+	private static HashMap<String, String> generateMappingCountryToCoords(String path, String xml) throws IOException, XPathExpressionException, ParserConfigurationException, SAXException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(path));
 
@@ -328,7 +322,13 @@ public class MapCoauthorships {
 		return map;
 	}
 	
-	public static void initializeWriters(int number) throws IOException
+	/**
+	 * Initialisiert alle FileWriter.
+	 * @param number
+	 * 		Anzahl der Writer
+	 * @throws IOException
+	 */
+	private static void initializeWriters(int number) throws IOException
 	{
 		for(int i = 0; i < number; i++)
 		{
@@ -336,7 +336,11 @@ public class MapCoauthorships {
 		}
 	}
 	
-	public static void closeWriters() throws IOException
+	/**
+	 * Schließt alle FileWriter.
+	 * @throws IOException
+	 */
+	private static void closeWriters() throws IOException
 	{
 		for(int i = 0; i < NUMBER_OF_WRITER; i++)
 		{
@@ -344,8 +348,15 @@ public class MapCoauthorships {
 		}
 	}
 	
-
-	
+	/**
+	 * Aufruf zum Erzeugen der Kanten für die Darstellung.
+	 * @param pathAff		Affiliations-File
+	 * @param pathInputXML	XML mit Geo-Koordinaten
+	 * @param pathCoAuthors	materialisierte Ko-Autorschaften
+	 * @param glyphSize		zusätzliche Größe für zusammengefasste Ortsglyphen
+	 * @param maxEdgeLevel	nur Kanten mit Level < maxEdgeLevel werden dargestellt
+	 * @param countryLevel	boolean, falls true werden Länder als Orte verwendet, sonst direkt Affiliations
+	 */
 	public static void initializeMapCoauthorships(String pathAff, String pathInputXML, String pathCoAuthors, int glyphSize, int maxEdgeLevel, boolean countryLevel)
 	{
 		try {

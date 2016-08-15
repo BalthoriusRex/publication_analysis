@@ -1,11 +1,22 @@
 package de.bigdprak.ss2016;
 
+/**
+ * Klasse zum Erzeugen von Kanten-Informationen für Landkarte aus vorberechneten
+ * Ko-Autorschafts-Beziehungen.
+ */
 public class GenerateMapForCountry {
 
 	public static void main(String args[])
 	{
 		
-		//Eingaben um festzulegen welche Daten generiert werden sollen.
+		// Auswahl des Anzeigebereiches
+		// - "Globus"
+		//		verwendet Aggregation aller Affiliations zu ihren entsprechenden Ländern
+		// - "" (empty String)
+		//		verwendet keine Aggregation, zeigt alle Affiliations weltweit
+		// - Ländername (englisch, bspw. Germany)
+		//		filtert Affiliations, sodass nur noch solche Affilaitions angezeigt werden,
+		//		die zu dem angegebenen Land gehört
 		String input = ""; // country name, empty string or "Globus"
 		//input = "Globus;
 		//input = "Spain";
@@ -17,11 +28,17 @@ public class GenerateMapForCountry {
 		int edges = -1;
 		//FoS = "Mathematics";        edges = 2;
 		//FoS = "Risk analysis";      edges = 8;
-		//FoS = "Medicine";           edges = 8;
+		//FoS = "Medicine";           edges = 5;
 		
-		//Unterscheidung um welche Fälle es sich handelt und übernahme vordefinierter Einstellungen.
-		//glyphSize gibt an wie weit aggregierte Glyphen zusätzlich vergrößert werden sollen. Bei großer Fläche (Betrachtung beispielsweise weltweit) sollten diese groß sein, damit sie erkannt werden. Bei regionaler Betrachtung sorgt dies aber für zusätzliche Überdeckung
-		//maxEdgeLevel gibt an welche Klassen von Kanten weggelassen werden sollen. 
+		// Fallunterscheidung mit Übernahme vordefinierter Einstellungen
+		// Parameter:
+		// - glyphSize
+		//		gibt an, wie weit aggregierte Glyphen zusätzlich vergrößert werden sollen.
+		// 		Bei großer Fläche (Betrachtung beispielsweise weltweit) sollten diese groß sein,
+		// 		damit sie auf der Karte gefunden werden.
+		//		Bei regionaler Betrachtung sorgt dies aber für zusätzliche Überdeckung
+		// - maxEdgeLevel
+		//		gibt an, welche Klassen von Kanten weggelassen werden sollen. 
 		if (!input.equals("Globus") && !FoS.equals("")) {
 			String pathAff = "./Visualisierung/affiliations_top_1000.txt";
 			String pathInputXML = "./Visualisierung/Karten/Xml/mapCoauthorship_input.xml";

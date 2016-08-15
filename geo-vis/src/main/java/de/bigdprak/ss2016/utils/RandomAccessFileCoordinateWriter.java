@@ -62,7 +62,7 @@ public class RandomAccessFileCoordinateWriter {
 	
 	/**
 	 * Get the Name of the next Affiliation
-	 * @return Name of Affiliation
+	 * @return Name of Affiliation or null at EOF
 	 * @throws IOException 
 	 */
 	public static String readNext(int value) throws IOException
@@ -83,7 +83,7 @@ public class RandomAccessFileCoordinateWriter {
 		System.out.println("Read next Affiliation");
 		String newLine = "";
 
-		//Searching
+		// springe zur nächsten Zeile, die einen Affiliationname enthält
 		boolean stop = false;
 		while (!stop)
 		{
@@ -100,12 +100,12 @@ public class RandomAccessFileCoordinateWriter {
 			linesRead++;
 		}
 		
-		//Parse innerHTML
+		// entferne überschüssige XML-Tags
 		String[] parts = newLine.split(start);
 		parts = parts[1].split(end);
-		//Get Affiliation
-		newLine = parts[0];
-		return newLine;
+		// lies Affiliation
+		String aff = parts[0];
+		return aff;
 	}
 	
 	public static String readNextNormalizedAffiliation() throws IOException {

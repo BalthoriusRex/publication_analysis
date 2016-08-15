@@ -1,4 +1,4 @@
-package de.bigdprak.ss2016;
+package de.bigdprak.ss2016.utils;
 
 import java.util.List;
 
@@ -26,8 +26,11 @@ import de.bigdprak.ss2016.database.PaperReference;
 import de.bigdprak.ss2016.database.PaperURL;
 import de.bigdprak.ss2016.database.View_pID_Country;
 import de.bigdprak.ss2016.database.View_pID_affID_affName;
-import de.bigdprak.ss2016.utils.UTF8Writer;
 
+/**
+ * Diese Klasse behandelt den kompletten Spark-Overhead, sodass in anderen Klassen
+ * der Fokus auf die Bewältigung der Spark-Pipeline gelegt werden kann.
+ */
 public class SparkUtility {
 	
 	private static SparkConf conf;
@@ -61,6 +64,12 @@ public class SparkUtility {
 	
 	private static boolean initialized = false;
 	
+	/**
+	 * Liest isRemote-Information auf Übergabeparametern aus.
+	 * Aus dieser Information ergeben sich Änderungen in Dateipfaden.
+	 * @param args
+	 * @return true, falls Workstation = Uni-PC, false sonst
+	 */
 	private static boolean isRemote(String[] args) {
 		isRemote = false;
 		if (args.length > 1) {
@@ -70,6 +79,17 @@ public class SparkUtility {
 		return isRemote;
 	}
 	
+	/**
+	 * Initialisiert Spark-Umgebung und stellt Tabellen für Spark-Pipeline bereit.
+	 * Diese Methode sollte stets ganz zu Anfang aufgerufen werden, wenn die Arbeit mit Spark vorgesehen ist.
+	 * @param args
+	 * 		Start-Parameter
+	 * @param limit1000
+	 * 		boolean, verwendet nur top-1000-Affiliation, falls true
+	 * @param limit100
+	 * 		boolean, verwendet nur top-100-Affiliations, falls true;
+	 * 		überschreibt Wert von limit1000, falls true gesetzt
+	 */
 	public static void init(String[] args, boolean limit1000, boolean limit100) {
 		boolean isRemote = isRemote(args);
 		
@@ -100,11 +120,17 @@ public class SparkUtility {
 		initialized = true;
 	}
 	
+	/**
+	 * Schließt Spark-Schnittstelle.
+	 */
 	public static void close() {
 		initialized = false;
 		sc.close();
 	}
 	
+	/**
+	 * Dient zum setzen aller Dateipfade, die zum Einlesen der Tabellen nötig sind.
+	 */
 	private static void setFileNames() {
 
 		file_Authors = folder_hadoop + "Authors.txt";
@@ -131,6 +157,12 @@ public class SparkUtility {
 		file_Countries = (isRemote ? folder_hadoop : folder_vis) + "countries.txt";
 	}
 	
+	/**
+	 * Realisiert Mapping der Tabellen (CSV-Dateien) auf Objekt-Tabellen, sodass
+	 * diese später angefragt werden können.
+	 * @param sc
+	 * @param sqlContext
+	 */
 	@SuppressWarnings("serial")
 	private static void buildTables(JavaSparkContext sc, SQLContext sqlContext) {
 		/*
@@ -398,6 +430,11 @@ public class SparkUtility {
 				
 	}
 	
+	/**
+	 * Realisiert Mapping der CSV-Tabellen auf einige spezielle Views.
+	 * @param sc
+	 * @param sqlContext
+	 */
 	@SuppressWarnings("serial")
 	private static void buildViews(JavaSparkContext sc, SQLContext sqlContext) {
 
@@ -432,6 +469,13 @@ public class SparkUtility {
 		.registerTempTable("View_pID_Country");
 	}
 	
+	/**
+	 * Methode zum Anfragen an Spark-Datenbank-Tabellen mit SQL.
+	 * @param query
+	 * 		SQL-Anfrage-String
+	 * @return
+	 * 		Liste von Ergebniszeilen
+	 */
 	@SuppressWarnings("serial")
 	public static List<Row> sql_answerQuery(String query) {
 		
@@ -468,6 +512,11 @@ public class SparkUtility {
 		
 	}
 	
+	/**
+	 * Getter für JavaSparkContext.
+	 * @return
+	 * 		JavaSparkContext, sofern Spark initialisiert ist. null sonst
+	 */
 	public static JavaSparkContext getSC() {
 		if (initialized) {
 			return sc;
@@ -477,6 +526,11 @@ public class SparkUtility {
 		}
 	}
 	
+	/**
+	 * Getter für Sparks SQLContext.
+	 * @return
+	 * 		SQLContext, sofern Spark initialisiert ist. null sonst
+	 */
 	public static SQLContext getSQL() {
 		if (initialized) {
 			return sqlContext;
@@ -486,6 +540,11 @@ public class SparkUtility {
 		}
 	}
 	
+	/**
+	 * Getter für Hadoop-Ordnerpfad
+	 * @return
+	 * 		Ordnerpfad, sofern Spark initialisiert ist. null sonst
+	 */
 	public static String getFolderHadoop() {
 		if (initialized) {
 			return folder_hadoop;
@@ -495,6 +554,13 @@ public class SparkUtility {
 		}
 	}
 	
+	/**
+	 * Print-Methode für Ergebnis einer SQL-Anfrage.
+	 * @param path_to_file
+	 * 		Pfad zur Ausgabedatei
+	 * @param results
+	 * 		Anfrageergebnisse als Row[]
+	 */
 	public static void printResults(String path_to_file, Row[] results) {
 		
 		UTF8Writer writer = new UTF8Writer(path_to_file);

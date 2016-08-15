@@ -36,6 +36,14 @@ import de.bigdprak.ss2016.database.View_pID_Country;
 import de.bigdprak.ss2016.database.View_pID_affID_affName;
 import de.bigdprak.ss2016.utils.UTF8Writer;
 
+/**
+ * Diese Klasse ist in der Anfangsphase des Projekts entstanden und sollte
+ * im späteren Verlauf durch kleinere Teilprogramm ersetzt werden.
+ * SparkUtility behandelt den Spark-Overhead, sodass in anderen Programmen
+ * die Spark-Pipeline implementiert werden kann.
+ * Die Main-methode enthält viele kleine Teilschritte, die bei der Bearbeitung der Aufgaben hilfreich waren.
+ * Die Klasse selbst sollte aber nicht länger verwendet werden.
+ */
 public class SimpleApp {
 
 //	public static final String TAG_AFFILIATION_NORMALIZED = "AffiliationNameNormalized";

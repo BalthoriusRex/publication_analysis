@@ -22,7 +22,9 @@ import de.bigdprak.ss2016.utils.TextFileReader;
 import de.bigdprak.ss2016.utils.TextFileWriter;
 import de.bigdprak.ss2016.utils.UTF8Writer;
 
-
+/**
+ * Klasse Bestimmen von Geo-Informationen zu Affiliations.
+ */
 public class Geocoding {
 	
 	private static int whitespace_size = 35;
@@ -46,8 +48,14 @@ public class Geocoding {
 	
 	private static boolean key_rotation_initialized = false;
 	
-	//Da jede Sekunde nur eine Anfrage gestellt werden darf: Wechsel nach jeder Anfrage den genutzten Key -> Mehr als eine Anfrage pro Sekunde möglich
+	/**
+	 * Initialisiere die Rotation der verwendeten Geocoding-Keys zur Beschleunigung
+	 * des Geocodings durch abwechselnde Verwendung mehrerer Keys.
+	 */
 	public static void init_key_rotation() {
+		// Da jede Sekunde nur eine Anfrage gestellt werden darf:
+		// Wechsel nach jeder Anfrage den genutzten Key
+		// -> Mehr als eine Anfrage pro Sekunde möglich
 		if (!key_rotation_initialized) {
 			
 			currentUser_index = (int) Math.floor(Math.random() * count_all_keys);
@@ -59,87 +67,95 @@ public class Geocoding {
 			count_active_keys = count_all_keys - count_inactive_keys;
 			sleep_time = (1000 / count_active_keys) + 1;
 			
-			
 			key_rotation_initialized = true;
 		}
 	}
 	
+	/**
+	 * Hauptprogramm des Geocoding.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
-		String path_results = 			"./Visualisierung/affiliations_top_1000.txt";
-		String path_xml = 				"./Visualisierung/affiliations_top_1000.xml"; 
-		String path_offset = 			"./Visualisierung/tmp.offset.txt";
+		String path_results = "./Visualisierung/affiliations_top_1000.txt";
+		String path_xml     = "./Visualisierung/affiliations_top_1000.xml"; 
+		String path_offset  = "./Visualisierung/tmp.offset.txt";
 		
 		init_key_rotation();
 		
+		// Übersetzung der Top-Affiliations in XML-Format
 		boolean convertResults = false;
 		if (convertResults) {
 			convertResultsFileToXML(path_results, path_xml);
+			// setzt Offset-Zähler für abgehandelte Affiliations zurück
 			UTF8Writer writer = new UTF8Writer(path_offset);
 			writer.clear();
 			writer.close();
 		}
 		
+		// Anreichern des XML mit Geo-Koordinaten
 		boolean fillCoords = true;
 		if (fillCoords) {
 			
-			if(args.length > 1) {
-				Geocoding.offset = Integer.parseInt(args[1]);
-			} else {
-				Geocoding.offset = TextFileReader.parseOffset(path_offset);
-			}
+			// Setzen der Offset-Variable
+			if(args.length > 1) { Geocoding.offset = Integer.parseInt(args[1]);               }
+			else                { Geocoding.offset = TextFileReader.parseOffset(path_offset); }
 			System.err.println("Starting with offset " + Geocoding.offset);
 			
+			// initialisiert Reader für XML-File
 			RandomAccessFileCoordinateWriter.initializeReader(path_xml, Geocoding.offset);
 			
+			// wiederverwendete Variablen
 			JSONObject json;
 			double lng;
 			double lat;
-			//Einlesen von Affiliations
 			
+			// Einlesen von Affiliations
 			currentUser_index = 0;
 			try {
 			
 				// while not EOF
-				String locTemp = null;
+				String locTemp = null; // loc - Location
 				while(true) // LimitExceedException breaks while-true-loop
 				{
 					try {
-						
 						locTemp = null;
+						
+						// Versuch #1: ermittle Koordinaten anhand des NormalizedAffiliationName
 						locTemp = RandomAccessFileCoordinateWriter.readNextNormalizedAffiliation();
 						if(locTemp == null)
 						{
 							System.out.println("File ended");
 							break;
 						}
-			
 						System.out.println("loc: " + locTemp);
 						json = Geocoding.getCoordsByName(locTemp);
 						
 						// falls wir über den normalizedAffiliationName kein Ergebnis bekommen
 						// versuchen wir das ganze nochmal mit dem originalAffiliationName
 						if (json == null) {
-		
+							
+							// Versuch #2: ermittle Koordinaten anhand des OriginalAffiliationName
 							locTemp = RandomAccessFileCoordinateWriter.readNextOriginalAffiliation();
 							if(locTemp == null)
 							{
 								System.out.println("File ended");
 								break;
 							}
-					
 							System.out.println("loc: " + locTemp);
 							json = Geocoding.getCoordsByName(locTemp);
 						}
 						
 						if(json != null)
 						{
+							// lies Koordinaten aus, sofern vorhanden
 							lng = json.getDouble("lng");
 							lat = json.getDouble("lat");
 							//write
 							System.out.println("[lng lat]: [" + lng + " " + lat + "]");
 							System.out.println("_______");
 						} else {
+							// sonst schreibe Default-Koordinaten zurück
 							lng = 0.0;
 							lat = 0.0;
 							System.out.println("No data");
@@ -148,7 +164,6 @@ public class Geocoding {
 						RandomAccessFileCoordinateWriter.writeCoords(lng, lat);
 						Geocoding.offset = Geocoding.offset+1;
 						
-
 					} catch (IOException e) {
 						System.err.println(e.getMessage());
 					}
@@ -177,12 +192,14 @@ public class Geocoding {
 	}
 	
 	/**
+	 * OBSOLETE
 	 * Transforms the standard results file to a file with an additional column and whitespace in this column.
 	 * In the process of generating coordinates this whitespace shall be overwritten by coordinate values.
 	 * @param results_input_path
 	 * @param results_output_path
 	 */
-	public static void convertResultsFileToResultsFileWithWhitespace(String results_input_path, String results_output_path) {
+	@SuppressWarnings("unused")
+	private static void convertResultsFileToResultsFileWithWhitespace(String results_input_path, String results_output_path) {
 		String whitespace = "";
 		for (int i = 0; i < whitespace_size; i++) {
 			whitespace += " ";
@@ -221,7 +238,7 @@ public class Geocoding {
 	 * @param results_XML_path
 	 * @throws IOException 
 	 */
-	public static void convertResultsFileToXML(String results_input_path, String results_XML_path) {
+	private static void convertResultsFileToXML(String results_input_path, String results_XML_path) {
 		String whitespace = "";
 		for (int i = 0; i < whitespace_size; i++) {
 			whitespace += " ";
@@ -308,7 +325,18 @@ public class Geocoding {
 		}
 	}
 	
-	public static JSONObject getCoordsByName(String location_name)
+	/**
+	 * Stellt Geocoding-Anfrage an OpenCageData Geocoding-Dienst.
+	 * Über die Schlüssel lng, lat können aus dem Ergebnis Koordinaten entnommen werden.
+	 * @param location_name
+	 * @return
+	 * 		JSONbject, aus dem im Anschluss verschiedene Informationen extrahiert werden können;
+	 * 		null, falls keine Geo-Informationen vorhanden.
+	 * @throws JSONException
+	 * @throws IOException
+	 * @throws LimitExceededException
+	 */
+	private static JSONObject getCoordsByName(String location_name)
 			throws JSONException, IOException, LimitExceededException {
 		try {
 			Thread.sleep(Geocoding.sleep_time);
@@ -318,6 +346,7 @@ public class Geocoding {
 					+ e.getMessage());
 		}
 		
+		// Ermittle nächsten Key, der für die Anfrage verwendet werden soll
 		String user_key = null;
 		for (int i = 0; i < count_all_keys; i++) {
 			String key = available_users[currentUser_index];
@@ -333,24 +362,26 @@ public class Geocoding {
 		}
 		
 		
-
+		// Senden der Anfrage an OpenCageData
 		String format = "json";
 		StringBuffer response = Geocoding.sendGet(format, location_name, user_key);
 		
 
 		JSONObject obj = new JSONObject(response.toString());
 
+		// Aktualisieren der Key-Informationen
+		// schreibt jeweils neue Anzahl an verbleibenden Anfragen in Map
 		JSONObject access = obj.getJSONObject("rate");
-
 		int remaining = access.getInt("remaining");
 		if (remaining == 0) {
+			// sobald ein Key ausfällt, muss die Anfragezeit angepasst werden, sodass die
+			// komplette Rotation weiterhin eine Dauer von 1s umfasst.
 			count_inactive_keys++;
 			Geocoding.sleep_time = (1000 / (count_all_keys - count_inactive_keys)) + 1;
 		}
 		active_keys.put(user_key, remaining);
-
-		System.out.println(access.toString());
-		System.out.println("key: " + user_key + " remaining: " + remaining);
+		//System.out.println(access.toString());
+		//System.out.println("key: " + user_key + " remaining: " + remaining);
 
 		JSONArray arr = obj.getJSONArray("results");
 		String content = "";
@@ -358,26 +389,25 @@ public class Geocoding {
 		{
 			content += arr.getString(i);
 		}
-		System.out.println(content);
+		//System.out.println(content);
 
 		if(content.length() == 0)
 		{
 			//No information about this affiliation!
-			//Dropping information (maybe we could use an alternative service?
+			//Dropping information (maybe we could use an alternative service?)
 			return null;
 		}
 		
 		
 		obj = new JSONObject(content);
 		
-
+		// extrahiere Geo-Informationen aus Anfrageresultat
+		// mögliche tags: geometry, bounds->northeast 
 		JSONObject ret = null;
-		
 		boolean foundCoords = false;
 		if (!foundCoords) {
 			try {
-				ret = obj.getJSONObject("bounds")
-						 .getJSONObject("northeast");
+				ret = obj.getJSONObject("geometry");
 				foundCoords = true;
 			} catch (JSONException e) {
 				System.out.println(""
@@ -387,7 +417,8 @@ public class Geocoding {
 		}
 		if (!foundCoords) {
 			try {
-				ret = obj.getJSONObject("geometry");
+				ret = obj.getJSONObject("bounds")
+						 .getJSONObject("northeast");
 				foundCoords = true;
 			} catch (JSONException e) {
 				System.out.println(""
@@ -402,6 +433,14 @@ public class Geocoding {
 		return ret;
 	}
 	
+	/**
+	 * Stellt Geocoding-Anfrage OpenCageData und liefert das komplette Ergebnis zurück.
+	 * @param location_name
+	 * @return
+	 * @throws JSONException
+	 * @throws IOException
+	 * @throws LimitExceededException
+	 */
 	public static JSONArray getJSONResult(String location_name)
 			throws JSONException, IOException, LimitExceededException {
 		try {
@@ -412,6 +451,7 @@ public class Geocoding {
 					+ e.getMessage());
 		}
 		
+		// Key-Rotation
 		String user_key = null;
 		for (int i = 0; i < count_all_keys; i++) {
 			String key = available_users[currentUser_index];
@@ -426,14 +466,13 @@ public class Geocoding {
 			throw new LimitExceededException(LimitExceededException.ERROR_LIMIT);
 		}
 		
+		// tatsächliche Anfrage an OpenCageData
 		String format = "json";
 		StringBuffer response = Geocoding.sendGet(format, location_name, user_key);
-		
-
 		JSONObject obj = new JSONObject(response.toString());
-
+		
+		// Aktualisieren der Infos zur Key-Rotation
 		JSONObject access = obj.getJSONObject("rate");
-
 		int remaining = access.getInt("remaining");
 		if (remaining == 0) {
 			count_inactive_keys++;

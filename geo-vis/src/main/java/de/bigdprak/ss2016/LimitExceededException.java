@@ -1,9 +1,12 @@
 package de.bigdprak.ss2016;
 
+/**
+ * Custom-Exception für das Geocoding.
+ */
 @SuppressWarnings("serial")
 public class LimitExceededException extends Exception {
 	
-	// TODO schreibe ein Protokoll, sodass das Programm beim nächsten mal an der selben Stelle forfahren kann.
+	// Implementierung ist obsolet, da ihre Inhalte nicht länger verwendet werden. 
 	
 	private int error;
 	
@@ -17,6 +20,11 @@ public class LimitExceededException extends Exception {
 	private final static String MSG_EOF = "Reached end of file... Programm will stop... Computation done.";
 	private final static String MSG_UNKNOWN_ERROR = "an unknown error occured...";
 	
+	/**
+	 * Konstruktor zur Verwendung mit einem der vorgegebenen Fehlercodes.
+	 * @param error
+	 * 		ERROR_LIMIT oder ERROR_EOF
+	 */
 	public LimitExceededException(int error) {
 		super();
 		this.error = error;
