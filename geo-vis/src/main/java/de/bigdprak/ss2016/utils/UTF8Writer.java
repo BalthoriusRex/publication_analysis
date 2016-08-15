@@ -9,6 +9,11 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
+/**
+ * Writer-Klasse, die das UTF8-Encoding beim Schreiben verwendet.
+ * @author balthorius
+ *
+ */
 public class UTF8Writer {
 
 	private File f;
@@ -33,11 +38,20 @@ public class UTF8Writer {
 			this.initialized = false;
 		}
 	}
-
+	
+	/**
+	 * Löscht Inhalt einer Datei.
+	 * @return true bei Erfolg, false sonst
+	 */
 	public boolean clear() {
 		return TextFileWriter.writeOver(this.f, "");
 	}
 	
+	/**
+	 * Hängt Zeichenkette ans Ende der Datei an.
+	 * @param s Zeichenkette, die geschrieben werden soll
+	 * @return true bei Erfolg, false sonst
+	 */
 	public boolean append(String s) {
 		boolean ret = false;
 		if (this.initialized) {
@@ -53,10 +67,18 @@ public class UTF8Writer {
 		return ret;
 	}
 	
+	/**
+	 * Schreibt Zeichenkette ans Ende der Datei und setzt dann an neuer Zeile an.
+	 * @param s zu schreibende Zeichenkette
+	 * @return true bei Erfolg, false sonst
+	 */
 	public boolean appendLine(String s) {
 		return this.append(s + "\r\n");
 	}
 	
+	/**
+	 * Schließt den Writer.
+	 */
 	public void close() {
 		try {
 			this.wr.flush();
@@ -69,25 +91,29 @@ public class UTF8Writer {
 		this.initialized = false;
 	}
 	
-	public static void main(String[] args){
-
-		try {
-			File fileDir = new File("/home/balthorius/progs/hadoop/input/test.txt");
-			
-			Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF8"));
-			
-			out.append("Website UTF-8").append("\r\n");
-			out.append("?? UTF-8").append("\r\n");
-			out.append("??????? UTF-8").append("\r\n");
-			
-			out.flush();
-			out.close();
-		} catch (UnsupportedEncodingException e) {
-			System.out.println(e.getMessage());
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+//	/**
+//	 * Test-Main
+//	 * @param args
+//	 */
+//	public static void main(String[] args){
+//
+//		try {
+//			File fileDir = new File("/home/balthorius/progs/hadoop/input/test.txt");
+//			
+//			Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF8"));
+//			
+//			out.append("Website UTF-8").append("\r\n");
+//			out.append("?? UTF-8").append("\r\n");
+//			out.append("??????? UTF-8").append("\r\n");
+//			
+//			out.flush();
+//			out.close();
+//		} catch (UnsupportedEncodingException e) {
+//			System.out.println(e.getMessage());
+//		} catch (IOException e) {
+//			System.out.println(e.getMessage());
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//	}
 }

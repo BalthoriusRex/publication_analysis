@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 
-
+/**
+ * Diese Klasse stellt Methoden zum Auslesen und Beschreiben von Dateien bereit.
+ * Insbesondere wird diese Klasse zum Auslesen von Affiliationnamen aus XML-Dateien verwendet.
+ */
 public class RandomAccessFileCoordinateWriter {
-
-	
 	
 	public static RandomAccessFile	rafFile;
 	public static long				rafOffset   = 0;
@@ -38,9 +39,6 @@ public class RandomAccessFileCoordinateWriter {
 			System.out.println("File not found");
 			e.printStackTrace();
 		}
-		
-		
-		
 		System.out.println("RAF initialisiert");
 	}
 	
@@ -65,7 +63,7 @@ public class RandomAccessFileCoordinateWriter {
 	 * @return Name of Affiliation or null at EOF
 	 * @throws IOException 
 	 */
-	public static String readNext(int value) throws IOException
+	private static String readNext(int value) throws IOException
 	{
 		String start = "";
 		String end 	 = "";
@@ -108,14 +106,30 @@ public class RandomAccessFileCoordinateWriter {
 		return aff;
 	}
 	
+	/**
+	 * Liest die Affiliation aus der nächsten Placemark-Zeile aus.
+	 * @return Affiliationname oder null (bei EOF)
+	 * @throws IOException
+	 */
 	public static String readNextNormalizedAffiliation() throws IOException {
 		return readNext(1);
 	}
 	
+	/**
+	 * Liest die Affiliation aus der nächsten Name-Zeile aus.
+	 * @return Affiliationname oder null (bei EOF)
+	 * @throws IOException
+	 */
 	public static String readNextOriginalAffiliation() throws IOException {
 		return readNext(2);
 	}
 	
+	/**
+	 * Schreibt Koordinaten an die Stelle in der Datei, die vorher durch Whitespace reserviert wurde.
+	 * Dadurch werden keine "wichtigen" Zeichen überschrieben, sondern lediglich Whitespace aufgefüllt.
+	 * @param lng Longitude
+	 * @param lat Latitude
+	 */
 	public static void writeCoords(double lng, double lat)
 	{
 		System.out.println("WriteCoordinates");

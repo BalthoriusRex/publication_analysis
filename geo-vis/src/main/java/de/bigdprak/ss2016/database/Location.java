@@ -1,5 +1,9 @@
 package de.bigdprak.ss2016.database;
 
+/**
+ * Die Location-Klasse dient der Modellierung der durch Geocoding erlangten Informationen
+ * zu Orten bzw. Affiliations. 
+ */
 public class Location {
 
 	private long id;

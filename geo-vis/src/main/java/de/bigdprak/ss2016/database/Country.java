@@ -1,5 +1,9 @@
 package de.bigdprak.ss2016.database;
 
+/**
+ * Die Country-Klasse dient der Modellierung der durch Geocoding erlangten Informationen
+ * zu Ländern. 
+ */
 public class Country {
 	
 	private String name;
