@@ -563,6 +563,18 @@ public class SparkUtility {
 	 */
 	public static void printResults(String path_to_file, Row[] results) {
 		
+		/*
+		 * TODO zu saveAsTextFile umschreiben
+		 * -- Problem --
+		 * Speicherüberlauf und Programmabsturzt bei zu großen results.
+		 * 
+		 * -- Lösung --
+		 * input - String path, DataFrame df
+		 * 
+		 * df.toJavaRDD().saveAsTextFile(path); // erzeugt viele Partitionen der Lösung, dafür kein Speicherüberlauf
+		 * FileUtil.copyMerge(...) // Zusammenführen der einzelen Partitionen zu einer einzigen Datei
+		 */
+		
 		UTF8Writer writer = new UTF8Writer(path_to_file);
 		writer.clear();
 		
