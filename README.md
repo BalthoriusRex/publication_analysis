@@ -39,7 +39,7 @@ Mit diesen beiden lässt sich eine vollständige Spark-Pipeline implementieren, 
 Bevor es losgehen kann, muss Spark wissen, wo die einzelnen Tabellen des MAG zu finden sind.
 Dazu sind in der Klasse SparkUtility die Dateipfade anzupassen.
 Jede Tabelle des MAG wird in einer einzelnen Datei gespeichert, ebenso gibt es für jede Tabelle eine Variable, die ihren Dateipfad beinhaltet.
-Die Variablennamen orietieren sich an den Namen der Tabellen, sodass diese leicht zu erkennen sind.
+Die Variablennamen orientieren sich an den Namen der Tabellen, sodass diese leicht zu erkennen sind.
 Der Speicherort der *Authors*-Tabelle wird so beispielsweise durch die Variable *file_Authors* repräsentiert.
 Mit den übrigens Tabellen verhält es sich analog.
 Die Pfadbezeichnungen werden in der Methode *setFileNames* gesetzt.
@@ -67,7 +67,7 @@ Die Klasse greift dazu auf die folgenden Tabellen zurück:
 * PaperKeywords
 * PaperAuthorAffiliations
 
-Diese Klasse ist als eine vollständige Spark-Pipeline implementiert, die in der Methode *getCoAuthorShips* umgesetzt ist.
+Diese Klasse ist als eine vollständige Spark-Pipeline implementiert, die in der Methode *getCoAuthorships* umgesetzt ist.
 Dabei wird zu Beginn ein FieldOfStudy (kurz *FoS*) angegeben (bspw. Mathematics).
 Das Programm liest dann alle Unterkategorien des angegebenen FoS aus und verwirft entsprechend der Stichworte zu jedem Paper solche Paper, die nicht dem FoS entsprechen.
 Als Resultat der Verarbeitung wird eine Datei erzeugt, die als Materialisierung der Ko-Autorschaft-Beziehungen dient.
